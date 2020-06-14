@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# encoding: utf-8
+from __future__ import print_function
 import lxml.etree as etree
 import os.path as p
 import json, io, struct, os
