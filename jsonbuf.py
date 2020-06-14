@@ -256,7 +256,7 @@ class JsonbufSerializer(object):
 
     def __encode(self, schema, value, buffer): # type: (Descriptor, any, io.BytesIO)->None
         if isinstance(schema, ArrayDescriptor):
-            if not value:
+            if value is None:
                 self.__encode_null(buffer)
                 return
             assert schema.descriptor and isinstance(value, list)
@@ -271,7 +271,7 @@ class JsonbufSerializer(object):
                 for element in value:
                     self.__encode_v(element, type=schema.type, buffer=buffer)
         elif isinstance(schema, DictionaryDescriptor):
-            if not value:
+            if value is None:
                 self.__encode_null(buffer)
                 return
             assert schema.descriptor and isinstance(value, dict)
