@@ -167,6 +167,7 @@ class JsonbufSerializer(object):
     def __init__(self, schema):
         self.schema = schema # type: Descriptor
         self.context = None
+        self.endian = '>'
 
     def load(self, filename):
         self.context = json.load(fp=open(filename, 'r'))
@@ -194,31 +195,28 @@ class JsonbufSerializer(object):
         elif type == JSONTYPE_uint8:
             buffer.write(struct.pack('B', value))
         elif type in (JSONTYPE_int16, JSONTYPE_short):
-            buffer.write(struct.pack('>h', value))
+            buffer.write(struct.pack(self.endian + 'h', value))
         elif type in (JSONTYPE_uint16, JSONTYPE_ushort):
-            buffer.write(struct.pack('>H', value))
+            buffer.write(struct.pack(self.endian + 'H', value))
         elif type in (JSONTYPE_int32, JSONTYPE_int):
-            buffer.write(struct.pack('>i', value))
+            buffer.write(struct.pack(self.endian + 'i', value))
         elif type in (JSONTYPE_uint32, JSONTYPE_uint):
-            buffer.write(struct.pack('>I', value))
+            buffer.write(struct.pack(self.endian + 'I', value))
         elif type in (JSONTYPE_int64, JSONTYPE_long):
-            buffer.write(struct.pack('>q', value))
+            buffer.write(struct.pack(self.endian + 'q', value))
         elif type in (JSONTYPE_uint64, JSONTYPE_ulong):
-            buffer.write(struct.pack('>Q', value))
+            buffer.write(struct.pack(self.endian + 'Q', value))
         elif type in (JSONTYPE_float32, JSONTYPE_float):
-            buffer.write(struct.pack('>f', value))
+            buffer.write(struct.pack(self.endian + 'f', value))
         elif type in (JSONTYPE_float64, JSONTYPE_double):
-            buffer.write(struct.pack('>d', value))
+            buffer.write(struct.pack(self.endian + 'd', value))
         elif type == JSONTYPE_string:
             if not value:
-                if value is None:
-                    self.__encode_null(buffer)
-                else:
-                    buffer.write(struct.pack('>I', 0))
+                self.__encode_v(-1 if value is None else 0, type=JSONTYPE_int16, buffer=buffer)
             else:
                 value = str(value)
                 bin = value.encode('utf-8')
-                buffer.write(struct.pack('>I', len(bin)))
+                self.__encode_v(len(bin), type=JSONTYPE_uint16, buffer=buffer)
                 buffer.write(bin)
         else:
             raise NotImplementedError('Not support for encoding value[={}] with {!r} type'.format(value, type))
@@ -232,24 +230,24 @@ class JsonbufSerializer(object):
         elif type == JSONTYPE_uint8:
             v, = struct.unpack('B', buffer.read(1))
         elif type in (JSONTYPE_int16, JSONTYPE_short):
-            v, = struct.unpack('>h', buffer.read(2))
+            v, = struct.unpack(self.endian + 'h', buffer.read(2))
         elif type in (JSONTYPE_uint16, JSONTYPE_ushort):
-            v, = struct.unpack('>H', buffer.read(2))
+            v, = struct.unpack(self.endian + 'H', buffer.read(2))
         elif type in (JSONTYPE_int32, JSONTYPE_int):
-            v, = struct.unpack('>i', buffer.read(4))
+            v, = struct.unpack(self.endian + 'i', buffer.read(4))
         elif type in (JSONTYPE_uint32, JSONTYPE_uint):
-            v, = struct.unpack('>I', buffer.read(4))
+            v, = struct.unpack(self.endian + 'I', buffer.read(4))
         elif type in (JSONTYPE_int64, JSONTYPE_long):
-            v, = struct.unpack('>q', buffer.read(8))
+            v, = struct.unpack(self.endian + 'q', buffer.read(8))
         elif type in (JSONTYPE_uint64, JSONTYPE_ulong):
-            v, = struct.unpack('>Q', buffer.read(8))
+            v, = struct.unpack(self.endian + 'Q', buffer.read(8))
         elif type in (JSONTYPE_float32, JSONTYPE_float):
-            v, = struct.unpack('>f', buffer.read(4))
+            v, = struct.unpack(self.endian + 'f', buffer.read(4))
         elif type in (JSONTYPE_float64, JSONTYPE_double):
-            v, = struct.unpack('>d', buffer.read(8))
+            v, = struct.unpack(self.endian + 'd', buffer.read(8))
         elif type == JSONTYPE_string:
-            size, = struct.unpack('>I', buffer.read(4))
-            if size == 0xFFFFFFFF: v = None
+            size = self.__decode_v(type=JSONTYPE_uint16, buffer=buffer)
+            if size == 0xFFFF: v = None
             else:
                 v = buffer.read(size).decode('utf-8') if size > 0 else ''
         else:
