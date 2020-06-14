@@ -8,15 +8,13 @@
             <field name="AssetID" type="uint"/>
             <field name="ShaderName" type="string"/>
             <field name="ModuleName" type="string"/>
-            <field name="ModuleNames" type="class">
-                <class name="ModuleName">
-                    <field name="name" type="class">
-                        <class name="ModuleNameInfo">
-                            <field name="assetModuleDynamicType" type="string"/>
-                            <field name="assetSplitLevel" type="uint"/>
-                        </class>
-                    </field>
-                </class>
+            <field name="ModuleNames" type="dict">
+                <dict name="ModuleName" type="class">
+                    <class name="ModuleNameInfo">
+                        <field name="assetModuleDynamicType" type="string"/>
+                        <field name="assetSplitLevel" type="uint"/>
+                    </class>
+                </dict>
             </field>
             <field name="assetModuleDynamicType" type="string"/>
             <field name="assetModuleDynamicLevel" type="string"/>

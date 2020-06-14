@@ -26,16 +26,15 @@ JSONTYPE_string = 'string'
 JSONTYPE_bool = 'bool'
 
 class Descriptor(object):
-    def __init__(self):
-        self.tag = ''
+    def __init__(self, tag):
+        self.tag = tag
 
     def validate(self):
         pass
 
 class FieldDescriptor(Descriptor):
     def __init__(self):
-        super(FieldDescriptor, self).__init__()
-        self.tag = 'field'
+        super(FieldDescriptor, self).__init__('field')
         self.name = ''
         self.type = ''
         self.descriptor = None # type: Descriptor
@@ -46,17 +45,21 @@ class FieldDescriptor(Descriptor):
             assert self.descriptor and isinstance(self.descriptor, ClassDescriptor)
             self.descriptor.validate()
 
+class DictionaryDescriptor(Descriptor):
+    def __init__(self):
+        super(DictionaryDescriptor, self).__init__('dict')
+        self.type = ''
+        self.descriptor = None # type: ClassDescriptor
+
 class ArrayDescriptor(Descriptor):
     def __init__(self):
-        super(ArrayDescriptor, self).__init__()
-        self.tag = 'array'
+        super(ArrayDescriptor, self).__init__('array')
         self.type = ''
         self.descriptor = None # type: ClassDescriptor
 
 class ClassDescriptor(Descriptor):
     def __init__(self):
-        super(ClassDescriptor, self).__init__()
-        self.tag = 'class'
+        super(ClassDescriptor, self).__init__('class')
         self.name = ''
         self.fields = [] # type: list[FieldDescriptor]
 
@@ -79,20 +82,23 @@ class JsonbufSchema(object):
     def dump(self, filename):
         schema = self.encode(descriptor=self.descriptor)
         with open(filename, 'w') as fp:
-            content = etree.tostring(schema, pretty_print=True, encoding='utf-8').__decode('utf-8')
+            content = etree.tostring(schema, pretty_print=True, encoding='utf-8').decode('utf-8')
             fp.write(content)
             print('>>> {}'.format(p.abspath(fp.name)))
             print(content)
 
     def encode(self, descriptor):
         schema = etree.Element(descriptor.tag)
-        if isinstance(descriptor, ArrayDescriptor):
+        if isinstance(descriptor, ArrayDescriptor) or isinstance(descriptor, DictionaryDescriptor):
             schema.set('type', descriptor.type)
             if descriptor.type == 'class':
                 assert isinstance(descriptor.descriptor, ClassDescriptor)
                 schema.append(self.encode(descriptor.descriptor))
             elif descriptor.type == 'array':
                 assert isinstance(descriptor.descriptor, ArrayDescriptor)
+                schema.append(self.encode(descriptor.descriptor))
+            elif descriptor.type == 'dict':
+                assert isinstance(descriptor.descriptor, DictionaryDescriptor)
                 schema.append(self.encode(descriptor.descriptor))
             else:
                 self.check_type(descriptor.type)
@@ -110,6 +116,9 @@ class JsonbufSchema(object):
             elif descriptor.type == 'array':
                 assert isinstance(descriptor.descriptor, ArrayDescriptor)
                 schema.append(self.encode(descriptor.descriptor))
+            elif descriptor.type == 'dict':
+                assert isinstance(descriptor.descriptor, DictionaryDescriptor)
+                schema.append(self.encode(descriptor.descriptor))
             else:
                 self.check_type(descriptor.type)
         else:
@@ -119,22 +128,31 @@ class JsonbufSchema(object):
     def decode(self, schema):
         classes = []
         tag = schema.tag
-        if tag == 'array':
-            array = ArrayDescriptor()
-            array.type = schema.get('type')
-            if array.type == 'class':
+        if tag in ('array', 'dict'):
+            type = schema.get('type')
+            descriptor = None
+            if type == 'class':
                 class_schema = schema[0]
                 assert class_schema.tag == 'class'
-                array.descriptor, subclasses = self.decode(schema=class_schema)
+                descriptor, subclasses = self.decode(schema=class_schema)
                 if subclasses: classes.extend(subclasses)
-            elif array.type == 'array':
+            elif type in ('array', 'dict'):
                 array_schema = schema[0]
-                assert array_schema.tag == 'array'
-                array.descriptor, subclasses = self.decode(schema=array_schema)
+                assert array_schema.tag == type
+                descriptor, subclasses = self.decode(schema=array_schema)
                 if subclasses: classes.extend(subclasses)
             else:
-                self.check_type(array.type)
-            return array, classes
+                self.check_type(type)
+            if tag == 'array':
+                array = ArrayDescriptor()
+                array.descriptor = descriptor
+                array.type = type
+                return array, classes
+            else:
+                dictionary = DictionaryDescriptor()
+                dictionary.descriptor = descriptor
+                dictionary.type = type
+                return dictionary, classes
         elif tag == 'class':
             cls = ClassDescriptor()
             cls.name = schema.get('name')
@@ -154,9 +172,9 @@ class JsonbufSchema(object):
                 assert class_schema.tag == 'class'
                 field.descriptor, subclasses = self.decode(schema=class_schema)
                 if subclasses: classes.extend(subclasses)
-            elif field.type == 'array':
+            elif field.type in ('array', 'dict'):
                 array_schema = schema[0]
-                assert array_schema.tag == 'array'
+                assert array_schema.tag == field.type
                 field.descriptor, subclasses = self.decode(schema=array_schema)
                 if subclasses: classes.extend(subclasses)
             else:
@@ -273,6 +291,23 @@ class JsonbufSerializer(object):
             else:
                 for element in value:
                     self.__encode_v(element, type=schema.type, buffer=buffer)
+        elif isinstance(schema, DictionaryDescriptor):
+            if not value:
+                self.__encode_null(buffer)
+                return
+            assert schema.descriptor and isinstance(value, dict)
+            self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
+            if schema.descriptor:
+                assert isinstance(schema.descriptor, ClassDescriptor) \
+                       or isinstance(schema.descriptor, ArrayDescriptor) \
+                       or isinstance(schema.descriptor, DictionaryDescriptor)
+                for k, v in value.items():
+                    self.__encode_v(k, type=JSONTYPE_string, buffer=buffer)
+                    self.__encode(schema.descriptor, value=v, buffer=buffer)
+            else:
+                for k, v in value.items():
+                    self.__encode_v(k, type=JSONTYPE_string, buffer=buffer)
+                    self.__encode_v(v, type=schema.type, buffer=buffer)
         elif isinstance(schema, ClassDescriptor):
             if not value:
                 self.__encode_null(buffer)
@@ -286,6 +321,9 @@ class JsonbufSerializer(object):
                 self.__encode(schema.descriptor, value=value, buffer=buffer)
             elif schema.type == 'array':
                 assert isinstance(schema.descriptor, ArrayDescriptor)
+                self.__encode(schema.descriptor, value=value, buffer=buffer)
+            elif schema.type == 'dict':
+                assert isinstance(schema.descriptor, DictionaryDescriptor)
                 self.__encode(schema.descriptor, value=value, buffer=buffer)
             else:
                 self.__encode_v(value, type=schema.type, buffer=buffer)
@@ -304,6 +342,22 @@ class JsonbufSerializer(object):
                 for _ in range(size):
                     elements.append(self.__decode_v(schema.type, buffer=buffer))
             return elements
+        elif isinstance(schema, DictionaryDescriptor):
+            if self.__decode_null(buffer): return None
+            data = {}
+            size = self.__decode_v(JSONTYPE_uint32, buffer=buffer)
+            if schema.descriptor:
+                assert isinstance(schema.descriptor, ClassDescriptor) \
+                       or isinstance(schema.descriptor, ArrayDescriptor) \
+                       or isinstance(schema.descriptor, DictionaryDescriptor)
+                for _ in range(size):
+                    key = self.__decode_v(JSONTYPE_string, buffer=buffer)
+                    data[key] = self.__decode(schema.descriptor, buffer=buffer)
+            else:
+                for _ in range(size):
+                    key = self.__decode_v(JSONTYPE_string, buffer=buffer)
+                    data[key] = self.__decode_v(schema.type, buffer=buffer)
+            return data
         elif isinstance(schema, ClassDescriptor):
             if self.__decode_null(buffer): return None
             obj = {}
@@ -318,6 +372,9 @@ class JsonbufSerializer(object):
             elif schema.type == 'class':
                 assert isinstance(schema.descriptor, ClassDescriptor)
                 return self.__decode(schema.descriptor, buffer=buffer)
+            elif schema.type == 'dict':
+                assert isinstance(schema.descriptor, DictionaryDescriptor)
+                return self.__decode(schema.descriptor, buffer=buffer)
             else:
                 return self.__decode_v(schema.type, buffer=buffer)
 
@@ -330,6 +387,8 @@ def main():
 
     schema = JsonbufSchema()
     descriptor = schema.load(filename=options.schema)
+    schema.dump(filename='test.xml')
+    # exit()
     serializer = JsonbufSerializer(schema=descriptor)
     serializer.load(filename=options.file)
     buffer = io.BytesIO()
