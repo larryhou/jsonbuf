@@ -1,0 +1,26 @@
+<field name="" type="array">
+    <array type="class">
+        <class name="AssetItem">
+            <field name="Path" type="string"/>
+            <field name="Type" type="string"/>
+            <field name="Category" type="string"/>
+            <field name="DynamicType" type="string"/>
+            <field name="AssetID" type="uint"/>
+            <field name="ShaderName" type="string"/>
+            <field name="ModuleName" type="string"/>
+            <field name="ModuleNames" type="class">
+                <class name="ModuleName">
+                    <field name="name" type="class">
+                        <class name="ModuleNameInfo">
+                            <field name="assetModuleDynamicType" type="string"/>
+                            <field name="assetSplitLevel" type="uint"/>
+                        </class>
+                    </field>
+                </class>
+            </field>
+            <field name="assetModuleDynamicType" type="string"/>
+            <field name="assetModuleDynamicLevel" type="string"/>
+            <field name="AssetBundleName" type="string"/>
+        </class>
+    </array>
+</field>
