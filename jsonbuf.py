@@ -29,21 +29,12 @@ class Descriptor(object):
     def __init__(self, tag):
         self.tag = tag
 
-    def validate(self):
-        pass
-
 class FieldDescriptor(Descriptor):
     def __init__(self):
         super(FieldDescriptor, self).__init__('field')
         self.name = ''
         self.type = ''
         self.descriptor = None # type: Descriptor
-
-    def validate(self):
-        assert self.type in ('int', 'uint', 'float', 'double', 'string', 'bool', 'array', 'class')
-        if self.type == 'class':
-            assert self.descriptor and isinstance(self.descriptor, ClassDescriptor)
-            self.descriptor.validate()
 
 class DictionaryDescriptor(Descriptor):
     def __init__(self):
@@ -62,9 +53,6 @@ class ClassDescriptor(Descriptor):
         super(ClassDescriptor, self).__init__('class')
         self.name = ''
         self.fields = [] # type: list[FieldDescriptor]
-
-    def validate(self):
-        for field in self.fields: field.validate()
 
 class JsonbufSchema(object):
     def __init__(self):
