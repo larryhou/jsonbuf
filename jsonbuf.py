@@ -131,15 +131,10 @@ class JsonbufSchema(object):
         if tag in ('array', 'dict'):
             type = schema.get('type')
             descriptor = None
-            if type == 'class':
-                class_schema = schema[0]
-                assert class_schema.tag == 'class'
-                descriptor, subclasses = self.decode(schema=class_schema)
-                if subclasses: classes.extend(subclasses)
-            elif type in ('array', 'dict'):
-                array_schema = schema[0]
-                assert array_schema.tag == type
-                descriptor, subclasses = self.decode(schema=array_schema)
+            if type in ('class', 'array', 'dict'):
+                nest_schema = schema[0]
+                assert nest_schema.tag == type
+                descriptor, subclasses = self.decode(schema=nest_schema)
                 if subclasses: classes.extend(subclasses)
             else:
                 self.check_type(type)
@@ -167,15 +162,10 @@ class JsonbufSchema(object):
             field = FieldDescriptor()
             field.name = schema.get('name')
             field.type = schema.get('type')
-            if field.type == 'class':
-                class_schema = schema[0]
-                assert class_schema.tag == 'class'
-                field.descriptor, subclasses = self.decode(schema=class_schema)
-                if subclasses: classes.extend(subclasses)
-            elif field.type in ('array', 'dict'):
-                array_schema = schema[0]
-                assert array_schema.tag == field.type
-                field.descriptor, subclasses = self.decode(schema=array_schema)
+            if field.type in ('class', 'array', 'dict'):
+                nest_schema = schema[0]
+                assert nest_schema.tag == field.type
+                field.descriptor, subclasses = self.decode(schema=nest_schema)
                 if subclasses: classes.extend(subclasses)
             else:
                 self.check_type(field.type)
@@ -285,7 +275,8 @@ class JsonbufSerializer(object):
             self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
-                       or isinstance(schema.descriptor, ArrayDescriptor)
+                       or isinstance(schema.descriptor, ArrayDescriptor) \
+                       or isinstance(schema.descriptor, DictionaryDescriptor)
                 for element in value:
                     self.__encode(schema.descriptor, value=element, buffer=buffer)
             else:
@@ -335,7 +326,8 @@ class JsonbufSerializer(object):
             size = self.__decode_v(JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
-                       or isinstance(schema.descriptor, ArrayDescriptor)
+                       or isinstance(schema.descriptor, ArrayDescriptor) \
+                       or isinstance(schema.descriptor, DictionaryDescriptor)
                 for _ in range(size):
                     elements.append(self.__decode(schema.descriptor, buffer=buffer))
             else:
