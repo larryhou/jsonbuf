@@ -27,6 +27,10 @@ JSONTYPE_float64 = 'float64'
 JSONTYPE_string = 'string'
 JSONTYPE_bool = 'bool'
 
+UINT16_MAX = (1 << 16) - 1
+UINT32_MAX = (1 << 32) - 1
+UINT64_MAX = (1 << 64) - 1
+
 class Descriptor(object):
     def __init__(self, tag):
         self.tag = tag
@@ -179,14 +183,6 @@ class JsonbufSerializer(object):
         self.context = self.__decode(self.schema, buffer=fp)
         return self.context
 
-    def __encode_null(self, buffer):
-        self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
-
-    def __decode_null(self, buffer): # type: (io.BytesIO)->bool
-        if self.__decode_v(type=JSONTYPE_int32, buffer=buffer) == -1: return True
-        buffer.seek(-4, os.SEEK_CUR)
-        return False
-
     def __encode_v(self, value, type, buffer): # type: (any, str, io.BytesIO)->None
         if type == JSONTYPE_bool:
             buffer.write(struct.pack('b', 1 if value else 0))
@@ -247,7 +243,7 @@ class JsonbufSerializer(object):
             v, = struct.unpack(self.endian + 'd', buffer.read(8))
         elif type == JSONTYPE_string:
             size = self.__decode_v(type=JSONTYPE_uint16, buffer=buffer)
-            if size == 0xFFFF: v = None
+            if size == UINT16_MAX: v = None
             else:
                 v = buffer.read(size).decode('utf-8') if size > 0 else ''
         else:
@@ -257,7 +253,7 @@ class JsonbufSerializer(object):
     def __encode(self, schema, value, buffer): # type: (Descriptor, any, io.BytesIO)->None
         if isinstance(schema, ArrayDescriptor):
             if value is None:
-                self.__encode_null(buffer)
+                self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
             assert schema.descriptor and isinstance(value, list)
             self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
@@ -272,7 +268,7 @@ class JsonbufSerializer(object):
                     self.__encode_v(element, type=schema.type, buffer=buffer)
         elif isinstance(schema, DictionaryDescriptor):
             if value is None:
-                self.__encode_null(buffer)
+                self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
             assert schema.descriptor and isinstance(value, dict)
             self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
@@ -289,8 +285,9 @@ class JsonbufSerializer(object):
                     self.__encode_v(v, type=schema.type, buffer=buffer)
         elif isinstance(schema, ClassDescriptor):
             if not value:
-                self.__encode_null(buffer)
+                self.__encode_v(0, type=JSONTYPE_bool, buffer=buffer)
                 return
+            self.__encode_v(1, type=JSONTYPE_bool, buffer=buffer)
             assert schema.fields and isinstance(value, dict), (schema, value)
             for field in schema.fields:
                 self.__encode(field, value=value.get(field.name), buffer=buffer)
@@ -309,9 +306,9 @@ class JsonbufSerializer(object):
 
     def __decode(self, schema, buffer):
         if isinstance(schema, ArrayDescriptor):
-            if self.__decode_null(buffer): return None
-            elements = []
             size = self.__decode_v(JSONTYPE_uint32, buffer=buffer)
+            if size == UINT32_MAX: return None
+            elements = []
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
                        or isinstance(schema.descriptor, ArrayDescriptor) \
@@ -323,9 +320,9 @@ class JsonbufSerializer(object):
                     elements.append(self.__decode_v(schema.type, buffer=buffer))
             return elements
         elif isinstance(schema, DictionaryDescriptor):
-            if self.__decode_null(buffer): return None
-            data = {}
             size = self.__decode_v(JSONTYPE_uint32, buffer=buffer)
+            if size == UINT32_MAX: return None
+            data = {}
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
                        or isinstance(schema.descriptor, ArrayDescriptor) \
@@ -339,7 +336,7 @@ class JsonbufSerializer(object):
                     data[key] = self.__decode_v(schema.type, buffer=buffer)
             return data
         elif isinstance(schema, ClassDescriptor):
-            if self.__decode_null(buffer): return None
+            if self.__decode_v(JSONTYPE_bool, buffer=buffer) == 0: return None
             obj = {}
             assert schema.fields
             for field in schema.fields:
