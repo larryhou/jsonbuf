@@ -188,10 +188,10 @@ class JsonbufSchema(object):
             raise NotImplementedError('<{}/> not supported'.format(tag))
 
 class JsonbufSerializer(object):
-    def __init__(self, schema, class_nullable=True, default_enabled=True, verbose=True):
+    def __init__(self, schema, class_nullable=True, enable_default=True, verbose=True):
         self.schema = schema # type: Descriptor
         self.class_nullable = class_nullable
-        self.default_enabled = default_enabled
+        self.enable_default = enable_default
         self.verbose = verbose
         self.enums = {} # type: dict[str, JsonEnum]
         self.context = None
@@ -337,7 +337,7 @@ class JsonbufSerializer(object):
             assert schema.fields and isinstance(value, dict), (schema, value)
             for field in schema.fields:
                 field_value = value.get(field.name)
-                if field_value is None and self.default_enabled:
+                if field_value is None and self.enable_default:
                     if self.verbose: print('{}:{}'.format(field.name, field.type), value)
                     field_value = self.__get_default(type=field.type)
                 self.__encode(field, value=field_value, buffer=buffer)
