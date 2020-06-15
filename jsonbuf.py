@@ -3,7 +3,7 @@
 from __future__ import print_function
 import lxml.etree as etree
 import os.path as p
-import json, io, struct, os
+import json, io, struct, os, re
 
 JSONTYPE_double = 'double'
 JSONTYPE_float = 'float'
@@ -89,6 +89,10 @@ class JsonbufSchema(object):
         schema = etree.parse(filename).getroot()
         self.descriptor, self.classes = self.decode(schema)
         return self.descriptor
+
+    def dumps(self):
+        schema = self.encode(descriptor=self.descriptor)
+        return etree.tostring(schema, pretty_print=True, encoding='utf-8').decode('utf-8')
 
     def dump(self, filename):
         schema = self.encode(descriptor=self.descriptor)
@@ -206,9 +210,6 @@ class JsonbufSerializer(object):
                 enum = JsonEnum()
                 enum.fill(data=definition)
                 self.enums[enum.type] = enum
-
-    def load(self, filename):
-        self.context = json.load(fp=open(filename, 'r'))
 
     def serialize(self, fp): # type: (io.BytesIO)->None
         self.__encode(self.schema, value=self.context, buffer=fp)
@@ -411,30 +412,56 @@ class JsonbufSerializer(object):
                 v = self.__decode_v(schema.type, buffer=buffer)
                 return self.enums[schema.enum].names[v] if schema.enum else v
 
+class Commands(object):
+    serialize = 'serialize'
+    deserialize = 'deserialize'
+
+    @classmethod
+    def get_choices(cls):
+        choices = []
+        for k, v in vars(cls).items():
+            if k == v: choices.append(v)
+        return choices
+
 def main():
     import argparse, sys
     arguments = argparse.ArgumentParser()
-    arguments.add_argument('--file', '-f', required=True)
-    arguments.add_argument('--schema', '-s', required=True)
+    arguments.add_argument('--command', '-c', choices=Commands.get_choices(), default=Commands.serialize)
     arguments.add_argument('--class-nullable', action='store_true')
+    arguments.add_argument('--schema', '-s')
+    arguments.add_argument('--output', '-o', default='.')
+    arguments.add_argument('--verbose', '-v', action='store_true')
+    arguments.add_argument('--file', '-f')
     options = arguments.parse_args(sys.argv[1:])
 
+    script_path = p.dirname(p.abspath(__file__))
+
+    output = p.abspath(options.output)
+    if not p.exists(output): os.makedirs(output)
+
+    filename = p.basename(options.file) # type: str
+    name = re.sub(r'\.[^.]+$', '', filename)
+
+    schema_path = options.schema # type: str
+    if not schema_path:
+        schema_path = p.join(script_path, 'schemas/{}.xml'.format(name))
+        assert p.exists(schema_path), 'NOT_FOUND {}'.format(schema_path)
+
+    command = options.command # type: str
     schema = JsonbufSchema()
-    descriptor = schema.load(filename=options.schema)
-    schema.dump(filename='test.xml')
-    serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable)
-    serializer.load(filename=options.file)
-    buffer = io.BytesIO()
-    serializer.serialize(fp=buffer)
-    print(buffer, buffer.tell())
-
-    buffer.seek(0)
-    with open('data.bin', 'wb') as fp:
-        fp.write(buffer.read())
-    buffer.seek(0)
-    data = serializer.deserilize(fp=buffer)
-    print(json.dumps(data, indent=4, ensure_ascii=False))
-
+    descriptor = schema.load(filename=schema_path)
+    serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable, verbose=options.verbose)
+    print(schema.dumps())
+    if command == Commands.serialize:
+        assert options.file
+        serializer.context = json.load(fp=open(options.file, 'r'))
+        with open('{}/{}.bytes'.format(output, name), 'wb') as fp:
+            serializer.serialize(fp)
+            print('>>> {} {:,}'.format(p.abspath(fp.name), fp.tell()))
+    elif command == Commands.deserialize:
+        assert options.file
+        data = serializer.deserilize(fp=open(options.file, 'rb'))
+        print(json.dumps(data, indent=4, ensure_ascii=False))
 
 if __name__ == '__main__':
     main()
