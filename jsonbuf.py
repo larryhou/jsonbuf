@@ -41,6 +41,7 @@ class FieldDescriptor(Descriptor):
         super(FieldDescriptor, self).__init__('field')
         self.name = ''
         self.type = ''
+        self.enum = ''
         self.descriptor = None # type: Descriptor
 
 class DictionaryDescriptor(Descriptor):
@@ -60,6 +61,20 @@ class ClassDescriptor(Descriptor):
         super(ClassDescriptor, self).__init__('class')
         self.name = ''
         self.fields = [] # type: list[FieldDescriptor]
+
+class JsonEnum(object):
+    def __init__(self):
+        self.full_type = ''
+        self.type = ''
+        self.cases = {}
+        self.names = {}
+
+    def fill(self, data): # type: (dict)->None
+        self.full_type = data['name'] # type: str
+        self.type = self.full_type.split('.')[-1]
+        for case in data['cases']:
+            self.cases[case['name']] = case['value']
+            self.names[case['value']] = case['name']
 
 class JsonbufSchema(object):
     def __init__(self):
@@ -106,6 +121,7 @@ class JsonbufSchema(object):
         elif isinstance(descriptor, FieldDescriptor):
             schema.set('type', descriptor.type)
             schema.set('name', descriptor.name or '')
+            if descriptor.enum: schema.set('enum', descriptor.enum)
             if descriptor.type == 'class':
                 assert isinstance(descriptor.descriptor, ClassDescriptor)
                 schema.append(self.encode(descriptor.descriptor))
@@ -115,6 +131,7 @@ class JsonbufSchema(object):
             elif descriptor.type == 'dict':
                 assert isinstance(descriptor.descriptor, DictionaryDescriptor)
                 schema.append(self.encode(descriptor.descriptor))
+
             else:
                 self.check_type(descriptor.type)
         else:
@@ -158,6 +175,7 @@ class JsonbufSchema(object):
             field = FieldDescriptor()
             field.name = schema.get('name')
             field.type = schema.get('type')
+            field.enum = schema.get('enum')
             if field.type in ('class', 'array', 'dict'):
                 nest_schema = schema[0]
                 assert nest_schema.tag == field.type
@@ -175,8 +193,19 @@ class JsonbufSerializer(object):
         self.class_nullable = class_nullable
         self.default_enabled = default_enabled
         self.verbose = verbose
+        self.enums = {} # type: dict[str, JsonEnum]
         self.context = None
         self.endian = '<'
+        self.__setup()
+
+    def __setup(self):
+        config_path = p.join(p.dirname(p.abspath(__file__)), 'jsonbuf.json')
+        if p.exists(config_path):
+            data = json.load(fp=open(config_path, 'r')) # type: dict
+            for definition in data.get('enums', []):
+                enum = JsonEnum()
+                enum.fill(data=definition)
+                self.enums[enum.type] = enum
 
     def load(self, filename):
         self.context = json.load(fp=open(filename, 'r'))
@@ -323,7 +352,11 @@ class JsonbufSerializer(object):
                 assert isinstance(schema.descriptor, DictionaryDescriptor)
                 self.__encode(schema.descriptor, value=value, buffer=buffer)
             else:
-                self.__encode_v(value, type=schema.type, buffer=buffer)
+                if schema.enum:
+                    v = self.enums[schema.enum].cases[value]
+                    self.__encode_v(v, type=schema.type, buffer=buffer)
+                else:
+                    self.__encode_v(value, type=schema.type, buffer=buffer)
 
     def __decode(self, schema, buffer):
         if isinstance(schema, ArrayDescriptor):
@@ -375,7 +408,8 @@ class JsonbufSerializer(object):
                 assert isinstance(schema.descriptor, DictionaryDescriptor)
                 return self.__decode(schema.descriptor, buffer=buffer)
             else:
-                return self.__decode_v(schema.type, buffer=buffer)
+                v = self.__decode_v(schema.type, buffer=buffer)
+                return self.enums[schema.enum].names[v] if schema.enum else v
 
 def main():
     import argparse, sys

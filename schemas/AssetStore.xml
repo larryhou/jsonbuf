@@ -2,8 +2,8 @@
     <field name="Groups" type="array">
         <array type="class">
             <class name="AssetGroup">
-                <field name="Category" type="string"/>
-                <field name="Tag" type="string"/>
+                <field name="Category" enum="EAssetCategory" type="int"/>
+                <field name="Tag" enum="EAssetTag" type="int"/>
                 <field name="AssetInfo" type="array">
                     <array type="class">
                         <class name="AssetMetaData">
