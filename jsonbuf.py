@@ -168,8 +168,9 @@ class JsonbufSchema(object):
             raise NotImplementedError('<{}/> not supported'.format(tag))
 
 class JsonbufSerializer(object):
-    def __init__(self, schema):
+    def __init__(self, schema, class_nullable=True):
         self.schema = schema # type: Descriptor
+        self.class_nullable = class_nullable
         self.context = None
         self.endian = '>'
 
@@ -284,10 +285,11 @@ class JsonbufSerializer(object):
                     self.__encode_v(k, type=JSONTYPE_string, buffer=buffer)
                     self.__encode_v(v, type=schema.type, buffer=buffer)
         elif isinstance(schema, ClassDescriptor):
-            if not value:
-                self.__encode_v(0, type=JSONTYPE_bool, buffer=buffer)
-                return
-            self.__encode_v(1, type=JSONTYPE_bool, buffer=buffer)
+            if self.class_nullable:
+                if not value:
+                    self.__encode_v(0, type=JSONTYPE_bool, buffer=buffer)
+                    return
+                self.__encode_v(1, type=JSONTYPE_bool, buffer=buffer)
             assert schema.fields and isinstance(value, dict), (schema, value)
             for field in schema.fields:
                 self.__encode(field, value=value.get(field.name), buffer=buffer)
@@ -336,7 +338,8 @@ class JsonbufSerializer(object):
                     data[key] = self.__decode_v(schema.type, buffer=buffer)
             return data
         elif isinstance(schema, ClassDescriptor):
-            if self.__decode_v(JSONTYPE_bool, buffer=buffer) == 0: return None
+            if self.class_nullable:
+                if self.__decode_v(JSONTYPE_bool, buffer=buffer) == 0: return None
             obj = {}
             assert schema.fields
             for field in schema.fields:
@@ -360,13 +363,14 @@ def main():
     arguments = argparse.ArgumentParser()
     arguments.add_argument('--file', '-f', required=True)
     arguments.add_argument('--schema', '-s', required=True)
+    arguments.add_argument('--class-nullable', action='store_true')
     options = arguments.parse_args(sys.argv[1:])
 
     schema = JsonbufSchema()
     descriptor = schema.load(filename=options.schema)
     schema.dump(filename='test.xml')
     # exit()
-    serializer = JsonbufSerializer(schema=descriptor)
+    serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable)
     serializer.load(filename=options.file)
     buffer = io.BytesIO()
     serializer.serialize(fp=buffer)
