@@ -369,7 +369,6 @@ def main():
     schema = JsonbufSchema()
     descriptor = schema.load(filename=options.schema)
     schema.dump(filename='test.xml')
-    # exit()
     serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable)
     serializer.load(filename=options.file)
     buffer = io.BytesIO()
