@@ -247,7 +247,7 @@ class JsonbufSerializer(object):
             else:
                 v = buffer.read(size).decode('utf-8') if size > 0 else ''
         else:
-            raise NotImplementedError('Not support for encoding value[={}] with {!r} type'.format(value, type))
+            raise NotImplementedError('Not support for decoding value with {!r} type'.format(type))
         return v
 
     def __encode(self, schema, value, buffer): # type: (Descriptor, any, io.BytesIO)->None
