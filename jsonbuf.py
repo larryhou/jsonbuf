@@ -359,7 +359,7 @@ class JsonbufSerializer(object):
                 return self.__decode_v(schema.type, buffer=buffer)
 
 def main():
-    import argparse,sys
+    import argparse, sys
     arguments = argparse.ArgumentParser()
     arguments.add_argument('--file', '-f', required=True)
     arguments.add_argument('--schema', '-s', required=True)
