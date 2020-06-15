@@ -14,6 +14,7 @@ JSONTYPE_int = 'int'
 JSONTYPE_ulong = 'ulong'
 JSONTYPE_long = 'long'
 
+JSONTYPE_byte = 'byte'
 JSONTYPE_int8 = 'int8'
 JSONTYPE_int16 = 'int16'
 JSONTYPE_int32 = 'int32'
@@ -65,7 +66,8 @@ class JsonbufSchema(object):
         self.descriptor = None # type: Descriptor
         self.classes = [] # type: list[ClassDescriptor]
 
-    def check_type(self, type):
+    @staticmethod
+    def check_type(type):
         assert 'JSONTYPE_{}'.format(type) in globals(), 'JSONTYPE_{}'.format(type)
 
     def load(self, filename):
@@ -168,11 +170,13 @@ class JsonbufSchema(object):
             raise NotImplementedError('<{}/> not supported'.format(tag))
 
 class JsonbufSerializer(object):
-    def __init__(self, schema, class_nullable=True):
+    def __init__(self, schema, class_nullable=True, default_enabled=True, verbose=True):
         self.schema = schema # type: Descriptor
         self.class_nullable = class_nullable
+        self.default_enabled = default_enabled
+        self.verbose = verbose
         self.context = None
-        self.endian = '>'
+        self.endian = '<'
 
     def load(self, filename):
         self.context = json.load(fp=open(filename, 'r'))
@@ -184,12 +188,23 @@ class JsonbufSerializer(object):
         self.context = self.__decode(self.schema, buffer=fp)
         return self.context
 
+    @staticmethod
+    def __get_default(type): # type: (str)->any
+        if type == JSONTYPE_bool: return False
+        if type.startswith('int'): return -1
+        if type.startswith('uint'): return 0
+        if type == JSONTYPE_byte: return 0
+        if type in (JSONTYPE_ushort, JSONTYPE_ulong): return 0
+        if type in (JSONTYPE_short, JSONTYPE_long): return -1
+        if type == JSONTYPE_double or type.startswith('float'): return 0.0
+        return None
+
     def __encode_v(self, value, type, buffer): # type: (any, str, io.BytesIO)->None
         if type == JSONTYPE_bool:
             buffer.write(struct.pack('b', 1 if value else 0))
         elif type == JSONTYPE_int8:
             buffer.write(struct.pack('b', value))
-        elif type == JSONTYPE_uint8:
+        elif type in (JSONTYPE_uint8, JSONTYPE_byte):
             buffer.write(struct.pack('B', value))
         elif type in (JSONTYPE_int16, JSONTYPE_short):
             buffer.write(struct.pack(self.endian + 'h', value))
@@ -224,7 +239,7 @@ class JsonbufSerializer(object):
             v = v != 0
         elif type == JSONTYPE_int8:
             v, = struct.unpack('b', buffer.read(1))
-        elif type == JSONTYPE_uint8:
+        elif type in (JSONTYPE_uint8, JSONTYPE_byte):
             v, = struct.unpack('B', buffer.read(1))
         elif type in (JSONTYPE_int16, JSONTYPE_short):
             v, = struct.unpack(self.endian + 'h', buffer.read(2))
@@ -292,7 +307,11 @@ class JsonbufSerializer(object):
                 self.__encode_v(1, type=JSONTYPE_bool, buffer=buffer)
             assert schema.fields and isinstance(value, dict), (schema, value)
             for field in schema.fields:
-                self.__encode(field, value=value.get(field.name), buffer=buffer)
+                field_value = value.get(field.name)
+                if field_value is None and self.default_enabled:
+                    if self.verbose: print('{}:{}'.format(field.name, field.type), value)
+                    field_value = self.__get_default(type=field.type)
+                self.__encode(field, value=field_value, buffer=buffer)
         elif isinstance(schema, FieldDescriptor):
             if schema.type == 'class':
                 assert isinstance(schema.descriptor, ClassDescriptor)
