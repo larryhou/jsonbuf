@@ -90,14 +90,16 @@ class ValueFilter(Descriptor):
 class JsonbufSchema(object):
     def __init__(self):
         self.descriptor = None # type: Descriptor
+        self.classes = {} # type: dict[str, ClassDescriptor]
 
     @staticmethod
     def check_type(type):
         assert 'JSONTYPE_{}'.format(type) in globals(), 'JSONTYPE_{}'.format(type)
 
     def load(self, filename):
+        self.classes = {}
         schema = etree.parse(filename).getroot()
-        self.descriptor = self.decode(schema, attr={})
+        self.descriptor = self.decode(schema, attr=self.classes)
         return self.descriptor
 
     def dumps(self):
