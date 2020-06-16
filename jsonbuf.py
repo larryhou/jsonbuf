@@ -55,6 +55,7 @@ class ArrayDescriptor(Descriptor):
     def __init__(self):
         super(ArrayDescriptor, self).__init__('array')
         self.type = ''
+        self.mutable = False
         self.descriptor = None # type: ClassDescriptor
 
 class ClassDescriptor(Descriptor):
@@ -106,6 +107,8 @@ class JsonbufSchema(object):
         schema = etree.Element(descriptor.tag)
         if isinstance(descriptor, ArrayDescriptor) or isinstance(descriptor, DictionaryDescriptor):
             schema.set('type', descriptor.type)
+            if isinstance(descriptor, ArrayDescriptor):
+                if descriptor.mutable: schema.set('mutable', descriptor.mutable)
             if descriptor.type == 'class':
                 assert isinstance(descriptor.descriptor, ClassDescriptor)
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
@@ -160,6 +163,7 @@ class JsonbufSchema(object):
                 array = ArrayDescriptor()
                 array.descriptor = descriptor
                 array.type = type
+                array.mutable = schema.get('mutable', False)
                 return array
             else:
                 dictionary = DictionaryDescriptor()
