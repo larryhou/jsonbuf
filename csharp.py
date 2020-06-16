@@ -36,6 +36,8 @@ class CSharpGenerator(object):
             return 'Dictionary<{}, {}>'\
                 .format(type.key, self.rtype(type=type.descriptor) if type.descriptor else self.ctype(type.type))
         if isinstance(type, FieldDescriptor):
+            if type.descriptor:
+                return self.rtype(type=type.descriptor)
             return self.ctype(type.type) if not type.enum else type.enum
         assert isinstance(type, str)
         return self.ctype(type)
@@ -43,8 +45,7 @@ class CSharpGenerator(object):
     def generate_class(self, cls):
         print('public class {}'.format(cls.name))
         for filed in cls.fields:
-            print('    public {} {};'
-                  .format(self.rtype(filed.descriptor) if filed.descriptor else self.rtype(filed), filed.name))
+            print('    public {} {};'.format(self.rtype(filed), filed.name))
         print()
 
 
