@@ -192,7 +192,7 @@ class JsonbufSchema(object):
                 f.name = item.get('name', '')
                 f.type = item.get('type', JSONTYPE_string)
                 f.value = self.__parse_filter(item.text, type=f.type)
-                if f.value: filters.append(f)
+                filters.append(f)
             if tag == 'array':
                 array = ArrayDescriptor()
                 array.descriptor = descriptor
