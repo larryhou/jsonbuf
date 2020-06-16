@@ -79,7 +79,6 @@ class JsonEnum(object):
 class JsonbufSchema(object):
     def __init__(self):
         self.descriptor = None # type: Descriptor
-        self.classes = [] # type: list[ClassDescriptor]
 
     @staticmethod
     def check_type(type):
@@ -87,54 +86,56 @@ class JsonbufSchema(object):
 
     def load(self, filename):
         schema = etree.parse(filename).getroot()
-        self.descriptor, self.classes = self.decode(schema)
+        self.descriptor = self.decode(schema, attr={})
         return self.descriptor
 
     def dumps(self):
-        schema = self.encode(descriptor=self.descriptor)
+        schema = self.encode(descriptor=self.descriptor, attr={})
         return etree.tostring(schema, pretty_print=True, encoding='utf-8').decode('utf-8')
 
     def dump(self, filename):
-        schema = self.encode(descriptor=self.descriptor)
+        schema = self.encode(descriptor=self.descriptor, attr={})
         with open(filename, 'w') as fp:
             content = etree.tostring(schema, pretty_print=True, encoding='utf-8').decode('utf-8')
             fp.write(content)
             print('>>> {}'.format(p.abspath(fp.name)))
             print(content)
 
-    def encode(self, descriptor):
+    def encode(self, descriptor, attr): # type: (Descriptor, dict)->etree.Element
         schema = etree.Element(descriptor.tag)
         if isinstance(descriptor, ArrayDescriptor) or isinstance(descriptor, DictionaryDescriptor):
             schema.set('type', descriptor.type)
             if descriptor.type == 'class':
                 assert isinstance(descriptor.descriptor, ClassDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
             elif descriptor.type == 'array':
                 assert isinstance(descriptor.descriptor, ArrayDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
             elif descriptor.type == 'dict':
                 assert isinstance(descriptor.descriptor, DictionaryDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
             else:
                 self.check_type(descriptor.type)
         elif isinstance(descriptor, ClassDescriptor):
             schema.set('name', descriptor.name)
-            assert descriptor.fields
-            for field in descriptor.fields:
-                schema.append(self.encode(descriptor=field))
+            if descriptor.name not in attr:
+                attr[descriptor.name] = schema
+                assert descriptor.fields
+                for field in descriptor.fields:
+                    schema.append(self.encode(descriptor=field, attr=attr))
         elif isinstance(descriptor, FieldDescriptor):
             schema.set('type', descriptor.type)
             schema.set('name', descriptor.name or '')
             if descriptor.enum: schema.set('enum', descriptor.enum)
             if descriptor.type == 'class':
                 assert isinstance(descriptor.descriptor, ClassDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
             elif descriptor.type == 'array':
                 assert isinstance(descriptor.descriptor, ArrayDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
             elif descriptor.type == 'dict':
                 assert isinstance(descriptor.descriptor, DictionaryDescriptor)
-                schema.append(self.encode(descriptor.descriptor))
+                schema.append(self.encode(descriptor.descriptor, attr=attr))
 
             else:
                 self.check_type(descriptor.type)
@@ -142,8 +143,7 @@ class JsonbufSchema(object):
             raise NotImplementedError('<{}/>'.format(descriptor.tag))
         return schema
 
-    def decode(self, schema):
-        classes = []
+    def decode(self, schema, attr): # type: (etree.Element, dict)->Descriptor
         tag = schema.tag
         if tag in ('array', 'dict'):
             type = schema.get('type')
@@ -151,30 +151,32 @@ class JsonbufSchema(object):
             if type in ('class', 'array', 'dict'):
                 nest_schema = schema[0]
                 assert nest_schema.tag == type
-                descriptor, subclasses = self.decode(schema=nest_schema)
-                if subclasses: classes.extend(subclasses)
+                descriptor = self.decode(schema=nest_schema, attr=attr)
             else:
                 self.check_type(type)
             if tag == 'array':
                 array = ArrayDescriptor()
                 array.descriptor = descriptor
                 array.type = type
-                return array, classes
+                return array
             else:
                 dictionary = DictionaryDescriptor()
                 dictionary.descriptor = descriptor
                 dictionary.type = type
-                return dictionary, classes
+                return dictionary
         elif tag == 'class':
-            cls = ClassDescriptor()
-            cls.name = schema.get('name')
-            for item in schema.xpath('./*'):
-                assert item.tag == 'field'
-                field, subclasses = self.decode(schema=item)
-                if subclasses: classes.extend(subclasses)
-                cls.fields.append(field)
-            classes.append(cls)
-            return cls, classes
+            class_name = schema.get('name')
+            if class_name in attr:
+                cls = attr[class_name]
+            else:
+                cls = ClassDescriptor()
+                cls.name = schema.get('name')
+                attr[cls.name] = cls
+                for item in schema.xpath('./*'):
+                    assert item.tag == 'field'
+                    field = self.decode(schema=item, attr=attr)
+                    cls.fields.append(field)
+            return cls
         elif tag == 'field':
             field = FieldDescriptor()
             field.name = schema.get('name')
@@ -183,11 +185,10 @@ class JsonbufSchema(object):
             if field.type in ('class', 'array', 'dict'):
                 nest_schema = schema[0]
                 assert nest_schema.tag == field.type
-                field.descriptor, subclasses = self.decode(schema=nest_schema)
-                if subclasses: classes.extend(subclasses)
+                field.descriptor = self.decode(schema=nest_schema, attr=attr)
             else:
                 self.check_type(field.type)
-            return field, classes
+            return field
         else:
             raise NotImplementedError('<{}/> not supported'.format(tag))
 
@@ -452,6 +453,7 @@ def main():
     descriptor = schema.load(filename=schema_path)
     serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable, verbose=options.verbose)
     print(schema.dumps())
+
     if command == Commands.serialize:
         assert options.file
         serializer.context = json.load(fp=open(options.file, 'r'))
