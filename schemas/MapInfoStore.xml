@@ -1,0 +1,12 @@
+<class name="MapInfoStore">
+    <field name="Maps" type="array">
+        <array type="class">
+            <class name="MapInfo">
+                <field name="MapID" type="int"/>
+                <field name="MapName" type="string"/>
+                <field name="AssetTag" type="string"/>
+                <field name="LevelName" type="string"/>
+            </class>
+        </array>
+    </field>
+</class>

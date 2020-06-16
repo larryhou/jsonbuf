@@ -1,0 +1,19 @@
+<class name="AssetStoreUIAtlasData">
+    <field name="UIAtlases" type="array">
+        <array type="class">
+            <class name="AssetGroup">
+                <field name="Category" type="int" enum="EAssetCategory"/>
+                <field name="Tag" type="int" enum="EAssetTag"/>
+                <field name="AssetInfo" type="array">
+                    <array type="class">
+                        <class name="AssetMetaData">
+                            <field name="ID" type="int"/>
+                            <field name="Path" type="string"/>
+                            <field name="PathFlags" type="byte"/>
+                        </class>
+                    </array>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

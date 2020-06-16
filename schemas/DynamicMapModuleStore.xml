@@ -1,0 +1,17 @@
+<class name="MapModuleStoreData">
+    <field name="MapModules" type="array">
+        <array type="class">
+            <class name="MapModuleData">
+                <field name="MapModuleName" type="string"/>
+                <field name="Levels" type="array">
+                    <array type="class">
+                        <class name="MapSpliteDataItem">
+                            <field name="LevelName" type="string"/>
+                            <field name="FirstPackage" type="bool"/>
+                        </class>
+                    </array>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

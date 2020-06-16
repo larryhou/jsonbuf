@@ -1,0 +1,36 @@
+<class name="AssetBundleModuleLocation">
+    <field name="ModuleDynamicInfoDic" type="dict">
+        <dict type="class">
+            <class name="AssetBundleOneModuleLocation">
+                <field name="DynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="SilentDynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="MidDynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="MidSilentDynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="LowDynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="LowSilentDynamicAssetList" type="array">
+                    <array type="string"/>
+                </field>
+            </class>
+        </dict>
+    </field>
+    <field name="MultiModuleInfoDic" type="dict">
+        <dict type="array">
+            <array type="string"/>
+        </dict>
+    </field>
+    <field name="HighestMultiModuleInfoDic" type="dict">
+        <dict type="array">
+            <array type="string"/>
+        </dict>
+    </field>
+</class>

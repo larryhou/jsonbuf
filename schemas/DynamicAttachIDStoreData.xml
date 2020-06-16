@@ -1,0 +1,5 @@
+<class name="AttachIDStoreData">
+    <field name="NeedFindAttachedIds" type="array">
+        <array type="int"/>
+    </field>
+</class>

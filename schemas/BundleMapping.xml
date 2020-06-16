@@ -1,0 +1,31 @@
+<class name="BundleMappingContainer">
+    <field name="res" type="array">
+        <array type="class">
+            <class name="ExportAsset">
+                <field name="path" type="string"/>
+                <field name="assetID" type="int"/>
+                <field name="bundleName" type="string"/>
+            </class>
+        </array>
+    </field>
+    <field name="shaders" type="array">
+        <array type="class">
+            <class name="ExportShader">
+                <field name="path" type="string"/>
+                <field name="shaderName" type="string"/>
+                <field name="bundleName" type="string"/>
+            </class>
+        </array>
+    </field>
+    <field name="scenes" type="array">
+        <array type="class">
+            <class name="ExportScene">
+                <field name="path" type="string"/>
+                <field name="bundleName" type="string"/>
+            </class>
+        </array>
+    </field>
+    <field name="svc" type="array">
+        <array type="string"/>
+    </field>
+</class>

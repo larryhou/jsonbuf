@@ -205,6 +205,27 @@
                     "value": 40
                 }
             ]
+        },
+        {
+            "name": "GameEngine.AssetSplitLevel",
+            "cases": [
+                {
+                    "name": "None",
+                    "value": 0
+                },
+                {
+                    "name": "Normal",
+                    "value": 1
+                },
+                {
+                    "name": "Mid",
+                    "value": 2
+                },
+                {
+                    "name": "Low",
+                    "value": 4
+                }
+            ]
         }
     ]
 }

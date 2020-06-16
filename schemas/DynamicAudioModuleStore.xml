@@ -1,0 +1,17 @@
+<class name="AudioModuleStoreData">
+    <field name="AudioModules" type="array">
+        <array type="class">
+            <class name="AudioModuleData">
+                <field name="AudioModuleName" type="string"/>
+                <field name="Audios" type="array">
+                    <array type="class">
+                        <class name="AudioSpliteDataItem">
+                            <field name="AudioName" type="string"/>
+                            <field name="FirstPackage" type="bool"/>
+                        </class>
+                    </array>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

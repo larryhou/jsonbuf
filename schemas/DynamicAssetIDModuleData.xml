@@ -1,0 +1,13 @@
+<class name="AssetIDModuleData">
+    <field name="DefaultItems" type="array">
+        <array type="class">
+            <class name="AssetIDDefaultItem">
+                <field name="ID" type="int"/>
+                <field name="DefaultID" type="int"/>
+            </class>
+        </array>
+    </field>
+    <field name="DynamicAssetIDs" type="array">
+        <array type="int"/>
+    </field>
+</class>

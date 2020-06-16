@@ -1,0 +1,7 @@
+<class name="AttachIDData">
+    <field name="AssetAttachDict" type="dict">
+        <dict type="array" key="int">
+            <array type="int"/>
+        </dict>
+    </field>
+</class>

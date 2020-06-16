@@ -1,0 +1,47 @@
+<class name="AssetModuleStoreData">
+    <field name="Modules" type="array">
+        <array type="class">
+            <class name="AssetModule">
+                <field name="AssetModuleName" type="string"/>
+                <field name="SplitAssets" type="array">
+                    <array type="class">
+                        <class name="AssetSplitData">
+                            <field name="ID" type="int"/>
+                            <field name="AssetItem" type="class">
+                                <class name="AssetSplitItemData">
+                                    <field name="IsResSurport" type="bool"/>
+                                    <field name="IsFirstPackage" type="bool"/>
+                                    <field name="IsSilentDownload" type="bool"/>
+                                    <field name="assetSplitLevel" type="int" enum="AssetSplitLevel"/>
+                                </class>
+                            </field>
+                            <field name="MidQualityAssetItem" type="class">
+                                <class name="AssetSplitItemData"/>
+                            </field>
+                            <field name="LowQualityAssetItem" type="class">
+                                <class name="AssetSplitItemData"/>
+                            </field>
+                            <field name="defaultID" type="int"/>
+                            <field name="hasDefault" type="bool"/>
+                        </class>
+                    </array>
+                </field>
+            </class>
+        </array>
+    </field>
+    <field name="MultiModules" type="dict">
+        <dict type="array">
+            <array type="string"/>
+        </dict>
+    </field>
+    <field name="MultiModuleList" type="array">
+        <array type="class">
+            <class name="MultiModuleData">
+                <field name="multiModuleName" type="string"/>
+                <field name="ModuleList" type="array">
+                    <array type="string"/>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

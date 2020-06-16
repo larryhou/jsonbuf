@@ -1,0 +1,23 @@
+<class name="AssetToBundleManifest">
+    <field name="IdToABName" type="array">
+        <array type="string"/>
+    </field>
+    <field name="AssetIds" type="array">
+        <array type="int"/>
+    </field>
+    <field name="ABIds" type="array">
+        <array type="array">
+            <array type="array">
+                <array type="short"/>
+            </array>
+        </array>
+    </field>
+    <field name="IdToSceneName" type="array">
+        <array type="string"/>
+    </field>
+    <field name="SceneABIds" type="array">
+        <array type="array">
+            <array type="short"/>
+        </array>
+    </field>
+</class>

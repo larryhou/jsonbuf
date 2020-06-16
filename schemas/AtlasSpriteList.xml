@@ -1,0 +1,14 @@
+<class name="UIAtlasSpriteListData">
+    <field name="data" type="array">
+        <array type="class">
+            <class name="UIAtlasSpriteList">
+                <field name="atlasAssetId" type="int"/>
+                <field name="atlasAssetName" type="string"/>
+                <field name="spriteList" type="array">
+                    <array type="string"/>
+                </field>
+                <field name="atlasType" type="int"/>
+            </class>
+        </array>
+    </field>
+</class>

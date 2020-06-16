@@ -1,0 +1,18 @@
+<class name="VideoAndAudioDynamicLocation">
+    <field name="VideoDynamicLocation" type="dict">
+        <dict type="string"/>
+    </field>
+    <field name="AudioDynamicLocation" type="dict">
+        <dict type="string"/>
+    </field>
+    <field name="DynamicAudioFileListInfo" type="array">
+        <array type="class">
+            <class name="DynamicAudioDependsInfoItem">
+                <field name="AudioName" type="string"/>
+                <field name="DynamicFileList" type="array">
+                    <array type="string"/>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

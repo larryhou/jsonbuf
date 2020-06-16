@@ -1,0 +1,10 @@
+<class name="AssetBundleTransferManifest">
+    <field name="IdToABName" type="array">
+        <array type="string"/>
+    </field>
+    <field name="ABDependencies" type="array">
+        <array type="array">
+            <array type="short"/>
+        </array>
+    </field>
+</class>

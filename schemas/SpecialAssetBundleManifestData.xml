@@ -1,0 +1,10 @@
+<class name="SpecialAssetBundleManifest">
+    <field name="targetABIds" type="array">
+        <array type="short"/>
+    </field>
+    <field name="ABDependencies" type="array">
+        <array type="array">
+            <array type="short"/>
+        </array>
+    </field>
+</class>

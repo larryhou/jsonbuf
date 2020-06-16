@@ -1,0 +1,7 @@
+<class name="AssetBundleLocation">
+    <field name="DynamicInfoDic" type="dict">
+        <dict type="array" key="int">
+            <array type="string"/>
+        </dict>
+    </field>
+</class>

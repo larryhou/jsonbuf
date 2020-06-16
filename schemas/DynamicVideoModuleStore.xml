@@ -1,0 +1,17 @@
+<class name="VideoModuleStoreData">
+    <field name="VideoModules" type="array">
+        <array type="class">
+            <class name="VideoModuleData">
+                <field name="VideoModuleName" type="string"/>
+                <field name="Videos" type="array">
+                    <array type="class">
+                        <class name="VideoSpliteDataItem">
+                            <field name="VideoName" type="string"/>
+                            <field name="FirstPackage" type="bool"/>
+                        </class>
+                    </array>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>

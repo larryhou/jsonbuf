@@ -1,0 +1,38 @@
+<class name="StickerSocketDataStore">
+    <field name="Groups" type="array">
+        <array type="class">
+            <class name="WeaponStickerSocketContainer">
+                <field name="weaponAssetId" type="int"/>
+                <field name="stickerSockets" type="array">
+                    <array type="class">
+                        <class name="StickerSocketEntity">
+                            <field name="localOffset" type="class">
+                                <class name="Vector3">
+                                    <field name="x" type="float"/>
+                                    <field name="y" type="float"/>
+                                    <field name="z" type="float"/>
+                                </class>
+                            </field>
+                            <field name="localRotation" type="float"/>
+                            <field name="localSize" type="class">
+                                <class name="Vector2">
+                                    <field name="x" type="float"/>
+                                    <field name="y" type="float"/>
+                                </class>
+                            </field>
+                        </class>
+                    </array>
+                </field>
+                <field name="BoundCenter" type="class">
+                    <class name="Vector3"/>
+                </field>
+                <field name="BoundSize" type="class">
+                    <class name="Vector3"/>
+                </field>
+                <field name="localSpaceScale" type="class">
+                    <class name="Vector3"/>
+                </field>
+            </class>
+        </array>
+    </field>
+</class>
