@@ -309,7 +309,7 @@ class JsonbufSerializer(object):
             if value is None:
                 self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
-            assert schema.descriptor and isinstance(value, list)
+            assert isinstance(value, list)
             self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
@@ -324,7 +324,7 @@ class JsonbufSerializer(object):
             if value is None:
                 self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
-            assert schema.descriptor and isinstance(value, dict)
+            assert isinstance(value, dict)
             self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
@@ -435,11 +435,11 @@ def main():
     import argparse, sys
     arguments = argparse.ArgumentParser()
     arguments.add_argument('--command', '-c', choices=Commands.get_choices(), default=Commands.serialize)
-    arguments.add_argument('--class-nullable', action='store_true')
-    arguments.add_argument('--schema', '-s')
-    arguments.add_argument('--output', '-o', default='.')
-    arguments.add_argument('--verbose', '-v', action='store_true')
-    arguments.add_argument('--file', '-f')
+    arguments.add_argument('--class-nullable', action='store_true', help='allow class object encoded to null value')
+    arguments.add_argument('--schema', '-s', help='data structure definition')
+    arguments.add_argument('--output', '-o', default='.', help='path for saving generated files')
+    arguments.add_argument('--verbose', '-v', action='store_true', help='enable verbose printing')
+    arguments.add_argument('--file', '-f', help='intput file')
     options = arguments.parse_args(sys.argv[1:])
 
     script_path = p.dirname(p.abspath(__file__))
@@ -454,27 +454,28 @@ def main():
     if not schema_path:
         schema_path = p.join(script_path, 'schemas/{}.xml'.format(name))
         assert p.exists(schema_path), 'NOT_FOUND {}'.format(schema_path)
-
+    print('[S] {}'.format(schema_path))
+    print('[F] {}'.format(options.file))
     command = options.command # type: str
     schema = JsonbufSchema()
     descriptor = schema.load(filename=schema_path)
     serializer = JsonbufSerializer(schema=descriptor, class_nullable=options.class_nullable, verbose=options.verbose)
     print(schema.dumps())
-
     if command == Commands.serialize:
-        assert options.file
+        assert options.file and re.search(r'\.json$', options.file)
         serializer.context = json.load(fp=open(options.file, 'r'))
         with open('{}/{}.bytes'.format(output, name), 'wb') as fp:
             serializer.serialize(fp)
             print('>>> {} {:,}'.format(p.abspath(fp.name), fp.tell()))
     elif command == Commands.deserialize:
-        assert options.file
+        assert options.file and re.search(r'\.bytes$', options.file)
         data = serializer.deserilize(fp=open(options.file, 'rb'))
         content = json.dumps(data, indent=4, ensure_ascii=False)
         with open('{}/{}.json'.format(output, name), 'w') as fp:
             fp.write(content)
             print('>>> {}'.format(p.abspath(fp.name)))
             print(content)
+    print()
 
 if __name__ == '__main__':
     main()
