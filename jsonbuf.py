@@ -93,7 +93,7 @@ class JsonbufSchema(object):
         self.classes = {} # type: dict[str, ClassDescriptor]
 
     @staticmethod
-    def check_type(type):
+    def __check_type(type):
         assert 'JSONTYPE_{}'.format(type) in globals(), 'JSONTYPE_{}'.format(type)
 
     def load(self, filename):
@@ -131,7 +131,7 @@ class JsonbufSchema(object):
                 if descriptor.key != JSONTYPE_string: schema.set('key', descriptor.key)
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
             else:
-                self.check_type(descriptor.type)
+                self.__check_type(descriptor.type)
             if descriptor.filters:
                 for f in descriptor.filters:
                     item = etree.Element(f.tag)
@@ -161,7 +161,7 @@ class JsonbufSchema(object):
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
 
             else:
-                self.check_type(descriptor.type)
+                self.__check_type(descriptor.type)
         else:
             raise NotImplementedError('<{}/>'.format(descriptor.tag))
         return schema
@@ -185,7 +185,7 @@ class JsonbufSchema(object):
                 assert nest_schema.tag == type
                 descriptor = self.decode(schema=nest_schema, attr=attr)
             else:
-                self.check_type(type)
+                self.__check_type(type)
             filters = []
             for item in schema.xpath('./filter'):
                 f = ValueFilter()
@@ -230,7 +230,7 @@ class JsonbufSchema(object):
                 assert nest_schema.tag == field.type
                 field.descriptor = self.decode(schema=nest_schema, attr=attr)
             else:
-                self.check_type(field.type)
+                self.__check_type(field.type)
             return field
         else:
             raise NotImplementedError('<{}/> not supported'.format(tag))
