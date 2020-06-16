@@ -48,6 +48,7 @@ class DictionaryDescriptor(Descriptor):
     def __init__(self):
         super(DictionaryDescriptor, self).__init__('dict')
         self.type = ''
+        self.key = JSONTYPE_string
         self.descriptor = None # type: ClassDescriptor
 
 class ArrayDescriptor(Descriptor):
@@ -113,6 +114,7 @@ class JsonbufSchema(object):
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
             elif descriptor.type == 'dict':
                 assert isinstance(descriptor.descriptor, DictionaryDescriptor)
+                if descriptor.key != JSONTYPE_string: schema.set('key', descriptor.key)
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
             else:
                 self.check_type(descriptor.type)
@@ -163,6 +165,7 @@ class JsonbufSchema(object):
                 dictionary = DictionaryDescriptor()
                 dictionary.descriptor = descriptor
                 dictionary.type = type
+                dictionary.key = schema.get('key', JSONTYPE_string)
                 return dictionary
         elif tag == 'class':
             class_name = schema.get('name')
@@ -324,11 +327,11 @@ class JsonbufSerializer(object):
                        or isinstance(schema.descriptor, ArrayDescriptor) \
                        or isinstance(schema.descriptor, DictionaryDescriptor)
                 for k, v in value.items():
-                    self.__encode_v(k, type=JSONTYPE_string, buffer=buffer)
+                    self.__encode_v(k, type=schema.key, buffer=buffer)
                     self.__encode(schema.descriptor, value=v, buffer=buffer)
             else:
                 for k, v in value.items():
-                    self.__encode_v(k, type=JSONTYPE_string, buffer=buffer)
+                    self.__encode_v(k, type=schema.key, buffer=buffer)
                     self.__encode_v(v, type=schema.type, buffer=buffer)
         elif isinstance(schema, ClassDescriptor):
             if self.class_nullable:
@@ -384,11 +387,11 @@ class JsonbufSerializer(object):
                        or isinstance(schema.descriptor, ArrayDescriptor) \
                        or isinstance(schema.descriptor, DictionaryDescriptor)
                 for _ in range(size):
-                    key = self.__decode_v(JSONTYPE_string, buffer=buffer)
+                    key = self.__decode_v(schema.key, buffer=buffer)
                     data[key] = self.__decode(schema.descriptor, buffer=buffer)
             else:
                 for _ in range(size):
-                    key = self.__decode_v(JSONTYPE_string, buffer=buffer)
+                    key = self.__decode_v(schema.key, buffer=buffer)
                     data[key] = self.__decode_v(schema.type, buffer=buffer)
             return data
         elif isinstance(schema, ClassDescriptor):
