@@ -34,10 +34,9 @@ class CSharpGenerator(object):
             return 'List<{}>'.format(self.rtype(type=type.descriptor) if type.descriptor else self.ctype(type.type))
         if isinstance(type, DictionaryDescriptor):
             return 'Dictionary<{}, {}>'\
-                .format(type.key, self.rtype(type=type.descriptor) if type.descriptor else self.ctype(type.type))
+                .format(type.key, self.rtype(type=type) if type.descriptor else self.ctype(type.type))
         if isinstance(type, FieldDescriptor):
-            if type.descriptor:
-                return self.rtype(type=type.descriptor)
+            if type.descriptor: return self.rtype(type=type.descriptor)
             return self.ctype(type.type) if not type.enum else type.enum
         assert isinstance(type, str)
         return self.ctype(type)
