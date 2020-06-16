@@ -237,6 +237,14 @@ class JsonbufSerializer(object):
         if type == JSONTYPE_double or type.startswith('float'): return 0.0
         return None
 
+    @staticmethod
+    def __parse_key(value, type): # type: (str, str)->any
+        if type.startswith('int') or type.startswith('uint') \
+                or type in (JSONTYPE_byte, JSONTYPE_short, JSONTYPE_ushort, JSONTYPE_long, JSONTYPE_ulong): return int(value)
+        if type.startswith('float') or type == JSONTYPE_double: return float(value)
+        assert type == JSONTYPE_string
+        return value
+
     def __encode_v(self, value, type, buffer): # type: (any, str, io.BytesIO)->None
         if type == JSONTYPE_bool:
             buffer.write(struct.pack('b', 1 if value else 0))
@@ -331,11 +339,11 @@ class JsonbufSerializer(object):
                        or isinstance(schema.descriptor, ArrayDescriptor) \
                        or isinstance(schema.descriptor, DictionaryDescriptor)
                 for k, v in value.items():
-                    self.__encode_v(k, type=schema.key, buffer=buffer)
+                    self.__encode_v(self.__parse_key(k, type=schema.key), type=schema.key, buffer=buffer)
                     self.__encode(schema.descriptor, value=v, buffer=buffer)
             else:
                 for k, v in value.items():
-                    self.__encode_v(k, type=schema.key, buffer=buffer)
+                    self.__encode_v(self.__parse_key(k, type=schema.key), type=schema.key, buffer=buffer)
                     self.__encode_v(v, type=schema.type, buffer=buffer)
         elif isinstance(schema, ClassDescriptor):
             if self.class_nullable:
@@ -454,8 +462,8 @@ def main():
     if not schema_path:
         schema_path = p.join(script_path, 'schemas/{}.xml'.format(name))
         assert p.exists(schema_path), 'NOT_FOUND {}'.format(schema_path)
-    print('[S] {}'.format(schema_path))
     print('[F] {}'.format(options.file))
+    print('[S] {}'.format(schema_path))
     command = options.command # type: str
     schema = JsonbufSchema()
     descriptor = schema.load(filename=schema_path)
