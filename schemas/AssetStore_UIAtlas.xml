@@ -11,6 +11,7 @@
                             <field name="Path" type="string"/>
                             <field name="PathFlags" type="byte"/>
                         </class>
+                        <filter name="BuildToMobile" type="bool">true</filter>
                     </array>
                 </field>
             </class>

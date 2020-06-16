@@ -14,6 +14,7 @@
                 </field>
                 <field name="SOCDataPath" type="string"/>
             </class>
+            <filter name="BuildToMobile" type="bool">true</filter>
         </array>
     </field>
 </class>
