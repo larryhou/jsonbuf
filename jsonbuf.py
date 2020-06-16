@@ -49,6 +49,7 @@ class DictionaryDescriptor(Descriptor):
         super(DictionaryDescriptor, self).__init__('dict')
         self.type = ''
         self.key = JSONTYPE_string
+        self.filters = []  # type: list[ValueFilter]
         self.descriptor = None # type: ClassDescriptor
 
 class ArrayDescriptor(Descriptor):
@@ -56,6 +57,7 @@ class ArrayDescriptor(Descriptor):
         super(ArrayDescriptor, self).__init__('array')
         self.type = ''
         self.mutable = False
+        self.filters = [] # type: list[ValueFilter]
         self.descriptor = None # type: ClassDescriptor
 
 class ClassDescriptor(Descriptor):
@@ -64,7 +66,7 @@ class ClassDescriptor(Descriptor):
         self.name = ''
         self.fields = [] # type: list[FieldDescriptor]
 
-class JsonEnum(object):
+class SchemaEnum(object):
     def __init__(self):
         self.full_type = ''
         self.type = ''
@@ -77,6 +79,13 @@ class JsonEnum(object):
         for case in data['cases']:
             self.cases[case['name']] = case['value']
             self.names[case['value']] = case['name']
+
+class ValueFilter(Descriptor):
+    def __init__(self):
+        super(ValueFilter, self).__init__('filter')
+        self.name = ''
+        self.type = ''
+        self.value = None
 
 class JsonbufSchema(object):
     def __init__(self):
@@ -121,6 +130,13 @@ class JsonbufSchema(object):
                 schema.append(self.encode(descriptor.descriptor, attr=attr))
             else:
                 self.check_type(descriptor.type)
+            if descriptor.filters:
+                for f in descriptor.filters:
+                    item = etree.Element(f.tag)
+                    item.set('name', f.name)
+                    item.set('type', f.type)
+                    item.text = str(f.value)
+                    schema.append(item)
         elif isinstance(descriptor, ClassDescriptor):
             schema.set('name', descriptor.name)
             if descriptor.name not in attr:
@@ -148,6 +164,15 @@ class JsonbufSchema(object):
             raise NotImplementedError('<{}/>'.format(descriptor.tag))
         return schema
 
+    @staticmethod
+    def __parse_filter(v, type): # type: (str, str)->any
+        if type == JSONTYPE_bool: return v.lower() == 'true'
+        if type == JSONTYPE_float: return float(v)
+        if type == JSONTYPE_int: return int(v)
+        if type == 'null': return None
+        assert type == JSONTYPE_string
+        return v
+
     def decode(self, schema, attr): # type: (etree.Element, dict)->Descriptor
         tag = schema.tag
         if tag in ('array', 'dict'):
@@ -159,17 +184,26 @@ class JsonbufSchema(object):
                 descriptor = self.decode(schema=nest_schema, attr=attr)
             else:
                 self.check_type(type)
+            filters = []
+            for item in schema.xpath('./filter'):
+                f = ValueFilter()
+                f.name = item.get('name', '')
+                f.type = item.get('type', JSONTYPE_string)
+                f.value = self.__parse_filter(item.text, type=f.type)
+                if f.value: filters.append(f)
             if tag == 'array':
                 array = ArrayDescriptor()
                 array.descriptor = descriptor
                 array.type = type
                 array.mutable = schema.get('mutable', False)
+                array.filters = filters
                 return array
             else:
                 dictionary = DictionaryDescriptor()
                 dictionary.descriptor = descriptor
                 dictionary.type = type
                 dictionary.key = schema.get('key', JSONTYPE_string)
+                dictionary.filters = filters
                 return dictionary
         elif tag == 'class':
             class_name = schema.get('name')
@@ -205,7 +239,7 @@ class JsonbufSerializer(object):
         self.class_nullable = class_nullable
         self.enable_default = enable_default
         self.verbose = verbose
-        self.enums = {} # type: dict[str, JsonEnum]
+        self.enums = {} # type: dict[str, SchemaEnum]
         self.context = None
         self.endian = '<'
         self.__setup()
@@ -215,7 +249,7 @@ class JsonbufSerializer(object):
         if p.exists(config_path):
             data = json.load(fp=open(config_path, 'r')) # type: dict
             for definition in data.get('enums', []):
-                enum = JsonEnum()
+                enum = SchemaEnum()
                 enum.fill(data=definition)
                 self.enums[enum.type] = enum
 
@@ -312,19 +346,36 @@ class JsonbufSerializer(object):
             raise NotImplementedError('Not support for decoding value with {!r} type'.format(type))
         return v
 
+    @staticmethod
+    def __filter(v, filters): # type: (dict, list[ValueFilter])->bool
+        if not filters: return True
+        for f in filters:
+            if v.get(f.name) == f.value: return True
+        return False
+
     def __encode(self, schema, value, buffer): # type: (Descriptor, any, io.BytesIO)->None
         if isinstance(schema, ArrayDescriptor):
             if value is None:
                 self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
             assert isinstance(value, list)
-            self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
+            shift = buffer.tell()
+            total = len(value)
+            self.__encode_v(total, type=JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
                        or isinstance(schema.descriptor, ArrayDescriptor) \
                        or isinstance(schema.descriptor, DictionaryDescriptor)
-                for element in value:
+                count = 0
+                for element in value: # type: dict
+                    if not self.__filter(element, schema.filters): continue
                     self.__encode(schema.descriptor, value=element, buffer=buffer)
+                    count += 1
+                if count < total:
+                    top = buffer.tell()
+                    buffer.seek(shift)
+                    self.__encode_v(count, type=JSONTYPE_uint32, buffer=buffer)
+                    buffer.seek(top)
             else:
                 for element in value:
                     self.__encode_v(element, type=schema.type, buffer=buffer)
@@ -333,14 +384,24 @@ class JsonbufSerializer(object):
                 self.__encode_v(-1, type=JSONTYPE_int32, buffer=buffer)
                 return
             assert isinstance(value, dict)
-            self.__encode_v(len(value), type=JSONTYPE_uint32, buffer=buffer)
+            shift = buffer.tell()
+            total = len(value)
+            self.__encode_v(total, type=JSONTYPE_uint32, buffer=buffer)
             if schema.descriptor:
                 assert isinstance(schema.descriptor, ClassDescriptor) \
                        or isinstance(schema.descriptor, ArrayDescriptor) \
                        or isinstance(schema.descriptor, DictionaryDescriptor)
-                for k, v in value.items():
+                count = 0
+                for k, v in value.items(): # type: str, dict
+                    if not self.__filter(v, schema.filters): continue
                     self.__encode_v(self.__parse_key(k, type=schema.key), type=schema.key, buffer=buffer)
                     self.__encode(schema.descriptor, value=v, buffer=buffer)
+                    count += 1
+                if count < total:
+                    top = buffer.tell()
+                    buffer.seek(shift)
+                    self.__encode_v(count, type=JSONTYPE_uint32, buffer=buffer)
+                    buffer.seek(top)
             else:
                 for k, v in value.items():
                     self.__encode_v(self.__parse_key(k, type=schema.key), type=schema.key, buffer=buffer)
