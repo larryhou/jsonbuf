@@ -49,7 +49,7 @@ class DictionaryDescriptor(Descriptor):
         super(DictionaryDescriptor, self).__init__('dict')
         self.type = ''
         self.key = JSONTYPE_string
-        self.filters = []  # type: list[ValueFilter]
+        self.filters = []  # type: list[FilterDescriptor]
         self.descriptor = None # type: ClassDescriptor
 
 class ArrayDescriptor(Descriptor):
@@ -57,7 +57,7 @@ class ArrayDescriptor(Descriptor):
         super(ArrayDescriptor, self).__init__('array')
         self.type = ''
         self.mutable = False
-        self.filters = [] # type: list[ValueFilter]
+        self.filters = [] # type: list[FilterDescriptor]
         self.descriptor = None # type: ClassDescriptor
 
 class ClassDescriptor(Descriptor):
@@ -80,9 +80,9 @@ class SchemaEnum(object):
             self.cases[case['name']] = case['value']
             self.names[case['value']] = case['name']
 
-class ValueFilter(Descriptor):
+class FilterDescriptor(Descriptor):
     def __init__(self):
-        super(ValueFilter, self).__init__('filter')
+        super(FilterDescriptor, self).__init__('filter')
         self.name = ''
         self.type = ''
         self.value = None
@@ -188,7 +188,7 @@ class JsonbufSchema(object):
                 self.__check_type(type)
             filters = []
             for item in schema.xpath('./filter'):
-                f = ValueFilter()
+                f = FilterDescriptor()
                 f.name = item.get('name', '')
                 f.type = item.get('type', JSONTYPE_string)
                 f.value = self.__parse_filter(item.text, type=f.type)
@@ -349,7 +349,7 @@ class JsonbufSerializer(object):
         return v
 
     @staticmethod
-    def __filter(v, filters): # type: (dict, list[ValueFilter])->bool
+    def __filter(v, filters): # type: (dict, list[FilterDescriptor])->bool
         if not filters: return True
         for f in filters:
             if v.get(f.name) == f.value: return True
