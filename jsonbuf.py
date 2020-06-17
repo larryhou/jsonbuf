@@ -64,6 +64,7 @@ class ClassDescriptor(Descriptor):
     def __init__(self):
         super(ClassDescriptor, self).__init__('class')
         self.name = ''
+        self.namespace = ''
         self.fields = [] # type: list[FieldDescriptor]
 
 class SchemaEnum(object):
@@ -141,6 +142,7 @@ class JsonbufSchema(object):
                     schema.append(item)
         elif isinstance(descriptor, ClassDescriptor):
             schema.set('name', descriptor.name)
+            if descriptor.namespace: schema.set('namespace', descriptor.namespace)
             if descriptor.name not in attr:
                 attr[descriptor.name] = schema
                 assert descriptor.fields
@@ -214,6 +216,7 @@ class JsonbufSchema(object):
             else:
                 cls = ClassDescriptor()
                 cls.name = schema.get('name')
+                cls.namespace = schema.get('namespace', '')
                 attr[cls.name] = cls
                 for item in schema.xpath('./*'):
                     assert item.tag == 'field'
