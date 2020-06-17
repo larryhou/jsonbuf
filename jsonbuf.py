@@ -92,6 +92,7 @@ class JsonbufSchema(object):
     def __init__(self):
         self.descriptor = None # type: Descriptor
         self.classes = {} # type: dict[str, ClassDescriptor]
+        self.name = ''
 
     @staticmethod
     def __check_type(type):
@@ -101,6 +102,7 @@ class JsonbufSchema(object):
         self.classes = {}
         schema = etree.parse(filename).getroot()
         self.descriptor = self.decode(schema, attr=self.classes)
+        self.name = re.sub(r'\.[^.]+$', '', p.basename(filename))
         return self.descriptor
 
     def dumps(self):
