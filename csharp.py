@@ -21,6 +21,7 @@ class IndexAttr(object):
 class CSharpGenerator(object):
     def __init__(self, schema, fp):
         self.schema = schema  # type: JsonbufSchema
+        self.bridges = JsonbufBridges()
         self.indent = '    '
         self.__fp = fp
 
@@ -29,18 +30,36 @@ class CSharpGenerator(object):
         self.__fp.write('\n')
         print(line)
 
+    def __get_namespaces(self, descriptor): # type: (Descriptor)->list[str]
+        namespaces = []
+        if isinstance(descriptor, ArrayDescriptor) or isinstance(descriptor, DictionaryDescriptor):
+            if descriptor.descriptor:
+                namespaces.extend(self.__get_namespaces(descriptor.descriptor))
+        elif isinstance(descriptor, ClassDescriptor):
+            for field in descriptor.fields:
+                namespaces.extend(self.__get_namespaces(field))
+        elif isinstance(descriptor, FieldDescriptor):
+            if descriptor.descriptor:
+                namespaces.extend(self.__get_namespaces(descriptor.descriptor))
+            elif descriptor.enum:
+                enum = self.bridges.enums[descriptor.enum]  # type: JsonbufEnumBridge
+                namespaces.append(enum.namespace)
+        return namespaces
+
     def generate(self):
-        self.__write('using System.Collections.Generic;\n')
-        self.__write('namespace jsonbuf.{}\n{{'.format(self.schema.name))
+        uniques = []
+        namespaces = self.__get_namespaces(self.schema.descriptor)
+        self.__write('using System.Collections.Generic;')
+        for ns in namespaces:
+            if ns in uniques: continue
+            uniques.append(ns)
+            self.__write('using {};'.format(ns))
+        self.__write('')
         for name, cls in self.schema.classes.items():
-            subindent = self.indent
-            if cls.namespace:
-                subindent += self.indent
-                self.__write('{}namespace {}'.format(self.indent, cls.namespace))
-                self.__write('%s{' % self.indent)
-            self.__generate_class(cls, indent=subindent)
-            if cls.namespace: self.__write('%s}' % self.indent)
-        self.__write('}')
+            ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
+            self.__write('namespace %s\n{' % ns)
+            self.__generate_class(cls, indent=self.indent)
+            self.__write('}')
 
     @staticmethod
     def __ctype(type): # type: (str)->str
@@ -72,7 +91,7 @@ class CSharpGenerator(object):
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__write('{}public class {}'.format(indent, cls.name))
+        self.__write('{}public partial class {}'.format(indent, cls.name))
         self.__write('{}{{'.format(indent))
         for filed in cls.fields:
             self.__write('{}    public {} {};'.format(indent, self.__rtype(filed), filed.name))

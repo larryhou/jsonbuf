@@ -1,0 +1,74 @@
+<jsonbuf>
+    <enums>
+        <enum name="EAssetCategory" namespace="GameEngine">
+            <case value="0" name="None"/>
+            <case value="1" name="Atlas"/>
+            <case value="2" name="Avatar"/>
+            <case value="3" name="Weapon"/>
+            <case value="4" name="Vehicle"/>
+            <case value="5" name="KillStreak"/>
+            <case value="6" name="DynamicLoad"/>
+            <case value="7" name="ScriptableObject"/>
+        </enum>
+        <enum name="EAssetTag" namespace="GameEngine">
+            <case value="0" name="None"/>
+            <case value="1" name="EditorOnly"/>
+            <case value="2" name="FirstPackage"/>
+            <case value="3" name="GM"/>
+            <case value="4" name="Global"/>
+            <case value="5" name="Loading"/>
+            <case value="6" name="Login"/>
+            <case value="7" name="Loading_PVP"/>
+            <case value="8" name="Loading_PVE"/>
+            <case value="9" name="Weapon"/>
+            <case value="10" name="Avatar_Human"/>
+            <case value="11" name="Avatar_Monster"/>
+            <case value="12" name="KillStreak"/>
+            <case value="13" name="BattleCommon"/>
+            <case value="14" name="PVPCommon"/>
+            <case value="15" name="PVP_DOM"/>
+            <case value="16" name="PVP_HP"/>
+            <case value="17" name="PVP_PH"/>
+            <case value="18" name="PVECommon"/>
+            <case value="19" name="PVE_MultiPlayer"/>
+            <case value="20" name="SPCommon"/>
+            <case value="21" name="Tutorial"/>
+            <case value="22" name="TutorialFrontEnd"/>
+            <case value="23" name="PVE_PVPTutorial"/>
+            <case value="24" name="PVE_PVPTutorialLoading"/>
+            <case value="25" name="FrontEnd"/>
+            <case value="26" name="UIAtlas_Global"/>
+            <case value="27" name="UIAtlas_FrontEnd"/>
+            <case value="28" name="UIAtlas_InGame"/>
+            <case value="29" name="WeaponPartUI"/>
+            <case value="30" name="WeaponPart"/>
+            <case value="31" name="WeaponCamos"/>
+            <case value="32" name="WeaponController"/>
+            <case value="33" name="BR"/>
+            <case value="34" name="Vehicle"/>
+            <case value="35" name="Destructible"/>
+            <case value="36" name="DynamicLoad"/>
+            <case value="37" name="SceneDynamicLoad"/>
+            <case value="38" name="Multimedia"/>
+            <case value="39" name="ShaderDependency"/>
+            <case value="40" name="ScriptableObject"/>
+        </enum>
+        <enum name="AssetSplitLevel" namespace="GameEngine">
+            <case value="0" name="None"/>
+            <case value="1" name="Normal"/>
+            <case value="2" name="Mid"/>
+            <case value="4" name="Low"/>
+        </enum>
+        <enum name="AssetModuleDynamicType" namespace="GameEngine">
+            <case value="0" name="None"/>
+            <case value="1" name="SilentDownload"/>
+            <case value="2" name="ForceDownload"/>
+            <case value="3" name="Both"/>
+        </enum>
+    </enums>
+    <classes>
+        <class name="Vector2" namespace="UnityEngine"/>
+        <class name="Vector3" namespace="UnityEngine"/>
+        <class name="Vector4" namespace="UnityEngine"/>
+    </classes>
+</jsonbuf>

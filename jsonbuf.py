@@ -67,19 +67,43 @@ class ClassDescriptor(Descriptor):
         self.namespace = ''
         self.fields = [] # type: list[FieldDescriptor]
 
-class SchemaEnum(object):
+class JsonbufClassBridge(object):
     def __init__(self):
-        self.full_type = ''
-        self.type = ''
-        self.cases = {}
-        self.names = {}
+        self.namespace = ''
+        self.name = ''
 
-    def fill(self, data): # type: (dict)->None
-        self.full_type = data['name'] # type: str
-        self.type = self.full_type.split('.')[-1]
-        for case in data['cases']:
-            self.cases[case['name']] = case['value']
-            self.names[case['value']] = case['name']
+class JsonbufEnumBridge(JsonbufClassBridge):
+    def __init__(self):
+        super(JsonbufEnumBridge, self).__init__()
+        self.values = {} # type: dict[int, str]
+        self.cases = {} # type: dict[str, int]
+
+class JsonbufBridges(object):
+    def __init__(self):
+        self.classes = {} # type: dict[str, JsonbufClassBridge]
+        self.enums = {} # type: dict[str, JsonbufEnumBridge]
+        self.__setup()
+
+    def __setup(self):
+        filename = p.join(p.dirname(p.abspath(__file__)), 'jsonbuf.xml')
+        if p.exists(filename):
+            data = etree.parse(filename).getroot()
+            for item in data.xpath('//enums/enum'):
+                enum = JsonbufEnumBridge()
+                enum.namespace = item.get('namespace')
+                enum.name = item.get('name')
+                for case in item.xpath('./case'):
+                    case_name = case.get('name')
+                    case_value = int(case.get('value'))
+                    enum.values[case_value] = case_name
+                    enum.cases[case_name] = case_value
+                self.enums[enum.name] = enum
+
+            for item in data.xpath('//classes/class'):
+                cls = JsonbufClassBridge()
+                cls.namespace = item.get('namespace')
+                cls.name = item.get('name')
+                self.classes[cls.name] = cls
 
 class FilterDescriptor(Descriptor):
     def __init__(self):
@@ -246,19 +270,10 @@ class JsonbufSerializer(object):
         self.class_nullable = class_nullable
         self.enable_default = enable_default
         self.verbose = verbose
-        self.enums = {} # type: dict[str, SchemaEnum]
+        self.bridges = JsonbufBridges()
+        self.enums = self.bridges.enums # type: dict[str, JsonbufEnumBridge]
         self.context = None
         self.endian = '<'
-        self.__setup()
-
-    def __setup(self):
-        config_path = p.join(p.dirname(p.abspath(__file__)), 'jsonbuf.json')
-        if p.exists(config_path):
-            data = json.load(fp=open(config_path, 'r')) # type: dict
-            for definition in data.get('enums', []):
-                enum = SchemaEnum()
-                enum.fill(data=definition)
-                self.enums[enum.type] = enum
 
     def serialize(self, fp): # type: (io.BytesIO)->None
         self.__encode(self.schema, value=self.context, buffer=fp)
@@ -494,7 +509,7 @@ class JsonbufSerializer(object):
                 return self.__decode(schema.descriptor, buffer=buffer)
             else:
                 v = self.__decode_v(schema.type, buffer=buffer)
-                return self.enums[schema.enum].names[v] if schema.enum else v
+                return self.enums[schema.enum].values[v] if schema.enum else v
 
 class Commands(object):
     serialize = 'serialize'
