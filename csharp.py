@@ -59,7 +59,7 @@ class CSharpGenerator(object):
             ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
             self.__write('namespace %s\n{' % ns)
             self.__generate_class(cls, indent=self.indent)
-            self.__write('}')
+            self.__write('}\n')
 
     @staticmethod
     def __ctype(type): # type: (str)->str
