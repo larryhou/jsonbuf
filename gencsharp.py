@@ -91,7 +91,7 @@ class CSharpGenerator(object):
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__write('{}public partial class {}'.format(indent, cls.name))
+        self.__write('{}public partial class {}:IJsonbuf'.format(indent, cls.name))
         self.__write('{}{{'.format(indent))
         for filed in cls.fields:
             self.__write('{}    public {} {};'.format(indent, self.__rtype(filed), filed.name))
