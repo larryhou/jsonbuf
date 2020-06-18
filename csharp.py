@@ -115,7 +115,8 @@ class CSharpGenerator(object):
         elif type == JSONTYPE_string: return 'ReadString'
         raise NotImplementedError('Type[={}] not supported'.format(type))
 
-    def __var_name(self, index): # type: (int)->str
+    @staticmethod
+    def __local_name(index): # type: (int)->str
         shift = ord('l') - 97
         value = ''
         while index > 0:
@@ -130,7 +131,7 @@ class CSharpGenerator(object):
             self.__write('{}{} = new {}();'.format(indent, name, self.__rtype(descriptor)))
             self.__write('{}{}.Deserialize(decoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
-            index = self.__var_name(attr.next)
+            index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             element = 't{}'.format(index)
             self.__write('{}var {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
@@ -152,7 +153,7 @@ class CSharpGenerator(object):
                 self.__write('{}    {}[{}] = {};'.format(indent, name, index, element))
             self.__write('%s}}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
-            index = self.__var_name(attr.next)
+            index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             key = 'k{}'.format(index)
             val = 'v{}'.format(index)
@@ -184,7 +185,7 @@ class CSharpGenerator(object):
         if isinstance(descriptor, ClassDescriptor):
             self.__write('{}{}.Serialize(encoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
-            index = self.__var_name(attr.next)
+            index = self.__local_name(attr.next)
             count = ('{}.Count' if descriptor.mutable else '{}.Length').format(name)
             element = 't{}'.format(index)
             self.__write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
@@ -198,7 +199,7 @@ class CSharpGenerator(object):
                 self.__write('{}    encoder.Write({});'.format(indent, element))
             self.__write('%s}}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
-            index = self.__var_name(attr.next)
+            index = self.__local_name(attr.next)
             count = '{}.Count'.format(name)
             pair = 'p{}'.format(index)
             self.__write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
