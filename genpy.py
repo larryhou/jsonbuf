@@ -28,22 +28,6 @@ class PyGenerator(object):
     @property
     def filename(self): return self.__code.filename
 
-    def __get_namespaces(self, descriptor): # type: (Descriptor)->list[str]
-        namespaces = []
-        if isinstance(descriptor, ArrayDescriptor) or isinstance(descriptor, DictionaryDescriptor):
-            if descriptor.descriptor:
-                namespaces.extend(self.__get_namespaces(descriptor.descriptor))
-        elif isinstance(descriptor, ClassDescriptor):
-            for field in descriptor.fields:
-                namespaces.extend(self.__get_namespaces(field))
-        elif isinstance(descriptor, FieldDescriptor):
-            if descriptor.descriptor:
-                namespaces.extend(self.__get_namespaces(descriptor.descriptor))
-            elif descriptor.enum:
-                enum = self.bridges.enums[descriptor.enum]  # type: JsonbufEnumBridge
-                namespaces.append(enum.namespace)
-        return namespaces
-
     def generate(self):
         self.__code.write('from jsonbuf import *')
         self.__code.write('')
