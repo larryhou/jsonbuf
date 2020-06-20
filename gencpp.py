@@ -4,6 +4,7 @@
 from __future__ import print_function
 from jsonbuf import *
 import os.path as p
+import typing
 
 class IndexAttr(object):
     def __init__(self, value):
@@ -19,15 +20,20 @@ class IndexAttr(object):
         return self.__next
 
 class CppGenerator(object):
-    def __init__(self, schema, fp):
+    def __init__(self, schema, output):
         self.schema = schema  # type: JsonbufSchema
         self.bridges = JsonbufBridges()
         self.indent = '    '
-        self.__fp = fp
+        self.__header = CodeWriter(filename=p.join(output, '{}.h'.format(self.schema.name)))
+        self.__cpp = CodeWriter(filename=p.join(output, '{}.cpp'.format(self.schema.name)))
 
-    def __write(self, line):
-        self.__fp.write(line)
-        self.__fp.write('\n')
+    @property
+    def filenames(self): return self.__header.filename, self.__cpp.filename
+
+    def __write(self, line, fp=None):
+        if not fp: fp = self.__cpp
+        fp.write(line)
+        fp.write('\n')
         print(line)
 
     def __get_namespaces(self, descriptor): # type: (Descriptor)->list[str]
@@ -47,32 +53,44 @@ class CppGenerator(object):
         return namespaces
 
     def generate(self):
+        self.__header.write('#include "jsonbuf.h"')
+        self.__header.write('')
+        self.__header.write('#include <string>')
+        self.__header.write('#include <vector>')
+        self.__header.write('#include <map>')
+        self.__header.write('')
+        self.__cpp.write('#include "{}.h"'.format(self.schema.name))
+        self.__cpp.write('')
         uniques = []
-        namespaces = self.__get_namespaces(self.schema.descriptor)
-        self.__write('using System.Collections.Generic;')
-        for ns in namespaces:
-            if ns in uniques: continue
-            uniques.append(ns)
-            self.__write('using {};'.format(ns))
-        self.__write('')
-        for name, cls in self.schema.classes.items():
+        count = self.schema.classes['count'] # type: int
+        for n in range(count):
+            cls = self.schema.classes[n] # type: ClassDescriptor
             ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
-            self.__write('namespace %s\n{' % ns)
+            components = ns.split('.')
+            for name in components:
+                self.__header.write('namespace %s { ' % name, newline=False)
+            self.__header.write('')
+            if ns not in uniques:
+                self.__cpp.write('using namespace {};\n'.format(ns.replace('.', '::')))
+                uniques.append(ns)
             self.__generate_class(cls, indent=self.indent)
-            self.__write('}\n')
+            self.__header.write('{}\n'.format('}' * len(components)))
+        self.__header.close(True)
+        self.__cpp.close(True)
 
     @staticmethod
     def __ctype(type): # type: (str)->str
-        if type == JSONTYPE_int8: return 'sbyte'
-        if type in (JSONTYPE_uint8, JSONTYPE_byte): return 'byte'
-        if type in (JSONTYPE_short, JSONTYPE_int16): return 'short'
-        if type in (JSONTYPE_ushort, JSONTYPE_uint16): return 'ushort'
-        if type in (JSONTYPE_ulong, JSONTYPE_uint64): return 'ulong'
-        if type in (JSONTYPE_long, JSONTYPE_int64): return 'long'
-        if type in (JSONTYPE_int, JSONTYPE_int32): return 'int'
-        if type in (JSONTYPE_uint, JSONTYPE_uint32): return 'uint'
+        if type == JSONTYPE_int8: return 'int8_t'
+        if type in (JSONTYPE_uint8, JSONTYPE_byte): return 'uint8_t'
+        if type in (JSONTYPE_short, JSONTYPE_int16): return 'int16_t'
+        if type in (JSONTYPE_ushort, JSONTYPE_uint16): return 'uint16_t'
+        if type in (JSONTYPE_ulong, JSONTYPE_uint64): return 'uint64_t'
+        if type in (JSONTYPE_long, JSONTYPE_int64): return 'int64_t'
+        if type in (JSONTYPE_int, JSONTYPE_int32): return 'int32_t'
+        if type in (JSONTYPE_uint, JSONTYPE_uint32): return 'uint32_t'
         if type in (JSONTYPE_float, JSONTYPE_float32): return 'float'
         if type in (JSONTYPE_double, JSONTYPE_float64): return 'double'
+        if type in (JSONTYPE_double, JSONTYPE_string): return 'std::string'
         return type
 
     def __rtype(self, type):
@@ -81,40 +99,44 @@ class CppGenerator(object):
             return 'std::vector<{}>'.format(self.__rtype(type=type.descriptor) if type.descriptor else self.__ctype(type.type))
         if isinstance(type, DictionaryDescriptor):
             return 'std::map<{},{}>'\
-                .format(type.key, self.__rtype(type=type.descriptor) if type.descriptor else self.__ctype(type.type))
+                .format(self.__ctype(type.key), self.__rtype(type=type.descriptor) if type.descriptor else self.__ctype(type.type))
         if isinstance(type, FieldDescriptor):
             if type.descriptor: return self.__rtype(type=type.descriptor)
-            return self.__ctype(type.type) if not type.enum else type.enum
+            return self.__ctype(type.type)
         assert isinstance(type, str)
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__write('{}public partial class {}:IJsonbuf'.format(indent, cls.name))
-        self.__write('{}{{'.format(indent))
+        self.__header.write('{}class {}: public IJsonbuf'.format(indent, cls.name))
+        self.__header.write('{}{{'.format(indent))
+        self.__header.write('{}  public:'.format(indent))
         for filed in cls.fields:
-            self.__write('{}    public {} {};'.format(indent, self.__rtype(filed), filed.name))
-        self.__write('')
-        self.__generate_encode_method(cls, indent=indent + self.indent)
-        self.__write('')
-        self.__generate_decode_method(cls, indent=indent + self.indent)
-        self.__write('{}}}'.format(indent))
-        self.__write('')
+            self.__header.write('{}    {} {};'.format(indent, self.__rtype(filed), filed.name))
+        self.__header.write('')
+        self.__header.write('{}  public:'.format(indent))
+        self.__header.write('{}    void deserialize(JsonbufStream& decoder);'.format(indent))
+        self.__generate_decode_method(cls, indent='')
+        self.__cpp.write('')
+        self.__header.write('{}    void serialize(JsonbufStream& encoder);'.format(indent))
+        self.__generate_encode_method(cls, indent='')
+        self.__cpp.write('')
+        self.__header.write('{}}};'.format(indent))
 
     def __generate_decode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__write('{}void {}::deserialize(JsonbufStream& decoder)'.format(indent, cls.name))
-        self.__write('{}{{'.format(indent))
+        self.__cpp.write('{}void {}::deserialize(JsonbufStream& decoder)'.format(indent, cls.name))
+        self.__cpp.write('{}{{'.format(indent))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_decode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        self.__write('{}}}'.format(indent))
+        self.__cpp.write('{}}}'.format(indent))
 
     def __generate_encode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__write('{}void {}::serialize(JsonbufStream& encoder)'.format(indent, cls.name))
-        self.__write('{}{{'.format(indent))
+        self.__cpp.write('{}void {}::serialize(JsonbufStream& encoder)'.format(indent, cls.name))
+        self.__cpp.write('{}{{'.format(indent))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_encode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        self.__write('{}}}'.format(indent))
+        self.__cpp.write('{}}}'.format(indent))
 
     @staticmethod
     def __get_decode_m(type):
@@ -161,86 +183,86 @@ class CppGenerator(object):
 
     def __generate_decode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__write('{}{}.deserialize(decoder);'.format(indent, name))
+            self.__cpp.write('{}{}.deserialize(decoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             element = 't{}'.format(index)
-            self.__write('{}auto {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            self.__write('{}{}.reserve({});'.format(indent, name, count))
-            self.__write('{}if ({} == 0xFFFFFFFF) {{ {} = NULL; }} else {{'.format(indent, count, name))
-            self.__write('{}for (auto {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
-            self.__write('%s{' % indent)
-            self.__write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), element))
+            self.__cpp.write('{}auto {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            # self.__cpp.write('{}{}.reserve({});'.format(indent, name, count))
+            self.__cpp.write('{}if ({} == 0xFFFFFFFF) {{ {} = {}(); }} else {{'.format(indent, count, name, self.__rtype(descriptor)))
+            self.__cpp.write('{}for (auto {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
+            self.__cpp.write('%s{' % indent)
+            self.__cpp.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), element))
             if descriptor.descriptor:
                 self.__generate_decode_field(element, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    {} = decoder.{}();'.format(indent, element, self.__get_decode_m(descriptor.type)))
-            self.__write('{}    {}.emplace_back({});'.format(indent, name, element))
-            self.__write('%s}}' % indent)
+                self.__cpp.write('{}    {} = decoder.{}();'.format(indent, element, self.__get_decode_m(descriptor.type)))
+            self.__cpp.write('{}    {}.emplace_back({});'.format(indent, name, element))
+            self.__cpp.write('%s}}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             key = 'k{}'.format(index)
             val = 'v{}'.format(index)
-            self.__write('{}auto {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            self.__write('{}{}.reserve({});'.format(indent, name, count))
-            self.__write('{}if ({} == 0xFFFFFFFF) {{ {} = null; }} else {{'.format(indent, count, name))
-            self.__write('{}for (auto {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
-            self.__write('%s{' % indent)
-            self.__write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), val))
-            self.__write('{}    auto {} = decoder.{}();'.format(indent, key, self.__get_decode_m(descriptor.key)))
+            self.__cpp.write('{}auto {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            # self.__cpp.write('{}{}.reserve({});'.format(indent, name, count))
+            self.__cpp.write('{}if ({} == 0xFFFFFFFF) {{ {} = {}(); }} else {{'.format(indent, count, name, self.__rtype(descriptor)))
+            self.__cpp.write('{}for (auto {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
+            self.__cpp.write('%s{' % indent)
+            self.__cpp.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), val))
+            self.__cpp.write('{}    auto {} = decoder.{}();'.format(indent, key, self.__get_decode_m(descriptor.key)))
             if descriptor.descriptor:
                 self.__generate_decode_field(val, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    {} = decoder.{}();'.format(indent, val, self.__get_decode_m(descriptor.type)))
-            self.__write('{}    {}.insert(std::make_pair({}, {}));'.format(indent, name, key, val))
-            self.__write('%s}}' % indent)
+                self.__cpp.write('{}    {} = decoder.{}();'.format(indent, val, self.__get_decode_m(descriptor.type)))
+            self.__cpp.write('{}    {}.insert(std::make_pair({}, {}));'.format(indent, name, key, val))
+            self.__cpp.write('%s}}' % indent)
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
             if field.descriptor:
                 self.__generate_decode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
-                self.__write('{}{} = decoder.{}();'.format(indent, name, self.__get_decode_m(field.type)))
+                self.__cpp.write('{}{} = decoder.{}();'.format(indent, name, self.__get_decode_m(field.type)))
 
     def __generate_encode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__write('{}{}.serialize(encoder);'.format(indent, name))
+            self.__cpp.write('{}{}.serialize(encoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = '{}.size()'.format(name)
+            static_cast_count = 'static_cast<{}>({})'.format(self.__ctype(JSONTYPE_uint32), count)
             element = '*{}'.format(index)
-            self.__write('{}if ({} == null) {{ encoder.{}(-1); }} else {{'.format(indent, name, self.__get_encode_m(JSONTYPE_int)))
-            self.__write('{}encoder.{}({});'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
-            self.__write('{}for (auto {} = {}.begin(); {} != {}.end(); {}++)'.format(indent, index, name, index, name, index))
-            self.__write('%s{' % indent)
+            self.__cpp.write('{}encoder.{}({});'.format(indent, self.__get_encode_m(JSONTYPE_uint), static_cast_count))
+            self.__cpp.write('{}for (auto {} = {}.begin(); {} != {}.end(); {}++)'.format(indent, index, name, index, name, index))
+            self.__cpp.write('%s{' % indent)
             if descriptor.descriptor:
-                self.__generate_encode_field(element, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
+                self.__generate_encode_field('({})'.format(element), descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    encoder.{}({});'.format(indent, self.__get_encode_m(descriptor.type), element))
-            self.__write('%s}}' % indent)
+                self.__cpp.write('{}    encoder.{}({});'.format(indent, self.__get_encode_m(descriptor.type), element))
+            self.__cpp.write('%s}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = '{}.size()'.format(name)
+            static_cast_count = 'static_cast<{}>({})'.format(self.__ctype(JSONTYPE_uint32), count)
             pair = 'p{}'.format(index)
-            self.__write('{}if ({} == null) {{ encoder.{}(-1); }} else {{'.format(indent, name, self.__get_encode_m(JSONTYPE_int)))
-            self.__write('{}encoder.{}({});'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
-            self.__write('{}for (auto {} = {}.begin(); {} != {}.end(); {}++)'.format(indent, pair, name, pair, name, pair))
-            self.__write('%s{' % indent)
-            self.__write('{}    encoder.{}({}->first);'.format(indent, self.__get_encode_m(descriptor.key), pair))
+            self.__cpp.write('{}encoder.{}({});'.format(indent, self.__get_encode_m(JSONTYPE_uint), static_cast_count))
+            self.__cpp.write('{}for (auto {} = {}.begin(); {} != {}.end(); {}++)'.format(indent, pair, name, pair, name, pair))
+            self.__cpp.write('%s{' % indent)
+            self.__cpp.write('{}    encoder.{}({}->first);'.format(indent, self.__get_encode_m(descriptor.key), pair))
             if descriptor.descriptor:
                 self.__generate_encode_field('{}->second'.format(pair), descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    encoder.{}({}->second);'.format(indent, self.__get_encode_m(descriptor.type), pair))
-            self.__write('%s}}' % indent)
+                self.__cpp.write('{}    encoder.{}({}->second);'.format(indent, self.__get_encode_m(descriptor.type), pair))
+            self.__cpp.write('%s}' % indent)
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
             if field.descriptor:
                 self.__generate_encode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
-                self.__write('{}encoder.{}({});'.format(indent, self.__get_encode_m(field.type), field.name))
+                self.__cpp.write('{}encoder.{}({});'.format(indent, self.__get_encode_m(field.type), field.name))
 
 
 
@@ -258,9 +280,9 @@ def main():
         print('[S] {}'.format(p.abspath(filename)))
         schema = JsonbufSchema()
         schema.load(filename)
-        with open(p.join(output, '{}.cs'.format(schema.name)), 'w') as fp:
-            CppGenerator(schema, fp).generate()
-            print('>>> {}\n'.format(p.abspath(fp.name)))
+        generator = CppGenerator(schema, output)
+        generator.generate()
+        print('>>> {}\n'.format(generator.filenames))
 
 if __name__ == '__main__':
     main()

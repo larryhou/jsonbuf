@@ -243,11 +243,15 @@ class JsonbufSchema(object):
                 cls = ClassDescriptor()
                 cls.name = schema.get('name')
                 cls.namespace = schema.get('namespace', '')
-                attr[cls.name] = cls
                 for item in schema.xpath('./*'):
                     assert item.tag == 'field'
                     field = self.decode(schema=item, attr=attr)
                     cls.fields.append(field)
+                attr[cls.name] = cls
+                index = 'count'
+                if index not in attr: attr[index] = 0
+                attr[attr[index]] = cls
+                attr[index] += 1
             return cls
         elif tag == 'field':
             field = FieldDescriptor()
@@ -510,6 +514,24 @@ class JsonbufSerializer(object):
             else:
                 v = self.__decode_v(schema.type, buffer=buffer)
                 return self.enums[schema.enum].values[v] if schema.enum else v
+
+class CodeWriter(object):
+    def __init__(self, filename, verbose=False):
+        self.filename = filename # type: str
+        self.__code = open(self.filename, 'w+')
+        self.verbose = verbose
+
+    def write(self, code, newline=True):
+        self.__code.write(code)
+        if newline: self.__code.write('\n')
+        if self.verbose: print(code)
+
+    def close(self, recap=True):
+        if recap:
+            self.__code.seek(0)
+            print(self.__code.read())
+        self.__code.flush()
+        self.__code.close()
 
 class Commands(object):
     serialize = 'serialize'
