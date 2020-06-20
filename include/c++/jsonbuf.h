@@ -30,7 +30,7 @@ public:
     
     void check_buffer(size_t size)
     {
-        static const size_t PAGE_SIZE = 4096;
+        static const size_t PAGE_SIZE = 4 << 10;
         if (size > __buf_size)
         {
             if (size >= PAGE_SIZE)
