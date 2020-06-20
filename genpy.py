@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# encoding: utf-8
 
 from __future__ import print_function
 from jsonbuf import *
@@ -24,10 +23,10 @@ class PyGenerator(object):
         self.schema = schema  # type: JsonbufSchema
         self.bridges = JsonbufBridges()
         self.indent = '    '
-        self.__fp = CodeWriter(filename=p.join(output, '{}.cpp'.format(self.schema.name)))
+        self.__code = CodeWriter(filename=p.join(output, '{}.py'.format(self.schema.name)))
 
     @property
-    def filename(self): return self.__fp.filename
+    def filename(self): return self.__code.filename
 
     def __get_namespaces(self, descriptor): # type: (Descriptor)->list[str]
         namespaces = []
@@ -46,13 +45,13 @@ class PyGenerator(object):
         return namespaces
 
     def generate(self):
-        self.__fp.write('from jsonbuf import *')
-        self.__fp.write('')
+        self.__code.write('from jsonbuf import *')
+        self.__code.write('')
         count = self.schema.classes['count'] # type: int
         for n in range(count):
             cls = self.schema.classes[n] # type: ClassDescriptor
             self.__generate_class(cls, indent='')
-        self.__fp.close(True)
+        self.__code.close(True)
 
     @staticmethod
     def __get_default(type):  # type: (str)->any
@@ -63,11 +62,19 @@ class PyGenerator(object):
         if type in (JSONTYPE_ushort, JSONTYPE_ulong): return 0
         if type in (JSONTYPE_short, JSONTYPE_long): return -1
         if type == JSONTYPE_double or type.startswith('float'): return 0.0
-        if type == JSONTYPE_string: return ''
+        if type == JSONTYPE_string: return '{!r}'.format('')
         if type == 'class': return 'None'
         if type == 'array': return '[]'
         if type == 'dict': return '{}'
         return None
+
+    @staticmethod
+    def __get_key(value, type):  # type: (str, str)->any
+        if type.startswith('int') or type.startswith('uint') \
+                or type in (JSONTYPE_byte, JSONTYPE_short, JSONTYPE_ushort, JSONTYPE_long, JSONTYPE_ulong): return 'int({})'.format(value)
+        if type.startswith('float') or type == JSONTYPE_double: return 'float({})'.format(value)
+        assert type == JSONTYPE_string
+        return value
 
     @staticmethod
     def __ctype(type): # type: (str)->str
@@ -98,37 +105,27 @@ class PyGenerator(object):
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__fp.write('{}class {}(IJsonbuf):'.format(indent, cls.name))
-        self.__fp.write('{}    def __init__(self):'.format(indent))
-        # self.__fp.write('{}{{'.format(indent))
-        # self.__fp.write('{}  public:'.format(indent))
+        self.__code.write('{}class {}(IJsonbuf):'.format(indent, cls.name))
+        self.__code.write('{}{}def __init__(self):'.format(indent, self.indent))
         for filed in cls.fields:
-            self.__fp.write('{}{}    self.{} = {} # type: {}'.format(indent, self.indent, filed.name, self.__get_default(filed.type), self.__rtype(filed)))
-        self.__fp.write('')
-        # self.__fp.write('{}  public:'.format(indent))
-        # self.__fp.write('{}    void deserialize(JsonbufStream& decoder);'.format(indent))
+            self.__code.write('{}{}{}self.{} = {} # type: {}'.format(indent, self.indent, self.indent, filed.name, self.__get_default(filed.type), self.__rtype(filed)))
+        self.__code.write('')
         self.__generate_decode_method(cls, indent=indent + self.indent)
-        self.__fp.write('')
-        # self.__fp.write('{}    void serialize(JsonbufStream& encoder);'.format(indent))
+        self.__code.write('')
         self.__generate_encode_method(cls, indent=indent + self.indent)
-        self.__fp.write('')
-        # self.__fp.write('{}}};'.format(indent))
+        self.__code.write('')
 
     def __generate_decode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__fp.write('{}def deserialize(self, decoder): # type: (JsonbufStream)->None'.format(indent, cls.name))
-        # self.__fp.write('{}{{'.format(indent))
+        self.__code.write('{}def deserialize(self, decoder): # type: (JsonbufStream)->None'.format(indent, cls.name))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_decode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        # self.__fp.write('{}}}'.format(indent))
 
     def __generate_encode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__fp.write('{}def serialize(self, encoder): # type: (JsonbufStream)->None'.format(indent, cls.name))
-        # self.__fp.write('{}{{'.format(indent))
+        self.__code.write('{}def serialize(self, encoder): # type: (JsonbufStream)->None'.format(indent, cls.name))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_encode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        # self.__fp.write('{}}}'.format(indent))
 
     @staticmethod
     def __get_decode_m(type):
@@ -175,95 +172,84 @@ class PyGenerator(object):
 
     def __generate_decode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__fp.write('{}{}.deserialize(decoder)'.format(indent, name))
+            self.__code.write('{}{}.deserialize(decoder)'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             element = 't{}'.format(index)
-            self.__fp.write('{}{} = decoder.{}()'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            # self.__cpp.write('{}{}.reserve({});'.format(indent, name, count))
-            self.__fp.write('{}if {} == 0xFFFFFFFF:'.format(indent, count))
-            self.__fp.write('{}    {} = None'.format(indent, name))
-            self.__fp.write('{}else:'.format(indent))
+            self.__code.write('{}{} = [] # type: {}'.format(indent, name, self.__rtype(descriptor)))
+            self.__code.write('{}{} = decoder.{}()'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            self.__code.write('{}if {} != 0xFFFFFFFF:'.format(indent, count))
             indent += self.indent
-            self.__fp.write('{}for {} in range({}):'.format(indent, index, count))
-            # nest_indent = indent + self.indent
-            # self.__fp.write('%s{' % indent)
-            # self.__fp.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), element))
+            self.__code.write('{}for {} in range({}):'.format(indent, index, count))
             if descriptor.descriptor:
                 self.__generate_decode_field(element, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__fp.write('{}    {} = decoder.{}()'.format(indent, element, self.__get_decode_m(descriptor.type)))
-            self.__fp.write('{}    {}.append({})'.format(indent, name, element))
-            # self.__fp.write('%s}}' % indent)
+                self.__code.write('{}{}{} = decoder.{}()'.format(indent, self.indent, element, self.__get_decode_m(descriptor.type)))
+            self.__code.write('{}{}{}.append({})'.format(indent, self.indent, name, element))
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             key = 'k{}'.format(index)
             val = 'v{}'.format(index)
-            self.__fp.write('{}{} = decoder.{}()'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            # self.__cpp.write('{}{}.reserve({});'.format(indent, name, count))
-            self.__fp.write('{}if {} == 0xFFFFFFFF:'.format(indent, count))
-            self.__fp.write('{}    {} = None'.format(indent, name))
-            self.__fp.write('{}else:'.format(indent))
+            self.__code.write('{}{} = {{}} # type: {}'.format(indent, name, self.__rtype(descriptor)))
+            self.__code.write('{}{} = decoder.{}()'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            self.__code.write('{}if {} != 0xFFFFFFFF:'.format(indent, count))
             indent += self.indent
-            self.__fp.write('{}for {} in range({}):'.format(indent, index, count))
-            # nest_indent = indent + self.indent
-            # self.__fp.write('%s{' % indent)
-            # self.__fp.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), val))
-            # self.__fp.write('{}    {} = decoder.{}();'.format(indent, key, self.__get_decode_m(descriptor.key)))
+            self.__code.write('{}for {} in range({}):'.format(indent, index, count))
             if descriptor.descriptor:
                 self.__generate_decode_field(val, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__fp.write('{}    {} = decoder.{}()'.format(indent, val, self.__get_decode_m(descriptor.type)))
-            self.__fp.write('{}    {}[{}] = {}'.format(indent, name, key, val))
-            # self.__fp.write('%s}}' % indent)
+                self.__code.write('{}{}{} = decoder.{}()'.format(indent, self.indent, val, self.__get_decode_m(descriptor.type)))
+            self.__code.write('{}{}{}[{}] = {}'.format(indent, self.indent, name, key, val))
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
             if field.descriptor:
-                self.__generate_decode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
+                self.__generate_decode_field(name='self.{}'.format(field.name), descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
-                self.__fp.write('{}{} = decoder.{}()'.format(indent, name, self.__get_decode_m(field.type)))
+                self.__code.write('{}self.{} = decoder.{}()'.format(indent, name, self.__get_decode_m(field.type)))
 
     def __generate_encode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__fp.write('{}{}.serialize(encoder)'.format(indent, name))
+            self.__code.write('{}{}.serialize(encoder)'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = 'len({})'.format(name)
-            # static_cast_count = 'static_cast<{}>({})'.format(self.__ctype(JSONTYPE_uint32), count)
             element = '{}'.format(index)
-            self.__fp.write('{}encoder.{}({})'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
-            self.__fp.write('{}for {} in {}:'.format(indent, element, name))
-            # self.__fp.write('%s{' % indent)
+            self.__code.write('{}if {} is None:'.format(indent, name))
+            self.__code.write('{}{}encoder.{}(-1)'.format(indent, self.indent, self.__get_encode_m(JSONTYPE_int)))
+            self.__code.write('{}else:'.format(indent))
+            indent += self.indent
+            self.__code.write('{}encoder.{}({})'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
+            self.__code.write('{}for {} in {}:'.format(indent, element, name))
             if descriptor.descriptor:
                 self.__generate_encode_field('{}'.format(element), descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__fp.write('{}    encoder.{}({})'.format(indent, self.__get_encode_m(descriptor.type), element))
-            # self.__fp.write('%s}' % indent)
+                self.__code.write('{}{}encoder.{}({})'.format(indent, self.indent, self.__get_encode_m(descriptor.type), element))
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = 'len({})'.format(name)
-            # static_cast_count = 'static_cast<{}>({})'.format(self.__ctype(JSONTYPE_uint32), count)
-            pair = 'p{}'.format(index)
-            self.__fp.write('{}encoder.{}({})'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
-            self.__fp.write('{}for {} in {}.items():'.format(indent, pair, name))
-            # self.__fp.write('%s{' % indent)
-            self.__fp.write('{}    encoder.{}({}[0])'.format(indent, self.__get_encode_m(descriptor.key), pair))
+            key = 'k{}'.format(index)
+            val = 'v{}'.format(index)
+            self.__code.write('{}if {} is None:'.format(indent, name))
+            self.__code.write('{}{}encoder.{}(-1)'.format(indent, self.indent, self.__get_encode_m(JSONTYPE_int)))
+            self.__code.write('{}else:'.format(indent))
+            indent += self.indent
+            self.__code.write('{}encoder.{}({})'.format(indent, self.__get_encode_m(JSONTYPE_uint), count))
+            self.__code.write('{}for {},{} in {}.items():'.format(indent, key, val, name))
+            self.__code.write('{}{}encoder.{}({})'.format(indent, self.indent, self.__get_encode_m(descriptor.key), self.__get_key(key, type=descriptor.key)))
             if descriptor.descriptor:
-                self.__generate_encode_field('{}[1]'.format(pair), descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
+                self.__generate_encode_field(val, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__fp.write('{}    encoder.{}({}[1])'.format(indent, self.__get_encode_m(descriptor.type), pair))
-            # self.__fp.write('%s}' % indent)
+                self.__code.write('{}{}encoder.{}({})'.format(indent, self.indent, self.__get_encode_m(descriptor.type), val))
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
             if field.descriptor:
-                self.__generate_encode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
+                self.__generate_encode_field(name='self.{}'.format(field.name), descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
-                self.__fp.write('{}encoder.{}({})'.format(indent, self.__get_encode_m(field.type), field.name))
-
+                self.__code.write('{}encoder.{}(self.{})'.format(indent, self.__get_encode_m(field.type), field.name))
 
 
 def main():

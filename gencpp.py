@@ -24,11 +24,11 @@ class CppGenerator(object):
         self.schema = schema  # type: JsonbufSchema
         self.bridges = JsonbufBridges()
         self.indent = '    '
-        self.__header = CodeWriter(filename=p.join(output, '{}.h'.format(self.schema.name)))
+        self.__hpp = CodeWriter(filename=p.join(output, '{}.h'.format(self.schema.name)))
         self.__cpp = CodeWriter(filename=p.join(output, '{}.cpp'.format(self.schema.name)))
 
     @property
-    def filenames(self): return self.__header.filename, self.__cpp.filename
+    def filenames(self): return self.__hpp.filename, self.__cpp.filename
 
     def __write(self, line, fp=None):
         if not fp: fp = self.__cpp
@@ -53,12 +53,12 @@ class CppGenerator(object):
         return namespaces
 
     def generate(self):
-        self.__header.write('#include "jsonbuf.h"')
-        self.__header.write('')
-        self.__header.write('#include <string>')
-        self.__header.write('#include <vector>')
-        self.__header.write('#include <map>')
-        self.__header.write('')
+        self.__hpp.write('#include "jsonbuf.h"')
+        self.__hpp.write('')
+        self.__hpp.write('#include <string>')
+        self.__hpp.write('#include <vector>')
+        self.__hpp.write('#include <map>')
+        self.__hpp.write('')
         self.__cpp.write('#include "{}.h"'.format(self.schema.name))
         self.__cpp.write('')
         uniques = []
@@ -68,14 +68,14 @@ class CppGenerator(object):
             ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
             components = ns.split('.')
             for name in components:
-                self.__header.write('namespace %s { ' % name, newline=False)
-            self.__header.write('')
+                self.__hpp.write('namespace %s { ' % name, newline=False)
+            self.__hpp.write('')
             if ns not in uniques:
                 self.__cpp.write('using namespace {};\n'.format(ns.replace('.', '::')))
                 uniques.append(ns)
             self.__generate_class(cls, indent=self.indent)
-            self.__header.write('{}\n'.format('}' * len(components)))
-        self.__header.close(True)
+            self.__hpp.write('{}\n'.format('}' * len(components)))
+        self.__hpp.close(True)
         self.__cpp.close(True)
 
     @staticmethod
@@ -107,20 +107,20 @@ class CppGenerator(object):
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__header.write('{}class {}: public IJsonbuf'.format(indent, cls.name))
-        self.__header.write('{}{{'.format(indent))
-        self.__header.write('{}  public:'.format(indent))
+        self.__hpp.write('{}class {}: public IJsonbuf'.format(indent, cls.name))
+        self.__hpp.write('{}{{'.format(indent))
+        self.__hpp.write('{}  public:'.format(indent))
         for filed in cls.fields:
-            self.__header.write('{}    {} {};'.format(indent, self.__rtype(filed), filed.name))
-        self.__header.write('')
-        self.__header.write('{}  public:'.format(indent))
-        self.__header.write('{}    void deserialize(JsonbufStream& decoder);'.format(indent))
+            self.__hpp.write('{}    {} {};'.format(indent, self.__rtype(filed), filed.name))
+        self.__hpp.write('')
+        self.__hpp.write('{}  public:'.format(indent))
+        self.__hpp.write('{}    void deserialize(JsonbufStream& decoder);'.format(indent))
         self.__generate_decode_method(cls, indent='')
         self.__cpp.write('')
-        self.__header.write('{}    void serialize(JsonbufStream& encoder);'.format(indent))
+        self.__hpp.write('{}    void serialize(JsonbufStream& encoder);'.format(indent))
         self.__generate_encode_method(cls, indent='')
         self.__cpp.write('')
-        self.__header.write('{}}};'.format(indent))
+        self.__hpp.write('{}}};'.format(indent))
 
     def __generate_decode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
         self.__cpp.write('{}void {}::deserialize(JsonbufStream& decoder)'.format(indent, cls.name))

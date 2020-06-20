@@ -19,16 +19,14 @@ class IndexAttr(object):
         return self.__next
 
 class CSharpGenerator(object):
-    def __init__(self, schema, fp):
+    def __init__(self, schema, output):
         self.schema = schema  # type: JsonbufSchema
         self.bridges = JsonbufBridges()
         self.indent = '    '
-        self.__fp = fp
+        self.__code = CodeWriter(filename=p.join(output, '{}.cs'.format(self.schema.name)))
 
-    def __write(self, line):
-        self.__fp.write(line)
-        self.__fp.write('\n')
-        print(line)
+    @property
+    def filename(self): return self.__code.filename
 
     def __get_namespaces(self, descriptor): # type: (Descriptor)->list[str]
         namespaces = []
@@ -49,17 +47,17 @@ class CSharpGenerator(object):
     def generate(self):
         uniques = []
         namespaces = self.__get_namespaces(self.schema.descriptor)
-        self.__write('using System.Collections.Generic;')
+        self.__code.write('using System.Collections.Generic;')
         for ns in namespaces:
             if ns in uniques: continue
             uniques.append(ns)
-            self.__write('using {};'.format(ns))
-        self.__write('')
+            self.__code.write('using {};'.format(ns))
+        self.__code.write('')
         for name, cls in self.schema.classes.items():
             ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
-            self.__write('namespace %s\n{' % ns)
+            self.__code.write('namespace %s\n{' % ns)
             self.__generate_class(cls, indent=self.indent)
-            self.__write('}\n')
+            self.__code.write('}\n')
 
     @staticmethod
     def __ctype(type): # type: (str)->str
@@ -91,32 +89,32 @@ class CSharpGenerator(object):
         return self.__ctype(type)
 
     def __generate_class(self, cls, indent=''):
-        self.__write('{}public partial class {}:IJsonbuf'.format(indent, cls.name))
-        self.__write('{}{{'.format(indent))
+        self.__code.write('{}public partial class {}:IJsonbuf'.format(indent, cls.name))
+        self.__code.write('{}{{'.format(indent))
         for filed in cls.fields:
-            self.__write('{}    public {} {};'.format(indent, self.__rtype(filed), filed.name))
-        self.__write('')
+            self.__code.write('{}    public {} {};'.format(indent, self.__rtype(filed), filed.name))
+        self.__code.write('')
         self.__generate_encode_method(cls, indent=indent + self.indent)
-        self.__write('')
+        self.__code.write('')
         self.__generate_decode_method(cls, indent=indent + self.indent)
-        self.__write('{}}}'.format(indent))
-        self.__write('')
+        self.__code.write('{}}}'.format(indent))
+        self.__code.write('')
 
     def __generate_decode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__write('{}public void Deserialize(JsonbufReader decoder)'.format(indent))
-        self.__write('{}{{'.format(indent))
+        self.__code.write('{}public void Deserialize(JsonbufReader decoder)'.format(indent))
+        self.__code.write('{}{{'.format(indent))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_decode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        self.__write('{}}}'.format(indent))
+        self.__code.write('{}}}'.format(indent))
 
     def __generate_encode_method(self, cls, indent): # type: (ClassDescriptor, str)->None
-        self.__write('{}public void Serialize(JsonbufWriter encoder)'.format(indent))
-        self.__write('{}{{'.format(indent))
+        self.__code.write('{}public void Serialize(JsonbufWriter encoder)'.format(indent))
+        self.__code.write('{}{{'.format(indent))
         index = IndexAttr(0)
         for field in cls.fields:
             self.__generate_encode_field(name=field.name, descriptor=field, indent=indent + self.indent, level=1, attr=index)
-        self.__write('{}}}'.format(indent))
+        self.__code.write('{}}}'.format(indent))
 
     @staticmethod
     def __get_decode_m(type):
@@ -147,48 +145,48 @@ class CSharpGenerator(object):
 
     def __generate_decode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__write('{}{} = new {}();'.format(indent, name, self.__rtype(descriptor)))
-            self.__write('{}{}.Deserialize(decoder);'.format(indent, name))
+            self.__code.write('{}{} = new {}();'.format(indent, name, self.__rtype(descriptor)))
+            self.__code.write('{}{}.Deserialize(decoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             element = 't{}'.format(index)
-            self.__write('{}var {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            self.__write('{}if ({} == 0xFFFFFFFF) {{ {} = null; }} else {{'.format(indent, count, name))
+            self.__code.write('{}var {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            self.__code.write('{}if ({} == 0xFFFFFFFF) {{ {} = null; }} else {{'.format(indent, count, name))
             rtype = self.__rtype(descriptor)
             sep = rtype.find('[') + 1
             constructor = '{}()'.format(rtype) if descriptor.mutable else (rtype[:sep] + count + rtype[sep:])
-            self.__write('{}{} = new {};'.format(indent, name, constructor))
-            self.__write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
-            self.__write('%s{' % indent)
-            self.__write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), element))
+            self.__code.write('{}{} = new {};'.format(indent, name, constructor))
+            self.__code.write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
+            self.__code.write('%s{' % indent)
+            self.__code.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), element))
             if descriptor.descriptor:
                 self.__generate_decode_field(element, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    {} = decoder.{}();'.format(indent, element, self.__get_decode_m(descriptor.type)))
+                self.__code.write('{}    {} = decoder.{}();'.format(indent, element, self.__get_decode_m(descriptor.type)))
             if descriptor.mutable:
-                self.__write('{}    {}.Add({});'.format(indent, name, element))
+                self.__code.write('{}    {}.Add({});'.format(indent, name, element))
             else:
-                self.__write('{}    {}[{}] = {};'.format(indent, name, index, element))
-            self.__write('%s}}' % indent)
+                self.__code.write('{}    {}[{}] = {};'.format(indent, name, index, element))
+            self.__code.write('%s}}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = 'c{}'.format(index)
             key = 'k{}'.format(index)
             val = 'v{}'.format(index)
-            self.__write('{}var {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
-            self.__write('{}if ({} == 0xFFFFFFFF) {{ {} = null; }} else {{'.format(indent, count, name))
-            self.__write('{}{} = new {}();'.format(indent, name, self.__rtype(descriptor)))
-            self.__write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
-            self.__write('%s{' % indent)
-            self.__write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), val))
-            self.__write('{}    var {} = decoder.{}();'.format(indent, key, self.__get_decode_m(descriptor.key)))
+            self.__code.write('{}var {} = decoder.{}();'.format(indent, count, self.__get_decode_m(JSONTYPE_uint)))
+            self.__code.write('{}if ({} == 0xFFFFFFFF) {{ {} = null; }} else {{'.format(indent, count, name))
+            self.__code.write('{}{} = new {}();'.format(indent, name, self.__rtype(descriptor)))
+            self.__code.write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
+            self.__code.write('%s{' % indent)
+            self.__code.write('{}    {} {};'.format(indent, self.__rtype(descriptor.descriptor if descriptor.descriptor else descriptor.type), val))
+            self.__code.write('{}    var {} = decoder.{}();'.format(indent, key, self.__get_decode_m(descriptor.key)))
             if descriptor.descriptor:
                 self.__generate_decode_field(val, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    {} = decoder.{}();'.format(indent, val, self.__get_decode_m(descriptor.type)))
-            self.__write('{}    {}[{}] = {};'.format(indent, name, key, val))
-            self.__write('%s}}' % indent)
+                self.__code.write('{}    {} = decoder.{}();'.format(indent, val, self.__get_decode_m(descriptor.type)))
+            self.__code.write('{}    {}[{}] = {};'.format(indent, name, key, val))
+            self.__code.write('%s}}' % indent)
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
@@ -196,41 +194,41 @@ class CSharpGenerator(object):
                 self.__generate_decode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
                 if field.enum:
-                    self.__write('{}{} = ({})decoder.{}();'.format(indent, name, field.enum, self.__get_decode_m(field.type)))
+                    self.__code.write('{}{} = ({})decoder.{}();'.format(indent, name, field.enum, self.__get_decode_m(field.type)))
                 else:
-                    self.__write('{}{} = decoder.{}();'.format(indent, name, self.__get_decode_m(field.type)))
+                    self.__code.write('{}{} = decoder.{}();'.format(indent, name, self.__get_decode_m(field.type)))
 
     def __generate_encode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
-            self.__write('{}{}.Serialize(encoder);'.format(indent, name))
+            self.__code.write('{}{}.Serialize(encoder);'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
             count = ('{}.Count' if descriptor.mutable else '{}.Length').format(name)
             element = 't{}'.format(index)
-            self.__write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
-            self.__write('{}encoder.Write((uint){});'.format(indent, count))
-            self.__write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
-            self.__write('%s{' % indent)
-            self.__write('{}    var {} = {}[{}];'.format(indent, element, name, index))
+            self.__code.write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
+            self.__code.write('{}encoder.Write((uint){});'.format(indent, count))
+            self.__code.write('{}for (var {} = 0; {} < {}; {}++)'.format(indent, index, index, count, index))
+            self.__code.write('%s{' % indent)
+            self.__code.write('{}    var {} = {}[{}];'.format(indent, element, name, index))
             if descriptor.descriptor:
                 self.__generate_encode_field(element, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    encoder.Write({});'.format(indent, element))
-            self.__write('%s}}' % indent)
+                self.__code.write('{}    encoder.Write({});'.format(indent, element))
+            self.__code.write('%s}}' % indent)
         elif isinstance(descriptor, DictionaryDescriptor):
             index = self.__local_name(attr.next)
             count = '{}.Count'.format(name)
             pair = 'p{}'.format(index)
-            self.__write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
-            self.__write('{}encoder.Write((uint){});'.format(indent, count))
-            self.__write('{}foreach (var {} in {})'.format(indent, pair, name))
-            self.__write('%s{' % indent)
-            self.__write('{}    encoder.Write({}.Key);'.format(indent, pair))
+            self.__code.write('{}if ({} == null) {{ encoder.Write((int)-1); }} else {{'.format(indent, name))
+            self.__code.write('{}encoder.Write((uint){});'.format(indent, count))
+            self.__code.write('{}foreach (var {} in {})'.format(indent, pair, name))
+            self.__code.write('%s{' % indent)
+            self.__code.write('{}    encoder.Write({}.Key);'.format(indent, pair))
             if descriptor.descriptor:
                 self.__generate_encode_field('{}.Value'.format(pair), descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:
-                self.__write('{}    encoder.Write({}.Value);'.format(indent, pair))
-            self.__write('%s}}' % indent)
+                self.__code.write('{}    encoder.Write({}.Value);'.format(indent, pair))
+            self.__code.write('%s}}' % indent)
         else:
             assert isinstance(descriptor, FieldDescriptor)
             field = descriptor
@@ -238,10 +236,9 @@ class CSharpGenerator(object):
                 self.__generate_encode_field(name=field.name, descriptor=field.descriptor, indent=indent, level=level, attr=attr)
             else:
                 if field.enum:
-                    self.__write('{}encoder.Write(({}){});'.format(indent, self.__rtype(field.type), field.name))
+                    self.__code.write('{}encoder.Write(({}){});'.format(indent, self.__rtype(field.type), field.name))
                 else:
-                    self.__write('{}encoder.Write({});'.format(indent, field.name))
-
+                    self.__code.write('{}encoder.Write({});'.format(indent, field.name))
 
 
 def main():
@@ -258,9 +255,9 @@ def main():
         print('[S] {}'.format(p.abspath(filename)))
         schema = JsonbufSchema()
         schema.load(filename)
-        with open(p.join(output, '{}.cs'.format(schema.name)), 'w') as fp:
-            CSharpGenerator(schema, fp).generate()
-            print('>>> {}\n'.format(p.abspath(fp.name)))
+        generator = CSharpGenerator(schema, output)
+        generator.generate()
+        print('>>> {}\n'.format(p.abspath(generator.filename)))
 
 if __name__ == '__main__':
     main()
