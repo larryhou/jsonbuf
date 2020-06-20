@@ -31,6 +31,9 @@ class CppGenerator(object):
     def filenames(self): return self.__hpp.filename, self.__cpp.filename
 
     def generate(self):
+        self.__hpp.write('#ifndef {}_h'.format(self.schema.name))
+        self.__hpp.write('#define {}_h'.format(self.schema.name))
+        self.__hpp.write('')
         self.__hpp.write('#include "jsonbuf.h"')
         self.__hpp.write('')
         self.__hpp.write('#include <string>')
@@ -53,6 +56,7 @@ class CppGenerator(object):
                 uniques.append(ns)
             self.__generate_class(cls, indent=self.indent)
             self.__hpp.write('{}\n'.format('}' * len(components)))
+        self.__hpp.write('#endif /* {}_h */'.format(self.schema.name))
         self.__hpp.close(True)
         self.__cpp.close(True)
 
