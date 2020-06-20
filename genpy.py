@@ -172,6 +172,7 @@ class PyGenerator(object):
 
     def __generate_decode_field(self, name, descriptor, indent, level=0, attr=None): # type: (str, Descriptor, str, int, IndexAttr)->None
         if isinstance(descriptor, ClassDescriptor):
+            self.__code.write('{}{} = {}()'.format(indent, name, self.__rtype(descriptor)))
             self.__code.write('{}{}.deserialize(decoder)'.format(indent, name))
         elif isinstance(descriptor, ArrayDescriptor):
             index = self.__local_name(attr.next)
@@ -197,6 +198,8 @@ class PyGenerator(object):
             self.__code.write('{}if {} != 0xFFFFFFFF:'.format(indent, count))
             indent += self.indent
             self.__code.write('{}for {} in range({}):'.format(indent, index, count))
+            self.__code.write(
+                '{}{}{} = decoder.{}()'.format(indent, self.indent, key, self.__get_decode_m(descriptor.key)))
             if descriptor.descriptor:
                 self.__generate_decode_field(val, descriptor=descriptor.descriptor, indent=indent + self.indent, level=level + 1, attr=attr)
             else:

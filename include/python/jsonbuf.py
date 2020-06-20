@@ -1,8 +1,9 @@
 import io, struct
+import typing
 
 class JsonbufStream(object):
-    def __init__(self):
-        self.__stream = io.BytesIO()
+    def __init__(self, fp):
+        self.__stream = fp # type: typing.BinaryIO
 
     def read_bool(self):
         v, = struct.unpack('b', self.__stream.read(1))

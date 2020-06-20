@@ -5,14 +5,15 @@
                 <field name="LevelName" type="string"/>
                 <field name="DynamicLoadPath" type="string"/>
                 <field name="DynamicLoadParentScenePath" type="string"/>
-                <field name="VirtualSceneDataPath" type="string"/>
-                <field name="ScenePathList" type="array">
-                    <array type="string"/>
-                </field>
+                <field name="SOCDataPath" type="string"/>
+                <field name="IsBRRuntimeMap" type="bool"/>
                 <field name="StreamingFlags" type="array">
                     <array type="bool"/>
                 </field>
-                <field name="SOCDataPath" type="string"/>
+                <field name="ScenePathList_RawBytes" type="int"/>
+                <field name="ScenePathList" type="array">
+                    <array type="string"/>
+                </field>
             </class>
             <filter name="BuildToMobile" type="bool">true</filter>
         </array>
