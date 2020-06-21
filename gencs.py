@@ -53,11 +53,14 @@ class CSharpGenerator(object):
             uniques.append(ns)
             self.__code.write('using {};'.format(ns))
         self.__code.write('')
-        for name, cls in self.schema.classes.items():
+        count = self.schema.classes['count']  # type: int
+        for n in range(count):
+            cls = self.schema.classes[n]  # type: ClassDescriptor
             ns = cls.namespace if cls.namespace else 'jsonbuf.{}'.format(self.schema.name)
             self.__code.write('namespace %s\n{' % ns)
             self.__generate_class(cls, indent=self.indent)
             self.__code.write('}\n')
+        self.__code.close(True)
 
     @staticmethod
     def __ctype(type): # type: (str)->str
