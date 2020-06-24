@@ -1,16 +1,20 @@
-<class name="AnimationSpeedConfConfig">
-  <field name="WeaponCategory" type="string"/>
-  <field name="TPMode" type="int"/>
-  <field name="SprintClipTime" type="float"/>
-  <field name="SprintScale" type="float"/>
-  <field name="MoveClipTime" type="float"/>
-  <field name="MoveScale" type="int"/>
-  <field name="AimmingIdleClipTime" type="int"/>
-  <field name="AimmingScale" type="float"/>
-  <field name="ProneClipTime" type="float"/>
-  <field name="ProneScale" type="float"/>
-  <field name="CrouchClipTime" type="float"/>
-  <field name="CrouchScale" type="float"/>
-  <field name="CrouchSprintClipTime" type="float"/>
-  <field name="CrouchSprintScale" type="float"/>
+<class name="AnimationSpeedConfTable">
+  <array type="class">
+    <class name="AnimationSpeedConfConfig">
+      <field name="WeaponCategory" type="string"/>
+      <field name="TPMode" type="int"/>
+      <field name="SprintClipTime" type="float"/>
+      <field name="SprintScale" type="float"/>
+      <field name="MoveClipTime" type="float"/>
+      <field name="MoveScale" type="int"/>
+      <field name="AimmingIdleClipTime" type="int"/>
+      <field name="AimmingScale" type="float"/>
+      <field name="ProneClipTime" type="float"/>
+      <field name="ProneScale" type="float"/>
+      <field name="CrouchClipTime" type="float"/>
+      <field name="CrouchScale" type="float"/>
+      <field name="CrouchSprintClipTime" type="float"/>
+      <field name="CrouchSprintScale" type="float"/>
+    </class>
+  </array>
 </class>

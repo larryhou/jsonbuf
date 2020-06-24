@@ -1,16 +1,20 @@
-<class name="WeaponBlueprintConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="ColorID" type="int"/>
-  <field name="ColorSubID" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="UnusedAttachment" type="array">
-    <array type="string"/>
-  </field>
-  <field name="CanUseCamo" type="bool"/>
-  <field name="Attachment_1" type="int"/>
-  <field name="Attachment_2" type="int"/>
-  <field name="Attachment_3" type="int"/>
-  <field name="Attachment_4" type="int"/>
-  <field name="Attachment_5" type="int"/>
+<class name="WeaponBlueprintConfTable">
+  <array type="class">
+    <class name="WeaponBlueprintConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="ColorID" type="int"/>
+      <field name="ColorSubID" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="UnusedAttachment" type="array">
+        <array type="string"/>
+      </field>
+      <field name="CanUseCamo" type="bool"/>
+      <field name="Attachment_1" type="int"/>
+      <field name="Attachment_2" type="int"/>
+      <field name="Attachment_3" type="int"/>
+      <field name="Attachment_4" type="int"/>
+      <field name="Attachment_5" type="int"/>
+    </class>
+  </array>
 </class>

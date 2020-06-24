@@ -1,47 +1,51 @@
-<class name="ZombieMPConfConfig">
-  <field name="InstanceGroup" type="int"/>
-  <field name="LOCID_GroupName" type="string"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="NumOfInvite" type="int"/>
-  <field name="LOCID_NumOfInviteStr" type="string"/>
-  <field name="LOCID_FullName" type="string"/>
-  <field name="Entrance" type="int"/>
-  <field name="QuickTeam" type="int"/>
-  <field name="InstanceId" type="int"/>
-  <field name="MaxRound" type="int"/>
-  <field name="DifficultyLevel" type="string"/>
-  <field name="LOCID_GroupRules" type="string"/>
-  <field name="LOCID_InstanceInfo" type="string"/>
-  <field name="GroupIcon" type="string"/>
-  <field name="GroupMapBackground" type="string"/>
-  <field name="UnlockId" type="int"/>
-  <field name="NeedSpi" type="int"/>
-  <field name="LevelPower" type="int"/>
-  <field name="ZombieHpScale" type="int"/>
-  <field name="FreeRevives" type="int"/>
-  <field name="UseRevivalLimits" type="int"/>
-  <field name="MaxMatchTime" type="int"/>
-  <field name="RewardShow_1" type="int"/>
-  <field name="RewardShow_2" type="int"/>
-  <field name="ThumbnailName" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="PassReward" type="array">
-    <array type="int"/>
-  </field>
-  <field name="StageNum" type="int"/>
-  <field name="MapID1" type="array">
-    <array type="inthex"/>
-  </field>
-  <field name="MapID2" type="inthex"/>
-  <field name="MapID3" type="inthex"/>
-  <field name="MapID4" type="inthex"/>
-  <field name="MapID5" type="inthex"/>
-  <field name="ModifierSchemeId" type="int"/>
-  <field name="ModifierSchemeStartTime" type="int"/>
-  <field name="ModifierCount" type="int"/>
-  <field name="ModifierWhitelist" type="array">
-    <array type="int"/>
-  </field>
-  <field name="ModifierBlacklist" type="int"/>
-  <field name="boss_type" type="int"/>
+<class name="ZombieMPConfTable">
+  <array type="class">
+    <class name="ZombieMPConfConfig">
+      <field name="InstanceGroup" type="int"/>
+      <field name="LOCID_GroupName" type="string"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="NumOfInvite" type="int"/>
+      <field name="LOCID_NumOfInviteStr" type="string"/>
+      <field name="LOCID_FullName" type="string"/>
+      <field name="Entrance" type="int"/>
+      <field name="QuickTeam" type="int"/>
+      <field name="InstanceId" type="int"/>
+      <field name="MaxRound" type="int"/>
+      <field name="DifficultyLevel" type="string"/>
+      <field name="LOCID_GroupRules" type="string"/>
+      <field name="LOCID_InstanceInfo" type="string"/>
+      <field name="GroupIcon" type="string"/>
+      <field name="GroupMapBackground" type="string"/>
+      <field name="UnlockId" type="int"/>
+      <field name="NeedSpi" type="int"/>
+      <field name="LevelPower" type="int"/>
+      <field name="ZombieHpScale" type="int"/>
+      <field name="FreeRevives" type="int"/>
+      <field name="UseRevivalLimits" type="int"/>
+      <field name="MaxMatchTime" type="int"/>
+      <field name="RewardShow_1" type="int"/>
+      <field name="RewardShow_2" type="int"/>
+      <field name="ThumbnailName" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="PassReward" type="array">
+        <array type="int"/>
+      </field>
+      <field name="StageNum" type="int"/>
+      <field name="MapID1" type="array">
+        <array type="inthex"/>
+      </field>
+      <field name="MapID2" type="inthex"/>
+      <field name="MapID3" type="inthex"/>
+      <field name="MapID4" type="inthex"/>
+      <field name="MapID5" type="inthex"/>
+      <field name="ModifierSchemeId" type="int"/>
+      <field name="ModifierSchemeStartTime" type="int"/>
+      <field name="ModifierCount" type="int"/>
+      <field name="ModifierWhitelist" type="array">
+        <array type="int"/>
+      </field>
+      <field name="ModifierBlacklist" type="int"/>
+      <field name="boss_type" type="int"/>
+    </class>
+  </array>
 </class>

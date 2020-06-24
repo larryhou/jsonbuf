@@ -1,7 +1,11 @@
-<class name="SPVPModeConfConfig">
-  <field name="ModeID" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="MarkerID" type="int"/>
-  <field name="Style" type="int"/>
-  <field name="Code" type="string"/>
+<class name="SPVPModeConfTable">
+  <array type="class">
+    <class name="SPVPModeConfConfig">
+      <field name="ModeID" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="MarkerID" type="int"/>
+      <field name="Style" type="int"/>
+      <field name="Code" type="string"/>
+    </class>
+  </array>
 </class>

@@ -1,4 +1,8 @@
-<class name="BulletDecayConfConfig">
-  <field name="BulletType" type="int"/>
-  <field name="Decay" type="float"/>
+<class name="BulletDecayConfTable">
+  <array type="class">
+    <class name="BulletDecayConfConfig">
+      <field name="BulletType" type="int"/>
+      <field name="Decay" type="float"/>
+    </class>
+  </array>
 </class>

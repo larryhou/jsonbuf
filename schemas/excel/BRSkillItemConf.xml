@@ -1,27 +1,31 @@
-<class name="BRSkillItemConfig">
-  <field name="ItemID" type="int"/>
-  <field name="CanAIUse" type="bool"/>
-  <field name="SubItemType" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="SkillType" type="string"/>
-  <field name="CanStack" type="bool"/>
-  <field name="StackNum" type="int"/>
-  <field name="Quality" type="int"/>
-  <field name="SortParam" type="int"/>
-  <field name="Value" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="SpriteLargeName" type="string"/>
-  <field name="IsDoubleCheck" type="bool"/>
-  <field name="CoolDown" type="int"/>
-  <field name="ItemClass" type="string"/>
-  <field name="UltID" type="int"/>
-  <field name="CheckUseSpace" type="bool"/>
-  <field name="ValidUseSpaceSize" type="float"/>
-  <field name="NeedToStopMove" type="bool"/>
-  <field name="CanUseInAir" type="bool"/>
-  <field name="CanUseInWater" type="bool"/>
-  <field name="IsRemoteControlled" type="bool"/>
+<class name="BRSkillItemTable">
+  <array type="class">
+    <class name="BRSkillItemConfig">
+      <field name="ItemID" type="int"/>
+      <field name="CanAIUse" type="bool"/>
+      <field name="SubItemType" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="SkillType" type="string"/>
+      <field name="CanStack" type="bool"/>
+      <field name="StackNum" type="int"/>
+      <field name="Quality" type="int"/>
+      <field name="SortParam" type="int"/>
+      <field name="Value" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="SpriteLargeName" type="string"/>
+      <field name="IsDoubleCheck" type="bool"/>
+      <field name="CoolDown" type="int"/>
+      <field name="ItemClass" type="string"/>
+      <field name="UltID" type="int"/>
+      <field name="CheckUseSpace" type="bool"/>
+      <field name="ValidUseSpaceSize" type="float"/>
+      <field name="NeedToStopMove" type="bool"/>
+      <field name="CanUseInAir" type="bool"/>
+      <field name="CanUseInWater" type="bool"/>
+      <field name="IsRemoteControlled" type="bool"/>
+    </class>
+  </array>
 </class>

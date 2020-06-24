@@ -1,16 +1,20 @@
-<class name="DefaultChatMessageConfConfig">
-  <field name="ModeType" type="string"/>
-  <field name="Description" type="string"/>
-  <field name="ChatMsgList1" type="array">
-    <array type="int"/>
-  </field>
-  <field name="ChatMsgList2" type="array">
-    <array type="int"/>
-  </field>
-  <field name="ChatMsgList3" type="array">
-    <array type="int"/>
-  </field>
-  <field name="ChatMsgList4" type="array">
-    <array type="int"/>
-  </field>
+<class name="DefaultChatMessageConfTable">
+  <array type="class">
+    <class name="DefaultChatMessageConfConfig">
+      <field name="ModeType" type="string"/>
+      <field name="Description" type="string"/>
+      <field name="ChatMsgList1" type="array">
+        <array type="int"/>
+      </field>
+      <field name="ChatMsgList2" type="array">
+        <array type="int"/>
+      </field>
+      <field name="ChatMsgList3" type="array">
+        <array type="int"/>
+      </field>
+      <field name="ChatMsgList4" type="array">
+        <array type="int"/>
+      </field>
+    </class>
+  </array>
 </class>

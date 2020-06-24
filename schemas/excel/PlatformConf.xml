@@ -1,8 +1,12 @@
-<class name="PlatformConfig">
-  <field name="Channel" type="int"/>
-  <field name="TermsOfUseURL" type="string"/>
-  <field name="PrivacyPolicyURL" type="string"/>
-  <field name="SupportURL" type="string"/>
-  <field name="AppStoreURL" type="string"/>
-  <field name="GooglePlayURL" type="string"/>
+<class name="PlatformTable">
+  <array type="class">
+    <class name="PlatformConfig">
+      <field name="Channel" type="int"/>
+      <field name="TermsOfUseURL" type="string"/>
+      <field name="PrivacyPolicyURL" type="string"/>
+      <field name="SupportURL" type="string"/>
+      <field name="AppStoreURL" type="string"/>
+      <field name="GooglePlayURL" type="string"/>
+    </class>
+  </array>
 </class>

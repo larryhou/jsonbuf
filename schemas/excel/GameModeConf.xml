@@ -1,26 +1,30 @@
-<class name="GameModeConfig">
-  <field name="gamemode_main" type="string"/>
-  <field name="gamemode_sub" type="string"/>
-  <field name="gamemode_detail" type="string"/>
-  <field name="category" type="string"/>
-  <field name="framerate_max_ios" type="int"/>
-  <field name="fixedframerate_max_ios" type="int"/>
-  <field name="framerate_max_android" type="int"/>
-  <field name="fixedframerate_max_android" type="int"/>
-  <field name="framerate_veryhigh_ios" type="int"/>
-  <field name="fixedframerate_veryhigh_ios" type="int"/>
-  <field name="framerate_veryhigh_android" type="int"/>
-  <field name="fixedframerate_veryhigh_android" type="int"/>
-  <field name="framerate_high_ios" type="int"/>
-  <field name="fixedframerate_high_ios" type="int"/>
-  <field name="framerate_high_android" type="int"/>
-  <field name="fixedframerate_high_android" type="int"/>
-  <field name="framerate_middle_ios" type="int"/>
-  <field name="fixedframerate_middle_ios" type="int"/>
-  <field name="framerate_middle_android" type="int"/>
-  <field name="fixedframerate_middle_android" type="int"/>
-  <field name="framerate_low_ios" type="int"/>
-  <field name="fixedframerate_low_ios" type="int"/>
-  <field name="framerate_low_android" type="int"/>
-  <field name="fixedframerate_low_android" type="int"/>
+<class name="GameModeTable">
+  <array type="class">
+    <class name="GameModeConfig">
+      <field name="gamemode_main" type="string"/>
+      <field name="gamemode_sub" type="string"/>
+      <field name="gamemode_detail" type="string"/>
+      <field name="category" type="string"/>
+      <field name="framerate_max_ios" type="int"/>
+      <field name="fixedframerate_max_ios" type="int"/>
+      <field name="framerate_max_android" type="int"/>
+      <field name="fixedframerate_max_android" type="int"/>
+      <field name="framerate_veryhigh_ios" type="int"/>
+      <field name="fixedframerate_veryhigh_ios" type="int"/>
+      <field name="framerate_veryhigh_android" type="int"/>
+      <field name="fixedframerate_veryhigh_android" type="int"/>
+      <field name="framerate_high_ios" type="int"/>
+      <field name="fixedframerate_high_ios" type="int"/>
+      <field name="framerate_high_android" type="int"/>
+      <field name="fixedframerate_high_android" type="int"/>
+      <field name="framerate_middle_ios" type="int"/>
+      <field name="fixedframerate_middle_ios" type="int"/>
+      <field name="framerate_middle_android" type="int"/>
+      <field name="fixedframerate_middle_android" type="int"/>
+      <field name="framerate_low_ios" type="int"/>
+      <field name="fixedframerate_low_ios" type="int"/>
+      <field name="framerate_low_android" type="int"/>
+      <field name="fixedframerate_low_android" type="int"/>
+    </class>
+  </array>
 </class>

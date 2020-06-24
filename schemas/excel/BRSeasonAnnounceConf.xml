@@ -1,12 +1,16 @@
-<class name="BRSeasonAnnounceConfig">
-  <field name="Index" type="int"/>
-  <field name="tittle" type="string"/>
-  <field name="MainPushPriority" type="int"/>
-  <field name="go_pos" type="int"/>
-  <field name="go_pos2" type="int"/>
-  <field name="go_pos3" type="int"/>
-  <field name="go_url" type="string"/>
-  <field name="MainPushCdnPath" type="string"/>
-  <field name="StartTime" type="string"/>
-  <field name="EndTime" type="string"/>
+<class name="BRSeasonAnnounceTable">
+  <array type="class">
+    <class name="BRSeasonAnnounceConfig">
+      <field name="Index" type="int"/>
+      <field name="tittle" type="string"/>
+      <field name="MainPushPriority" type="int"/>
+      <field name="go_pos" type="int"/>
+      <field name="go_pos2" type="int"/>
+      <field name="go_pos3" type="int"/>
+      <field name="go_url" type="string"/>
+      <field name="MainPushCdnPath" type="string"/>
+      <field name="StartTime" type="string"/>
+      <field name="EndTime" type="string"/>
+    </class>
+  </array>
 </class>

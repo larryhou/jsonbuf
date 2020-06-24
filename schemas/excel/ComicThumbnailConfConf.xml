@@ -1,8 +1,12 @@
-<class name="ComicThumbnailConfConfig">
-  <field name="ComicId" type="int"/>
-  <field name="SeasonId" type="int"/>
-  <field name="SeasonSeq" type="int"/>
-  <field name="UnlockTimeByStr" type="string"/>
-  <field name="SeasonSeqName" type="string"/>
-  <field name="ThumbnailCdn" type="string"/>
+<class name="ComicThumbnailConfTable">
+  <array type="class">
+    <class name="ComicThumbnailConfConfig">
+      <field name="ComicId" type="int"/>
+      <field name="SeasonId" type="int"/>
+      <field name="SeasonSeq" type="int"/>
+      <field name="UnlockTimeByStr" type="string"/>
+      <field name="SeasonSeqName" type="string"/>
+      <field name="ThumbnailCdn" type="string"/>
+    </class>
+  </array>
 </class>

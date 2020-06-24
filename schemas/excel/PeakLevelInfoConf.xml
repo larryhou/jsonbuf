@@ -1,8 +1,12 @@
-<class name="PeakLevelInfoConfig">
-  <field name="level" type="int"/>
-  <field name="title" type="string"/>
-  <field name="level_exp" type="int"/>
-  <field name="level_time" type="int"/>
-  <field name="icon" type="string"/>
-  <field name="level_feedback_sound" type="string"/>
+<class name="PeakLevelInfoTable">
+  <array type="class">
+    <class name="PeakLevelInfoConfig">
+      <field name="level" type="int"/>
+      <field name="title" type="string"/>
+      <field name="level_exp" type="int"/>
+      <field name="level_time" type="int"/>
+      <field name="icon" type="string"/>
+      <field name="level_feedback_sound" type="string"/>
+    </class>
+  </array>
 </class>

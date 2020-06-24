@@ -1,4 +1,8 @@
-<class name="BRSettlementConfig">
-  <field name="GameMode" type="inthex"/>
-  <field name="IconResource" type="string"/>
+<class name="BRSettlementTable">
+  <array type="class">
+    <class name="BRSettlementConfig">
+      <field name="GameMode" type="inthex"/>
+      <field name="IconResource" type="string"/>
+    </class>
+  </array>
 </class>

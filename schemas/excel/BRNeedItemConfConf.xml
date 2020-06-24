@@ -1,20 +1,24 @@
-<class name="BRNeedItemConfConfig">
-  <field name="ItemID" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="AttachWeaponID" type="array">
-    <array type="int"/>
-  </field>
-  <field name="AttachWeapon" type="bool"/>
-  <field name="ForAR" type="bool"/>
-  <field name="ForSniper" type="bool"/>
-  <field name="ForLMG" type="bool"/>
-  <field name="ForSMG" type="bool"/>
-  <field name="ForShotgun" type="bool"/>
-  <field name="ForPistol" type="bool"/>
-  <field name="GroupID" type="int"/>
-  <field name="Level" type="int"/>
-  <field name="Represent" type="int"/>
-  <field name="Factor" type="float"/>
-  <field name="Durability" type="int"/>
-  <field name="Weight" type="float"/>
+<class name="BRNeedItemConfTable">
+  <array type="class">
+    <class name="BRNeedItemConfConfig">
+      <field name="ItemID" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="AttachWeaponID" type="array">
+        <array type="int"/>
+      </field>
+      <field name="AttachWeapon" type="bool"/>
+      <field name="ForAR" type="bool"/>
+      <field name="ForSniper" type="bool"/>
+      <field name="ForLMG" type="bool"/>
+      <field name="ForSMG" type="bool"/>
+      <field name="ForShotgun" type="bool"/>
+      <field name="ForPistol" type="bool"/>
+      <field name="GroupID" type="int"/>
+      <field name="Level" type="int"/>
+      <field name="Represent" type="int"/>
+      <field name="Factor" type="float"/>
+      <field name="Durability" type="int"/>
+      <field name="Weight" type="float"/>
+    </class>
+  </array>
 </class>

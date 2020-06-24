@@ -1,12 +1,16 @@
-<class name="BRBroadcastStyleConfig">
-  <field name="ID" type="uint"/>
-  <field name="TemplateID" type="uint"/>
-  <field name="Color" type="uint"/>
-  <field name="Icon" type="string"/>
-  <field name="LOCID_BroadcastText" type="string"/>
-  <field name="SubIcon" type="string"/>
-  <field name="ShowTime" type="float"/>
-  <field name="EffectName" type="string"/>
-  <field name="OffEffectTime" type="float"/>
-  <field name="AudioClipID" type="uint"/>
+<class name="BRBroadcastStyleTable">
+  <array type="class">
+    <class name="BRBroadcastStyleConfig">
+      <field name="ID" type="uint"/>
+      <field name="TemplateID" type="uint"/>
+      <field name="Color" type="uint"/>
+      <field name="Icon" type="string"/>
+      <field name="LOCID_BroadcastText" type="string"/>
+      <field name="SubIcon" type="string"/>
+      <field name="ShowTime" type="float"/>
+      <field name="EffectName" type="string"/>
+      <field name="OffEffectTime" type="float"/>
+      <field name="AudioClipID" type="uint"/>
+    </class>
+  </array>
 </class>

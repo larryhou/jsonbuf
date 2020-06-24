@@ -1,7 +1,11 @@
-<class name="ProducersConfig">
-  <field name="lastName" type="string"/>
-  <field name="firstName" type="string"/>
-  <field name="jobPositions" type="string"/>
-  <field name="department" type="string"/>
-  <field name="group" type="string"/>
+<class name="ProducersTable">
+  <array type="class">
+    <class name="ProducersConfig">
+      <field name="lastName" type="string"/>
+      <field name="firstName" type="string"/>
+      <field name="jobPositions" type="string"/>
+      <field name="department" type="string"/>
+      <field name="group" type="string"/>
+    </class>
+  </array>
 </class>

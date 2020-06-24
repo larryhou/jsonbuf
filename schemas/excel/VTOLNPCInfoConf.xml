@@ -1,15 +1,19 @@
-<class name="VTOLNPCInfoConfig">
-  <field name="ID" type="int"/>
-  <field name="HP" type="float"/>
-  <field name="MaxFlySpeed" type="int"/>
-  <field name="AccelFlySpeed" type="int"/>
-  <field name="TurnAngleSpeed" type="int"/>
-  <field name="FOV" type="int"/>
-  <field name="LifeTime" type="int"/>
-  <field name="DestorySocre" type="int"/>
-  <field name="MeshID" type="int"/>
-  <field name="WeaponID" type="int"/>
-  <field name="HalfSide" type="int"/>
-  <field name="HalfHeight" type="float"/>
-  <field name="ResistanceID" type="int"/>
+<class name="VTOLNPCInfoTable">
+  <array type="class">
+    <class name="VTOLNPCInfoConfig">
+      <field name="ID" type="int"/>
+      <field name="HP" type="float"/>
+      <field name="MaxFlySpeed" type="int"/>
+      <field name="AccelFlySpeed" type="int"/>
+      <field name="TurnAngleSpeed" type="int"/>
+      <field name="FOV" type="int"/>
+      <field name="LifeTime" type="int"/>
+      <field name="DestorySocre" type="int"/>
+      <field name="MeshID" type="int"/>
+      <field name="WeaponID" type="int"/>
+      <field name="HalfSide" type="int"/>
+      <field name="HalfHeight" type="float"/>
+      <field name="ResistanceID" type="int"/>
+    </class>
+  </array>
 </class>

@@ -1,17 +1,21 @@
-<class name="WeaponBaseConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="ExpGroupId" type="int"/>
-  <field name="UnlockMode" type="int"/>
-  <field name="UnlockValue" type="long"/>
-  <field name="PartID_1" type="int"/>
-  <field name="PartID_2" type="int"/>
-  <field name="PartID_3" type="int"/>
-  <field name="PartID_4" type="int"/>
-  <field name="PartID_5" type="int"/>
-  <field name="PartID_6" type="int"/>
-  <field name="PartID_7" type="int"/>
-  <field name="PartID_8" type="int"/>
-  <field name="PartID_9" type="int"/>
+<class name="WeaponBaseConfTable">
+  <array type="class">
+    <class name="WeaponBaseConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="ExpGroupId" type="int"/>
+      <field name="UnlockMode" type="int"/>
+      <field name="UnlockValue" type="long"/>
+      <field name="PartID_1" type="int"/>
+      <field name="PartID_2" type="int"/>
+      <field name="PartID_3" type="int"/>
+      <field name="PartID_4" type="int"/>
+      <field name="PartID_5" type="int"/>
+      <field name="PartID_6" type="int"/>
+      <field name="PartID_7" type="int"/>
+      <field name="PartID_8" type="int"/>
+      <field name="PartID_9" type="int"/>
+    </class>
+  </array>
 </class>

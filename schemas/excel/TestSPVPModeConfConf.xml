@@ -1,17 +1,21 @@
-<class name="TestSPVPModeConfConfig">
-  <field name="ModePatter" type="string"/>
-  <field name="ModeType" type="string"/>
-  <field name="ModeTypeName" type="string"/>
-  <field name="ModeResource" type="string"/>
-  <field name="DefaultMapType" type="inthex"/>
-  <field name="ModeUplimit" type="int"/>
-  <field name="ModeDownLimit" type="int"/>
-  <field name="LOCID_ModeDesc" type="string"/>
-  <field name="LOCID_ModeBriefDesc" type="string"/>
-  <field name="SubMode_0" type="string"/>
-  <field name="SubMode0Weight" type="int"/>
-  <field name="SubMode_1" type="string"/>
-  <field name="SubMode1Weight" type="int"/>
-  <field name="SubMode_2" type="string"/>
-  <field name="SubMode2Weight" type="int"/>
+<class name="TestSPVPModeConfTable">
+  <array type="class">
+    <class name="TestSPVPModeConfConfig">
+      <field name="ModePatter" type="string"/>
+      <field name="ModeType" type="string"/>
+      <field name="ModeTypeName" type="string"/>
+      <field name="ModeResource" type="string"/>
+      <field name="DefaultMapType" type="inthex"/>
+      <field name="ModeUplimit" type="int"/>
+      <field name="ModeDownLimit" type="int"/>
+      <field name="LOCID_ModeDesc" type="string"/>
+      <field name="LOCID_ModeBriefDesc" type="string"/>
+      <field name="SubMode_0" type="string"/>
+      <field name="SubMode0Weight" type="int"/>
+      <field name="SubMode_1" type="string"/>
+      <field name="SubMode1Weight" type="int"/>
+      <field name="SubMode_2" type="string"/>
+      <field name="SubMode2Weight" type="int"/>
+    </class>
+  </array>
 </class>

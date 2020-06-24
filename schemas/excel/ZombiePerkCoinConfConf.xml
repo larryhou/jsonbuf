@@ -1,14 +1,18 @@
-<class name="ZombiePerkCoinConfConfig">
-  <field name="CoinID" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="Name" type="string"/>
-  <field name="Duration" type="int"/>
-  <field name="SpriteName" type="string"/>
-  <field name="Description" type="string"/>
-  <field name="UseCount" type="int"/>
-  <field name="RandomWeight" type="int"/>
-  <field name="MaxSpawnCount" type="int"/>
-  <field name="PerkType" type="int"/>
-  <field name="RefID" type="int"/>
-  <field name="RemoveRefID" type="string"/>
+<class name="ZombiePerkCoinConfTable">
+  <array type="class">
+    <class name="ZombiePerkCoinConfConfig">
+      <field name="CoinID" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="Name" type="string"/>
+      <field name="Duration" type="int"/>
+      <field name="SpriteName" type="string"/>
+      <field name="Description" type="string"/>
+      <field name="UseCount" type="int"/>
+      <field name="RandomWeight" type="int"/>
+      <field name="MaxSpawnCount" type="int"/>
+      <field name="PerkType" type="int"/>
+      <field name="RefID" type="int"/>
+      <field name="RemoveRefID" type="string"/>
+    </class>
+  </array>
 </class>

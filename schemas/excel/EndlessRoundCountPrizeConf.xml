@@ -1,8 +1,12 @@
-<class name="EndlessRoundCountPrizeConfig">
-  <field name="Id" type="int"/>
-  <field name="BeginTime" type="string"/>
-  <field name="EndTime" type="string"/>
-  <field name="RewardNum" type="int"/>
-  <field name="BoxId" type="int"/>
-  <field name="RoundCount" type="int"/>
+<class name="EndlessRoundCountPrizeTable">
+  <array type="class">
+    <class name="EndlessRoundCountPrizeConfig">
+      <field name="Id" type="int"/>
+      <field name="BeginTime" type="string"/>
+      <field name="EndTime" type="string"/>
+      <field name="RewardNum" type="int"/>
+      <field name="BoxId" type="int"/>
+      <field name="RoundCount" type="int"/>
+    </class>
+  </array>
 </class>

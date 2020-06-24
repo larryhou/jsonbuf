@@ -1,5 +1,9 @@
-<class name="CSTlogIDConfig">
-  <field name="cstlog_id" type="int"/>
-  <field name="cstlog_name" type="string"/>
-  <field name="should_save_to_vng" type="int"/>
+<class name="CSTlogIDTable">
+  <array type="class">
+    <class name="CSTlogIDConfig">
+      <field name="cstlog_id" type="int"/>
+      <field name="cstlog_name" type="string"/>
+      <field name="should_save_to_vng" type="int"/>
+    </class>
+  </array>
 </class>

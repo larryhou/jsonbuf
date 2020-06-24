@@ -1,8 +1,12 @@
-<class name="BRNewGuideConfigConfig">
-  <field name="ID" type="int"/>
-  <field name="BRNewGuideItemType" type="int"/>
-  <field name="RepeatTime" type="int"/>
-  <field name="LifeCycle" type="int"/>
-  <field name="Time" type="float"/>
-  <field name="LOCID_GuideText" type="string"/>
+<class name="BRNewGuideConfigTable">
+  <array type="class">
+    <class name="BRNewGuideConfigConfig">
+      <field name="ID" type="int"/>
+      <field name="BRNewGuideItemType" type="int"/>
+      <field name="RepeatTime" type="int"/>
+      <field name="LifeCycle" type="int"/>
+      <field name="Time" type="float"/>
+      <field name="LOCID_GuideText" type="string"/>
+    </class>
+  </array>
 </class>

@@ -1,7 +1,11 @@
-<class name="PickupSetConfig">
-  <field name="SetNumber" type="int"/>
-  <field name="ComponentNumeber" type="int"/>
-  <field name="ItemID" type="uint"/>
-  <field name="Name" type="string"/>
-  <field name="Quantity" type="uint"/>
+<class name="PickupSetTable">
+  <array type="class">
+    <class name="PickupSetConfig">
+      <field name="SetNumber" type="int"/>
+      <field name="ComponentNumeber" type="int"/>
+      <field name="ItemID" type="uint"/>
+      <field name="Name" type="string"/>
+      <field name="Quantity" type="uint"/>
+    </class>
+  </array>
 </class>

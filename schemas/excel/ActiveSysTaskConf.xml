@@ -1,25 +1,29 @@
-<class name="ActiveSysTaskConfig">
-  <field name="seq_id" type="int"/>
-  <field name="task_group_id" type="int"/>
-  <field name="pre_condition_type1" type="int"/>
-  <field name="pre_condition_value1" type="int"/>
-  <field name="pre_condition_type2" type="int"/>
-  <field name="pre_condition_value2" type="int"/>
-  <field name="pre_condition_type3" type="int"/>
-  <field name="pre_condition_value3" type="int"/>
-  <field name="condition" type="int"/>
-  <field name="value" type="int"/>
-  <field name="task_points" type="int"/>
-  <field name="client_action" type="int"/>
-  <field name="LOCID_TaskDesc" type="string"/>
-  <field name="task_award_id1" type="int"/>
-  <field name="task_award_num1" type="int"/>
-  <field name="task_award_id2" type="int"/>
-  <field name="task_award_num2" type="int"/>
-  <field name="task_award_id3" type="int"/>
-  <field name="task_award_num3" type="int"/>
-  <field name="task_award_id4" type="int"/>
-  <field name="task_award_num4" type="int"/>
-  <field name="task_award_id5" type="int"/>
-  <field name="task_award_num5" type="int"/>
+<class name="ActiveSysTaskTable">
+  <array type="class">
+    <class name="ActiveSysTaskConfig">
+      <field name="seq_id" type="int"/>
+      <field name="task_group_id" type="int"/>
+      <field name="pre_condition_type1" type="int"/>
+      <field name="pre_condition_value1" type="int"/>
+      <field name="pre_condition_type2" type="int"/>
+      <field name="pre_condition_value2" type="int"/>
+      <field name="pre_condition_type3" type="int"/>
+      <field name="pre_condition_value3" type="int"/>
+      <field name="condition" type="int"/>
+      <field name="value" type="int"/>
+      <field name="task_points" type="int"/>
+      <field name="client_action" type="int"/>
+      <field name="LOCID_TaskDesc" type="string"/>
+      <field name="task_award_id1" type="int"/>
+      <field name="task_award_num1" type="int"/>
+      <field name="task_award_id2" type="int"/>
+      <field name="task_award_num2" type="int"/>
+      <field name="task_award_id3" type="int"/>
+      <field name="task_award_num3" type="int"/>
+      <field name="task_award_id4" type="int"/>
+      <field name="task_award_num4" type="int"/>
+      <field name="task_award_id5" type="int"/>
+      <field name="task_award_num5" type="int"/>
+    </class>
+  </array>
 </class>

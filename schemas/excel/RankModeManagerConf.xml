@@ -1,8 +1,12 @@
-<class name="RankModeManagerConfig">
-  <field name="ModeType" type="int"/>
-  <field name="LOCID_Name_RankMode" type="string"/>
-  <field name="RankTabs" type="int"/>
-  <field name="LOCID_Name_RankTab" type="string"/>
-  <field name="RankTabChilds" type="int"/>
-  <field name="LOCID_Name_RankTabChild" type="string"/>
+<class name="RankModeManagerTable">
+  <array type="class">
+    <class name="RankModeManagerConfig">
+      <field name="ModeType" type="int"/>
+      <field name="LOCID_Name_RankMode" type="string"/>
+      <field name="RankTabs" type="int"/>
+      <field name="LOCID_Name_RankTab" type="string"/>
+      <field name="RankTabChilds" type="int"/>
+      <field name="LOCID_Name_RankTabChild" type="string"/>
+    </class>
+  </array>
 </class>

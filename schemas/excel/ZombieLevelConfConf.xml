@@ -1,26 +1,30 @@
-<class name="ZombieLevelConfConfig">
-  <field name="ChapterId" type="int"/>
-  <field name="StoryOrder" type="int"/>
-  <field name="LevelID" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LevelType" type="string"/>
-  <field name="X" type="int"/>
-  <field name="Y" type="int"/>
-  <field name="MapID" type="inthex"/>
-  <field name="ModifierCount" type="int"/>
-  <field name="ModifierWhitelist" type="int"/>
-  <field name="ModifierBlacklist" type="int"/>
-  <field name="UnlockPreLevelId" type="int"/>
-  <field name="NeedPassPreLevel" type="int"/>
-  <field name="PreviewAssetID" type="int"/>
-  <field name="StarsNeed" type="int"/>
-  <field name="FireNeed" type="int"/>
-  <field name="star1_cond_str" type="string"/>
-  <field name="star1_param" type="int"/>
-  <field name="star2_cond_str" type="string"/>
-  <field name="star2_param" type="int"/>
-  <field name="star3_cond_str" type="string"/>
-  <field name="star3_param" type="int"/>
-  <field name="DropItemID" type="int"/>
-  <field name="RestrictUltId" type="int"/>
+<class name="ZombieLevelConfTable">
+  <array type="class">
+    <class name="ZombieLevelConfConfig">
+      <field name="ChapterId" type="int"/>
+      <field name="StoryOrder" type="int"/>
+      <field name="LevelID" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LevelType" type="string"/>
+      <field name="X" type="int"/>
+      <field name="Y" type="int"/>
+      <field name="MapID" type="inthex"/>
+      <field name="ModifierCount" type="int"/>
+      <field name="ModifierWhitelist" type="int"/>
+      <field name="ModifierBlacklist" type="int"/>
+      <field name="UnlockPreLevelId" type="int"/>
+      <field name="NeedPassPreLevel" type="int"/>
+      <field name="PreviewAssetID" type="int"/>
+      <field name="StarsNeed" type="int"/>
+      <field name="FireNeed" type="int"/>
+      <field name="star1_cond_str" type="string"/>
+      <field name="star1_param" type="int"/>
+      <field name="star2_cond_str" type="string"/>
+      <field name="star2_param" type="int"/>
+      <field name="star3_cond_str" type="string"/>
+      <field name="star3_param" type="int"/>
+      <field name="DropItemID" type="int"/>
+      <field name="RestrictUltId" type="int"/>
+    </class>
+  </array>
 </class>

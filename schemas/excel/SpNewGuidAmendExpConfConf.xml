@@ -1,5 +1,9 @@
-<class name="SpNewGuidAmendExpConfConfig">
-  <field name="Id" type="int"/>
-  <field name="MapId" type="int"/>
-  <field name="Exp" type="int"/>
+<class name="SpNewGuidAmendExpConfTable">
+  <array type="class">
+    <class name="SpNewGuidAmendExpConfConfig">
+      <field name="Id" type="int"/>
+      <field name="MapId" type="int"/>
+      <field name="Exp" type="int"/>
+    </class>
+  </array>
 </class>

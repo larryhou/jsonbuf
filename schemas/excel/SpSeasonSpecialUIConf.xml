@@ -1,8 +1,12 @@
-<class name="SpSeasonSpecialUIConfig">
-  <field name="id" type="int"/>
-  <field name="season_id" type="int"/>
-  <field name="special_type" type="int"/>
-  <field name="scale" type="float"/>
-  <field name="pos_x" type="int"/>
-  <field name="pos_y" type="int"/>
+<class name="SpSeasonSpecialUITable">
+  <array type="class">
+    <class name="SpSeasonSpecialUIConfig">
+      <field name="id" type="int"/>
+      <field name="season_id" type="int"/>
+      <field name="special_type" type="int"/>
+      <field name="scale" type="float"/>
+      <field name="pos_x" type="int"/>
+      <field name="pos_y" type="int"/>
+    </class>
+  </array>
 </class>

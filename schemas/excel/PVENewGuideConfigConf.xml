@@ -1,9 +1,13 @@
-<class name="PVENewGuideConfigConfig">
-  <field name="ID" type="int"/>
-  <field name="NewGuideItemType" type="int"/>
-  <field name="RepeatTime" type="int"/>
-  <field name="Time" type="float"/>
-  <field name="LOCID_GuideText" type="string"/>
-  <field name="LOCID_GuideText_2" type="string"/>
-  <field name="LOCID_GuideText_3" type="string"/>
+<class name="PVENewGuideConfigTable">
+  <array type="class">
+    <class name="PVENewGuideConfigConfig">
+      <field name="ID" type="int"/>
+      <field name="NewGuideItemType" type="int"/>
+      <field name="RepeatTime" type="int"/>
+      <field name="Time" type="float"/>
+      <field name="LOCID_GuideText" type="string"/>
+      <field name="LOCID_GuideText_2" type="string"/>
+      <field name="LOCID_GuideText_3" type="string"/>
+    </class>
+  </array>
 </class>

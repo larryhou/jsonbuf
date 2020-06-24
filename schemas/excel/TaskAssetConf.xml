@@ -1,5 +1,9 @@
-<class name="TaskAssetConfig">
-  <field name="ID" type="int"/>
-  <field name="activity_id" type="int"/>
-  <field name="TaskAssetName" type="string"/>
+<class name="TaskAssetTable">
+  <array type="class">
+    <class name="TaskAssetConfig">
+      <field name="ID" type="int"/>
+      <field name="activity_id" type="int"/>
+      <field name="TaskAssetName" type="string"/>
+    </class>
+  </array>
 </class>

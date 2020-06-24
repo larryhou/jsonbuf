@@ -1,5 +1,9 @@
-<class name="SticksAndStonesConfig">
-  <field name="Order" type="int"/>
-  <field name="ItemID" type="int"/>
-  <field name="Name" type="string"/>
+<class name="SticksAndStonesTable">
+  <array type="class">
+    <class name="SticksAndStonesConfig">
+      <field name="Order" type="int"/>
+      <field name="ItemID" type="int"/>
+      <field name="Name" type="string"/>
+    </class>
+  </array>
 </class>

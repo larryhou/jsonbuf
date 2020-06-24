@@ -1,19 +1,23 @@
-<class name="LuckyBoxConfigConfig">
-  <field name="box_id" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="box_type" type="int"/>
-  <field name="box_color" type="int"/>
-  <field name="box_sub_color" type="int"/>
-  <field name="title_cdn" type="string"/>
-  <field name="max_lucky_value" type="int"/>
-  <field name="show_draw_bonus" type="bool"/>
-  <field name="show_promise" type="bool"/>
-  <field name="promise_locid" type="string"/>
-  <field name="promise_num" type="int"/>
-  <field name="promise_item_locid" type="string"/>
-  <field name="BoxNewsGroup" type="array">
-    <array type="int"/>
-  </field>
-  <field name="own_milestone_number" type="string"/>
+<class name="LuckyBoxConfigTable">
+  <array type="class">
+    <class name="LuckyBoxConfigConfig">
+      <field name="box_id" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="box_type" type="int"/>
+      <field name="box_color" type="int"/>
+      <field name="box_sub_color" type="int"/>
+      <field name="title_cdn" type="string"/>
+      <field name="max_lucky_value" type="int"/>
+      <field name="show_draw_bonus" type="bool"/>
+      <field name="show_promise" type="bool"/>
+      <field name="promise_locid" type="string"/>
+      <field name="promise_num" type="int"/>
+      <field name="promise_item_locid" type="string"/>
+      <field name="BoxNewsGroup" type="array">
+        <array type="int"/>
+      </field>
+      <field name="own_milestone_number" type="string"/>
+    </class>
+  </array>
 </class>

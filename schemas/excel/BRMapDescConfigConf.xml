@@ -1,7 +1,11 @@
-<class name="BRMapDescConfigConfig">
-  <field name="ID" type="int"/>
-  <field name="MapId" type="int"/>
-  <field name="ModeName" type="string"/>
-  <field name="MapName" type="string"/>
-  <field name="LoadingResource" type="string"/>
+<class name="BRMapDescConfigTable">
+  <array type="class">
+    <class name="BRMapDescConfigConfig">
+      <field name="ID" type="int"/>
+      <field name="MapId" type="int"/>
+      <field name="ModeName" type="string"/>
+      <field name="MapName" type="string"/>
+      <field name="LoadingResource" type="string"/>
+    </class>
+  </array>
 </class>

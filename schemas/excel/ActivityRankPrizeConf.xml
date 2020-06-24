@@ -1,15 +1,19 @@
-<class name="ActivityRankPrizeConfig">
-  <field name="rank_type" type="int"/>
-  <field name="rank_lower_limit" type="int"/>
-  <field name="rank_upper_limit" type="int"/>
-  <field name="is_percent" type="int"/>
-  <field name="prize_info_1_item_id" type="int"/>
-  <field name="prize_info_1_item_num" type="int"/>
-  <field name="prize_info_1_duration" type="int"/>
-  <field name="prize_info_2_item_id" type="int"/>
-  <field name="prize_info_2_item_num" type="int"/>
-  <field name="prize_info_2_duration" type="int"/>
-  <field name="prize_info_3_item_id" type="int"/>
-  <field name="prize_info_3_item_num" type="int"/>
-  <field name="prize_info_3_duration" type="int"/>
+<class name="ActivityRankPrizeTable">
+  <array type="class">
+    <class name="ActivityRankPrizeConfig">
+      <field name="rank_type" type="int"/>
+      <field name="rank_lower_limit" type="int"/>
+      <field name="rank_upper_limit" type="int"/>
+      <field name="is_percent" type="int"/>
+      <field name="prize_info_1_item_id" type="int"/>
+      <field name="prize_info_1_item_num" type="int"/>
+      <field name="prize_info_1_duration" type="int"/>
+      <field name="prize_info_2_item_id" type="int"/>
+      <field name="prize_info_2_item_num" type="int"/>
+      <field name="prize_info_2_duration" type="int"/>
+      <field name="prize_info_3_item_id" type="int"/>
+      <field name="prize_info_3_item_num" type="int"/>
+      <field name="prize_info_3_duration" type="int"/>
+    </class>
+  </array>
 </class>

@@ -1,12 +1,16 @@
-<class name="LegendaryWeaponConfig">
-  <field name="WeaponID" type="uint"/>
-  <field name="Name" type="string"/>
-  <field name="ShopBackgroundAssetID" type="uint"/>
-  <field name="ReceiveBackgroundAssetID" type="uint"/>
-  <field name="ShopLightAssetID" type="uint"/>
-  <field name="ReceiveLightAssetID" type="uint"/>
-  <field name="OverrideCameraAnimations" type="array">
-    <array type="uint"/>
-  </field>
-  <field name="ShowMatinee" type="uint"/>
+<class name="LegendaryWeaponTable">
+  <array type="class">
+    <class name="LegendaryWeaponConfig">
+      <field name="WeaponID" type="uint"/>
+      <field name="Name" type="string"/>
+      <field name="ShopBackgroundAssetID" type="uint"/>
+      <field name="ReceiveBackgroundAssetID" type="uint"/>
+      <field name="ShopLightAssetID" type="uint"/>
+      <field name="ReceiveLightAssetID" type="uint"/>
+      <field name="OverrideCameraAnimations" type="array">
+        <array type="uint"/>
+      </field>
+      <field name="ShowMatinee" type="uint"/>
+    </class>
+  </array>
 </class>

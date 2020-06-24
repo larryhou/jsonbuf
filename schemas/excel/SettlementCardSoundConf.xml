@@ -1,6 +1,10 @@
-<class name="SettlementCardSoundConfig">
-  <field name="quality" type="int"/>
-  <field name="card_audio_name" type="string"/>
-  <field name="box_audio_name" type="string"/>
-  <field name="bank" type="int"/>
+<class name="SettlementCardSoundTable">
+  <array type="class">
+    <class name="SettlementCardSoundConfig">
+      <field name="quality" type="int"/>
+      <field name="card_audio_name" type="string"/>
+      <field name="box_audio_name" type="string"/>
+      <field name="bank" type="int"/>
+    </class>
+  </array>
 </class>

@@ -1,87 +1,91 @@
-<class name="WeaponConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="NotShowInWC" type="int"/>
-  <field name="ColorID" type="int"/>
-  <field name="ColorSubID" type="int"/>
-  <field name="MinSPI" type="int"/>
-  <field name="MaxSPI" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="LOCID_Levelup_Desc" type="string"/>
-  <field name="MaxAttach" type="int"/>
-  <field name="MaxSkill" type="int"/>
-  <field name="PVEDamage" type="int"/>
-  <field name="Damage" type="int"/>
-  <field name="FireRate" type="int"/>
-  <field name="Accuracy" type="int"/>
-  <field name="Mobility" type="int"/>
-  <field name="Range" type="int"/>
-  <field name="Control" type="int"/>
-  <field name="LOCID_SkinName" type="string"/>
-  <field name="LotteryAttachment_1" type="int"/>
-  <field name="LotteryAttachment_2" type="int"/>
-  <field name="LotteryAttachment_3" type="int"/>
-  <field name="LotterySkill_1" type="int"/>
-  <field name="LotterySkill_2" type="int"/>
-  <field name="LotterySkill_3" type="int"/>
-  <field name="DefaultAttachment_1" type="int"/>
-  <field name="DefaultAttachment_2" type="int"/>
-  <field name="DefaultAttachment_3" type="int"/>
-  <field name="DefaultAttachment_4" type="int"/>
-  <field name="DefaultSkill_1" type="int"/>
-  <field name="DefaultSkill_2" type="int"/>
-  <field name="DefaultSkill_3" type="int"/>
-  <field name="DefWeaponSkinID" type="int"/>
-  <field name="CamoLotteryID" type="int"/>
-  <field name="UIAttachPointConfig" type="string"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LockedShowOrder" type="int"/>
-  <field name="LOCID_HowToGet" type="string"/>
-  <field name="GoGetPos" type="int"/>
-  <field name="SecondTab" type="int"/>
-  <field name="GoGetUrl" type="string"/>
-  <field name="ShowRare" type="bool"/>
-  <field name="SpecialAttachment" type="int"/>
-  <field name="CanEquipOptic" type="bool"/>
-  <field name="UIProperty" type="array">
-    <array type="int"/>
-  </field>
-  <field name="UIPropertyUnlockLevel" type="array">
-    <array type="int"/>
-  </field>
-  <field name="OpenViewSkill" type="array">
-    <array type="int"/>
-  </field>
-  <field name="OpenViewSkillUnlockLevel" type="array">
-    <array type="int"/>
-  </field>
-  <field name="ExpGroupId" type="int"/>
-  <field name="SuperShowGroup" type="int"/>
-  <field name="WeaponSkinBox" type="array">
-    <array type="int"/>
-  </field>
-  <field name="IsAutoDemolition" type="bool"/>
-  <field name="SellProtection" type="int"/>
-  <field name="CurrencyID" type="uint"/>
-  <field name="SellPrice" type="int"/>
-  <field name="FireEffectGroupID" type="int"/>
-  <field name="WinnerCircleAnimID" type="int"/>
-  <field name="WinnerCircleWeaponMountType" type="int"/>
-  <field name="DefaultKillEffectId" type="int"/>
-  <field name="ModelRotation" type="array">
-    <array type="float"/>
-  </field>
-  <field name="CommercialisedShowGroup" type="int"/>
-  <field name="SpecialWeaponAnimator" type="string"/>
-  <field name="RightHandAnimName" type="string"/>
-  <field name="IdleAnimationIndex" type="string"/>
-  <field name="WeaponBluePrintType" type="int"/>
-  <field name="TargetWeaponId" type="int"/>
-  <field name="BaseWeaponId" type="uint"/>
-  <field name="Recommend_1" type="array">
-    <array type="uint"/>
-  </field>
-  <field name="Recommend_2" type="array">
-    <array type="uint"/>
-  </field>
+<class name="WeaponConfTable">
+  <array type="class">
+    <class name="WeaponConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="NotShowInWC" type="int"/>
+      <field name="ColorID" type="int"/>
+      <field name="ColorSubID" type="int"/>
+      <field name="MinSPI" type="int"/>
+      <field name="MaxSPI" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="LOCID_Levelup_Desc" type="string"/>
+      <field name="MaxAttach" type="int"/>
+      <field name="MaxSkill" type="int"/>
+      <field name="PVEDamage" type="int"/>
+      <field name="Damage" type="int"/>
+      <field name="FireRate" type="int"/>
+      <field name="Accuracy" type="int"/>
+      <field name="Mobility" type="int"/>
+      <field name="Range" type="int"/>
+      <field name="Control" type="int"/>
+      <field name="LOCID_SkinName" type="string"/>
+      <field name="LotteryAttachment_1" type="int"/>
+      <field name="LotteryAttachment_2" type="int"/>
+      <field name="LotteryAttachment_3" type="int"/>
+      <field name="LotterySkill_1" type="int"/>
+      <field name="LotterySkill_2" type="int"/>
+      <field name="LotterySkill_3" type="int"/>
+      <field name="DefaultAttachment_1" type="int"/>
+      <field name="DefaultAttachment_2" type="int"/>
+      <field name="DefaultAttachment_3" type="int"/>
+      <field name="DefaultAttachment_4" type="int"/>
+      <field name="DefaultSkill_1" type="int"/>
+      <field name="DefaultSkill_2" type="int"/>
+      <field name="DefaultSkill_3" type="int"/>
+      <field name="DefWeaponSkinID" type="int"/>
+      <field name="CamoLotteryID" type="int"/>
+      <field name="UIAttachPointConfig" type="string"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LockedShowOrder" type="int"/>
+      <field name="LOCID_HowToGet" type="string"/>
+      <field name="GoGetPos" type="int"/>
+      <field name="SecondTab" type="int"/>
+      <field name="GoGetUrl" type="string"/>
+      <field name="ShowRare" type="bool"/>
+      <field name="SpecialAttachment" type="int"/>
+      <field name="CanEquipOptic" type="bool"/>
+      <field name="UIProperty" type="array">
+        <array type="int"/>
+      </field>
+      <field name="UIPropertyUnlockLevel" type="array">
+        <array type="int"/>
+      </field>
+      <field name="OpenViewSkill" type="array">
+        <array type="int"/>
+      </field>
+      <field name="OpenViewSkillUnlockLevel" type="array">
+        <array type="int"/>
+      </field>
+      <field name="ExpGroupId" type="int"/>
+      <field name="SuperShowGroup" type="int"/>
+      <field name="WeaponSkinBox" type="array">
+        <array type="int"/>
+      </field>
+      <field name="IsAutoDemolition" type="bool"/>
+      <field name="SellProtection" type="int"/>
+      <field name="CurrencyID" type="uint"/>
+      <field name="SellPrice" type="int"/>
+      <field name="FireEffectGroupID" type="int"/>
+      <field name="WinnerCircleAnimID" type="int"/>
+      <field name="WinnerCircleWeaponMountType" type="int"/>
+      <field name="DefaultKillEffectId" type="int"/>
+      <field name="ModelRotation" type="array">
+        <array type="float"/>
+      </field>
+      <field name="CommercialisedShowGroup" type="int"/>
+      <field name="SpecialWeaponAnimator" type="string"/>
+      <field name="RightHandAnimName" type="string"/>
+      <field name="IdleAnimationIndex" type="string"/>
+      <field name="WeaponBluePrintType" type="int"/>
+      <field name="TargetWeaponId" type="int"/>
+      <field name="BaseWeaponId" type="uint"/>
+      <field name="Recommend_1" type="array">
+        <array type="uint"/>
+      </field>
+      <field name="Recommend_2" type="array">
+        <array type="uint"/>
+      </field>
+    </class>
+  </array>
 </class>

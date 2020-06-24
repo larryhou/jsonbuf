@@ -1,18 +1,22 @@
-<class name="WeaponAssetGroupConfConfig">
-  <field name="Id" type="int"/>
-  <field name="MeshAssetID1P" type="int"/>
-  <field name="MeshAssetID3P" type="int"/>
-  <field name="MeshAssetID3P_L" type="int"/>
-  <field name="FemaleMeshAssetID3P" type="int"/>
-  <field name="FemaleMeshAssetID3P_L" type="int"/>
-  <field name="MeshAssetIDUI" type="int"/>
-  <field name="FireEffectGroupID" type="int"/>
-  <field name="SpecialUnAimingEffectAssetID1P" type="int"/>
-  <field name="WeaponPickUpAssetID" type="int"/>
-  <field name="ProjFlightAssetID" type="int"/>
-  <field name="ProjFlightAssetID3P" type="int"/>
-  <field name="ProjAssetID" type="int"/>
-  <field name="ProjExplosionAssetID" type="int"/>
-  <field name="BRProjExplosionAssetID" type="int"/>
-  <field name="ExtraDamageScreenEffectID" type="int"/>
+<class name="WeaponAssetGroupConfTable">
+  <array type="class">
+    <class name="WeaponAssetGroupConfConfig">
+      <field name="Id" type="int"/>
+      <field name="MeshAssetID1P" type="int"/>
+      <field name="MeshAssetID3P" type="int"/>
+      <field name="MeshAssetID3P_L" type="int"/>
+      <field name="FemaleMeshAssetID3P" type="int"/>
+      <field name="FemaleMeshAssetID3P_L" type="int"/>
+      <field name="MeshAssetIDUI" type="int"/>
+      <field name="FireEffectGroupID" type="int"/>
+      <field name="SpecialUnAimingEffectAssetID1P" type="int"/>
+      <field name="WeaponPickUpAssetID" type="int"/>
+      <field name="ProjFlightAssetID" type="int"/>
+      <field name="ProjFlightAssetID3P" type="int"/>
+      <field name="ProjAssetID" type="int"/>
+      <field name="ProjExplosionAssetID" type="int"/>
+      <field name="BRProjExplosionAssetID" type="int"/>
+      <field name="ExtraDamageScreenEffectID" type="int"/>
+    </class>
+  </array>
 </class>

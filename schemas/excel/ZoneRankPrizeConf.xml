@@ -1,10 +1,14 @@
-<class name="ZoneRankPrizeConfig">
-  <field name="rank_id" type="int"/>
-  <field name="rank" type="int"/>
-  <field name="prize_info_1_item_id" type="int"/>
-  <field name="prize_info_1_item_num" type="int"/>
-  <field name="prize_info_1_duration" type="int"/>
-  <field name="prize_info_2_item_id" type="int"/>
-  <field name="prize_info_2_item_num" type="int"/>
-  <field name="prize_info_2_duration" type="int"/>
+<class name="ZoneRankPrizeTable">
+  <array type="class">
+    <class name="ZoneRankPrizeConfig">
+      <field name="rank_id" type="int"/>
+      <field name="rank" type="int"/>
+      <field name="prize_info_1_item_id" type="int"/>
+      <field name="prize_info_1_item_num" type="int"/>
+      <field name="prize_info_1_duration" type="int"/>
+      <field name="prize_info_2_item_id" type="int"/>
+      <field name="prize_info_2_item_num" type="int"/>
+      <field name="prize_info_2_duration" type="int"/>
+    </class>
+  </array>
 </class>

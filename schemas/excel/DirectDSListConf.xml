@@ -1,5 +1,9 @@
-<class name="DirectDSListConfig">
-  <field name="Name" type="string"/>
-  <field name="ConfigType" type="int"/>
-  <field name="ConfigValue" type="string"/>
+<class name="DirectDSListTable">
+  <array type="class">
+    <class name="DirectDSListConfig">
+      <field name="Name" type="string"/>
+      <field name="ConfigType" type="int"/>
+      <field name="ConfigValue" type="string"/>
+    </class>
+  </array>
 </class>

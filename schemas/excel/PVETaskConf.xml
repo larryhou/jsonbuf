@@ -1,4 +1,8 @@
-<class name="PVETaskConfig">
-  <field name="Key" type="string"/>
-  <field name="LOCID_Content" type="string"/>
+<class name="PVETaskTable">
+  <array type="class">
+    <class name="PVETaskConfig">
+      <field name="Key" type="string"/>
+      <field name="LOCID_Content" type="string"/>
+    </class>
+  </array>
 </class>

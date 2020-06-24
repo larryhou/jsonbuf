@@ -1,11 +1,15 @@
-<class name="FlagPictureConfConfig">
-  <field name="Id" type="int"/>
-  <field name="Type" type="int"/>
-  <field name="LocID_Name" type="string"/>
-  <field name="LocID_AchDesc" type="string"/>
-  <field name="url" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="Order" type="int"/>
-  <field name="Flag" type="int"/>
-  <field name="AI" type="bool"/>
+<class name="FlagPictureConfTable">
+  <array type="class">
+    <class name="FlagPictureConfConfig">
+      <field name="Id" type="int"/>
+      <field name="Type" type="int"/>
+      <field name="LocID_Name" type="string"/>
+      <field name="LocID_AchDesc" type="string"/>
+      <field name="url" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="Order" type="int"/>
+      <field name="Flag" type="int"/>
+      <field name="AI" type="bool"/>
+    </class>
+  </array>
 </class>

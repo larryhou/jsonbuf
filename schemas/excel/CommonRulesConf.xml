@@ -1,16 +1,20 @@
-<class name="CommonRulesConfig">
-  <field name="RuleID" type="int"/>
-  <field name="RuleTitle" type="string"/>
-  <field name="RankTab" type="int"/>
-  <field name="RankTabChild" type="int"/>
-  <field name="RuleContent" type="string"/>
-  <field name="SubCount" type="int"/>
-  <field name="SubTitle_1" type="string"/>
-  <field name="SubContent_1" type="string"/>
-  <field name="SubTitle_2" type="string"/>
-  <field name="SubContent_2" type="string"/>
-  <field name="SubTitle_3" type="string"/>
-  <field name="SubContent_3" type="string"/>
-  <field name="SubTitle_4" type="string"/>
-  <field name="SubContent_4" type="string"/>
+<class name="CommonRulesTable">
+  <array type="class">
+    <class name="CommonRulesConfig">
+      <field name="RuleID" type="int"/>
+      <field name="RuleTitle" type="string"/>
+      <field name="RankTab" type="int"/>
+      <field name="RankTabChild" type="int"/>
+      <field name="RuleContent" type="string"/>
+      <field name="SubCount" type="int"/>
+      <field name="SubTitle_1" type="string"/>
+      <field name="SubContent_1" type="string"/>
+      <field name="SubTitle_2" type="string"/>
+      <field name="SubContent_2" type="string"/>
+      <field name="SubTitle_3" type="string"/>
+      <field name="SubContent_3" type="string"/>
+      <field name="SubTitle_4" type="string"/>
+      <field name="SubContent_4" type="string"/>
+    </class>
+  </array>
 </class>

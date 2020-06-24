@@ -1,63 +1,67 @@
-<class name="UltConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="ColorID" type="int"/>
-  <field name="ColorSubID" type="int"/>
-  <field name="Type" type="int"/>
-  <field name="MinSPI" type="int"/>
-  <field name="MaxSPI" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="FireCost" type="bool"/>
-  <field name="ActiveEnergy" type="int"/>
-  <field name="URFActiveEnergy" type="int"/>
-  <field name="IncSpeed" type="int"/>
-  <field name="URFIncSpeed" type="int"/>
-  <field name="PveIncSpeed" type="int"/>
-  <field name="BRPrepareIncSpeed" type="int"/>
-  <field name="PvePercentDamage" type="int"/>
-  <field name="PveDamageEnergy" type="int"/>
-  <field name="IsInstantConsume" type="int"/>
-  <field name="ConsumeSpeed" type="int"/>
-  <field name="MaxUltLayer" type="int"/>
-  <field name="UseInterval" type="float"/>
-  <field name="Param" type="array">
-    <array type="int"/>
-  </field>
-  <field name="BuildParam" type="int"/>
-  <field name="UnloadPrice" type="int"/>
-  <field name="ShowRare" type="bool"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LockedShowOrder" type="int"/>
-  <field name="LOCID_HowToGet" type="string"/>
-  <field name="GoGetPos" type="int"/>
-  <field name="SecondTab" type="int"/>
-  <field name="GoGetUrl" type="string"/>
-  <field name="SortWeight" type="int"/>
-  <field name="CanHolding" type="bool"/>
-  <field name="NeedPredict" type="int"/>
-  <field name="CanUseInAir" type="bool"/>
-  <field name="CanUseInWater" type="bool"/>
-  <field name="CheckUseSpaceType" type="int"/>
-  <field name="ValidUseSpaceSize" type="float"/>
-  <field name="IsRemoteControlled" type="bool"/>
-  <field name="ItemID" type="int"/>
-  <field name="PreUseUltTime" type="float"/>
-  <field name="NotShowHud" type="bool"/>
-  <field name="TriggerEffect1P" type="int"/>
-  <field name="TriggerEffect1PSocket" type="string"/>
-  <field name="TriggerEffect3P" type="int"/>
-  <field name="TriggerEffect3PSocket" type="string"/>
-  <field name="TriggerScreenEffect" type="int"/>
-  <field name="EffectDuration" type="float"/>
-  <field name="TriggerSoundEvent1P" type="string"/>
-  <field name="TriggerSoundEvent3P" type="string"/>
-  <field name="IsAutoDemolition" type="int"/>
-  <field name="SellProtection" type="int"/>
-  <field name="CurrencyID" type="uint"/>
-  <field name="SellPrice" type="int"/>
-  <field name="CameraCenterPosition" type="array">
-    <array type="float"/>
-  </field>
-  <field name="TaskSeqID" type="int"/>
-  <field name="TaskID" type="int"/>
+<class name="UltConfTable">
+  <array type="class">
+    <class name="UltConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="ColorID" type="int"/>
+      <field name="ColorSubID" type="int"/>
+      <field name="Type" type="int"/>
+      <field name="MinSPI" type="int"/>
+      <field name="MaxSPI" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="FireCost" type="bool"/>
+      <field name="ActiveEnergy" type="int"/>
+      <field name="URFActiveEnergy" type="int"/>
+      <field name="IncSpeed" type="int"/>
+      <field name="URFIncSpeed" type="int"/>
+      <field name="PveIncSpeed" type="int"/>
+      <field name="BRPrepareIncSpeed" type="int"/>
+      <field name="PvePercentDamage" type="int"/>
+      <field name="PveDamageEnergy" type="int"/>
+      <field name="IsInstantConsume" type="int"/>
+      <field name="ConsumeSpeed" type="int"/>
+      <field name="MaxUltLayer" type="int"/>
+      <field name="UseInterval" type="float"/>
+      <field name="Param" type="array">
+        <array type="int"/>
+      </field>
+      <field name="BuildParam" type="int"/>
+      <field name="UnloadPrice" type="int"/>
+      <field name="ShowRare" type="bool"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LockedShowOrder" type="int"/>
+      <field name="LOCID_HowToGet" type="string"/>
+      <field name="GoGetPos" type="int"/>
+      <field name="SecondTab" type="int"/>
+      <field name="GoGetUrl" type="string"/>
+      <field name="SortWeight" type="int"/>
+      <field name="CanHolding" type="bool"/>
+      <field name="NeedPredict" type="int"/>
+      <field name="CanUseInAir" type="bool"/>
+      <field name="CanUseInWater" type="bool"/>
+      <field name="CheckUseSpaceType" type="int"/>
+      <field name="ValidUseSpaceSize" type="float"/>
+      <field name="IsRemoteControlled" type="bool"/>
+      <field name="ItemID" type="int"/>
+      <field name="PreUseUltTime" type="float"/>
+      <field name="NotShowHud" type="bool"/>
+      <field name="TriggerEffect1P" type="int"/>
+      <field name="TriggerEffect1PSocket" type="string"/>
+      <field name="TriggerEffect3P" type="int"/>
+      <field name="TriggerEffect3PSocket" type="string"/>
+      <field name="TriggerScreenEffect" type="int"/>
+      <field name="EffectDuration" type="float"/>
+      <field name="TriggerSoundEvent1P" type="string"/>
+      <field name="TriggerSoundEvent3P" type="string"/>
+      <field name="IsAutoDemolition" type="int"/>
+      <field name="SellProtection" type="int"/>
+      <field name="CurrencyID" type="uint"/>
+      <field name="SellPrice" type="int"/>
+      <field name="CameraCenterPosition" type="array">
+        <array type="float"/>
+      </field>
+      <field name="TaskSeqID" type="int"/>
+      <field name="TaskID" type="int"/>
+    </class>
+  </array>
 </class>

@@ -1,7 +1,11 @@
-<class name="LobbyMapEarthModesConfConfig">
-  <field name="ModeID" type="int"/>
-  <field name="PlaceName" type="string"/>
-  <field name="X" type="float"/>
-  <field name="Y" type="float"/>
-  <field name="Z" type="float"/>
+<class name="LobbyMapEarthModesConfTable">
+  <array type="class">
+    <class name="LobbyMapEarthModesConfConfig">
+      <field name="ModeID" type="int"/>
+      <field name="PlaceName" type="string"/>
+      <field name="X" type="float"/>
+      <field name="Y" type="float"/>
+      <field name="Z" type="float"/>
+    </class>
+  </array>
 </class>

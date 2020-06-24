@@ -1,8 +1,12 @@
-<class name="PropertyModifyDescConfig">
-  <field name="PropertyType" type="int"/>
-  <field name="PropertyName" type="string"/>
-  <field name="PropertySvrName" type="string"/>
-  <field name="ProperyDesc" type="string"/>
-  <field name="ProperyParamStr" type="string"/>
-  <field name="EffectParamOper" type="string"/>
+<class name="PropertyModifyDescTable">
+  <array type="class">
+    <class name="PropertyModifyDescConfig">
+      <field name="PropertyType" type="int"/>
+      <field name="PropertyName" type="string"/>
+      <field name="PropertySvrName" type="string"/>
+      <field name="ProperyDesc" type="string"/>
+      <field name="ProperyParamStr" type="string"/>
+      <field name="EffectParamOper" type="string"/>
+    </class>
+  </array>
 </class>

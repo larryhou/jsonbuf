@@ -1,9 +1,13 @@
-<class name="SniperOnlyWeaponOrderConfig">
-  <field name="Order" type="int"/>
-  <field name="ItemID" type="int"/>
-  <field name="WeaponName" type="string"/>
-  <field name="DefaultAttachment_1" type="int"/>
-  <field name="DefaultAttachment_2" type="int"/>
-  <field name="DefaultAttachment_3" type="int"/>
-  <field name="DefaultAttachment_4" type="int"/>
+<class name="SniperOnlyWeaponOrderTable">
+  <array type="class">
+    <class name="SniperOnlyWeaponOrderConfig">
+      <field name="Order" type="int"/>
+      <field name="ItemID" type="int"/>
+      <field name="WeaponName" type="string"/>
+      <field name="DefaultAttachment_1" type="int"/>
+      <field name="DefaultAttachment_2" type="int"/>
+      <field name="DefaultAttachment_3" type="int"/>
+      <field name="DefaultAttachment_4" type="int"/>
+    </class>
+  </array>
 </class>

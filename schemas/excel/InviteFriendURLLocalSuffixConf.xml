@@ -1,4 +1,8 @@
-<class name="InviteFriendURLLocalSuffixConfig">
-  <field name="id" type="int"/>
-  <field name="suffix" type="string"/>
+<class name="InviteFriendURLLocalSuffixTable">
+  <array type="class">
+    <class name="InviteFriendURLLocalSuffixConfig">
+      <field name="id" type="int"/>
+      <field name="suffix" type="string"/>
+    </class>
+  </array>
 </class>

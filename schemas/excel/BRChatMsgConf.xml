@@ -1,15 +1,19 @@
-<class name="BRChatMsgConfig">
-  <field name="MsgID" type="int"/>
-  <field name="ShortcutMsg" type="string"/>
-  <field name="ShortcutMsgAudioMale" type="string"/>
-  <field name="ShortcutMsgAudioFemale" type="string"/>
-  <field name="BRType" type="int"/>
-  <field name="TDMType" type="int"/>
-  <field name="FLType" type="int"/>
-  <field name="DOMType" type="int"/>
-  <field name="HPType" type="int"/>
-  <field name="SDAType" type="int"/>
-  <field name="SDDType" type="int"/>
-  <field name="ZBType" type="int"/>
-  <field name="CATType" type="int"/>
+<class name="BRChatMsgTable">
+  <array type="class">
+    <class name="BRChatMsgConfig">
+      <field name="MsgID" type="int"/>
+      <field name="ShortcutMsg" type="string"/>
+      <field name="ShortcutMsgAudioMale" type="string"/>
+      <field name="ShortcutMsgAudioFemale" type="string"/>
+      <field name="BRType" type="int"/>
+      <field name="TDMType" type="int"/>
+      <field name="FLType" type="int"/>
+      <field name="DOMType" type="int"/>
+      <field name="HPType" type="int"/>
+      <field name="SDAType" type="int"/>
+      <field name="SDDType" type="int"/>
+      <field name="ZBType" type="int"/>
+      <field name="CATType" type="int"/>
+    </class>
+  </array>
 </class>

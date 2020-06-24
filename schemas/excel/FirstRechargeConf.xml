@@ -1,28 +1,32 @@
-<class name="FirstRechargeConfig">
-  <field name="Order" type="int"/>
-  <field name="RechargeId" type="int"/>
-  <field name="SubRechargeId" type="int"/>
-  <field name="PlatId" type="int"/>
-  <field name="ZoneId" type="int"/>
-  <field name="GetTip" type="string"/>
-  <field name="RewardDesc1" type="string"/>
-  <field name="RewardDesc2" type="string"/>
-  <field name="RewardId_1" type="uint"/>
-  <field name="RewardNum_1" type="int"/>
-  <field name="RewardId_2" type="uint"/>
-  <field name="RewardNum_2" type="int"/>
-  <field name="RewardId_3" type="uint"/>
-  <field name="RewardNum_3" type="int"/>
-  <field name="RewardId_4" type="uint"/>
-  <field name="RewardNum_4" type="int"/>
-  <field name="RewardId_5" type="uint"/>
-  <field name="RewardNum_5" type="int"/>
-  <field name="RewardId_6" type="uint"/>
-  <field name="RewardNum_6" type="int"/>
-  <field name="BeginDate" type="int"/>
-  <field name="EndDate" type="int"/>
-  <field name="StartTime" type="int"/>
-  <field name="EndTime" type="int"/>
-  <field name="IsShowLocalTime" type="bool"/>
-  <field name="BgName" type="string"/>
+<class name="FirstRechargeTable">
+  <array type="class">
+    <class name="FirstRechargeConfig">
+      <field name="Order" type="int"/>
+      <field name="RechargeId" type="int"/>
+      <field name="SubRechargeId" type="int"/>
+      <field name="PlatId" type="int"/>
+      <field name="ZoneId" type="int"/>
+      <field name="GetTip" type="string"/>
+      <field name="RewardDesc1" type="string"/>
+      <field name="RewardDesc2" type="string"/>
+      <field name="RewardId_1" type="uint"/>
+      <field name="RewardNum_1" type="int"/>
+      <field name="RewardId_2" type="uint"/>
+      <field name="RewardNum_2" type="int"/>
+      <field name="RewardId_3" type="uint"/>
+      <field name="RewardNum_3" type="int"/>
+      <field name="RewardId_4" type="uint"/>
+      <field name="RewardNum_4" type="int"/>
+      <field name="RewardId_5" type="uint"/>
+      <field name="RewardNum_5" type="int"/>
+      <field name="RewardId_6" type="uint"/>
+      <field name="RewardNum_6" type="int"/>
+      <field name="BeginDate" type="int"/>
+      <field name="EndDate" type="int"/>
+      <field name="StartTime" type="int"/>
+      <field name="EndTime" type="int"/>
+      <field name="IsShowLocalTime" type="bool"/>
+      <field name="BgName" type="string"/>
+    </class>
+  </array>
 </class>

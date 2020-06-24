@@ -1,4 +1,8 @@
-<class name="LanguageSettingConfig">
-  <field name="LanguageCode" type="int"/>
-  <field name="LocID" type="string"/>
+<class name="LanguageSettingTable">
+  <array type="class">
+    <class name="LanguageSettingConfig">
+      <field name="LanguageCode" type="int"/>
+      <field name="LocID" type="string"/>
+    </class>
+  </array>
 </class>

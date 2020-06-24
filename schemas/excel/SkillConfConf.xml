@@ -1,32 +1,36 @@
-<class name="SkillConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="ColorID" type="int"/>
-  <field name="ColorSubID" type="int"/>
-  <field name="MinSPI" type="int"/>
-  <field name="MaxSPI" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="IsPVE" type="bool"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="Buff0" type="int"/>
-  <field name="Buff1" type="int"/>
-  <field name="Buff2" type="int"/>
-  <field name="Buff3" type="int"/>
-  <field name="ForAR" type="bool"/>
-  <field name="ForSniper" type="bool"/>
-  <field name="ForLMG" type="bool"/>
-  <field name="ForSMG" type="bool"/>
-  <field name="ForShotgun" type="bool"/>
-  <field name="ForPistol" type="bool"/>
-  <field name="ForLaunch" type="bool"/>
-  <field name="ForMelee" type="bool"/>
-  <field name="UnloadPrice" type="int"/>
-  <field name="SellPrice" type="int"/>
-  <field name="SellProtection" type="int"/>
-  <field name="ShowRare" type="bool"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LockedShowOrder" type="int"/>
-  <field name="LOCID_HowToGet" type="string"/>
-  <field name="GoGetPos" type="int"/>
-  <field name="GoGetUrl" type="int"/>
-  <field name="SortWeight" type="int"/>
+<class name="SkillConfTable">
+  <array type="class">
+    <class name="SkillConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="ColorID" type="int"/>
+      <field name="ColorSubID" type="int"/>
+      <field name="MinSPI" type="int"/>
+      <field name="MaxSPI" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="IsPVE" type="bool"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="Buff0" type="int"/>
+      <field name="Buff1" type="int"/>
+      <field name="Buff2" type="int"/>
+      <field name="Buff3" type="int"/>
+      <field name="ForAR" type="bool"/>
+      <field name="ForSniper" type="bool"/>
+      <field name="ForLMG" type="bool"/>
+      <field name="ForSMG" type="bool"/>
+      <field name="ForShotgun" type="bool"/>
+      <field name="ForPistol" type="bool"/>
+      <field name="ForLaunch" type="bool"/>
+      <field name="ForMelee" type="bool"/>
+      <field name="UnloadPrice" type="int"/>
+      <field name="SellPrice" type="int"/>
+      <field name="SellProtection" type="int"/>
+      <field name="ShowRare" type="bool"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LockedShowOrder" type="int"/>
+      <field name="LOCID_HowToGet" type="string"/>
+      <field name="GoGetPos" type="int"/>
+      <field name="GoGetUrl" type="int"/>
+      <field name="SortWeight" type="int"/>
+    </class>
+  </array>
 </class>

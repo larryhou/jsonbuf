@@ -1,15 +1,19 @@
-<class name="BREquipmentConfig">
-  <field name="ID" type="uint"/>
-  <field name="ColorID" type="int"/>
-  <field name="ColorSubID" type="int"/>
-  <field name="MinSPI" type="int"/>
-  <field name="MaxSPI" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LockedShowOrder" type="int"/>
-  <field name="LOCID_HowToGet" type="string"/>
-  <field name="SellPrice" type="int"/>
-  <field name="GoGetPos" type="int"/>
-  <field name="EquipmentType" type="int"/>
+<class name="BREquipmentTable">
+  <array type="class">
+    <class name="BREquipmentConfig">
+      <field name="ID" type="uint"/>
+      <field name="ColorID" type="int"/>
+      <field name="ColorSubID" type="int"/>
+      <field name="MinSPI" type="int"/>
+      <field name="MaxSPI" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LockedShowOrder" type="int"/>
+      <field name="LOCID_HowToGet" type="string"/>
+      <field name="SellPrice" type="int"/>
+      <field name="GoGetPos" type="int"/>
+      <field name="EquipmentType" type="int"/>
+    </class>
+  </array>
 </class>

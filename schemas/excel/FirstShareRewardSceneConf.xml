@@ -1,4 +1,8 @@
-<class name="FirstShareRewardSceneConfig">
-  <field name="id" type="int"/>
-  <field name="num" type="int"/>
+<class name="FirstShareRewardSceneTable">
+  <array type="class">
+    <class name="FirstShareRewardSceneConfig">
+      <field name="id" type="int"/>
+      <field name="num" type="int"/>
+    </class>
+  </array>
 </class>

@@ -1,10 +1,14 @@
-<class name="PropertyModificationConfig">
-  <field name="ID" type="int"/>
-  <field name="PropertyType" type="string"/>
-  <field name="ConfigTag" type="string"/>
-  <field name="PropertyName" type="string"/>
-  <field name="PropertyParam" type="array">
-    <array type="float"/>
-  </field>
-  <field name="PropertyOperator" type="string"/>
+<class name="PropertyModificationTable">
+  <array type="class">
+    <class name="PropertyModificationConfig">
+      <field name="ID" type="int"/>
+      <field name="PropertyType" type="string"/>
+      <field name="ConfigTag" type="string"/>
+      <field name="PropertyName" type="string"/>
+      <field name="PropertyParam" type="array">
+        <array type="float"/>
+      </field>
+      <field name="PropertyOperator" type="string"/>
+    </class>
+  </array>
 </class>

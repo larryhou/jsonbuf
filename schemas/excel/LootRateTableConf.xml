@@ -1,18 +1,22 @@
-<class name="LootRateTableConfig">
-  <field name="id" type="int"/>
-  <field name="spi" type="int"/>
-  <field name="normal" type="int"/>
-  <field name="uncommon" type="int"/>
-  <field name="rare" type="int"/>
-  <field name="epic" type="int"/>
-  <field name="legendary" type="int"/>
-  <field name="gold" type="int"/>
-  <field name="box_prob" type="int"/>
-  <field name="num_prob_1" type="int"/>
-  <field name="num_prob_2" type="int"/>
-  <field name="num_prob_3" type="int"/>
-  <field name="num_prob_4" type="int"/>
-  <field name="num_prob_5" type="int"/>
-  <field name="num_prob_6" type="int"/>
-  <field name="Mode" type="string"/>
+<class name="LootRateTableTable">
+  <array type="class">
+    <class name="LootRateTableConfig">
+      <field name="id" type="int"/>
+      <field name="spi" type="int"/>
+      <field name="normal" type="int"/>
+      <field name="uncommon" type="int"/>
+      <field name="rare" type="int"/>
+      <field name="epic" type="int"/>
+      <field name="legendary" type="int"/>
+      <field name="gold" type="int"/>
+      <field name="box_prob" type="int"/>
+      <field name="num_prob_1" type="int"/>
+      <field name="num_prob_2" type="int"/>
+      <field name="num_prob_3" type="int"/>
+      <field name="num_prob_4" type="int"/>
+      <field name="num_prob_5" type="int"/>
+      <field name="num_prob_6" type="int"/>
+      <field name="Mode" type="string"/>
+    </class>
+  </array>
 </class>

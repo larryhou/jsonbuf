@@ -1,5 +1,9 @@
-<class name="ViceWeaponDetailTypeConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="Type" type="int"/>
-  <field name="Name" type="string"/>
+<class name="ViceWeaponDetailTypeConfTable">
+  <array type="class">
+    <class name="ViceWeaponDetailTypeConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="Type" type="int"/>
+      <field name="Name" type="string"/>
+    </class>
+  </array>
 </class>

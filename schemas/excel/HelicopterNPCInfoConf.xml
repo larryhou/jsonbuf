@@ -1,22 +1,26 @@
-<class name="HelicopterNPCInfoConfig">
-  <field name="ID" type="int"/>
-  <field name="HP" type="float"/>
-  <field name="DestorySocre" type="int"/>
-  <field name="LifeTime" type="int"/>
-  <field name="DefauleFlySpeed" type="int"/>
-  <field name="DisplayFlySpeed" type="int"/>
-  <field name="LockEnemyRaduis" type="int"/>
-  <field name="DelayFireTime" type="float"/>
-  <field name="TurnBackSpeed" type="int"/>
-  <field name="FireAngleH" type="int"/>
-  <field name="FireAngleV" type="int"/>
-  <field name="MoveDuration" type="float"/>
-  <field name="MeshID" type="int"/>
-  <field name="HalfWidth" type="int"/>
-  <field name="HalfHeight" type="float"/>
-  <field name="HalfLength" type="int"/>
-  <field name="WeaponID" type="int"/>
-  <field name="ResistanceID" type="int"/>
-  <field name="CruiseRadius" type="int"/>
-  <field name="SPMfly" type="int"/>
+<class name="HelicopterNPCInfoTable">
+  <array type="class">
+    <class name="HelicopterNPCInfoConfig">
+      <field name="ID" type="int"/>
+      <field name="HP" type="float"/>
+      <field name="DestorySocre" type="int"/>
+      <field name="LifeTime" type="int"/>
+      <field name="DefauleFlySpeed" type="int"/>
+      <field name="DisplayFlySpeed" type="int"/>
+      <field name="LockEnemyRaduis" type="int"/>
+      <field name="DelayFireTime" type="float"/>
+      <field name="TurnBackSpeed" type="int"/>
+      <field name="FireAngleH" type="int"/>
+      <field name="FireAngleV" type="int"/>
+      <field name="MoveDuration" type="float"/>
+      <field name="MeshID" type="int"/>
+      <field name="HalfWidth" type="int"/>
+      <field name="HalfHeight" type="float"/>
+      <field name="HalfLength" type="int"/>
+      <field name="WeaponID" type="int"/>
+      <field name="ResistanceID" type="int"/>
+      <field name="CruiseRadius" type="int"/>
+      <field name="SPMfly" type="int"/>
+    </class>
+  </array>
 </class>

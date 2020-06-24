@@ -1,10 +1,14 @@
-<class name="GunGameWeaponOrderConfig">
-  <field name="Order" type="int"/>
-  <field name="Level" type="string"/>
-  <field name="ItemID" type="int"/>
-  <field name="WeaponName" type="string"/>
-  <field name="DefaultAttachment_1" type="int"/>
-  <field name="DefaultAttachment_2" type="int"/>
-  <field name="DefaultAttachment_3" type="int"/>
-  <field name="DefaultAttachment_4" type="int"/>
+<class name="GunGameWeaponOrderTable">
+  <array type="class">
+    <class name="GunGameWeaponOrderConfig">
+      <field name="Order" type="int"/>
+      <field name="Level" type="string"/>
+      <field name="ItemID" type="int"/>
+      <field name="WeaponName" type="string"/>
+      <field name="DefaultAttachment_1" type="int"/>
+      <field name="DefaultAttachment_2" type="int"/>
+      <field name="DefaultAttachment_3" type="int"/>
+      <field name="DefaultAttachment_4" type="int"/>
+    </class>
+  </array>
 </class>

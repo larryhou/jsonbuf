@@ -1,44 +1,48 @@
-<class name="BRWeaponConfig">
-  <field name="ItemID" type="int"/>
-  <field name="AIPrefer" type="int"/>
-  <field name="SubItemType" type="int"/>
-  <field name="WeaponCategory" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="CanStack" type="bool"/>
-  <field name="StackNum" type="int"/>
-  <field name="Quality" type="int"/>
-  <field name="SortParam" type="int"/>
-  <field name="Value" type="int"/>
-  <field name="ClipItemId" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="SquareName" type="string"/>
-  <field name="WhitePicture" type="string"/>
-  <field name="MaxAttach" type="int"/>
-  <field name="optic" type="bool"/>
-  <field name="barrel" type="bool"/>
-  <field name="underbarrel" type="bool"/>
-  <field name="magazine" type="bool"/>
-  <field name="body" type="bool"/>
-  <field name="stock" type="bool"/>
-  <field name="init_skill" type="int"/>
-  <field name="init_Attach_lock" type="bool"/>
-  <field name="init_optic" type="int"/>
-  <field name="init_barrel" type="int"/>
-  <field name="init_underbarrel" type="int"/>
-  <field name="init_magazine" type="int"/>
-  <field name="init_body" type="int"/>
-  <field name="init_stock" type="int"/>
-  <field name="Mobility" type="int"/>
-  <field name="Damage" type="int"/>
-  <field name="Range" type="int"/>
-  <field name="FireRate" type="int"/>
-  <field name="Accuracy" type="int"/>
-  <field name="WeaponSkinBox" type="array">
-    <array type="int"/>
-  </field>
-  <field name="IsShow" type="bool"/>
-  <field name="IsPickTipHide" type="bool"/>
+<class name="BRWeaponTable">
+  <array type="class">
+    <class name="BRWeaponConfig">
+      <field name="ItemID" type="int"/>
+      <field name="AIPrefer" type="int"/>
+      <field name="SubItemType" type="int"/>
+      <field name="WeaponCategory" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="CanStack" type="bool"/>
+      <field name="StackNum" type="int"/>
+      <field name="Quality" type="int"/>
+      <field name="SortParam" type="int"/>
+      <field name="Value" type="int"/>
+      <field name="ClipItemId" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="SquareName" type="string"/>
+      <field name="WhitePicture" type="string"/>
+      <field name="MaxAttach" type="int"/>
+      <field name="optic" type="bool"/>
+      <field name="barrel" type="bool"/>
+      <field name="underbarrel" type="bool"/>
+      <field name="magazine" type="bool"/>
+      <field name="body" type="bool"/>
+      <field name="stock" type="bool"/>
+      <field name="init_skill" type="int"/>
+      <field name="init_Attach_lock" type="bool"/>
+      <field name="init_optic" type="int"/>
+      <field name="init_barrel" type="int"/>
+      <field name="init_underbarrel" type="int"/>
+      <field name="init_magazine" type="int"/>
+      <field name="init_body" type="int"/>
+      <field name="init_stock" type="int"/>
+      <field name="Mobility" type="int"/>
+      <field name="Damage" type="int"/>
+      <field name="Range" type="int"/>
+      <field name="FireRate" type="int"/>
+      <field name="Accuracy" type="int"/>
+      <field name="WeaponSkinBox" type="array">
+        <array type="int"/>
+      </field>
+      <field name="IsShow" type="bool"/>
+      <field name="IsPickTipHide" type="bool"/>
+    </class>
+  </array>
 </class>

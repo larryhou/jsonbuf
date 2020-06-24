@@ -1,5 +1,9 @@
-<class name="BulletBarrierConfConfig">
-  <field name="BulletType" type="int"/>
-  <field name="BarrierType" type="int"/>
-  <field name="CanPene" type="bool"/>
+<class name="BulletBarrierConfTable">
+  <array type="class">
+    <class name="BulletBarrierConfConfig">
+      <field name="BulletType" type="int"/>
+      <field name="BarrierType" type="int"/>
+      <field name="CanPene" type="bool"/>
+    </class>
+  </array>
 </class>

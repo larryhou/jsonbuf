@@ -1,8 +1,12 @@
-<class name="PveAttributionConfig">
-  <field name="AttrID" type="int"/>
-  <field name="IsPercentage" type="int"/>
-  <field name="SpriteName" type="string"/>
-  <field name="TalentSpriteName" type="string"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
+<class name="PveAttributionTable">
+  <array type="class">
+    <class name="PveAttributionConfig">
+      <field name="AttrID" type="int"/>
+      <field name="IsPercentage" type="int"/>
+      <field name="SpriteName" type="string"/>
+      <field name="TalentSpriteName" type="string"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+    </class>
+  </array>
 </class>

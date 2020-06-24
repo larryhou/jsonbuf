@@ -1,15 +1,19 @@
-<class name="ModifierConfConfig">
-  <field name="ModifierId" type="int"/>
-  <field name="PropItemId" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="icon" type="string"/>
-  <field name="BuffIdArray" type="array">
-    <array type="int"/>
-  </field>
-  <field name="MutexGroup" type="int"/>
-  <field name="ApplyMode" type="string"/>
-  <field name="ApplyZombieCountInterval" type="int"/>
-  <field name="IncreaseZombieHealth" type="int"/>
-  <field name="UseInEndless" type="bool"/>
+<class name="ModifierConfTable">
+  <array type="class">
+    <class name="ModifierConfConfig">
+      <field name="ModifierId" type="int"/>
+      <field name="PropItemId" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="icon" type="string"/>
+      <field name="BuffIdArray" type="array">
+        <array type="int"/>
+      </field>
+      <field name="MutexGroup" type="int"/>
+      <field name="ApplyMode" type="string"/>
+      <field name="ApplyZombieCountInterval" type="int"/>
+      <field name="IncreaseZombieHealth" type="int"/>
+      <field name="UseInEndless" type="bool"/>
+    </class>
+  </array>
 </class>

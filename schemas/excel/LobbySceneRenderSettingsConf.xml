@@ -1,10 +1,14 @@
-<class name="LobbySceneRenderSettingsConfig">
-  <field name="type" type="int"/>
-  <field name="FogColor" type="string"/>
-  <field name="FogMode" type="int"/>
-  <field name="FogDensity" type="float"/>
-  <field name="FogHeightAtten" type="float"/>
-  <field name="FogHeightOffset" type="float"/>
-  <field name="FogStartDistance" type="float"/>
-  <field name="ShadowDistance" type="float"/>
+<class name="LobbySceneRenderSettingsTable">
+  <array type="class">
+    <class name="LobbySceneRenderSettingsConfig">
+      <field name="type" type="int"/>
+      <field name="FogColor" type="string"/>
+      <field name="FogMode" type="int"/>
+      <field name="FogDensity" type="float"/>
+      <field name="FogHeightAtten" type="float"/>
+      <field name="FogHeightOffset" type="float"/>
+      <field name="FogStartDistance" type="float"/>
+      <field name="ShadowDistance" type="float"/>
+    </class>
+  </array>
 </class>

@@ -1,91 +1,95 @@
-<class name="WeaponAttachPointConfig">
-  <field name="Name" type="string"/>
-  <field name="Grip_Pos">
-    <class name="Vector3">
-      <field name="x" type="float"/>
-      <field name="y" type="float"/>
-      <field name="z" type="float"/>
+<class name="WeaponAttachPointTable">
+  <array type="class">
+    <class name="WeaponAttachPointConfig">
+      <field name="Name" type="string"/>
+      <field name="Grip_Pos">
+        <class name="Vector3">
+          <field name="x" type="float"/>
+          <field name="y" type="float"/>
+          <field name="z" type="float"/>
+        </class>
+      </field>
+      <field name="Grip_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Muzzle_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Muzzle_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Magazine_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Magazine_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Slide_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Slide_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Stock_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Stock_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Other_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Other_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Optic_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Optic_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Ornament_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Ornament_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="RearGrip_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="RearGrip_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Barrel_Pos">
+        <class name="Vector3"/>
+      </field>
+      <field name="Barrel_Rot">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_POS_0">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_Rot_0">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_POS_1">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_Rot_1">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_POS_2">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_Rot_2">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_POS_3">
+        <class name="Vector3"/>
+      </field>
+      <field name="Sticker_Rot_3">
+        <class name="Vector3"/>
+      </field>
     </class>
-  </field>
-  <field name="Grip_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Muzzle_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Muzzle_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Magazine_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Magazine_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Slide_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Slide_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Stock_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Stock_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Other_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Other_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Optic_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Optic_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Ornament_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Ornament_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="RearGrip_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="RearGrip_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Barrel_Pos">
-    <class name="Vector3"/>
-  </field>
-  <field name="Barrel_Rot">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_POS_0">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_Rot_0">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_POS_1">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_Rot_1">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_POS_2">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_Rot_2">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_POS_3">
-    <class name="Vector3"/>
-  </field>
-  <field name="Sticker_Rot_3">
-    <class name="Vector3"/>
-  </field>
+  </array>
 </class>

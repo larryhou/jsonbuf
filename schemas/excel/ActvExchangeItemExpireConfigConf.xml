@@ -1,5 +1,9 @@
-<class name="ActvExchangeItemExpireConfigConfig">
-  <field name="ID" type="uint"/>
-  <field name="ExpireTime" type="string"/>
-  <field name="Price" type="int"/>
+<class name="ActvExchangeItemExpireConfigTable">
+  <array type="class">
+    <class name="ActvExchangeItemExpireConfigConfig">
+      <field name="ID" type="uint"/>
+      <field name="ExpireTime" type="string"/>
+      <field name="Price" type="int"/>
+    </class>
+  </array>
 </class>

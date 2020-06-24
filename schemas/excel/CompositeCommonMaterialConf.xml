@@ -1,4 +1,8 @@
-<class name="CompositeCommonMaterialConfig">
-  <field name="id" type="int"/>
-  <field name="itemid" type="int"/>
+<class name="CompositeCommonMaterialTable">
+  <array type="class">
+    <class name="CompositeCommonMaterialConfig">
+      <field name="id" type="int"/>
+      <field name="itemid" type="int"/>
+    </class>
+  </array>
 </class>

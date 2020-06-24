@@ -1,9 +1,13 @@
-<class name="GoliathConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="HP" type="int"/>
-  <field name="ExplodeMinDamage" type="int"/>
-  <field name="ExplodeMaxDamage" type="int"/>
-  <field name="ExplodeRange" type="int"/>
-  <field name="WeaponId" type="int"/>
-  <field name="ModeId" type="inthex"/>
+<class name="GoliathConfTable">
+  <array type="class">
+    <class name="GoliathConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="HP" type="int"/>
+      <field name="ExplodeMinDamage" type="int"/>
+      <field name="ExplodeMaxDamage" type="int"/>
+      <field name="ExplodeRange" type="int"/>
+      <field name="WeaponId" type="int"/>
+      <field name="ModeId" type="inthex"/>
+    </class>
+  </array>
 </class>

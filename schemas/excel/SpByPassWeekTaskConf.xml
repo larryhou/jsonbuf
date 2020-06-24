@@ -1,8 +1,12 @@
-<class name="SpByPassWeekTaskConfig">
-  <field name="SeasonId" type="int"/>
-  <field name="WeekTaskCnt" type="int"/>
-  <field name="LOCID_AwardTip" type="string"/>
-  <field name="AwardId1" type="int"/>
-  <field name="AwardCount1" type="int"/>
-  <field name="AwardAgingTime1" type="int"/>
+<class name="SpByPassWeekTaskTable">
+  <array type="class">
+    <class name="SpByPassWeekTaskConfig">
+      <field name="SeasonId" type="int"/>
+      <field name="WeekTaskCnt" type="int"/>
+      <field name="LOCID_AwardTip" type="string"/>
+      <field name="AwardId1" type="int"/>
+      <field name="AwardCount1" type="int"/>
+      <field name="AwardAgingTime1" type="int"/>
+    </class>
+  </array>
 </class>

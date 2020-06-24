@@ -1,24 +1,28 @@
-<class name="TrophyRankConfig">
-  <field name="level" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="sub_level" type="string"/>
-  <field name="need_trophy" type="int"/>
-  <field name="max_trophy" type="int"/>
-  <field name="penalty_factor" type="float"/>
-  <field name="k_value" type="int"/>
-  <field name="need_num" type="int"/>
-  <field name="icon" type="string"/>
-  <field name="small_Icon" type="string"/>
-  <field name="daily_prize_info_add_exp" type="int"/>
-  <field name="daily_prize_info_add_gold" type="int"/>
-  <field name="daily_prize_info_add_apvp_gold" type="int"/>
-  <field name="daily_prize_info_box_id" type="int"/>
-  <field name="daily_prize_info_box_num" type="int"/>
-  <field name="daily_prize_info_prize_num" type="int"/>
-  <field name="uplevel_prize_info_add_exp" type="int"/>
-  <field name="uplevel_prize_info_add_gold" type="int"/>
-  <field name="uplevel_prize_info_add_apvp_gold" type="int"/>
-  <field name="uplevel_prize_info_box_id" type="int"/>
-  <field name="uplevel_prize_info_box_num" type="int"/>
-  <field name="uplevel_prize_info_prize_num" type="int"/>
+<class name="TrophyRankTable">
+  <array type="class">
+    <class name="TrophyRankConfig">
+      <field name="level" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="sub_level" type="string"/>
+      <field name="need_trophy" type="int"/>
+      <field name="max_trophy" type="int"/>
+      <field name="penalty_factor" type="float"/>
+      <field name="k_value" type="int"/>
+      <field name="need_num" type="int"/>
+      <field name="icon" type="string"/>
+      <field name="small_Icon" type="string"/>
+      <field name="daily_prize_info_add_exp" type="int"/>
+      <field name="daily_prize_info_add_gold" type="int"/>
+      <field name="daily_prize_info_add_apvp_gold" type="int"/>
+      <field name="daily_prize_info_box_id" type="int"/>
+      <field name="daily_prize_info_box_num" type="int"/>
+      <field name="daily_prize_info_prize_num" type="int"/>
+      <field name="uplevel_prize_info_add_exp" type="int"/>
+      <field name="uplevel_prize_info_add_gold" type="int"/>
+      <field name="uplevel_prize_info_add_apvp_gold" type="int"/>
+      <field name="uplevel_prize_info_box_id" type="int"/>
+      <field name="uplevel_prize_info_box_num" type="int"/>
+      <field name="uplevel_prize_info_prize_num" type="int"/>
+    </class>
+  </array>
 </class>

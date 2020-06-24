@@ -1,40 +1,44 @@
-<class name="BREquipPartConfig">
-  <field name="ItemID" type="int"/>
-  <field name="CanAIUse" type="bool"/>
-  <field name="AIPrefer" type="int"/>
-  <field name="SubItemType" type="int"/>
-  <field name="SettingItemType" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="SlotType" type="int"/>
-  <field name="MirrorRatio" type="float"/>
-  <field name="CanStack" type="bool"/>
-  <field name="StackNum" type="int"/>
-  <field name="Quality" type="int"/>
-  <field name="SortParam" type="int"/>
-  <field name="Value" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="WeaponCanUseBox" type="array">
-    <array type="uint"/>
-  </field>
-  <field name="SubScriptSpriteName" type="string"/>
-  <field name="EquipSound" type="string"/>
-  <field name="GrabSound" type="string"/>
-  <field name="DropSound" type="string"/>
-  <field name="Mobility" type="int"/>
-  <field name="Damage" type="int"/>
-  <field name="Range" type="int"/>
-  <field name="FireRate" type="int"/>
-  <field name="Accuracy" type="int"/>
-  <field name="Control" type="int"/>
-  <field name="ForAR" type="bool"/>
-  <field name="ForSniper" type="bool"/>
-  <field name="ForLMG" type="bool"/>
-  <field name="ForSMG" type="bool"/>
-  <field name="ForShotgun" type="bool"/>
-  <field name="ForPistol" type="bool"/>
-  <field name="ForLaunch" type="bool"/>
-  <field name="ForMelee" type="bool"/>
+<class name="BREquipPartTable">
+  <array type="class">
+    <class name="BREquipPartConfig">
+      <field name="ItemID" type="int"/>
+      <field name="CanAIUse" type="bool"/>
+      <field name="AIPrefer" type="int"/>
+      <field name="SubItemType" type="int"/>
+      <field name="SettingItemType" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="SlotType" type="int"/>
+      <field name="MirrorRatio" type="float"/>
+      <field name="CanStack" type="bool"/>
+      <field name="StackNum" type="int"/>
+      <field name="Quality" type="int"/>
+      <field name="SortParam" type="int"/>
+      <field name="Value" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="WeaponCanUseBox" type="array">
+        <array type="uint"/>
+      </field>
+      <field name="SubScriptSpriteName" type="string"/>
+      <field name="EquipSound" type="string"/>
+      <field name="GrabSound" type="string"/>
+      <field name="DropSound" type="string"/>
+      <field name="Mobility" type="int"/>
+      <field name="Damage" type="int"/>
+      <field name="Range" type="int"/>
+      <field name="FireRate" type="int"/>
+      <field name="Accuracy" type="int"/>
+      <field name="Control" type="int"/>
+      <field name="ForAR" type="bool"/>
+      <field name="ForSniper" type="bool"/>
+      <field name="ForLMG" type="bool"/>
+      <field name="ForSMG" type="bool"/>
+      <field name="ForShotgun" type="bool"/>
+      <field name="ForPistol" type="bool"/>
+      <field name="ForLaunch" type="bool"/>
+      <field name="ForMelee" type="bool"/>
+    </class>
+  </array>
 </class>

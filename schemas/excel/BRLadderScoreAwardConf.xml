@@ -1,28 +1,32 @@
-<class name="BRLadderScoreAwardConfig">
-  <field name="season_no" type="int"/>
-  <field name="level" type="int"/>
-  <field name="rank_level" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="sub_level" type="string"/>
-  <field name="need_ladder_score" type="int"/>
-  <field name="max_ladder_score" type="int"/>
-  <field name="inherit_level" type="int"/>
-  <field name="dec_level_type" type="int"/>
-  <field name="dec_level_buffer" type="int"/>
-  <field name="score_add" type="int"/>
-  <field name="icon" type="string"/>
-  <field name="small_Icon" type="string"/>
-  <field name="sub_score_ondrop" type="int"/>
-  <field name="uplevel_prize_info_1_item_id" type="int"/>
-  <field name="uplevel_prize_info_1_item_num" type="int"/>
-  <field name="uplevel_prize_info_1_prize_num" type="int"/>
-  <field name="uplevel_prize_info_1_duration" type="int"/>
-  <field name="uplevel_prize_show" type="int"/>
-  <field name="uplevel_prize_info_2_item_id" type="int"/>
-  <field name="uplevel_prize_info_2_item_num" type="int"/>
-  <field name="uplevel_prize_info_2_prize_num" type="int"/>
-  <field name="uplevel_prize_info_2_duration" type="int"/>
-  <field name="isShowShare" type="bool"/>
-  <field name="textureURLID" type="int"/>
-  <field name="AnimatorName" type="string"/>
+<class name="BRLadderScoreAwardTable">
+  <array type="class">
+    <class name="BRLadderScoreAwardConfig">
+      <field name="season_no" type="int"/>
+      <field name="level" type="int"/>
+      <field name="rank_level" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="sub_level" type="string"/>
+      <field name="need_ladder_score" type="int"/>
+      <field name="max_ladder_score" type="int"/>
+      <field name="inherit_level" type="int"/>
+      <field name="dec_level_type" type="int"/>
+      <field name="dec_level_buffer" type="int"/>
+      <field name="score_add" type="int"/>
+      <field name="icon" type="string"/>
+      <field name="small_Icon" type="string"/>
+      <field name="sub_score_ondrop" type="int"/>
+      <field name="uplevel_prize_info_1_item_id" type="int"/>
+      <field name="uplevel_prize_info_1_item_num" type="int"/>
+      <field name="uplevel_prize_info_1_prize_num" type="int"/>
+      <field name="uplevel_prize_info_1_duration" type="int"/>
+      <field name="uplevel_prize_show" type="int"/>
+      <field name="uplevel_prize_info_2_item_id" type="int"/>
+      <field name="uplevel_prize_info_2_item_num" type="int"/>
+      <field name="uplevel_prize_info_2_prize_num" type="int"/>
+      <field name="uplevel_prize_info_2_duration" type="int"/>
+      <field name="isShowShare" type="bool"/>
+      <field name="textureURLID" type="int"/>
+      <field name="AnimatorName" type="string"/>
+    </class>
+  </array>
 </class>

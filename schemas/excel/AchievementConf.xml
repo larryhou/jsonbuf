@@ -1,16 +1,20 @@
-<class name="AchievementConfig">
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="Id" type="int"/>
-  <field name="isShow" type="int"/>
-  <field name="Type" type="int"/>
-  <field name="Sequence" type="int"/>
-  <field name="Condition1" type="int"/>
-  <field name="Condition2" type="int"/>
-  <field name="Condition3" type="int"/>
-  <field name="Icon" type="string"/>
-  <field name="Icon2" type="string"/>
-  <field name="Icon3" type="string"/>
-  <field name="Order" type="int"/>
-  <field name="Lv" type="int"/>
+<class name="AchievementTable">
+  <array type="class">
+    <class name="AchievementConfig">
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="Id" type="int"/>
+      <field name="isShow" type="int"/>
+      <field name="Type" type="int"/>
+      <field name="Sequence" type="int"/>
+      <field name="Condition1" type="int"/>
+      <field name="Condition2" type="int"/>
+      <field name="Condition3" type="int"/>
+      <field name="Icon" type="string"/>
+      <field name="Icon2" type="string"/>
+      <field name="Icon3" type="string"/>
+      <field name="Order" type="int"/>
+      <field name="Lv" type="int"/>
+    </class>
+  </array>
 </class>

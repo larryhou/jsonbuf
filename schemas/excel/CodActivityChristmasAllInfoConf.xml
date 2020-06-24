@@ -1,7 +1,11 @@
-<class name="CodActivityChristmasAllInfoConfig">
-  <field name="ID" type="int"/>
-  <field name="OpenTime" type="int"/>
-  <field name="EndTime" type="int"/>
-  <field name="TitleDes" type="string"/>
-  <field name="TimeDes" type="string"/>
+<class name="CodActivityChristmasAllInfoTable">
+  <array type="class">
+    <class name="CodActivityChristmasAllInfoConfig">
+      <field name="ID" type="int"/>
+      <field name="OpenTime" type="int"/>
+      <field name="EndTime" type="int"/>
+      <field name="TitleDes" type="string"/>
+      <field name="TimeDes" type="string"/>
+    </class>
+  </array>
 </class>

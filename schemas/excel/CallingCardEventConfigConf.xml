@@ -1,10 +1,14 @@
-<class name="CallingCardEventConfigConfig">
-  <field name="LOCID_Name" type="string"/>
-  <field name="id" type="int"/>
-  <field name="Type" type="int"/>
-  <field name="ShowToWho" type="int"/>
-  <field name="condition" type="string"/>
-  <field name="Weights" type="int"/>
-  <field name="icon" type="string"/>
-  <field name="sound" type="string"/>
+<class name="CallingCardEventConfigTable">
+  <array type="class">
+    <class name="CallingCardEventConfigConfig">
+      <field name="LOCID_Name" type="string"/>
+      <field name="id" type="int"/>
+      <field name="Type" type="int"/>
+      <field name="ShowToWho" type="int"/>
+      <field name="condition" type="string"/>
+      <field name="Weights" type="int"/>
+      <field name="icon" type="string"/>
+      <field name="sound" type="string"/>
+    </class>
+  </array>
 </class>

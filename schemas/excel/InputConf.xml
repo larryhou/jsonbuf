@@ -1,22 +1,26 @@
-<class name="InputConfig">
-  <field name="ID" type="int"/>
-  <field name="MovementJoystickSize">
-    <class name="Vector2">
-      <field name="x" type="float"/>
-      <field name="y" type="float"/>
+<class name="InputTable">
+  <array type="class">
+    <class name="InputConfig">
+      <field name="ID" type="int"/>
+      <field name="MovementJoystickSize">
+        <class name="Vector2">
+          <field name="x" type="float"/>
+          <field name="y" type="float"/>
+        </class>
+      </field>
+      <field name="MovementJoystickType" type="int"/>
+      <field name="MovementJoystickIsFixed" type="bool"/>
+      <field name="FireButtonSize">
+        <class name="Vector2"/>
+      </field>
+      <field name="FireButtonType" type="int"/>
+      <field name="FireButtonIsFixed" type="bool"/>
+      <field name="MovementSensitivity" type="float"/>
+      <field name="RotationSensitivity" type="float"/>
+      <field name="RotationExponent" type="float"/>
+      <field name="ShowAimButton" type="bool"/>
+      <field name="RotationInputHoldTimeForFire" type="float"/>
+      <field name="RotationMoveRangeForFire" type="float"/>
     </class>
-  </field>
-  <field name="MovementJoystickType" type="int"/>
-  <field name="MovementJoystickIsFixed" type="bool"/>
-  <field name="FireButtonSize">
-    <class name="Vector2"/>
-  </field>
-  <field name="FireButtonType" type="int"/>
-  <field name="FireButtonIsFixed" type="bool"/>
-  <field name="MovementSensitivity" type="float"/>
-  <field name="RotationSensitivity" type="float"/>
-  <field name="RotationExponent" type="float"/>
-  <field name="ShowAimButton" type="bool"/>
-  <field name="RotationInputHoldTimeForFire" type="float"/>
-  <field name="RotationMoveRangeForFire" type="float"/>
+  </array>
 </class>

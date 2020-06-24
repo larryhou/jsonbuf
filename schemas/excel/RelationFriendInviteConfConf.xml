@@ -1,7 +1,11 @@
-<class name="RelationFriendInviteConfConfig">
-  <field name="InviteType" type="string"/>
-  <field name="LOCID_Title" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="icon" type="string"/>
-  <field name="Link" type="string"/>
+<class name="RelationFriendInviteConfTable">
+  <array type="class">
+    <class name="RelationFriendInviteConfConfig">
+      <field name="InviteType" type="string"/>
+      <field name="LOCID_Title" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="icon" type="string"/>
+      <field name="Link" type="string"/>
+    </class>
+  </array>
 </class>

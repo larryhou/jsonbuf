@@ -1,19 +1,23 @@
-<class name="BRModeConfConfig">
-  <field name="ID" type="int"/>
-  <field name="DefaultBagPosNum" type="int"/>
-  <field name="MaxPickUpHDis" type="float"/>
-  <field name="MaxPickUpVDis" type="int"/>
-  <field name="Scope1x" type="int"/>
-  <field name="Scope4x" type="int"/>
-  <field name="EnergyCostMs" type="int"/>
-  <field name="HpRegainSpeedMs" type="int"/>
-  <field name="HpRegianNeedEnergy1" type="int"/>
-  <field name="HpRegianSpeed1" type="int"/>
-  <field name="HpRegianNeedEnergy2" type="int"/>
-  <field name="HpRegianSpeed2" type="int"/>
-  <field name="HpRegianNeedEnergy3" type="int"/>
-  <field name="HpRegianSpeed3" type="int"/>
-  <field name="RunSpeedScale3" type="float"/>
-  <field name="HpRegianSpeed4" type="int"/>
-  <field name="RunSpeedScale4" type="float"/>
+<class name="BRModeConfTable">
+  <array type="class">
+    <class name="BRModeConfConfig">
+      <field name="ID" type="int"/>
+      <field name="DefaultBagPosNum" type="int"/>
+      <field name="MaxPickUpHDis" type="float"/>
+      <field name="MaxPickUpVDis" type="int"/>
+      <field name="Scope1x" type="int"/>
+      <field name="Scope4x" type="int"/>
+      <field name="EnergyCostMs" type="int"/>
+      <field name="HpRegainSpeedMs" type="int"/>
+      <field name="HpRegianNeedEnergy1" type="int"/>
+      <field name="HpRegianSpeed1" type="int"/>
+      <field name="HpRegianNeedEnergy2" type="int"/>
+      <field name="HpRegianSpeed2" type="int"/>
+      <field name="HpRegianNeedEnergy3" type="int"/>
+      <field name="HpRegianSpeed3" type="int"/>
+      <field name="RunSpeedScale3" type="float"/>
+      <field name="HpRegianSpeed4" type="int"/>
+      <field name="RunSpeedScale4" type="float"/>
+    </class>
+  </array>
 </class>

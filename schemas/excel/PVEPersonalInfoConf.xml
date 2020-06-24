@@ -1,12 +1,16 @@
-<class name="PVEPersonalInfoConfig">
-  <field name="Id" type="int"/>
-  <field name="Type" type="int"/>
-  <field name="NormalIcon" type="string"/>
-  <field name="HardIcon" type="string"/>
-  <field name="Mode" type="int"/>
-  <field name="NormalMin_Round" type="int"/>
-  <field name="NormalMax_Round" type="int"/>
-  <field name="HardMin_Round" type="int"/>
-  <field name="HardMax_Round" type="int"/>
-  <field name="BossPrioroty" type="int"/>
+<class name="PVEPersonalInfoTable">
+  <array type="class">
+    <class name="PVEPersonalInfoConfig">
+      <field name="Id" type="int"/>
+      <field name="Type" type="int"/>
+      <field name="NormalIcon" type="string"/>
+      <field name="HardIcon" type="string"/>
+      <field name="Mode" type="int"/>
+      <field name="NormalMin_Round" type="int"/>
+      <field name="NormalMax_Round" type="int"/>
+      <field name="HardMin_Round" type="int"/>
+      <field name="HardMax_Round" type="int"/>
+      <field name="BossPrioroty" type="int"/>
+    </class>
+  </array>
 </class>

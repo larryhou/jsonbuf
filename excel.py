@@ -143,10 +143,17 @@ def main():
                     print(repr(cell.value), components)
                     continue
             assert type.fields
+            table = etree.Element('class')
+            table.set('name', '{}Table'.format(name))
+            records = etree.Element('array')
+            records.set('type', 'class')
+            records.append(type.schema())
+            table.append(records)
+
             excel_schema_path = p.join(script_path, 'schemas/excel')
             if not p.exists(excel_schema_path): os.makedirs(excel_schema_path)
             with open(p.join(excel_schema_path, '{}Conf.xml'.format(name)), 'w+') as fp:
-                fp.write(etree.tostring(type.schema(), pretty_print=True))
+                fp.write(etree.tostring(table, pretty_print=True))
                 fp.seek(0)
                 print('>>> {}'.format(fp.name))
                 print(fp.read())

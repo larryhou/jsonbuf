@@ -1,15 +1,19 @@
-<class name="SPVPMapRuleConfConfig">
-  <field name="MapID" type="inthex"/>
-  <field name="GameModeType" type="string"/>
-  <field name="FireMode" type="string"/>
-  <field name="FireModeEnum" type="int"/>
-  <field name="Open" type="bool"/>
-  <field name="MarkerID" type="int"/>
-  <field name="MapTag" type="int"/>
-  <field name="MapPage" type="int"/>
-  <field name="MapPostion" type="int"/>
-  <field name="PageEarthAngle" type="float"/>
-  <field name="MapEarthx" type="float"/>
-  <field name="MapEarthy" type="float"/>
-  <field name="MapEarthz" type="float"/>
+<class name="SPVPMapRuleConfTable">
+  <array type="class">
+    <class name="SPVPMapRuleConfConfig">
+      <field name="MapID" type="inthex"/>
+      <field name="GameModeType" type="string"/>
+      <field name="FireMode" type="string"/>
+      <field name="FireModeEnum" type="int"/>
+      <field name="Open" type="bool"/>
+      <field name="MarkerID" type="int"/>
+      <field name="MapTag" type="int"/>
+      <field name="MapPage" type="int"/>
+      <field name="MapPostion" type="int"/>
+      <field name="PageEarthAngle" type="float"/>
+      <field name="MapEarthx" type="float"/>
+      <field name="MapEarthy" type="float"/>
+      <field name="MapEarthz" type="float"/>
+    </class>
+  </array>
 </class>

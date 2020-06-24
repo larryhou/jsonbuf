@@ -1,6 +1,10 @@
-<class name="PropertyFormulaConfConfig">
-  <field name="ID" type="int"/>
-  <field name="DisplayType" type="int"/>
-  <field name="PropertyType" type="string"/>
-  <field name="weight" type="float"/>
+<class name="PropertyFormulaConfTable">
+  <array type="class">
+    <class name="PropertyFormulaConfConfig">
+      <field name="ID" type="int"/>
+      <field name="DisplayType" type="int"/>
+      <field name="PropertyType" type="string"/>
+      <field name="weight" type="float"/>
+    </class>
+  </array>
 </class>

@@ -1,7 +1,11 @@
-<class name="CountryConfig">
-  <field name="ID" type="int"/>
-  <field name="GeoCode" type="int"/>
-  <field name="Name" type="string"/>
-  <field name="Alpha2" type="string"/>
-  <field name="Continent" type="string"/>
+<class name="CountryTable">
+  <array type="class">
+    <class name="CountryConfig">
+      <field name="ID" type="int"/>
+      <field name="GeoCode" type="int"/>
+      <field name="Name" type="string"/>
+      <field name="Alpha2" type="string"/>
+      <field name="Continent" type="string"/>
+    </class>
+  </array>
 </class>

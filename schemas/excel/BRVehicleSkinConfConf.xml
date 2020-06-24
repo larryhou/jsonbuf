@@ -1,20 +1,24 @@
-<class name="BRVehicleSkinConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="VehicleId" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="ColorID" type="int"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="LOCID_HowToGet" type="string"/>
-  <field name="GoGetPos" type="int"/>
-  <field name="GoGetUrl" type="string"/>
-  <field name="ShowRare" type="bool"/>
-  <field name="SkinStyle" type="int"/>
-  <field name="SkinParam" type="int"/>
-  <field name="SkinParam2" type="int"/>
-  <field name="ModelRotation" type="string"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LockedShowOrder" type="int"/>
-  <field name="IsAutoDemolition" type="bool"/>
-  <field name="CurrencyID" type="uint"/>
-  <field name="SellPrice" type="int"/>
+<class name="BRVehicleSkinConfTable">
+  <array type="class">
+    <class name="BRVehicleSkinConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="VehicleId" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="ColorID" type="int"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="LOCID_HowToGet" type="string"/>
+      <field name="GoGetPos" type="int"/>
+      <field name="GoGetUrl" type="string"/>
+      <field name="ShowRare" type="bool"/>
+      <field name="SkinStyle" type="int"/>
+      <field name="SkinParam" type="int"/>
+      <field name="SkinParam2" type="int"/>
+      <field name="ModelRotation" type="string"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LockedShowOrder" type="int"/>
+      <field name="IsAutoDemolition" type="bool"/>
+      <field name="CurrencyID" type="uint"/>
+      <field name="SellPrice" type="int"/>
+    </class>
+  </array>
 </class>

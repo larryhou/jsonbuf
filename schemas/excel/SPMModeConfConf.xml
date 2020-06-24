@@ -1,28 +1,32 @@
-<class name="SPMModeConfConfig">
-  <field name="MissionId" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="IconResource" type="string"/>
-  <field name="BGResource" type="string"/>
-  <field name="PreviewResource" type="string"/>
-  <field name="Rating" type="int"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="MapId" type="inthex"/>
-  <field name="Show" type="bool"/>
-  <field name="MissionType" type="int"/>
-  <field name="GoPos" type="int"/>
-  <field name="PosUniq" type="bool"/>
-  <field name="StartLvl" type="int"/>
-  <field name="EndLvl" type="int"/>
-  <field name="ULTConfig" type="bool"/>
-  <field name="StartTime" type="string"/>
-  <field name="EndTime" type="string"/>
-  <field name="Duration" type="int"/>
-  <field name="WeekDay" type="int"/>
-  <field name="FinishCount" type="int"/>
-  <field name="PreMissionId" type="int"/>
-  <field name="MissionsList" type="array">
-    <array type="int"/>
-  </field>
-  <field name="Rank" type="string"/>
-  <field name="ForceSelect" type="bool"/>
+<class name="SPMModeConfTable">
+  <array type="class">
+    <class name="SPMModeConfConfig">
+      <field name="MissionId" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="IconResource" type="string"/>
+      <field name="BGResource" type="string"/>
+      <field name="PreviewResource" type="string"/>
+      <field name="Rating" type="int"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="MapId" type="inthex"/>
+      <field name="Show" type="bool"/>
+      <field name="MissionType" type="int"/>
+      <field name="GoPos" type="int"/>
+      <field name="PosUniq" type="bool"/>
+      <field name="StartLvl" type="int"/>
+      <field name="EndLvl" type="int"/>
+      <field name="ULTConfig" type="bool"/>
+      <field name="StartTime" type="string"/>
+      <field name="EndTime" type="string"/>
+      <field name="Duration" type="int"/>
+      <field name="WeekDay" type="int"/>
+      <field name="FinishCount" type="int"/>
+      <field name="PreMissionId" type="int"/>
+      <field name="MissionsList" type="array">
+        <array type="int"/>
+      </field>
+      <field name="Rank" type="string"/>
+      <field name="ForceSelect" type="bool"/>
+    </class>
+  </array>
 </class>

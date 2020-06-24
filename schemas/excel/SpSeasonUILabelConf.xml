@@ -1,19 +1,23 @@
-<class name="SpSeasonUILabelConfig">
-  <field name="id" type="int"/>
-  <field name="season_id" type="int"/>
-  <field name="label_type" type="int"/>
-  <field name="text" type="string"/>
-  <field name="width" type="int"/>
-  <field name="high" type="int"/>
-  <field name="pivot" type="int"/>
-  <field name="pos_x" type="int"/>
-  <field name="pos_y" type="int"/>
-  <field name="Alignment" type="int"/>
-  <field name="font" type="int"/>
-  <field name="font_effect" type="int"/>
-  <field name="color_r" type="int"/>
-  <field name="color_g" type="int"/>
-  <field name="color_b" type="int"/>
-  <field name="user_data" type="int"/>
-  <field name="bg_name" type="string"/>
+<class name="SpSeasonUILabelTable">
+  <array type="class">
+    <class name="SpSeasonUILabelConfig">
+      <field name="id" type="int"/>
+      <field name="season_id" type="int"/>
+      <field name="label_type" type="int"/>
+      <field name="text" type="string"/>
+      <field name="width" type="int"/>
+      <field name="high" type="int"/>
+      <field name="pivot" type="int"/>
+      <field name="pos_x" type="int"/>
+      <field name="pos_y" type="int"/>
+      <field name="Alignment" type="int"/>
+      <field name="font" type="int"/>
+      <field name="font_effect" type="int"/>
+      <field name="color_r" type="int"/>
+      <field name="color_g" type="int"/>
+      <field name="color_b" type="int"/>
+      <field name="user_data" type="int"/>
+      <field name="bg_name" type="string"/>
+    </class>
+  </array>
 </class>

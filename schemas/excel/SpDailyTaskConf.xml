@@ -1,29 +1,33 @@
-<class name="SpDailyTaskConfig">
-  <field name="TaskId" type="int"/>
-  <field name="GameMode" type="int"/>
-  <field name="SeasonId" type="int"/>
-  <field name="TaskWeight" type="int"/>
-  <field name="LOCID_TaskDesc" type="string"/>
-  <field name="CriticalNum" type="int"/>
-  <field name="pre_condition_type1" type="int"/>
-  <field name="pre_condition_value1" type="int"/>
-  <field name="pre_condition_type2" type="int"/>
-  <field name="pre_condition_value2" type="int"/>
-  <field name="pre_condition_type3" type="int"/>
-  <field name="pre_condition_value3" type="int"/>
-  <field name="sub_condition_value1" type="int"/>
-  <field name="sub_condition_value2" type="int"/>
-  <field name="sub_condition_value3" type="int"/>
-  <field name="TaskType" type="int"/>
-  <field name="TaskValue" type="int"/>
-  <field name="AwardId1" type="int"/>
-  <field name="AwardNum1" type="int"/>
-  <field name="AwardAgingTime1" type="int"/>
-  <field name="AwardId2" type="int"/>
-  <field name="AwardNum2" type="int"/>
-  <field name="AwardAgingTime2" type="int"/>
-  <field name="AwardId3" type="int"/>
-  <field name="AwardNum3" type="int"/>
-  <field name="AwardAgingTime3" type="int"/>
-  <field name="ConsumeCardNum" type="int"/>
+<class name="SpDailyTaskTable">
+  <array type="class">
+    <class name="SpDailyTaskConfig">
+      <field name="TaskId" type="int"/>
+      <field name="GameMode" type="int"/>
+      <field name="SeasonId" type="int"/>
+      <field name="TaskWeight" type="int"/>
+      <field name="LOCID_TaskDesc" type="string"/>
+      <field name="CriticalNum" type="int"/>
+      <field name="pre_condition_type1" type="int"/>
+      <field name="pre_condition_value1" type="int"/>
+      <field name="pre_condition_type2" type="int"/>
+      <field name="pre_condition_value2" type="int"/>
+      <field name="pre_condition_type3" type="int"/>
+      <field name="pre_condition_value3" type="int"/>
+      <field name="sub_condition_value1" type="int"/>
+      <field name="sub_condition_value2" type="int"/>
+      <field name="sub_condition_value3" type="int"/>
+      <field name="TaskType" type="int"/>
+      <field name="TaskValue" type="int"/>
+      <field name="AwardId1" type="int"/>
+      <field name="AwardNum1" type="int"/>
+      <field name="AwardAgingTime1" type="int"/>
+      <field name="AwardId2" type="int"/>
+      <field name="AwardNum2" type="int"/>
+      <field name="AwardAgingTime2" type="int"/>
+      <field name="AwardId3" type="int"/>
+      <field name="AwardNum3" type="int"/>
+      <field name="AwardAgingTime3" type="int"/>
+      <field name="ConsumeCardNum" type="int"/>
+    </class>
+  </array>
 </class>

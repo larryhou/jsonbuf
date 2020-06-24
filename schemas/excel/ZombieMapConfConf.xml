@@ -1,20 +1,24 @@
-<class name="ZombieMapConfConfig">
-  <field name="MapGroupID" type="int"/>
-  <field name="LOCID_MapName" type="string"/>
-  <field name="LOCID_BossName" type="string"/>
-  <field name="MarkerID" type="int"/>
-  <field name="NormalInstanceID" type="int"/>
-  <field name="HardInstanceID" type="int"/>
-  <field name="HellInstanceID" type="int"/>
-  <field name="NormalReward" type="array">
-    <array type="int"/>
-  </field>
-  <field name="HardReward" type="array">
-    <array type="int"/>
-  </field>
-  <field name="HellReward" type="array">
-    <array type="int"/>
-  </field>
-  <field name="BossSpriteName" type="string"/>
-  <field name="SpriteName" type="string"/>
+<class name="ZombieMapConfTable">
+  <array type="class">
+    <class name="ZombieMapConfConfig">
+      <field name="MapGroupID" type="int"/>
+      <field name="LOCID_MapName" type="string"/>
+      <field name="LOCID_BossName" type="string"/>
+      <field name="MarkerID" type="int"/>
+      <field name="NormalInstanceID" type="int"/>
+      <field name="HardInstanceID" type="int"/>
+      <field name="HellInstanceID" type="int"/>
+      <field name="NormalReward" type="array">
+        <array type="int"/>
+      </field>
+      <field name="HardReward" type="array">
+        <array type="int"/>
+      </field>
+      <field name="HellReward" type="array">
+        <array type="int"/>
+      </field>
+      <field name="BossSpriteName" type="string"/>
+      <field name="SpriteName" type="string"/>
+    </class>
+  </array>
 </class>

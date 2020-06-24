@@ -1,4 +1,8 @@
-<class name="VisibleSoundTypeNameConfConfig">
-  <field name="Audio_Name" type="string"/>
-  <field name="SoundTypeID" type="int"/>
+<class name="VisibleSoundTypeNameConfTable">
+  <array type="class">
+    <class name="VisibleSoundTypeNameConfConfig">
+      <field name="Audio_Name" type="string"/>
+      <field name="SoundTypeID" type="int"/>
+    </class>
+  </array>
 </class>

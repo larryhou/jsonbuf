@@ -1,8 +1,12 @@
-<class name="QuickTeamPlaylistMappingConfig">
-  <field name="RoomType" type="int"/>
-  <field name="RoomTypeName" type="string"/>
-  <field name="Playlist" type="int"/>
-  <field name="PlaylistName" type="string"/>
-  <field name="StartTime" type="string"/>
-  <field name="EndTime" type="string"/>
+<class name="QuickTeamPlaylistMappingTable">
+  <array type="class">
+    <class name="QuickTeamPlaylistMappingConfig">
+      <field name="RoomType" type="int"/>
+      <field name="RoomTypeName" type="string"/>
+      <field name="Playlist" type="int"/>
+      <field name="PlaylistName" type="string"/>
+      <field name="StartTime" type="string"/>
+      <field name="EndTime" type="string"/>
+    </class>
+  </array>
 </class>

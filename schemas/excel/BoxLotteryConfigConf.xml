@@ -1,11 +1,15 @@
-<class name="BoxLotteryConfigConfig">
-  <field name="LOCID_Name" type="string"/>
-  <field name="box_id" type="int"/>
-  <field name="ColorID" type="int"/>
-  <field name="itemid" type="int"/>
-  <field name="itemnum" type="int"/>
-  <field name="rand" type="int"/>
-  <field name="duration" type="int"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="is_show" type="bool"/>
+<class name="BoxLotteryConfigTable">
+  <array type="class">
+    <class name="BoxLotteryConfigConfig">
+      <field name="LOCID_Name" type="string"/>
+      <field name="box_id" type="int"/>
+      <field name="ColorID" type="int"/>
+      <field name="itemid" type="int"/>
+      <field name="itemnum" type="int"/>
+      <field name="rand" type="int"/>
+      <field name="duration" type="int"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="is_show" type="bool"/>
+    </class>
+  </array>
 </class>

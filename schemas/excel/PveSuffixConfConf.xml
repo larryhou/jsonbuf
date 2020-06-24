@@ -1,12 +1,16 @@
-<class name="PveSuffixConfConfig">
-  <field name="id" type="int"/>
-  <field name="level" type="int"/>
-  <field name="rand_info_1_rand_items" type="string"/>
-  <field name="rand_info_1_item_rand_values" type="string"/>
-  <field name="rand_info_1_is_repeat_get" type="int"/>
-  <field name="rand_info_1_rand_counts" type="int"/>
-  <field name="rand_info_2_rand_items" type="string"/>
-  <field name="rand_info_2_item_rand_values" type="string"/>
-  <field name="rand_info_2_is_repeat_get" type="int"/>
-  <field name="rand_info_2_rand_counts" type="int"/>
+<class name="PveSuffixConfTable">
+  <array type="class">
+    <class name="PveSuffixConfConfig">
+      <field name="id" type="int"/>
+      <field name="level" type="int"/>
+      <field name="rand_info_1_rand_items" type="string"/>
+      <field name="rand_info_1_item_rand_values" type="string"/>
+      <field name="rand_info_1_is_repeat_get" type="int"/>
+      <field name="rand_info_1_rand_counts" type="int"/>
+      <field name="rand_info_2_rand_items" type="string"/>
+      <field name="rand_info_2_item_rand_values" type="string"/>
+      <field name="rand_info_2_is_repeat_get" type="int"/>
+      <field name="rand_info_2_rand_counts" type="int"/>
+    </class>
+  </array>
 </class>

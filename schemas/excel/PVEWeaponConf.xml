@@ -1,42 +1,46 @@
-<class name="PVEWeaponConfig">
-  <field name="ID" type="uint"/>
-  <field name="WeaponCategory" type="int"/>
-  <field name="ShowInBag" type="bool"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="SquareName" type="string"/>
-  <field name="WhitePicture" type="string"/>
-  <field name="BaseCritDamage" type="int"/>
-  <field name="BaseWeaknessDamage" type="int"/>
-  <field name="BaseDamageValue" type="int"/>
-  <field name="BaseFireInterval" type="float"/>
-  <field name="DefaultSkill_1" type="int"/>
-  <field name="DefaultSkill_2" type="int"/>
-  <field name="DefaultSkill_3" type="int"/>
-  <field name="DefaultSkill_4" type="int"/>
-  <field name="DefaultSkill_5" type="int"/>
-  <field name="DefaultSkill_6" type="int"/>
-  <field name="SellPrice" type="int"/>
-  <field name="CurrencyID" type="uint"/>
-  <field name="BasicPower" type="int"/>
-  <field name="TalentGroupId" type="int"/>
-  <field name="StrengthenGroupId" type="int"/>
-  <field name="AttrId_1" type="int"/>
-  <field name="AttrValue_1" type="int"/>
-  <field name="AttrId_2" type="int"/>
-  <field name="AttrValue_2" type="int"/>
-  <field name="AttrId_3" type="int"/>
-  <field name="AttrValue_3" type="int"/>
-  <field name="AttrId_4" type="int"/>
-  <field name="AttrValue_4" type="int"/>
-  <field name="AttrId_5" type="int"/>
-  <field name="AttrValue_5" type="int"/>
-  <field name="InOffWall" type="int"/>
-  <field name="InWonderBox" type="int"/>
-  <field name="OffWallShowSprite" type="string"/>
-  <field name="OffWallSelectBox" type="array">
-    <array type="uint"/>
-  </field>
+<class name="PVEWeaponTable">
+  <array type="class">
+    <class name="PVEWeaponConfig">
+      <field name="ID" type="uint"/>
+      <field name="WeaponCategory" type="int"/>
+      <field name="ShowInBag" type="bool"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="SquareName" type="string"/>
+      <field name="WhitePicture" type="string"/>
+      <field name="BaseCritDamage" type="int"/>
+      <field name="BaseWeaknessDamage" type="int"/>
+      <field name="BaseDamageValue" type="int"/>
+      <field name="BaseFireInterval" type="float"/>
+      <field name="DefaultSkill_1" type="int"/>
+      <field name="DefaultSkill_2" type="int"/>
+      <field name="DefaultSkill_3" type="int"/>
+      <field name="DefaultSkill_4" type="int"/>
+      <field name="DefaultSkill_5" type="int"/>
+      <field name="DefaultSkill_6" type="int"/>
+      <field name="SellPrice" type="int"/>
+      <field name="CurrencyID" type="uint"/>
+      <field name="BasicPower" type="int"/>
+      <field name="TalentGroupId" type="int"/>
+      <field name="StrengthenGroupId" type="int"/>
+      <field name="AttrId_1" type="int"/>
+      <field name="AttrValue_1" type="int"/>
+      <field name="AttrId_2" type="int"/>
+      <field name="AttrValue_2" type="int"/>
+      <field name="AttrId_3" type="int"/>
+      <field name="AttrValue_3" type="int"/>
+      <field name="AttrId_4" type="int"/>
+      <field name="AttrValue_4" type="int"/>
+      <field name="AttrId_5" type="int"/>
+      <field name="AttrValue_5" type="int"/>
+      <field name="InOffWall" type="int"/>
+      <field name="InWonderBox" type="int"/>
+      <field name="OffWallShowSprite" type="string"/>
+      <field name="OffWallSelectBox" type="array">
+        <array type="uint"/>
+      </field>
+    </class>
+  </array>
 </class>

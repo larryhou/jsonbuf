@@ -1,7 +1,11 @@
-<class name="CodActivityTopConfig">
-  <field name="top_seq" type="int"/>
-  <field name="LocID" type="string"/>
-  <field name="show_pic" type="string"/>
-  <field name="show_pic_url" type="string"/>
-  <field name="bHot" type="bool"/>
+<class name="CodActivityTopTable">
+  <array type="class">
+    <class name="CodActivityTopConfig">
+      <field name="top_seq" type="int"/>
+      <field name="LocID" type="string"/>
+      <field name="show_pic" type="string"/>
+      <field name="show_pic_url" type="string"/>
+      <field name="bHot" type="bool"/>
+    </class>
+  </array>
 </class>

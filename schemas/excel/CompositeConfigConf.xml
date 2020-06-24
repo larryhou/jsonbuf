@@ -1,32 +1,36 @@
-<class name="CompositeConfigConfig">
-  <field name="id" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="ColorId" type="int"/>
-  <field name="type" type="int"/>
-  <field name="subtype" type="int"/>
-  <field name="order" type="int"/>
-  <field name="time_cost" type="int"/>
-  <field name="coin_cost" type="int"/>
-  <field name="powder_cost" type="int"/>
-  <field name="new_unlock_req" type="int"/>
-  <field name="old_unlock_seq" type="int"/>
-  <field name="output_type" type="int"/>
-  <field name="output_id" type="int"/>
-  <field name="output_num" type="int"/>
-  <field name="output_duration" type="int"/>
-  <field name="com_material_id" type="int"/>
-  <field name="com_material_color" type="int"/>
-  <field name="com_material_num" type="int"/>
-  <field name="spe_material_type_num" type="int"/>
-  <field name="spe_material_1_id" type="int"/>
-  <field name="spe_material_1_num" type="int"/>
-  <field name="spe_material_2_id" type="int"/>
-  <field name="spe_material_2_num" type="int"/>
-  <field name="spe_material_3_id" type="int"/>
-  <field name="spe_material_3_num" type="int"/>
-  <field name="spe_material_4_id" type="int"/>
-  <field name="spe_material_4_num" type="int"/>
-  <field name="spe_material_5_id" type="int"/>
-  <field name="spe_material_5_num" type="int"/>
+<class name="CompositeConfigTable">
+  <array type="class">
+    <class name="CompositeConfigConfig">
+      <field name="id" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="ColorId" type="int"/>
+      <field name="type" type="int"/>
+      <field name="subtype" type="int"/>
+      <field name="order" type="int"/>
+      <field name="time_cost" type="int"/>
+      <field name="coin_cost" type="int"/>
+      <field name="powder_cost" type="int"/>
+      <field name="new_unlock_req" type="int"/>
+      <field name="old_unlock_seq" type="int"/>
+      <field name="output_type" type="int"/>
+      <field name="output_id" type="int"/>
+      <field name="output_num" type="int"/>
+      <field name="output_duration" type="int"/>
+      <field name="com_material_id" type="int"/>
+      <field name="com_material_color" type="int"/>
+      <field name="com_material_num" type="int"/>
+      <field name="spe_material_type_num" type="int"/>
+      <field name="spe_material_1_id" type="int"/>
+      <field name="spe_material_1_num" type="int"/>
+      <field name="spe_material_2_id" type="int"/>
+      <field name="spe_material_2_num" type="int"/>
+      <field name="spe_material_3_id" type="int"/>
+      <field name="spe_material_3_num" type="int"/>
+      <field name="spe_material_4_id" type="int"/>
+      <field name="spe_material_4_num" type="int"/>
+      <field name="spe_material_5_id" type="int"/>
+      <field name="spe_material_5_num" type="int"/>
+    </class>
+  </array>
 </class>

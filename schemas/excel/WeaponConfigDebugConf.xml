@@ -1,7 +1,11 @@
-<class name="WeaponConfigDebugConfig">
-  <field name="Id" type="int"/>
-  <field name="WeaponAttrShow" type="string"/>
-  <field name="WeaponAttr" type="string"/>
-  <field name="WeaponAttrDesc" type="string"/>
-  <field name="IsHipUse" type="int"/>
+<class name="WeaponConfigDebugTable">
+  <array type="class">
+    <class name="WeaponConfigDebugConfig">
+      <field name="Id" type="int"/>
+      <field name="WeaponAttrShow" type="string"/>
+      <field name="WeaponAttr" type="string"/>
+      <field name="WeaponAttrDesc" type="string"/>
+      <field name="IsHipUse" type="int"/>
+    </class>
+  </array>
 </class>

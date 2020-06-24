@@ -1,4 +1,8 @@
-<class name="BarrierDecayConfConfig">
-  <field name="BarrierType" type="int"/>
-  <field name="Decay" type="float"/>
+<class name="BarrierDecayConfTable">
+  <array type="class">
+    <class name="BarrierDecayConfConfig">
+      <field name="BarrierType" type="int"/>
+      <field name="Decay" type="float"/>
+    </class>
+  </array>
 </class>

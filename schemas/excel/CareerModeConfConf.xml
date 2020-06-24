@@ -1,9 +1,13 @@
-<class name="CareerModeConfConfig">
-  <field name="ModeType" type="string"/>
-  <field name="ModeCategoryStr" type="string"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="Icon" type="string"/>
-  <field name="DefaultMapType" type="string"/>
-  <field name="ModeUplimit" type="int"/>
-  <field name="ModeDownLimit" type="int"/>
+<class name="CareerModeConfTable">
+  <array type="class">
+    <class name="CareerModeConfConfig">
+      <field name="ModeType" type="string"/>
+      <field name="ModeCategoryStr" type="string"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="Icon" type="string"/>
+      <field name="DefaultMapType" type="string"/>
+      <field name="ModeUplimit" type="int"/>
+      <field name="ModeDownLimit" type="int"/>
+    </class>
+  </array>
 </class>

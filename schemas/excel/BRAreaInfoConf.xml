@@ -1,8 +1,12 @@
-<class name="BRAreaInfoConfig">
-  <field name="AreaId" type="int"/>
-  <field name="AreaName" type="string"/>
-  <field name="AreaColor" type="inthex"/>
-  <field name="AreaHighColor" type="inthex"/>
-  <field name="ShadowColor" type="inthex"/>
-  <field name="ShadowHighColor" type="inthex"/>
+<class name="BRAreaInfoTable">
+  <array type="class">
+    <class name="BRAreaInfoConfig">
+      <field name="AreaId" type="int"/>
+      <field name="AreaName" type="string"/>
+      <field name="AreaColor" type="inthex"/>
+      <field name="AreaHighColor" type="inthex"/>
+      <field name="ShadowColor" type="inthex"/>
+      <field name="ShadowHighColor" type="inthex"/>
+    </class>
+  </array>
 </class>

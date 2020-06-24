@@ -1,7 +1,11 @@
-<class name="ShopSubTagsConfConfig">
-  <field name="TagSubID" type="int"/>
-  <field name="Open" type="bool"/>
-  <field name="Priority" type="int"/>
-  <field name="Icon" type="string"/>
-  <field name="LOCID_Name" type="string"/>
+<class name="ShopSubTagsConfTable">
+  <array type="class">
+    <class name="ShopSubTagsConfConfig">
+      <field name="TagSubID" type="int"/>
+      <field name="Open" type="bool"/>
+      <field name="Priority" type="int"/>
+      <field name="Icon" type="string"/>
+      <field name="LOCID_Name" type="string"/>
+    </class>
+  </array>
 </class>

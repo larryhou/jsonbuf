@@ -1,4 +1,8 @@
-<class name="CamosDisplayInfoConfig">
-  <field name="CamosID" type="int"/>
-  <field name="TextureAssetID" type="int"/>
+<class name="CamosDisplayInfoTable">
+  <array type="class">
+    <class name="CamosDisplayInfoConfig">
+      <field name="CamosID" type="int"/>
+      <field name="TextureAssetID" type="int"/>
+    </class>
+  </array>
 </class>

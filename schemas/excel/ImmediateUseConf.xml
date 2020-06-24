@@ -1,5 +1,9 @@
-<class name="ImmediateUseConfig">
-  <field name="GoodsID" type="int"/>
-  <field name="Immediateuse" type="int"/>
-  <field name="Style" type="int"/>
+<class name="ImmediateUseTable">
+  <array type="class">
+    <class name="ImmediateUseConfig">
+      <field name="GoodsID" type="int"/>
+      <field name="Immediateuse" type="int"/>
+      <field name="Style" type="int"/>
+    </class>
+  </array>
 </class>

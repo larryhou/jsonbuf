@@ -1,9 +1,13 @@
-<class name="GameCommunicationLineMsgConfig">
-  <field name="ID" type="int"/>
-  <field name="ChatContext" type="string"/>
-  <field name="TipContext" type="string"/>
-  <field name="PromptAudioMale" type="string"/>
-  <field name="PromptAudioFemale" type="string"/>
-  <field name="AudioLength" type="int"/>
-  <field name="ShowType" type="int"/>
+<class name="GameCommunicationLineMsgTable">
+  <array type="class">
+    <class name="GameCommunicationLineMsgConfig">
+      <field name="ID" type="int"/>
+      <field name="ChatContext" type="string"/>
+      <field name="TipContext" type="string"/>
+      <field name="PromptAudioMale" type="string"/>
+      <field name="PromptAudioFemale" type="string"/>
+      <field name="AudioLength" type="int"/>
+      <field name="ShowType" type="int"/>
+    </class>
+  </array>
 </class>

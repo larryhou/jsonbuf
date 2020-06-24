@@ -1,5 +1,9 @@
-<class name="DropPoolConfig">
-  <field name="MapID" type="inthex"/>
-  <field name="ItemID" type="int"/>
-  <field name="ItemNum" type="int"/>
+<class name="DropPoolTable">
+  <array type="class">
+    <class name="DropPoolConfig">
+      <field name="MapID" type="inthex"/>
+      <field name="ItemID" type="int"/>
+      <field name="ItemNum" type="int"/>
+    </class>
+  </array>
 </class>

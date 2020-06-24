@@ -1,5 +1,9 @@
-<class name="BugReportConfConfig">
-  <field name="id" type="int"/>
-  <field name="ModeCategory" type="int"/>
-  <field name="LOCID_Desc" type="string"/>
+<class name="BugReportConfTable">
+  <array type="class">
+    <class name="BugReportConfConfig">
+      <field name="id" type="int"/>
+      <field name="ModeCategory" type="int"/>
+      <field name="LOCID_Desc" type="string"/>
+    </class>
+  </array>
 </class>

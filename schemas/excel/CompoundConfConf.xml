@@ -1,14 +1,18 @@
-<class name="CompoundConfConfig">
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Desc" type="string"/>
-  <field name="id" type="int"/>
-  <field name="frage1id" type="int"/>
-  <field name="frage1num" type="int"/>
-  <field name="frage2id" type="int"/>
-  <field name="frage2num" type="int"/>
-  <field name="frage3id" type="int"/>
-  <field name="frage3num" type="int"/>
-  <field name="itemid" type="int"/>
-  <field name="itemnum" type="int"/>
-  <field name="duration" type="int"/>
+<class name="CompoundConfTable">
+  <array type="class">
+    <class name="CompoundConfConfig">
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Desc" type="string"/>
+      <field name="id" type="int"/>
+      <field name="frage1id" type="int"/>
+      <field name="frage1num" type="int"/>
+      <field name="frage2id" type="int"/>
+      <field name="frage2num" type="int"/>
+      <field name="frage3id" type="int"/>
+      <field name="frage3num" type="int"/>
+      <field name="itemid" type="int"/>
+      <field name="itemnum" type="int"/>
+      <field name="duration" type="int"/>
+    </class>
+  </array>
 </class>

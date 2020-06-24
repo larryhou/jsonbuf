@@ -1,10 +1,14 @@
-<class name="BuffEffectDescConfig">
-  <field name="EffectType" type="int"/>
-  <field name="EffectName" type="string"/>
-  <field name="EffectSvrName" type="string"/>
-  <field name="EffectDesc" type="string"/>
-  <field name="EffectParam1Str" type="string"/>
-  <field name="EffectParam1OperStr" type="string"/>
-  <field name="EffectParam2Str" type="string"/>
-  <field name="EffectParam2OperStr" type="string"/>
+<class name="BuffEffectDescTable">
+  <array type="class">
+    <class name="BuffEffectDescConfig">
+      <field name="EffectType" type="int"/>
+      <field name="EffectName" type="string"/>
+      <field name="EffectSvrName" type="string"/>
+      <field name="EffectDesc" type="string"/>
+      <field name="EffectParam1Str" type="string"/>
+      <field name="EffectParam1OperStr" type="string"/>
+      <field name="EffectParam2Str" type="string"/>
+      <field name="EffectParam2OperStr" type="string"/>
+    </class>
+  </array>
 </class>

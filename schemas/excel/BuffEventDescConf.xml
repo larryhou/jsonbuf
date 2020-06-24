@@ -1,7 +1,11 @@
-<class name="BuffEventDescConfig">
-  <field name="EventType" type="int"/>
-  <field name="EventName" type="string"/>
-  <field name="EventDesc" type="string"/>
-  <field name="EventParamStr" type="string"/>
-  <field name="EventParamOper" type="string"/>
+<class name="BuffEventDescTable">
+  <array type="class">
+    <class name="BuffEventDescConfig">
+      <field name="EventType" type="int"/>
+      <field name="EventName" type="string"/>
+      <field name="EventDesc" type="string"/>
+      <field name="EventParamStr" type="string"/>
+      <field name="EventParamOper" type="string"/>
+    </class>
+  </array>
 </class>

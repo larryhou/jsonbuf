@@ -1,18 +1,22 @@
-<class name="WeaponStrengthenConfig">
-  <field name="GroupId" type="int"/>
-  <field name="StrengthenLevel" type="int"/>
-  <field name="WeaponSkillId" type="int"/>
-  <field name="AttrData_1_AttrId" type="int"/>
-  <field name="AttrData_1_AttrValue" type="int"/>
-  <field name="AttrData_2_AttrId" type="int"/>
-  <field name="AttrData_2_AttrValue" type="int"/>
-  <field name="AttrData_3_AttrId" type="int"/>
-  <field name="AttrData_3_AttrValue" type="int"/>
-  <field name="AttrData_4_AttrId" type="int"/>
-  <field name="AttrData_4_AttrValue" type="int"/>
-  <field name="AttrData_5_AttrId" type="int"/>
-  <field name="AttrData_5_AttrValue" type="int"/>
-  <field name="ConsumeItemId" type="long"/>
-  <field name="ConsumeItemCnt" type="int"/>
-  <field name="BasicPower" type="int"/>
+<class name="WeaponStrengthenTable">
+  <array type="class">
+    <class name="WeaponStrengthenConfig">
+      <field name="GroupId" type="int"/>
+      <field name="StrengthenLevel" type="int"/>
+      <field name="WeaponSkillId" type="int"/>
+      <field name="AttrData_1_AttrId" type="int"/>
+      <field name="AttrData_1_AttrValue" type="int"/>
+      <field name="AttrData_2_AttrId" type="int"/>
+      <field name="AttrData_2_AttrValue" type="int"/>
+      <field name="AttrData_3_AttrId" type="int"/>
+      <field name="AttrData_3_AttrValue" type="int"/>
+      <field name="AttrData_4_AttrId" type="int"/>
+      <field name="AttrData_4_AttrValue" type="int"/>
+      <field name="AttrData_5_AttrId" type="int"/>
+      <field name="AttrData_5_AttrValue" type="int"/>
+      <field name="ConsumeItemId" type="long"/>
+      <field name="ConsumeItemCnt" type="int"/>
+      <field name="BasicPower" type="int"/>
+    </class>
+  </array>
 </class>

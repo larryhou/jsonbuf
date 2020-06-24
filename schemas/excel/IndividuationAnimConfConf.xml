@@ -1,5 +1,9 @@
-<class name="IndividuationAnimConfConfig">
-  <field name="AnimName" type="string"/>
-  <field name="AnimIndex" type="int"/>
-  <field name="PlayType" type="int"/>
+<class name="IndividuationAnimConfTable">
+  <array type="class">
+    <class name="IndividuationAnimConfConfig">
+      <field name="AnimName" type="string"/>
+      <field name="AnimIndex" type="int"/>
+      <field name="PlayType" type="int"/>
+    </class>
+  </array>
 </class>

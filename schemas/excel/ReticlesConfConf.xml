@@ -1,8 +1,12 @@
-<class name="ReticlesConfConfig">
-  <field name="ID" type="uint"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="AdaptedOpticsID" type="int"/>
-  <field name="NeedUnlocked" type="bool"/>
-  <field name="UnlockKill" type="int"/>
-  <field name="GetXP" type="int"/>
+<class name="ReticlesConfTable">
+  <array type="class">
+    <class name="ReticlesConfConfig">
+      <field name="ID" type="uint"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="AdaptedOpticsID" type="int"/>
+      <field name="NeedUnlocked" type="bool"/>
+      <field name="UnlockKill" type="int"/>
+      <field name="GetXP" type="int"/>
+    </class>
+  </array>
 </class>

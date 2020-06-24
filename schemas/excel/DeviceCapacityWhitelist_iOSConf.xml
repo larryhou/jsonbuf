@@ -1,18 +1,22 @@
-<class name="DeviceCapacityWhitelist_iOSConfig">
-  <field name="DeviceGeneration" type="int"/>
-  <field name="Desc" type="string"/>
-  <field name="ModelName" type="string"/>
-  <field name="DefaultSettingLevel" type="int"/>
-  <field name="CapacitySettingLevel" type="int"/>
-  <field name="DefaultFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateUnderLowQuality" type="int"/>
-  <field name="MSAA" type="int"/>
-  <field name="ExtremeHeight" type="int"/>
-  <field name="VeryHighHeight" type="int"/>
-  <field name="HighHeight" type="int"/>
-  <field name="MidHeight" type="int"/>
-  <field name="LowHeight" type="int"/>
-  <field name="VeryLowHeight" type="int"/>
-  <field name="ImpatientHeight" type="int"/>
+<class name="DeviceCapacityWhitelist_iOSTable">
+  <array type="class">
+    <class name="DeviceCapacityWhitelist_iOSConfig">
+      <field name="DeviceGeneration" type="int"/>
+      <field name="Desc" type="string"/>
+      <field name="ModelName" type="string"/>
+      <field name="DefaultSettingLevel" type="int"/>
+      <field name="CapacitySettingLevel" type="int"/>
+      <field name="DefaultFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateUnderLowQuality" type="int"/>
+      <field name="MSAA" type="int"/>
+      <field name="ExtremeHeight" type="int"/>
+      <field name="VeryHighHeight" type="int"/>
+      <field name="HighHeight" type="int"/>
+      <field name="MidHeight" type="int"/>
+      <field name="LowHeight" type="int"/>
+      <field name="VeryLowHeight" type="int"/>
+      <field name="ImpatientHeight" type="int"/>
+    </class>
+  </array>
 </class>

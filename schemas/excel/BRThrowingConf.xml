@@ -1,29 +1,33 @@
-<class name="BRThrowingConfig">
-  <field name="ItemID" type="int"/>
-  <field name="CanAIUse" type="bool"/>
-  <field name="SubItemType" type="int"/>
-  <field name="SettingItemType" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="CanStack" type="bool"/>
-  <field name="StackNum" type="int"/>
-  <field name="Quality" type="int"/>
-  <field name="SortParam" type="int"/>
-  <field name="Value" type="int"/>
-  <field name="ClipItemId" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="WhitePicture" type="string"/>
-  <field name="MaxAttach" type="int"/>
-  <field name="Mobility" type="int"/>
-  <field name="Damage" type="int"/>
-  <field name="Range" type="int"/>
-  <field name="FireRate" type="int"/>
-  <field name="Accuracy" type="int"/>
-  <field name="IsShow" type="bool"/>
-  <field name="LotteryRotation" type="string"/>
-  <field name="SkinBox" type="array">
-    <array type="int"/>
-  </field>
+<class name="BRThrowingTable">
+  <array type="class">
+    <class name="BRThrowingConfig">
+      <field name="ItemID" type="int"/>
+      <field name="CanAIUse" type="bool"/>
+      <field name="SubItemType" type="int"/>
+      <field name="SettingItemType" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="CanStack" type="bool"/>
+      <field name="StackNum" type="int"/>
+      <field name="Quality" type="int"/>
+      <field name="SortParam" type="int"/>
+      <field name="Value" type="int"/>
+      <field name="ClipItemId" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="WhitePicture" type="string"/>
+      <field name="MaxAttach" type="int"/>
+      <field name="Mobility" type="int"/>
+      <field name="Damage" type="int"/>
+      <field name="Range" type="int"/>
+      <field name="FireRate" type="int"/>
+      <field name="Accuracy" type="int"/>
+      <field name="IsShow" type="bool"/>
+      <field name="LotteryRotation" type="string"/>
+      <field name="SkinBox" type="array">
+        <array type="int"/>
+      </field>
+    </class>
+  </array>
 </class>

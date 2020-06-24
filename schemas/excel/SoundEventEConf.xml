@@ -1,6 +1,10 @@
-<class name="SoundEventEConfig">
-  <field name="Id" type="int"/>
-  <field name="EnumName" type="string"/>
-  <field name="Constant" type="string"/>
-  <field name="Note" type="string"/>
+<class name="SoundEventETable">
+  <array type="class">
+    <class name="SoundEventEConfig">
+      <field name="Id" type="int"/>
+      <field name="EnumName" type="string"/>
+      <field name="Constant" type="string"/>
+      <field name="Note" type="string"/>
+    </class>
+  </array>
 </class>

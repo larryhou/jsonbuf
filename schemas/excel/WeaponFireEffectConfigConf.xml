@@ -1,49 +1,53 @@
-<class name="WeaponFireEffectConfigConfig">
-  <field name="Id" type="int"/>
-  <field name="AssetIdFor1P" type="int"/>
-  <field name="AssetIdFor3P" type="int"/>
-  <field name="AssetIdForHip1P" type="int"/>
-  <field name="AssetIdForHip3P" type="int"/>
-  <field name="AssetIdForExtra1P" type="int"/>
-  <field name="SocketNameForExtra1P" type="string"/>
-  <field name="AssetIdForBulletTrack1P" type="int"/>
-  <field name="AssetIdForBulletTrack3P" type="int"/>
-  <field name="AssetIdForBulletSmoke1P" type="int"/>
-  <field name="AssetIdForBulletSmoke3P" type="int"/>
-  <field name="AssetIdForExtraBulletSmoke1P" type="int"/>
-  <field name="AssetIdForExtraBulletSmoke3P" type="int"/>
-  <field name="AssetIdForShellDrop1P" type="int"/>
-  <field name="AssetIdForShellDrop3P" type="int"/>
-  <field name="AssetIdForCharging1P" type="int"/>
-  <field name="AttachAssetIdFor1P" type="int"/>
-  <field name="AttachAssetIdFor3P" type="int"/>
-  <field name="AttachAssetIdForHip1P" type="int"/>
-  <field name="AttachAssetIdForHip3P" type="int"/>
-  <field name="AssetIdForLevelEffects" type="array">
-    <array type="int"/>
-  </field>
-  <field name="SocketForLevelEffects" type="array">
-    <array type="string"/>
-  </field>
-  <field name="KillCountForLevelEffect" type="array">
-    <array type="int"/>
-  </field>
-  <field name="AssetIdsForExtraEffects" type="array">
-    <array type="int"/>
-  </field>
-  <field name="socketsForExtraEffects" type="array">
-    <array type="string"/>
-  </field>
-  <field name="AssetIdsForExtraEffects3P" type="array">
-    <array type="int"/>
-  </field>
-  <field name="socketsForExtraEffects3P" type="array">
-    <array type="string"/>
-  </field>
-  <field name="AssetIdsForExtraEffectsUI" type="array">
-    <array type="int"/>
-  </field>
-  <field name="socketsForExtraEffectsUI" type="array">
-    <array type="string"/>
-  </field>
+<class name="WeaponFireEffectConfigTable">
+  <array type="class">
+    <class name="WeaponFireEffectConfigConfig">
+      <field name="Id" type="int"/>
+      <field name="AssetIdFor1P" type="int"/>
+      <field name="AssetIdFor3P" type="int"/>
+      <field name="AssetIdForHip1P" type="int"/>
+      <field name="AssetIdForHip3P" type="int"/>
+      <field name="AssetIdForExtra1P" type="int"/>
+      <field name="SocketNameForExtra1P" type="string"/>
+      <field name="AssetIdForBulletTrack1P" type="int"/>
+      <field name="AssetIdForBulletTrack3P" type="int"/>
+      <field name="AssetIdForBulletSmoke1P" type="int"/>
+      <field name="AssetIdForBulletSmoke3P" type="int"/>
+      <field name="AssetIdForExtraBulletSmoke1P" type="int"/>
+      <field name="AssetIdForExtraBulletSmoke3P" type="int"/>
+      <field name="AssetIdForShellDrop1P" type="int"/>
+      <field name="AssetIdForShellDrop3P" type="int"/>
+      <field name="AssetIdForCharging1P" type="int"/>
+      <field name="AttachAssetIdFor1P" type="int"/>
+      <field name="AttachAssetIdFor3P" type="int"/>
+      <field name="AttachAssetIdForHip1P" type="int"/>
+      <field name="AttachAssetIdForHip3P" type="int"/>
+      <field name="AssetIdForLevelEffects" type="array">
+        <array type="int"/>
+      </field>
+      <field name="SocketForLevelEffects" type="array">
+        <array type="string"/>
+      </field>
+      <field name="KillCountForLevelEffect" type="array">
+        <array type="int"/>
+      </field>
+      <field name="AssetIdsForExtraEffects" type="array">
+        <array type="int"/>
+      </field>
+      <field name="socketsForExtraEffects" type="array">
+        <array type="string"/>
+      </field>
+      <field name="AssetIdsForExtraEffects3P" type="array">
+        <array type="int"/>
+      </field>
+      <field name="socketsForExtraEffects3P" type="array">
+        <array type="string"/>
+      </field>
+      <field name="AssetIdsForExtraEffectsUI" type="array">
+        <array type="int"/>
+      </field>
+      <field name="socketsForExtraEffectsUI" type="array">
+        <array type="string"/>
+      </field>
+    </class>
+  </array>
 </class>

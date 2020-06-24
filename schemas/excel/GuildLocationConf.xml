@@ -1,5 +1,9 @@
-<class name="GuildLocationConfig">
-  <field name="Index" type="int"/>
-  <field name="LOCID_Province" type="string"/>
-  <field name="LOCID_City" type="string"/>
+<class name="GuildLocationTable">
+  <array type="class">
+    <class name="GuildLocationConfig">
+      <field name="Index" type="int"/>
+      <field name="LOCID_Province" type="string"/>
+      <field name="LOCID_City" type="string"/>
+    </class>
+  </array>
 </class>

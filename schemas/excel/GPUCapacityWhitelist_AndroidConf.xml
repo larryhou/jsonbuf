@@ -1,16 +1,20 @@
-<class name="GPUCapacityWhitelist_AndroidConfig">
-  <field name="gpu" type="string"/>
-  <field name="vendor" type="string"/>
-  <field name="model" type="string"/>
-  <field name="DefaultFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateUnderLowQuality" type="int"/>
-  <field name="MSAA" type="int"/>
-  <field name="extreme_height" type="int"/>
-  <field name="veryhigh_height" type="int"/>
-  <field name="high_height" type="int"/>
-  <field name="mid_height" type="int"/>
-  <field name="low_height" type="int"/>
-  <field name="verylow_height" type="int"/>
-  <field name="impatient_height" type="int"/>
+<class name="GPUCapacityWhitelist_AndroidTable">
+  <array type="class">
+    <class name="GPUCapacityWhitelist_AndroidConfig">
+      <field name="gpu" type="string"/>
+      <field name="vendor" type="string"/>
+      <field name="model" type="string"/>
+      <field name="DefaultFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateUnderLowQuality" type="int"/>
+      <field name="MSAA" type="int"/>
+      <field name="extreme_height" type="int"/>
+      <field name="veryhigh_height" type="int"/>
+      <field name="high_height" type="int"/>
+      <field name="mid_height" type="int"/>
+      <field name="low_height" type="int"/>
+      <field name="verylow_height" type="int"/>
+      <field name="impatient_height" type="int"/>
+    </class>
+  </array>
 </class>

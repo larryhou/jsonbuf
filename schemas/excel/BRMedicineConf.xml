@@ -1,37 +1,41 @@
-<class name="BRMedicineConfig">
-  <field name="ItemID" type="int"/>
-  <field name="SubItemType" type="int"/>
-  <field name="SettingItemType" type="int"/>
-  <field name="Color" type="int"/>
-  <field name="CanStack" type="bool"/>
-  <field name="StackNum" type="int"/>
-  <field name="Quality" type="int"/>
-  <field name="SortParam" type="int"/>
-  <field name="Value" type="int"/>
-  <field name="HealType" type="int"/>
-  <field name="MaxPoint" type="int"/>
-  <field name="UseTime" type="int"/>
-  <field name="AddPoint" type="int"/>
-  <field name="AddPointSec" type="int"/>
-  <field name="SecondHalfUseTime" type="int"/>
-  <field name="AddSignalPoint" type="int"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="LOCID_Brief" type="string"/>
-  <field name="SpriteName" type="string"/>
-  <field name="AutoPickUpCount" type="int"/>
-  <field name="AnimationName" type="string"/>
-  <field name="AnimationTime" type="int"/>
-  <field name="FPModelAssetId" type="int"/>
-  <field name="TPModelAssetId" type="int"/>
-  <field name="IsShowModel" type="bool"/>
-  <field name="PriorityFull" type="int"/>
-  <field name="PriorityMore" type="int"/>
-  <field name="PriorityMiddle" type="int"/>
-  <field name="PriorityLess" type="int"/>
-  <field name="SoundKey" type="string"/>
-  <field name="SoundStopKey" type="string"/>
-  <field name="SoundKey3P" type="string"/>
-  <field name="SoundStopKey3P" type="string"/>
-  <field name="LotteryRotation" type="string"/>
+<class name="BRMedicineTable">
+  <array type="class">
+    <class name="BRMedicineConfig">
+      <field name="ItemID" type="int"/>
+      <field name="SubItemType" type="int"/>
+      <field name="SettingItemType" type="int"/>
+      <field name="Color" type="int"/>
+      <field name="CanStack" type="bool"/>
+      <field name="StackNum" type="int"/>
+      <field name="Quality" type="int"/>
+      <field name="SortParam" type="int"/>
+      <field name="Value" type="int"/>
+      <field name="HealType" type="int"/>
+      <field name="MaxPoint" type="int"/>
+      <field name="UseTime" type="int"/>
+      <field name="AddPoint" type="int"/>
+      <field name="AddPointSec" type="int"/>
+      <field name="SecondHalfUseTime" type="int"/>
+      <field name="AddSignalPoint" type="int"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="LOCID_Brief" type="string"/>
+      <field name="SpriteName" type="string"/>
+      <field name="AutoPickUpCount" type="int"/>
+      <field name="AnimationName" type="string"/>
+      <field name="AnimationTime" type="int"/>
+      <field name="FPModelAssetId" type="int"/>
+      <field name="TPModelAssetId" type="int"/>
+      <field name="IsShowModel" type="bool"/>
+      <field name="PriorityFull" type="int"/>
+      <field name="PriorityMore" type="int"/>
+      <field name="PriorityMiddle" type="int"/>
+      <field name="PriorityLess" type="int"/>
+      <field name="SoundKey" type="string"/>
+      <field name="SoundStopKey" type="string"/>
+      <field name="SoundKey3P" type="string"/>
+      <field name="SoundStopKey3P" type="string"/>
+      <field name="LotteryRotation" type="string"/>
+    </class>
+  </array>
 </class>

@@ -1,9 +1,13 @@
-<class name="CodActivityLightenUpInfoConfig">
-  <field name="seq_ID" type="int"/>
-  <field name="RoleID" type="uint"/>
-  <field name="AcionID" type="uint"/>
-  <field name="TitleDesc" type="string"/>
-  <field name="LinesDesc" type="string"/>
-  <field name="IconName" type="string"/>
-  <field name="Url" type="string"/>
+<class name="CodActivityLightenUpInfoTable">
+  <array type="class">
+    <class name="CodActivityLightenUpInfoConfig">
+      <field name="seq_ID" type="int"/>
+      <field name="RoleID" type="uint"/>
+      <field name="AcionID" type="uint"/>
+      <field name="TitleDesc" type="string"/>
+      <field name="LinesDesc" type="string"/>
+      <field name="IconName" type="string"/>
+      <field name="Url" type="string"/>
+    </class>
+  </array>
 </class>

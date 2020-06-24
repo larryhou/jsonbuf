@@ -1,5 +1,9 @@
-<class name="QuotedSayingsConfConfig">
-  <field name="ID" type="int"/>
-  <field name="Quotes" type="string"/>
-  <field name="Name" type="string"/>
+<class name="QuotedSayingsConfTable">
+  <array type="class">
+    <class name="QuotedSayingsConfConfig">
+      <field name="ID" type="int"/>
+      <field name="Quotes" type="string"/>
+      <field name="Name" type="string"/>
+    </class>
+  </array>
 </class>

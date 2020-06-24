@@ -1,6 +1,10 @@
-<class name="BRSignalPointConfigConfig">
-  <field name="RangeType" type="int"/>
-  <field name="StartValue" type="int"/>
-  <field name="EndValue" type="int"/>
-  <field name="BuffId" type="int"/>
+<class name="BRSignalPointConfigTable">
+  <array type="class">
+    <class name="BRSignalPointConfigConfig">
+      <field name="RangeType" type="int"/>
+      <field name="StartValue" type="int"/>
+      <field name="EndValue" type="int"/>
+      <field name="BuffId" type="int"/>
+    </class>
+  </array>
 </class>

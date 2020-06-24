@@ -1,11 +1,15 @@
-<class name="LuckyDrawSkinConfig">
-  <field name="ID" type="int"/>
-  <field name="BGName" type="string"/>
-  <field name="BGShowSceneName" type="string"/>
-  <field name="BtnBGName" type="string"/>
-  <field name="FrontBGName" type="string"/>
-  <field name="ShowEffect" type="bool"/>
-  <field name="EffectAssetID" type="int"/>
-  <field name="VideoPath" type="string"/>
-  <field name="VideoBGName" type="string"/>
+<class name="LuckyDrawSkinTable">
+  <array type="class">
+    <class name="LuckyDrawSkinConfig">
+      <field name="ID" type="int"/>
+      <field name="BGName" type="string"/>
+      <field name="BGShowSceneName" type="string"/>
+      <field name="BtnBGName" type="string"/>
+      <field name="FrontBGName" type="string"/>
+      <field name="ShowEffect" type="bool"/>
+      <field name="EffectAssetID" type="int"/>
+      <field name="VideoPath" type="string"/>
+      <field name="VideoBGName" type="string"/>
+    </class>
+  </array>
 </class>

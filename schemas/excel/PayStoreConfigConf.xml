@@ -1,9 +1,13 @@
-<class name="PayStoreConfigConfig">
-  <field name="id" type="int"/>
-  <field name="show_currency" type="string"/>
-  <field name="pay_id" type="int"/>
-  <field name="spec_label" type="string"/>
-  <field name="icon" type="string"/>
-  <field name="limit_count" type="int"/>
-  <field name="limit_show" type="string"/>
+<class name="PayStoreConfigTable">
+  <array type="class">
+    <class name="PayStoreConfigConfig">
+      <field name="id" type="int"/>
+      <field name="show_currency" type="string"/>
+      <field name="pay_id" type="int"/>
+      <field name="spec_label" type="string"/>
+      <field name="icon" type="string"/>
+      <field name="limit_count" type="int"/>
+      <field name="limit_show" type="string"/>
+    </class>
+  </array>
 </class>

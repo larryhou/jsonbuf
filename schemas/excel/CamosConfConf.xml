@@ -1,11 +1,15 @@
-<class name="CamosConfConfig">
-  <field name="CA" type="int"/>
-  <field name="ID" type="uint"/>
-  <field name="LOCID_Name" type="string"/>
-  <field name="EveryFirearmCanUse" type="bool"/>
-  <field name="FirearmType" type="int"/>
-  <field name="FirearmID" type="ulong"/>
-  <field name="NeedUnlocked" type="bool"/>
-  <field name="UnlockKill" type="int"/>
-  <field name="GetXP" type="int"/>
+<class name="CamosConfTable">
+  <array type="class">
+    <class name="CamosConfConfig">
+      <field name="CA" type="int"/>
+      <field name="ID" type="uint"/>
+      <field name="LOCID_Name" type="string"/>
+      <field name="EveryFirearmCanUse" type="bool"/>
+      <field name="FirearmType" type="int"/>
+      <field name="FirearmID" type="ulong"/>
+      <field name="NeedUnlocked" type="bool"/>
+      <field name="UnlockKill" type="int"/>
+      <field name="GetXP" type="int"/>
+    </class>
+  </array>
 </class>

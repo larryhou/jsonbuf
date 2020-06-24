@@ -1,8 +1,12 @@
-<class name="SpBuyPlusBpItemConfig">
-  <field name="SeasonId" type="int"/>
-  <field name="AreaID" type="int"/>
-  <field name="ItemEnum" type="int"/>
-  <field name="ItemId" type="int"/>
-  <field name="ItemNum" type="int"/>
-  <field name="ItemTier" type="int"/>
+<class name="SpBuyPlusBpItemTable">
+  <array type="class">
+    <class name="SpBuyPlusBpItemConfig">
+      <field name="SeasonId" type="int"/>
+      <field name="AreaID" type="int"/>
+      <field name="ItemEnum" type="int"/>
+      <field name="ItemId" type="int"/>
+      <field name="ItemNum" type="int"/>
+      <field name="ItemTier" type="int"/>
+    </class>
+  </array>
 </class>

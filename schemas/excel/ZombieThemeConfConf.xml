@@ -1,11 +1,15 @@
-<class name="ZombieThemeConfConfig">
-  <field name="ThemeID" type="int"/>
-  <field name="Name" type="string"/>
-  <field name="MarkerID" type="int"/>
-  <field name="SmallResource" type="string"/>
-  <field name="LOCID_Description" type="string"/>
-  <field name="Style" type="string"/>
-  <field name="Open" type="bool"/>
-  <field name="Action" type="string"/>
-  <field name="Param1" type="string"/>
+<class name="ZombieThemeConfTable">
+  <array type="class">
+    <class name="ZombieThemeConfConfig">
+      <field name="ThemeID" type="int"/>
+      <field name="Name" type="string"/>
+      <field name="MarkerID" type="int"/>
+      <field name="SmallResource" type="string"/>
+      <field name="LOCID_Description" type="string"/>
+      <field name="Style" type="string"/>
+      <field name="Open" type="bool"/>
+      <field name="Action" type="string"/>
+      <field name="Param1" type="string"/>
+    </class>
+  </array>
 </class>

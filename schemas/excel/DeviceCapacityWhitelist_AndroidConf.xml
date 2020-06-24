@@ -1,10 +1,14 @@
-<class name="DeviceCapacityWhitelist_AndroidConfig">
-  <field name="ModelName" type="string"/>
-  <field name="Vendor" type="string"/>
-  <field name="DefaultSettingLevel" type="int"/>
-  <field name="CapacitySettingLevel" type="int"/>
-  <field name="DefaultFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateLevel" type="int"/>
-  <field name="MaxFrameRateUnderLowQuality" type="int"/>
-  <field name="MSAA" type="int"/>
+<class name="DeviceCapacityWhitelist_AndroidTable">
+  <array type="class">
+    <class name="DeviceCapacityWhitelist_AndroidConfig">
+      <field name="ModelName" type="string"/>
+      <field name="Vendor" type="string"/>
+      <field name="DefaultSettingLevel" type="int"/>
+      <field name="CapacitySettingLevel" type="int"/>
+      <field name="DefaultFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateLevel" type="int"/>
+      <field name="MaxFrameRateUnderLowQuality" type="int"/>
+      <field name="MSAA" type="int"/>
+    </class>
+  </array>
 </class>
