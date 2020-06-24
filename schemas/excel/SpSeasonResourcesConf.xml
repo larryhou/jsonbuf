@@ -1,0 +1,17 @@
+<class name="SpSeasonResourcesConfig">
+  <field name="id" type="int"/>
+  <field name="season_id" type="int"/>
+  <field name="res_ready" type="int"/>
+  <field name="home_entrance" type="string"/>
+  <field name="ui_big_bg" type="string"/>
+  <field name="video_name" type="string"/>
+  <field name="full_award_bg" type="string"/>
+  <field name="season_icon" type="string"/>
+  <field name="season_introduce_1" type="string"/>
+  <field name="season_introduce_2" type="string"/>
+  <field name="season_introduce_3" type="string"/>
+  <field name="season_introduce_4" type="string"/>
+  <field name="season_introduce_5" type="string"/>
+  <field name="buy_bg" type="string"/>
+  <field name="BattlePassComicSeasonKV" type="string"/>
+</class>

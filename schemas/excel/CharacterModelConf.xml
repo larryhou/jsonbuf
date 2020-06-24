@@ -1,0 +1,20 @@
+<class name="CharacterModelConfig">
+  <field name="ItemID" type="ulong"/>
+  <field name="Desc" type="string"/>
+  <field name="Guarder1P" type="int"/>
+  <field name="Guarder3P" type="int"/>
+  <field name="GuarderLobby" type="int"/>
+  <field name="GuarderHeadModel" type="int"/>
+  <field name="GuarderBagModel" type="int"/>
+  <field name="BRLobby" type="int"/>
+  <field name="Traitor1P" type="int"/>
+  <field name="Traitor3P" type="int"/>
+  <field name="BRModel" type="int"/>
+  <field name="BRHeadModel" type="int"/>
+  <field name="BRBagModel" type="int"/>
+  <field name="Female" type="bool"/>
+  <field name="DefaultModelID" type="int"/>
+  <field name="BagOffset" type="array">
+    <array type="float"/>
+  </field>
+</class>

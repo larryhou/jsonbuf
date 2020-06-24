@@ -1,0 +1,22 @@
+<class name="GenericDownloadConfig">
+  <field name="QuestID" type="int"/>
+  <field name="ModuleKey" type="string"/>
+  <field name="TriggerStyle" type="int"/>
+  <field name="TriggerParam" type="int"/>
+  <field name="TriggerPriority" type="int"/>
+  <field name="Priority" type="int"/>
+  <field name="BeginType" type="int"/>
+  <field name="StartTime" type="string"/>
+  <field name="MapDownload" type="int"/>
+  <field name="mapIds" type="string"/>
+  <field name="QuestName" type="string"/>
+  <field name="Size" type="float"/>
+  <field name="IconName" type="string"/>
+  <field name="LOC_Tip" type="string"/>
+  <field name="LitePackage" type="int"/>
+  <field name="DynamicPackage" type="int"/>
+  <field name="King" type="int"/>
+  <field name="Korea" type="int"/>
+  <field name="Garena" type="int"/>
+  <field name="VNG" type="int"/>
+</class>

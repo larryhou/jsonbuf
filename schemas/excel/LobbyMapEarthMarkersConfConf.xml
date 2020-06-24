@@ -1,0 +1,12 @@
+<class name="LobbyMapEarthMarkersConfConfig">
+  <field name="MarkerID" type="int"/>
+  <field name="ModeID" type="int"/>
+  <field name="X" type="float"/>
+  <field name="Y" type="float"/>
+  <field name="Z" type="float"/>
+  <field name="LX" type="int"/>
+  <field name="LY" type="int"/>
+  <field name="CX" type="int"/>
+  <field name="CY" type="int"/>
+  <field name="Scale" type="float"/>
+</class>

@@ -1,0 +1,5 @@
+<class name="ViceWeaponDetailTypeConfConfig">
+  <field name="ID" type="uint"/>
+  <field name="Type" type="int"/>
+  <field name="Name" type="string"/>
+</class>

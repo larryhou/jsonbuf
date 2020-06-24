@@ -1,0 +1,21 @@
+<class name="SentryGunNPCInfoConfig">
+  <field name="ID" type="int"/>
+  <field name="ActorType" type="string"/>
+  <field name="HP" type="int"/>
+  <field name="LifeTime" type="int"/>
+  <field name="DefenseV" type="int"/>
+  <field name="DefenseH" type="int"/>
+  <field name="DestorySocre" type="int"/>
+  <field name="TripodMeshID" type="int"/>
+  <field name="HalfWidth" type="float"/>
+  <field name="HalfHeight" type="float"/>
+  <field name="HalfLength" type="float"/>
+  <field name="WeaponID" type="int"/>
+  <field name="SlopeLimit" type="int"/>
+  <field name="ResistanceID" type="int"/>
+  <field name="FireInterval" type="float"/>
+  <field name="LockTime" type="float"/>
+  <field name="CoexistenceNum" type="int"/>
+  <field name="MissileNum" type="int"/>
+  <field name="MaxMissileNum" type="int"/>
+</class>

@@ -1,0 +1,20 @@
+<class name="WeaponPartAssetGroupConfig">
+  <field name="PartItemID" type="int"/>
+  <field name="WeaponItemID" type="int"/>
+  <field name="WeaponName" type="string"/>
+  <field name="MeshAssetID1P" type="int"/>
+  <field name="MeshAssetID3P" type="int"/>
+  <field name="FemaleMeshAssetID3P" type="int"/>
+  <field name="MeshAssetIDUI" type="int"/>
+  <field name="AttachSocket" type="string"/>
+  <field name="ExtraAssetID1P" type="int"/>
+  <field name="ExtraAssetID3P" type="int"/>
+  <field name="ExtraAssetIDUI" type="int"/>
+  <field name="ExtraAttachSocket" type="string"/>
+  <field name="MuzzleFlashAssetID1P" type="int"/>
+  <field name="MuzzleFlashAssetID3P" type="int"/>
+  <field name="MuzzleFlashToHipAssetID1P" type="int"/>
+  <field name="MuzzleFlashToHipAssetID3P" type="int"/>
+  <field name="SraLineEffectAssetID" type="int"/>
+  <field name="SraPointEffectAssetID" type="int"/>
+</class>

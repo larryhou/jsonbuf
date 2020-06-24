@@ -1,0 +1,61 @@
+<class name="RoleConfConfig">
+  <field name="ID" type="uint"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="IsAIInBR" type="bool"/>
+  <field name="AIID" type="int"/>
+  <field name="PVEAIID" type="int"/>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="MinSPI" type="int"/>
+  <field name="MaxSPI" type="int"/>
+  <field name="MaxSkill" type="int"/>
+  <field name="DefaultSkill_1" type="int"/>
+  <field name="DefaultSkill_2" type="int"/>
+  <field name="LotterySkill" type="int"/>
+  <field name="DefaultPerk_1" type="int"/>
+  <field name="DefaultPerk_2" type="int"/>
+  <field name="DefaultPerk_3" type="int"/>
+  <field name="AudioSwitch" type="string"/>
+  <field name="WinnerCircle" type="string"/>
+  <field name="BasicAudioBank" type="string"/>
+  <field name="BasicAudioBank2" type="string"/>
+  <field name="DefaultAudioBank" type="string"/>
+  <field name="DefaultAudioBank2" type="string"/>
+  <field name="SpecialAudioBank" type="string"/>
+  <field name="SpecialAudioBank2" type="string"/>
+  <field name="SpecialAudioBank3" type="string"/>
+  <field name="SpecialAudioEventEx" type="string"/>
+  <field name="DefaultAudioEventEx" type="string"/>
+  <field name="MPBankNameEx" type="string"/>
+  <field name="BRBankNameEX" type="string"/>
+  <field name="RTPCName" type="string"/>
+  <field name="RTPCDefaultValue" type="float"/>
+  <field name="RTPCMinValue" type="float"/>
+  <field name="RTPCMaxValue" type="float"/>
+  <field name="ZoomInAudio" type="string"/>
+  <field name="ZoomOutAudio" type="string"/>
+  <field name="ShowRare" type="bool"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LockedShowOrder" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="SortWeight" type="int"/>
+  <field name="RoleSkinBox" type="array">
+    <array type="int"/>
+  </field>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="SellProtection" type="int"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="MaxValueDay" type="int"/>
+  <field name="EntranceAni" type="string"/>
+  <field name="ShowFixedRotation" type="int"/>
+  <field name="OpenViewSkill" type="array">
+    <array type="int"/>
+  </field>
+  <field name="TaskSeqID" type="int"/>
+  <field name="TaskID" type="int"/>
+</class>

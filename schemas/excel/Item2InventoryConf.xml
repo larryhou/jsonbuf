@@ -1,0 +1,11 @@
+<class name="Item2InventoryConfig">
+  <field name="ItemID" type="int"/>
+  <field name="WeaponName" type="string"/>
+  <field name="ConfigFilePath" type="string"/>
+  <field name="ConfigFilePath_BR" type="string"/>
+  <field name="ConfigFilePath_PVE" type="string"/>
+  <field name="AssetName" type="string"/>
+  <field name="WeaponAssetGroupID" type="int"/>
+  <field name="AnimationTemplateItemID" type="int"/>
+  <field name="IsBaseType" type="bool"/>
+</class>

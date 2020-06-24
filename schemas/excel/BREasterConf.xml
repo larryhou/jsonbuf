@@ -1,0 +1,20 @@
+<class name="BREasterConfig">
+  <field name="ItemID" type="int"/>
+  <field name="EasterType" type="int"/>
+  <field name="SubItemType" type="int"/>
+  <field name="Color" type="int"/>
+  <field name="CanStack" type="bool"/>
+  <field name="StackNum" type="int"/>
+  <field name="UpLimit" type="int"/>
+  <field name="AutoPickUpCount" type="int"/>
+  <field name="IsNotInBag" type="int"/>
+  <field name="Quality" type="int"/>
+  <field name="SortParam" type="int"/>
+  <field name="Value" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Description" type="string"/>
+  <field name="LOCID_Brief" type="string"/>
+  <field name="SpriteName" type="string"/>
+  <field name="GrabSound" type="string"/>
+  <field name="DropSound" type="string"/>
+</class>

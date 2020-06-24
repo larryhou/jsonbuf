@@ -1,0 +1,6 @@
+<class name="LoadingGameTipsConfig">
+  <field name="ModeCategoryStr" type="string"/>
+  <field name="LevelStartShow" type="int"/>
+  <field name="LevelEndShow" type="int"/>
+  <field name="LOCID_TipsContent" type="string"/>
+</class>

@@ -1,0 +1,17 @@
+<class name="RoundWeaponTypeConfConfig">
+  <field name="ModeID" type="string"/>
+  <field name="RoundID" type="int"/>
+  <field name="SlotIdx" type="int"/>
+  <field name="FireArmType_1" type="int"/>
+  <field name="Weight_1" type="int"/>
+  <field name="Desc_1" type="string"/>
+  <field name="FireArmType_2" type="int"/>
+  <field name="Weight_2" type="int"/>
+  <field name="Desc_2" type="string"/>
+  <field name="FireArmType_3" type="int"/>
+  <field name="Weight_3" type="int"/>
+  <field name="Desc_3" type="string"/>
+  <field name="FireArmType_4" type="int"/>
+  <field name="Weight_4" type="int"/>
+  <field name="Desc_4" type="string"/>
+</class>

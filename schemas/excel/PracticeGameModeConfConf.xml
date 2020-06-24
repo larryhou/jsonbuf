@@ -1,0 +1,27 @@
+<class name="PracticeGameModeConfConfig">
+  <field name="GameMode" type="inthex"/>
+  <field name="GameModeType" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="LOCID_BriefDesc" type="string"/>
+  <field name="IconResource" type="string"/>
+  <field name="LOCID_Cond1Desc1" type="string"/>
+  <field name="LOCID_Cond1Desc2" type="string"/>
+  <field name="Cond1_Value" type="int"/>
+  <field name="LOCID_Cond2Desc1" type="string"/>
+  <field name="LOCID_Cond2Desc2" type="string"/>
+  <field name="Cond2_Value" type="int"/>
+  <field name="MinPlayer" type="int"/>
+  <field name="MaxPlayer" type="int"/>
+  <field name="Open" type="bool"/>
+  <field name="NotifyRoundEndType" type="array">
+    <array type="string"/>
+  </field>
+  <field name="LadderOpen" type="bool"/>
+  <field name="Mode_Tag" type="int"/>
+  <field name="spvp_open" type="bool"/>
+  <field name="ladder_open" type="bool"/>
+  <field name="room_open" type="bool"/>
+  <field name="spvp_weekend_open" type="int"/>
+  <field name="room_weekend_open" type="int"/>
+</class>

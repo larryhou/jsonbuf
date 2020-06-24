@@ -1,0 +1,14 @@
+<class name="ZombieChapterConfConfig">
+  <field name="DifficultyLevel" type="string"/>
+  <field name="ChapterId" type="int"/>
+  <field name="ThemeID" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="BGAssetID" type="int"/>
+  <field name="PreChapterId" type="int"/>
+  <field name="UnlockConditionType1" type="string"/>
+  <field name="UnlockConditionOperator1" type="string"/>
+  <field name="UnlockConditionValue1" type="int"/>
+  <field name="UnlockConditionType2" type="int"/>
+  <field name="UnlockConditionOperator2" type="int"/>
+  <field name="UnlockConditionValue2" type="int"/>
+</class>

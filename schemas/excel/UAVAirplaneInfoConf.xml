@@ -1,0 +1,14 @@
+<class name="UAVAirplaneInfoConfig">
+  <field name="ID" type="int"/>
+  <field name="HP" type="float"/>
+  <field name="DefauleFlySpeed" type="float"/>
+  <field name="DisplayFlySpeed" type="int"/>
+  <field name="CruisePercent" type="int"/>
+  <field name="WarnningDistance" type="int"/>
+  <field name="DestorySocre" type="int"/>
+  <field name="MeshID" type="int"/>
+  <field name="Width" type="int"/>
+  <field name="Height" type="int"/>
+  <field name="Length" type="int"/>
+  <field name="ResistanceID" type="int"/>
+</class>

@@ -1,0 +1,6 @@
+<class name="DanceFloorMusicPlayListConfig">
+  <field name="ID" type="uint"/>
+  <field name="MusicName" type="string"/>
+  <field name="Composer" type="string"/>
+  <field name="AudioName" type="string"/>
+</class>

@@ -1,0 +1,7 @@
+<class name="ExchangeCoinConfConfig">
+  <field name="CoinID" type="int"/>
+  <field name="ColorID" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="InventoryShow" type="int"/>
+</class>

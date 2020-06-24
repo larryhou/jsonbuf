@@ -1,0 +1,4 @@
+<class name="LanguageSettingConfig">
+  <field name="LanguageCode" type="int"/>
+  <field name="LocID" type="string"/>
+</class>

@@ -1,0 +1,5 @@
+<class name="BulletBarrierConfConfig">
+  <field name="BulletType" type="int"/>
+  <field name="BarrierType" type="int"/>
+  <field name="CanPene" type="bool"/>
+</class>

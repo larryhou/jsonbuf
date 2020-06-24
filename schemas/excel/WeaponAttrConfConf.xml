@@ -1,0 +1,14 @@
+<class name="WeaponAttrConfConfig">
+  <field name="ID" type="int"/>
+  <field name="Type" type="string"/>
+  <field name="Param_1" type="float"/>
+  <field name="Param_2" type="int"/>
+  <field name="ParamInt_1" type="int"/>
+  <field name="ParamInt_2" type="int"/>
+  <field name="ActiveBeginTime" type="string"/>
+  <field name="ActiveEndTime" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOC_ID" type="string"/>
+  <field name="SpriteName" type="string"/>
+  <field name="ColorID" type="int"/>
+</class>

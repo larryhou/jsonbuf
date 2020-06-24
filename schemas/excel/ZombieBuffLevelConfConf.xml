@@ -1,0 +1,12 @@
+<class name="ZombieBuffLevelConfConfig">
+  <field name="UID" type="int"/>
+  <field name="BuffID" type="int"/>
+  <field name="BuffLevel" type="int"/>
+  <field name="BuyCost" type="int"/>
+  <field name="SellGet" type="int"/>
+  <field name="Param" type="array">
+    <array type="string"/>
+  </field>
+  <field name="BuffRef" type="string"/>
+  <field name="RemoveRefID" type="string"/>
+</class>

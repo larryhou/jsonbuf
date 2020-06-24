@@ -1,0 +1,37 @@
+<class name="BRProfessionChipConfig">
+  <field name="ItemID" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="SpriteNameOut" type="string"/>
+  <field name="SpriteNameBig" type="string"/>
+  <field name="SpriteNameSmall" type="string"/>
+  <field name="Weight" type="int"/>
+  <field name="SubItemType" type="int"/>
+  <field name="PerkId" type="int"/>
+  <field name="UltId" type="int"/>
+  <field name="DriverId" type="int"/>
+  <field name="DriverNum" type="int"/>
+  <field name="NextChipId" type="int"/>
+  <field name="ChipSkinBox" type="array">
+    <array type="int"/>
+  </field>
+  <field name="AvatarType" type="int"/>
+  <field name="AvatarAssetID" type="int"/>
+  <field name="ColorID" type="int"/>
+  <field name="SelectShow" type="bool"/>
+  <field name="Shelf" type="int"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LockedShowOrder" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="ForbiddenMode" type="string"/>
+  <field name="TeachVideoSpriteName" type="string"/>
+  <field name="CameraCenterPosition" type="array">
+    <array type="float"/>
+  </field>
+</class>

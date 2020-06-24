@@ -1,0 +1,18 @@
+<class name="GameRanksConfig">
+  <field name="rank_id" type="int"/>
+  <field name="account_type" type="int"/>
+  <field name="service_module" type="int"/>
+  <field name="sub_key" type="int"/>
+  <field name="rank_type" type="int"/>
+  <field name="need_game_times" type="int"/>
+  <field name="need_game_times_of_friend" type="int"/>
+  <field name="reset_type" type="int"/>
+  <field name="update_type" type="int"/>
+  <field name="order_type" type="int"/>
+  <field name="multi_para" type="int"/>
+  <field name="total_rank_size" type="int"/>
+  <field name="top_rank_size" type="int"/>
+  <field name="has_prize" type="int"/>
+  <field name="rank_Tab_Type" type="int"/>
+  <field name="Rank_ChildTab_Type" type="int"/>
+</class>

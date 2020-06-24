@@ -1,0 +1,15 @@
+<class name="ZombieMainStorylineConfig">
+  <field name="LevelID" type="int"/>
+  <field name="DifficultyLevel" type="int"/>
+  <field name="ChapterID" type="int"/>
+  <field name="MapId" type="inthex"/>
+  <field name="UnlockId" type="int"/>
+  <field name="UnlockId2" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="ShowText" type="string"/>
+  <field name="ShowImg" type="string"/>
+  <field name="RecommendPower" type="int"/>
+  <field name="LuckyBoxID" type="int"/>
+  <field name="RewardShow_1" type="int"/>
+  <field name="RewardShow_2" type="int"/>
+</class>

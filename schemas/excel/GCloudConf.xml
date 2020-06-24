@@ -1,0 +1,12 @@
+<class name="GCloudConfig">
+  <field name="Channel" type="int"/>
+  <field name="GameID" type="int"/>
+  <field name="GameSecret" type="string"/>
+  <field name="MapleServerURL" type="string"/>
+  <field name="DolphinServerURL" type="string"/>
+  <field name="PufferServerURL" type="string"/>
+  <field name="LitePackPufferDailyServerURL" type="string"/>
+  <field name="GVoiceAppID" type="string"/>
+  <field name="GVoiceAppKey" type="string"/>
+  <field name="GVoiceURL" type="string"/>
+</class>

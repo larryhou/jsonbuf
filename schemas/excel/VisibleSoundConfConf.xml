@@ -1,0 +1,8 @@
+<class name="VisibleSoundConfConfig">
+  <field name="sound_id" type="int"/>
+  <field name="sound_name" type="string"/>
+  <field name="sound_dis" type="int"/>
+  <field name="far_sprite" type="string"/>
+  <field name="middle_sprite" type="string"/>
+  <field name="near_sprite" type="string"/>
+</class>

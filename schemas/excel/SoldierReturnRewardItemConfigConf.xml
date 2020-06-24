@@ -1,0 +1,9 @@
+<class name="SoldierReturnRewardItemConfigConfig">
+  <field name="id" type="string"/>
+  <field name="rotate_x" type="float"/>
+  <field name="rotate_y" type="float"/>
+  <field name="rotate_z" type="float"/>
+  <field name="scale_x" type="float"/>
+  <field name="scale_y" type="float"/>
+  <field name="scale_z" type="float"/>
+</class>

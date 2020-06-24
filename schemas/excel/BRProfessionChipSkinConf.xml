@@ -1,0 +1,23 @@
+<class name="BRProfessionChipSkinConfig">
+  <field name="ID" type="uint"/>
+  <field name="ChipID" type="uint"/>
+  <field name="Note" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Describe" type="string"/>
+  <field name="ColorID" type="uint"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="SkinType" type="int"/>
+  <field name="UIModelID" type="uint"/>
+  <field name="ModelID" type="uint"/>
+  <field name="CamoID" type="uint"/>
+  <field name="SkinIDAll" type="array">
+    <array type="int"/>
+  </field>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="IsNotCleanCamo" type="bool"/>
+  <field name="SkinName" type="string"/>
+</class>

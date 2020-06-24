@@ -1,0 +1,23 @@
+<class name="SaleTicketConfConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="ID" type="uint"/>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="SubjectionSystem" type="int"/>
+  <field name="SubjectionSeason" type="int"/>
+  <field name="SaleMuch" type="int"/>
+  <field name="StartTime" type="string"/>
+  <field name="EndTime" type="string"/>
+  <field name="ShowTicket" type="bool"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellProtection" type="int"/>
+  <field name="SellPrice" type="int"/>
+  <field name="MaxValueDay" type="int"/>
+</class>

@@ -1,0 +1,7 @@
+<class name="RoundAttachmentConfConfig">
+  <field name="FireArmType" type="int"/>
+  <field name="AttachmentID" type="int"/>
+  <field name="Weight" type="int"/>
+  <field name="Desc" type="string"/>
+  <field name="AttachmentType" type="int"/>
+</class>

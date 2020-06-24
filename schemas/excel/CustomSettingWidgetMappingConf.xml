@@ -1,0 +1,7 @@
+<class name="CustomSettingWidgetMappingConfig">
+  <field name="Type" type="string"/>
+  <field name="Description" type="string"/>
+  <field name="IsGameHud" type="bool"/>
+  <field name="MappingType" type="string"/>
+  <field name="LocID" type="string"/>
+</class>

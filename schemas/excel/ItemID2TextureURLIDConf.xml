@@ -1,0 +1,4 @@
+<class name="ItemID2TextureURLIDConfig">
+  <field name="ID" type="int"/>
+  <field name="CDN_Path" type="string"/>
+</class>

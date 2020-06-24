@@ -1,0 +1,9 @@
+<class name="WeaponCamosConfig">
+  <field name="CamoItemID" type="uint"/>
+  <field name="TextureAssetID" type="int"/>
+  <field name="Remark" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Describe" type="string"/>
+  <field name="mission_id" type="long"/>
+  <field name="ConceptID" type="uint"/>
+</class>

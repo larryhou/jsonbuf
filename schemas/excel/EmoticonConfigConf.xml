@@ -1,0 +1,5 @@
+<class name="EmoticonConfigConfig">
+  <field name="emot_id" type="int"/>
+  <field name="emot_sprite" type="string"/>
+  <field name="emot_num" type="int"/>
+</class>

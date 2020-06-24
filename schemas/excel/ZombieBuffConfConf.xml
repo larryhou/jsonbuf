@@ -1,0 +1,8 @@
+<class name="ZombieBuffConfConfig">
+  <field name="BuffID" type="int"/>
+  <field name="NamesShow" type="string"/>
+  <field name="MaxLevel" type="int"/>
+  <field name="SpriteName" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+</class>

@@ -1,0 +1,28 @@
+<class name="RoleSkinConfig">
+  <field name="ID" type="uint"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Describe" type="string"/>
+  <field name="ColorID" type="int"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="ShowHatAssetID" type="ulong"/>
+  <field name="ShowBagAssetID" type="ulong"/>
+  <field name="ShowClothAssetID" type="ulong"/>
+  <field name="HatAssetID" type="ulong"/>
+  <field name="BRHatAssetID" type="ulong"/>
+  <field name="BagAssetID" type="ulong"/>
+  <field name="BRBagAssetID" type="ulong"/>
+  <field name="ClothAssetID" type="ulong"/>
+  <field name="BRClothAssetID" type="ulong"/>
+  <field name="ClothType" type="int"/>
+  <field name="SuitAssetID" type="ulong"/>
+  <field name="BRSuitAssetID" type="ulong"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="MaterialIDs" type="array">
+    <array type="int"/>
+  </field>
+  <field name="CamoID" type="int"/>
+</class>

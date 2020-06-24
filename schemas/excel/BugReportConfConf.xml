@@ -1,0 +1,5 @@
+<class name="BugReportConfConfig">
+  <field name="id" type="int"/>
+  <field name="ModeCategory" type="int"/>
+  <field name="LOCID_Desc" type="string"/>
+</class>

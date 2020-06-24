@@ -1,0 +1,30 @@
+<class name="BREquipConfig">
+  <field name="ItemID" type="int"/>
+  <field name="SubItemType" type="int"/>
+  <field name="Color" type="int"/>
+  <field name="CanStack" type="bool"/>
+  <field name="StackNum" type="int"/>
+  <field name="AddPosNum" type="int"/>
+  <field name="Quality" type="int"/>
+  <field name="SortParam" type="int"/>
+  <field name="Value" type="int"/>
+  <field name="EquipHP" type="int"/>
+  <field name="DefenseMulti" type="int"/>
+  <field name="DefenseDiv" type="int"/>
+  <field name="ExplodeDefenseMulti" type="int"/>
+  <field name="ExplodeDefenseDiv" type="int"/>
+  <field name="ExplodeInversionRate" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Description" type="string"/>
+  <field name="LOCID_Brief" type="string"/>
+  <field name="SpriteName" type="string"/>
+  <field name="MeshAssetID" type="int"/>
+  <field name="BagOffset" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FMeshAssetID" type="int"/>
+  <field name="FBagOffset" type="array">
+    <array type="float"/>
+  </field>
+  <field name="lvlType" type="int"/>
+</class>

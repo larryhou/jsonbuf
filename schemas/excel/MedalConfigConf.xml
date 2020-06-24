@@ -1,0 +1,17 @@
+<class name="MedalConfigConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="id" type="int"/>
+  <field name="Type" type="int"/>
+  <field name="condition" type="string"/>
+  <field name="Weights" type="int"/>
+  <field name="isShow" type="int"/>
+  <field name="cond_arg" type="int"/>
+  <field name="activecond" type="string"/>
+  <field name="activecond_arg" type="string"/>
+  <field name="award_xp" type="int"/>
+  <field name="icon" type="string"/>
+  <field name="sound" type="string"/>
+  <field name="difficulty" type="int"/>
+  <field name="sortorder" type="int"/>
+</class>

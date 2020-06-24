@@ -1,0 +1,21 @@
+<class name="ItemResourceConfig">
+  <field name="ID" type="int"/>
+  <field name="SpriteName" type="string"/>
+  <field name="SpriteScale" type="float"/>
+  <field name="SmallSpriteName" type="string"/>
+  <field name="SquareSpriteName" type="string"/>
+  <field name="MiniSpriteName" type="string"/>
+  <field name="Name" type="string"/>
+  <field name="AvatarModelID" type="ulong"/>
+  <field name="ModelAssetID" type="int"/>
+  <field name="InventoryModelID" type="int"/>
+  <field name="MallAdvertising" type="string"/>
+  <field name="FxAssetID" type="int"/>
+  <field name="ItemDesc" type="string"/>
+  <field name="IsShowType" type="int"/>
+  <field name="VideoPath" type="string"/>
+  <field name="SmallVideoPath" type="string"/>
+  <field name="VideoIcon" type="string"/>
+  <field name="VideoDesc" type="string"/>
+  <field name="BPSprite" type="string"/>
+</class>

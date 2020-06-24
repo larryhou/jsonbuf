@@ -1,0 +1,8 @@
+<class name="DialogConfig">
+  <field name="Key" type="string"/>
+  <field name="Style" type="string"/>
+  <field name="Icon" type="string"/>
+  <field name="Content" type="string"/>
+  <field name="Voice" type="string"/>
+  <field name="Duration" type="int"/>
+</class>

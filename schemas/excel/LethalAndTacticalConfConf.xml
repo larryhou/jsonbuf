@@ -1,0 +1,32 @@
+<class name="LethalAndTacticalConfConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="ID" type="uint"/>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="MinSPI" type="int"/>
+  <field name="MaxSPI" type="int"/>
+  <field name="Range" type="int"/>
+  <field name="Damage" type="float"/>
+  <field name="Effect_Time" type="int"/>
+  <field name="ShowRare" type="bool"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LockedShowOrder" type="int"/>
+  <field name="DefWeaponSkinID" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="SortWeight" type="int"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="SellProtection" type="int"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="ModeCategory" type="int"/>
+  <field name="ModelRotation" type="array">
+    <array type="float"/>
+  </field>
+  <field name="InWonderBox" type="int"/>
+  <field name="TaskSeqID" type="int"/>
+  <field name="TaskID" type="int"/>
+</class>

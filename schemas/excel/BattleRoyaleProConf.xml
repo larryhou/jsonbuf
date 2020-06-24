@@ -1,0 +1,12 @@
+<class name="BattleRoyaleProConfig">
+  <field name="RoleID" type="uint"/>
+  <field name="LOCID_ProName" type="string"/>
+  <field name="LOCID_ProDesc" type="string"/>
+  <field name="UltID" type="uint"/>
+  <field name="TacticalID" type="int"/>
+  <field name="TacticalMaxNum" type="int"/>
+  <field name="PerkID_1" type="uint"/>
+  <field name="PerkID_2" type="uint"/>
+  <field name="PerkID_3" type="uint"/>
+  <field name="ModelID" type="int"/>
+</class>

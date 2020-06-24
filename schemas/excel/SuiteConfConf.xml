@@ -1,0 +1,18 @@
+<class name="SuiteConfConfig">
+  <field name="ID" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="PartsID_1" type="uint"/>
+  <field name="PartsID_2" type="uint"/>
+  <field name="PartsID_3" type="uint"/>
+  <field name="PartsID_4" type="uint"/>
+  <field name="CollectReward_1" type="uint"/>
+  <field name="CollectReward_2" type="uint"/>
+  <field name="EquipBuff_1" type="uint"/>
+  <field name="LOCID_Description_EquipBuff_1" type="string"/>
+  <field name="EquipBuff_2" type="uint"/>
+  <field name="LOCID_Description_EquipBuff_2" type="string"/>
+  <field name="EquipBuff_3" type="uint"/>
+  <field name="LOCID_Description_EquipBuff_3" type="string"/>
+  <field name="MailTitleLocId" type="string"/>
+  <field name="MailCtxLocId" type="string"/>
+</class>

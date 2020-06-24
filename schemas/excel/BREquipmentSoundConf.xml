@@ -1,0 +1,5 @@
+<class name="BREquipmentSoundConfig">
+  <field name="Type" type="string"/>
+  <field name="SoundName" type="string"/>
+  <field name="SoundName_3P" type="string"/>
+</class>

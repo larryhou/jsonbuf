@@ -1,0 +1,20 @@
+<class name="ZombieRandomMissionConfConfig">
+  <field name="MissionId" type="int"/>
+  <field name="MissionType" type="int"/>
+  <field name="IsTeamMission" type="int"/>
+  <field name="MissionDesc" type="string"/>
+  <field name="MissionSprite" type="string"/>
+  <field name="MissionProb" type="int"/>
+  <field name="UsedGameMode" type="string"/>
+  <field name="ReachTargetType" type="int"/>
+  <field name="ReachTargetValue" type="int"/>
+  <field name="LimitType" type="int"/>
+  <field name="LimitParam" type="int"/>
+  <field name="UseWeaponLimit" type="int"/>
+  <field name="IsThrowWeapon" type="int"/>
+  <field name="IsTrapDamage" type="int"/>
+  <field name="IsHeadShot" type="int"/>
+  <field name="BuyItemType" type="int"/>
+  <field name="AwardType" type="int"/>
+  <field name="AwardValue" type="int"/>
+</class>

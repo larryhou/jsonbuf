@@ -1,0 +1,5 @@
+<class name="ImmediateUseConfig">
+  <field name="GoodsID" type="int"/>
+  <field name="Immediateuse" type="int"/>
+  <field name="Style" type="int"/>
+</class>

@@ -1,0 +1,4 @@
+<class name="CamosDisplayInfoConfig">
+  <field name="CamosID" type="int"/>
+  <field name="TextureAssetID" type="int"/>
+</class>

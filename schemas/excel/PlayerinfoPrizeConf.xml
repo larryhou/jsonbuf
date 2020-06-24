@@ -1,0 +1,13 @@
+<class name="PlayerinfoPrizeConfig">
+  <field name="id" type="int"/>
+  <field name="account_type" type="int"/>
+  <field name="award_1_item_id" type="int"/>
+  <field name="award_1_item_num" type="int"/>
+  <field name="award_1_item_durable" type="int"/>
+  <field name="award_2_item_id" type="int"/>
+  <field name="award_2_item_num" type="int"/>
+  <field name="award_2_item_durable" type="int"/>
+  <field name="award_3_item_id" type="int"/>
+  <field name="award_3_item_num" type="int"/>
+  <field name="award_3_item_durable" type="int"/>
+</class>

@@ -1,0 +1,4 @@
+<class name="InviteFriendURLLocalSuffixConfig">
+  <field name="id" type="int"/>
+  <field name="suffix" type="string"/>
+</class>

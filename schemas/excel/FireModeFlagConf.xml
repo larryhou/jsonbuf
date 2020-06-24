@@ -1,0 +1,5 @@
+<class name="FireModeFlagConfig">
+  <field name="servermoduledesc" type="string"/>
+  <field name="server_module" type="int"/>
+  <field name="fire_flag" type="int"/>
+</class>

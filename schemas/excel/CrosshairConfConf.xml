@@ -1,0 +1,22 @@
+<class name="CrosshairConfConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="ID" type="uint"/>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="ScopeID" type="array">
+    <array type="uint"/>
+  </field>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="LoadoutShowIcon" type="string"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellProtection" type="int"/>
+  <field name="SellPrice" type="int"/>
+  <field name="MaxValueDay" type="int"/>
+  <field name="mission_id" type="long"/>
+</class>

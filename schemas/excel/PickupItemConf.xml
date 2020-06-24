@@ -1,0 +1,23 @@
+<class name="PickupItemConfig">
+  <field name="ID" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="Desc" type="string"/>
+  <field name="IsPowerUp" type="bool"/>
+  <field name="Buff0" type="int"/>
+  <field name="Buff1" type="int"/>
+  <field name="Buff2" type="int"/>
+  <field name="Buff3" type="int"/>
+  <field name="ContinuousTime" type="float"/>
+  <field name="ScreenEffectAssetID" type="int"/>
+  <field name="ScreenEffectLastTime" type="float"/>
+  <field name="IsEffectAll" type="bool"/>
+  <field name="IsULT" type="bool"/>
+  <field name="Sound1P" type="string"/>
+  <field name="Sound3P" type="string"/>
+  <field name="IsShowTips" type="bool"/>
+  <field name="TipsSprite" type="string"/>
+  <field name="TipsLabel" type="string"/>
+  <field name="TipsColor" type="int"/>
+  <field name="BuffStateColor" type="string"/>
+  <field name="BuffStateNoColor" type="string"/>
+</class>

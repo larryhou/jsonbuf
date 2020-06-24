@@ -1,0 +1,13 @@
+<class name="UnlockConfConfig">
+  <field name="UnlockID" type="int"/>
+  <field name="CdtType" type="int"/>
+  <field name="CdtNote" type="string"/>
+  <field name="CdtTypeNote" type="string"/>
+  <field name="Cdt_Value1" type="string"/>
+  <field name="Cdt_Value2" type="string"/>
+  <field name="Cdt_Value3" type="string"/>
+  <field name="Cdt_Value4" type="string"/>
+  <field name="Tip_Type1" type="string"/>
+  <field name="Tip_Type2" type="string"/>
+  <field name="Tip_Type3" type="string"/>
+</class>

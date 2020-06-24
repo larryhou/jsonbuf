@@ -1,0 +1,14 @@
+<class name="BRPlayListConfConfig">
+  <field name="PlaylistID" type="int"/>
+  <field name="MapId" type="inthex"/>
+  <field name="PlaylistImageResource" type="string"/>
+  <field name="PlaylistImageResourceCDN" type="string"/>
+  <field name="SquadTeam" type="int"/>
+  <field name="DoubleTeam" type="int"/>
+  <field name="SingleTeam" type="int"/>
+  <field name="TPPCamera" type="int"/>
+  <field name="FPPCamera" type="int"/>
+  <field name="NumofPlayer" type="int"/>
+  <field name="NumofPlayerDesc" type="string"/>
+  <field name="AutoFill" type="int"/>
+</class>

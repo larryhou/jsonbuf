@@ -1,0 +1,15 @@
+<class name="GuildMemberActivePrizeConfConfig">
+  <field name="guild_level" type="int"/>
+  <field name="prize1_need_active" type="int"/>
+  <field name="prize1_award_1_item_id" type="int"/>
+  <field name="prize1_award_1_item_num" type="int"/>
+  <field name="prize1_award_1_item_durable" type="int"/>
+  <field name="prize2_need_active" type="int"/>
+  <field name="prize2_award_1_item_id" type="int"/>
+  <field name="prize2_award_1_item_num" type="int"/>
+  <field name="prize2_award_1_item_durable" type="int"/>
+  <field name="prize3_need_active" type="int"/>
+  <field name="prize3_award_1_item_id" type="int"/>
+  <field name="prize3_award_1_item_num" type="int"/>
+  <field name="prize3_award_1_item_durable" type="int"/>
+</class>

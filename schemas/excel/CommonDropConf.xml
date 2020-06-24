@@ -1,0 +1,24 @@
+<class name="CommonDropConfig">
+  <field name="ModeId" type="inthex"/>
+  <field name="DropId" type="int"/>
+  <field name="DropPond1" type="string"/>
+  <field name="DropPond2" type="string"/>
+  <field name="DropPond3" type="string"/>
+  <field name="DropPond4" type="string"/>
+  <field name="DropPond5" type="string"/>
+  <field name="DropPond6" type="string"/>
+  <field name="DropPond7" type="string"/>
+  <field name="DropPond8" type="string"/>
+  <field name="DropPond9" type="string"/>
+  <field name="DropPond10" type="string"/>
+  <field name="DropPond11" type="string"/>
+  <field name="DropPond12" type="string"/>
+  <field name="DropPond13" type="string"/>
+  <field name="DropPond14" type="string"/>
+  <field name="DropPond15" type="string"/>
+  <field name="DropPond16" type="string"/>
+  <field name="DropPond17" type="string"/>
+  <field name="DropPond18" type="string"/>
+  <field name="DropPond19" type="string"/>
+  <field name="DropPond20" type="string"/>
+</class>

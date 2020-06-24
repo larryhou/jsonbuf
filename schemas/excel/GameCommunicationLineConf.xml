@@ -1,0 +1,26 @@
+<class name="GameCommunicationLineConfig">
+  <field name="ID" type="int"/>
+  <field name="Type" type="int"/>
+  <field name="SystemMsgID" type="int"/>
+  <field name="BRSystemMsgID" type="int"/>
+  <field name="ChaMsgIDArray" type="array">
+    <array type="int"/>
+  </field>
+  <field name="BRChaMsgIDArray" type="array">
+    <array type="int"/>
+  </field>
+  <field name="TeamCountLimit" type="int"/>
+  <field name="AreaLimit" type="int"/>
+  <field name="CDLimit" type="int"/>
+  <field name="ItemID" type="int"/>
+  <field name="Priority" type="int"/>
+  <field name="Priority3P" type="int"/>
+  <field name="PriorityType" type="int"/>
+  <field name="EffectiveDuration" type="int"/>
+  <field name="ConditionalReservation" type="int"/>
+  <field name="ChaPlayType" type="int"/>
+  <field name="SceneMarkType" type="int"/>
+  <field name="ItemType" type="int"/>
+  <field name="MPTeamCountLimit" type="int"/>
+  <field name="BRTMForbidden" type="int"/>
+</class>

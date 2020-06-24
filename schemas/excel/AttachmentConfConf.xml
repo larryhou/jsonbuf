@@ -1,0 +1,61 @@
+<class name="AttachmentConfConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="ID" type="uint"/>
+  <field name="AttachmentType" type="int"/>
+  <field name="PreConditionID" type="uint"/>
+  <field name="ConflictType_1" type="uint"/>
+  <field name="ConflictType_2" type="uint"/>
+  <field name="ConflictType_3" type="uint"/>
+  <field name="LOCID_Advantage" type="string"/>
+  <field name="LOCID_Disadvantage" type="string"/>
+  <field name="CrossHairID" type="int"/>
+  <field name="WeaponCanUseBox" type="array">
+    <array type="uint"/>
+  </field>
+  <field name="WeaponCantUseBox" type="array">
+    <array type="uint"/>
+  </field>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="MinSPI" type="int"/>
+  <field name="MaxSPI" type="int"/>
+  <field name="SlotCost" type="int"/>
+  <field name="Mobility" type="int"/>
+  <field name="Damage" type="int"/>
+  <field name="Range" type="int"/>
+  <field name="FireRate" type="int"/>
+  <field name="Accuracy" type="int"/>
+  <field name="Control" type="int"/>
+  <field name="ReCompute" type="bool"/>
+  <field name="ForAR" type="bool"/>
+  <field name="ForSniper" type="bool"/>
+  <field name="ForLMG" type="bool"/>
+  <field name="ForSMG" type="bool"/>
+  <field name="ForShotgun" type="bool"/>
+  <field name="ForPistol" type="bool"/>
+  <field name="ForLaunch" type="bool"/>
+  <field name="ForMelee" type="bool"/>
+  <field name="UnloadPrice" type="int"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="SellProtection" type="int"/>
+  <field name="ShowRare" type="int"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="LockedShowOrder" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="GoGetUrl" type="string"/>
+  <field name="SortWeight" type="int"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="MaxLevel" type="int"/>
+  <field name="InherentExp" type="int"/>
+  <field name="LevelUpKey" type="int"/>
+  <field name="PveBasicAttrType1" type="int"/>
+  <field name="PveBasicAttrValue1" type="int"/>
+  <field name="PveBasicAttrType2" type="int"/>
+  <field name="PveBasicAttrValue2" type="int"/>
+  <field name="DisableForAI" type="uint"/>
+  <field name="CrosshairModleIcon" type="string"/>
+</class>

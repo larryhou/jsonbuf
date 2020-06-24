@@ -1,0 +1,9 @@
+<class name="ProtobufConfig">
+  <field name="SendCmd" type="int"/>
+  <field name="SendClass" type="string"/>
+  <field name="RecvCmd" type="int"/>
+  <field name="RecvClass" type="string"/>
+  <field name="NeedResend" type="bool"/>
+  <field name="CanSendWhenDisconnect" type="bool"/>
+  <field name="ShowModel" type="bool"/>
+</class>

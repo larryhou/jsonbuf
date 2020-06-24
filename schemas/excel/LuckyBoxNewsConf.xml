@@ -1,0 +1,8 @@
+<class name="LuckyBoxNewsConfig">
+  <field name="BoxNewsID" type="int"/>
+  <field name="LOCID_News" type="string"/>
+  <field name="NewsVarID" type="int"/>
+  <field name="LOCID_NewsVar1" type="string"/>
+  <field name="NewsStartTime" type="string"/>
+  <field name="NewsEndTime" type="string"/>
+</class>

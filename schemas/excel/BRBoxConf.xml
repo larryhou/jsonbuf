@@ -1,0 +1,24 @@
+<class name="BRBoxConfig">
+  <field name="ItemID" type="int"/>
+  <field name="Name" type="string"/>
+  <field name="SubItemType" type="int"/>
+  <field name="ZombieBox" type="bool"/>
+  <field name="Model" type="int"/>
+  <field name="ItemID1" type="int"/>
+  <field name="ItemNum1" type="int"/>
+  <field name="ItemID2" type="int"/>
+  <field name="ItemNum2" type="int"/>
+  <field name="ItemID3" type="int"/>
+  <field name="ItemNum3" type="int"/>
+  <field name="ItemID4" type="int"/>
+  <field name="ItemNum4" type="int"/>
+  <field name="ItemID5" type="int"/>
+  <field name="ItemNum5" type="int"/>
+  <field name="ItemID6" type="int"/>
+  <field name="ItemNum6" type="int"/>
+  <field name="ItemID7" type="int"/>
+  <field name="ItemNum7" type="int"/>
+  <field name="ItemID8" type="int"/>
+  <field name="ItemNum8" type="int"/>
+  <field name="OpenSoundName" type="string"/>
+</class>

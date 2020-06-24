@@ -1,0 +1,5 @@
+<class name="RabbitVideoWhiteListConfig">
+  <field name="ModelName" type="string"/>
+  <field name="VendorName" type="string"/>
+  <field name="IsIOS" type="bool"/>
+</class>

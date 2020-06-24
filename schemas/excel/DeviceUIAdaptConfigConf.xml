@@ -1,0 +1,10 @@
+<class name="DeviceUIAdaptConfigConfig">
+  <field name="Id" type="int"/>
+  <field name="DeviceModel" type="string"/>
+  <field name="Resolution" type="string"/>
+  <field name="LeftOffset" type="int"/>
+  <field name="RightOffset" type="int"/>
+  <field name="TopOffset" type="int"/>
+  <field name="BottomOffset" type="int"/>
+  <field name="EnableGyroscope" type="int"/>
+</class>

@@ -1,0 +1,14 @@
+<class name="WeaponCustomAnimationConfig">
+  <field name="ID" type="uint"/>
+  <field name="EWeaponName" type="string"/>
+  <field name="Desc" type="string"/>
+  <field name="OffestPoseStr" type="string"/>
+  <field name="OffsetPoseAnimationIndexSquad" type="int"/>
+  <field name="OffsetPoseStrSquad" type="string"/>
+  <field name="NeedIK" type="uint"/>
+  <field name="ForbidLoadoutRandomAnimation" type="uint"/>
+  <field name="LobbyAnimationIndexM" type="int"/>
+  <field name="LobbyAnimationIndexFM" type="int"/>
+  <field name="SquadAnimationIndexM" type="int"/>
+  <field name="SquadAnimationIndexFM" type="int"/>
+</class>

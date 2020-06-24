@@ -1,0 +1,4 @@
+<class name="CompositeCommonMaterialConfig">
+  <field name="id" type="int"/>
+  <field name="itemid" type="int"/>
+</class>

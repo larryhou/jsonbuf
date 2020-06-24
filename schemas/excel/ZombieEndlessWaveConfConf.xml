@@ -1,0 +1,21 @@
+<class name="ZombieEndlessWaveConfConfig">
+  <field name="MapId" type="inthex"/>
+  <field name="WaveSequenceId" type="int"/>
+  <field name="RandomSpawnWaveUniqueIdList" type="array">
+    <array type="int"/>
+  </field>
+  <field name="ZombieHpScale" type="float"/>
+  <field name="ZombieDamageScale" type="float"/>
+  <field name="KillScoreScale" type="int"/>
+  <field name="HitScoreScale" type="int"/>
+  <field name="HitScoreLimitScale" type="int"/>
+  <field name="ModifierCount" type="int"/>
+  <field name="ModifierWhitelist" type="array">
+    <array type="int"/>
+  </field>
+  <field name="ModifierRandomMode" type="string"/>
+  <field name="box_id" type="int"/>
+  <field name="box_num" type="int"/>
+  <field name="box_prize_num" type="int"/>
+  <field name="TimeLimit" type="int"/>
+</class>

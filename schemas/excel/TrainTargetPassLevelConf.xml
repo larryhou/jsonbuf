@@ -1,0 +1,11 @@
+<class name="TrainTargetPassLevelConfig">
+  <field name="PassLevel" type="int"/>
+  <field name="TargetLifetime" type="int"/>
+  <field name="TargetCD" type="int"/>
+  <field name="PassNeedKillCount" type="int"/>
+  <field name="KillScore" type="int"/>
+  <field name="MissPunish" type="int"/>
+  <field name="ResetTolerantValue" type="int"/>
+  <field name="PauseTime" type="int"/>
+  <field name="IsFinishWhenSucc" type="int"/>
+</class>

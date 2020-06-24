@@ -1,0 +1,5 @@
+<class name="IndividuationAnimConfConfig">
+  <field name="AnimName" type="string"/>
+  <field name="AnimIndex" type="int"/>
+  <field name="PlayType" type="int"/>
+</class>

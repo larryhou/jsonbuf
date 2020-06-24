@@ -1,0 +1,11 @@
+<class name="WonderBoxConfig">
+  <field name="MapID" type="inthex"/>
+  <field name="PoolType" type="int"/>
+  <field name="ItemID" type="uint"/>
+  <field name="AttachID_1" type="uint"/>
+  <field name="AttachID_2" type="uint"/>
+  <field name="AttachID_3" type="uint"/>
+  <field name="AttachID_4" type="uint"/>
+  <field name="Probability" type="int"/>
+  <field name="Quality" type="uint"/>
+</class>

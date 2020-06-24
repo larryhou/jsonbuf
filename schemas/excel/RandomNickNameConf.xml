@@ -1,0 +1,5 @@
+<class name="RandomNickNameConfig">
+  <field name="Index" type="int"/>
+  <field name="LOCID_AName" type="string"/>
+  <field name="LOCID_BName" type="string"/>
+</class>

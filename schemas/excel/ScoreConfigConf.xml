@@ -1,0 +1,12 @@
+<class name="ScoreConfigConfig">
+  <field name="id" type="int"/>
+  <field name="score_type" type="int"/>
+  <field name="gamemode" type="inthex"/>
+  <field name="score" type="int"/>
+  <field name="score_desc" type="string"/>
+  <field name="info" type="string"/>
+  <field name="LocId_ScoreDesc" type="string"/>
+  <field name="IsBuffAddScore" type="bool"/>
+  <field name="ScoreCategory" type="int"/>
+  <field name="ScoreCategory_desc" type="string"/>
+</class>

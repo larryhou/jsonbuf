@@ -1,0 +1,104 @@
+<class name="LoadingMinimapConfig">
+  <field name="ID" type="inthex"/>
+  <field name="MinimapID" type="int"/>
+  <field name="MinimapPosition" type="array">
+    <array type="float"/>
+  </field>
+  <field name="MinimapRotation" type="array">
+    <array type="float"/>
+  </field>
+  <field name="MinimapScale" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagIconSpriteName0" type="string"/>
+  <field name="FlagDescPosition0" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation0" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale0" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel0" type="string"/>
+  <field name="FlagDescLabelPosition0" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir0" type="int"/>
+  <field name="FlagIconSpriteName1" type="string"/>
+  <field name="FlagDescPosition1" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation1" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale1" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel1" type="string"/>
+  <field name="FlagDescLabelPosition1" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir1" type="int"/>
+  <field name="FlagIconSpriteName2" type="string"/>
+  <field name="FlagDescPosition2" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation2" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale2" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel2" type="string"/>
+  <field name="FlagDescLabelPosition2" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir2" type="int"/>
+  <field name="FlagIconSpriteName3" type="string"/>
+  <field name="FlagDescPosition3" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation3" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale3" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel3" type="string"/>
+  <field name="FlagDescLabelPosition3" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir3" type="int"/>
+  <field name="FlagIconSpriteName4" type="string"/>
+  <field name="FlagDescPosition4" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation4" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale4" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel4" type="string"/>
+  <field name="FlagDescLabelPosition4" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir4" type="int"/>
+  <field name="FlagIconSpriteName5" type="string"/>
+  <field name="FlagDescPosition5" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescRotation5" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescScale5" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabel5" type="string"/>
+  <field name="FlagDescLabelPosition5" type="array">
+    <array type="float"/>
+  </field>
+  <field name="FlagDescLabelDir5" type="int"/>
+  <field name="MapDesc" type="string"/>
+</class>

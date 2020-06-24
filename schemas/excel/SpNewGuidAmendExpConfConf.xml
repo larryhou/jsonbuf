@@ -1,0 +1,5 @@
+<class name="SpNewGuidAmendExpConfConfig">
+  <field name="Id" type="int"/>
+  <field name="MapId" type="int"/>
+  <field name="Exp" type="int"/>
+</class>

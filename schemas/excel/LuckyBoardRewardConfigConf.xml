@@ -1,0 +1,16 @@
+<class name="LuckyBoardRewardConfigConfig">
+  <field name="related_box" type="int"/>
+  <field name="time_line_point" type="int"/>
+  <field name="reward_list_1_id" type="int"/>
+  <field name="reward_list_1_tmp" type="int"/>
+  <field name="reward_list_1_durable" type="int"/>
+  <field name="reward_list_1_num" type="int"/>
+  <field name="reward_list_2_id" type="int"/>
+  <field name="reward_list_2_tmp" type="int"/>
+  <field name="reward_list_2_durable" type="int"/>
+  <field name="reward_list_2_num" type="int"/>
+  <field name="reward_list_3_id" type="int"/>
+  <field name="reward_list_3_tmp" type="int"/>
+  <field name="reward_list_3_durable" type="int"/>
+  <field name="reward_list_3_num" type="int"/>
+</class>

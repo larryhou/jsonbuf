@@ -1,0 +1,16 @@
+<class name="TalentTreeConfig">
+  <field name="TalentGroupId" type="int"/>
+  <field name="TalentId" type="int"/>
+  <field name="FatherNode" type="int"/>
+  <field name="UnlockType" type="int"/>
+  <field name="AddObjId" type="int"/>
+  <field name="AddObjValue" type="int"/>
+  <field name="TalentPoints" type="int"/>
+  <field name="TalentSpriteName" type="string"/>
+  <field name="ColIndex" type="int"/>
+  <field name="RowIndex" type="int"/>
+  <field name="ColorID" type="int"/>
+  <field name="BasicPower" type="int"/>
+  <field name="LOCID_TalentName" type="string"/>
+  <field name="LOCID_TalentDesc" type="string"/>
+</class>

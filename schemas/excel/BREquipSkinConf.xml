@@ -1,0 +1,39 @@
+<class name="BREquipSkinConfig">
+  <field name="ID" type="uint"/>
+  <field name="WeaponID" type="uint"/>
+  <field name="BRWeaponID" type="uint"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Describe" type="string"/>
+  <field name="ColorID" type="int"/>
+  <field name="GoGetPos" type="int"/>
+  <field name="LOCID_HowToGet" type="string"/>
+  <field name="EquipmentType" type="int"/>
+  <field name="SkinType" type="int"/>
+  <field name="ShowInBag" type="bool"/>
+  <field name="BrSkinWeaponID" type="int"/>
+  <field name="CamoID" type="int"/>
+  <field name="SkinIDSight" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDSto" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDIro" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDRai" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDGrip" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDMuzzle" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDMag" type="array">
+    <array type="int"/>
+  </field>
+  <field name="SkinIDMainWRoot" type="array">
+    <array type="int"/>
+  </field>
+</class>

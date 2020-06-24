@@ -1,0 +1,21 @@
+<class name="PictureConfConfig">
+  <field name="Id" type="int"/>
+  <field name="Type" type="int"/>
+  <field name="ColourID" type="int"/>
+  <field name="Order" type="int"/>
+  <field name="Show" type="bool"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="url" type="string"/>
+  <field name="SpriteName" type="string"/>
+  <field name="Level" type="int"/>
+  <field name="Flag" type="int"/>
+  <field name="AI" type="bool"/>
+  <field name="IsAutoDemolition" type="bool"/>
+  <field name="CurrencyID" type="uint"/>
+  <field name="SellPrice" type="int"/>
+  <field name="GoPos" type="int"/>
+  <field name="MaxValueDay" type="int"/>
+  <field name="HDurl" type="string"/>
+  <field name="EffectID" type="int"/>
+</class>

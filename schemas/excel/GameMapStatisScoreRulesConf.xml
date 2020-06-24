@@ -1,0 +1,9 @@
+<class name="GameMapStatisScoreRulesConfig">
+  <field name="game_type" type="int"/>
+  <field name="game_mode" type="inthex"/>
+  <field name="map_id" type="inthex"/>
+  <field name="kill_score" type="int"/>
+  <field name="pass_score" type="int"/>
+  <field name="dead_score" type="int"/>
+  <field name="wave_score" type="int"/>
+</class>

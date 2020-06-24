@@ -1,0 +1,5 @@
+<class name="FtueConstantConfig">
+  <field name="Key" type="string"/>
+  <field name="Value16" type="inthex"/>
+  <field name="Value10" type="int"/>
+</class>

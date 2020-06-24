@@ -1,0 +1,8 @@
+<class name="ZombieMPPointsConfConfig">
+  <field name="level" type="int"/>
+  <field name="level_points" type="uint"/>
+  <field name="damage_scale" type="float"/>
+  <field name="boss_damage_scale" type="float"/>
+  <field name="nboss_damage_scale" type="float"/>
+  <field name="hp_scale" type="float"/>
+</class>

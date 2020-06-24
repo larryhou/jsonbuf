@@ -1,0 +1,12 @@
+<class name="ModeOnlyWeaponOrderConfig">
+  <field name="MatchType" type="int"/>
+  <field name="Order" type="int"/>
+  <field name="Slot" type="int"/>
+  <field name="ItemID" type="int"/>
+  <field name="WeaponName" type="string"/>
+  <field name="GrenadeNum" type="int"/>
+  <field name="DefaultAttachment_1" type="int"/>
+  <field name="DefaultAttachment_2" type="int"/>
+  <field name="DefaultAttachment_3" type="int"/>
+  <field name="DefaultAttachment_4" type="int"/>
+</class>

@@ -1,0 +1,21 @@
+<class name="WeaponPartComposeConfig">
+  <field name="AssetID" type="int"/>
+  <field name="DisableBatch" type="bool"/>
+  <field name="GripAssetID" type="int"/>
+  <field name="GuideAssetID" type="int"/>
+  <field name="MagAssetID" type="int"/>
+  <field name="StoAssetID" type="int"/>
+  <field name="RaiAssetID" type="int"/>
+  <field name="BarrelAssetID" type="int"/>
+  <field name="BipAssetID" type="int"/>
+  <field name="IroDownAssetID" type="int"/>
+  <field name="IroUpAssetID" type="int"/>
+  <field name="IroFrontUpAssetID" type="int"/>
+  <field name="IroUpRightHandAssetID" type="int"/>
+  <field name="IroDownRightHandAssetID" type="int"/>
+  <field name="MuzzleAssetID" type="int"/>
+  <field name="ForAssetID" type="int"/>
+  <field name="PendentAssetID" type="int"/>
+  <field name="HDAssetID" type="int"/>
+  <field name="BlackWeaponAssetID" type="int"/>
+</class>

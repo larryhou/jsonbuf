@@ -1,0 +1,10 @@
+<class name="BRFocusInfoConfig">
+  <field name="focus_id" type="uint"/>
+  <field name="focus_type" type="string"/>
+  <field name="priority" type="int"/>
+  <field name="Desc" type="string"/>
+  <field name="hp_border" type="string"/>
+  <field name="unique" type="bool"/>
+  <field name="focus_param1" type="string"/>
+  <field name="focus_param2" type="string"/>
+</class>

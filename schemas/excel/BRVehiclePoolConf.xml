@@ -1,0 +1,8 @@
+<class name="BRVehiclePoolConfig">
+  <field name="MapID" type="inthex"/>
+  <field name="RegionID" type="int"/>
+  <field name="RegionTotalNum" type="int"/>
+  <field name="Desc" type="string"/>
+  <field name="VehicleId" type="int"/>
+  <field name="Prob" type="int"/>
+</class>

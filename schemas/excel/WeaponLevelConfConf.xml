@@ -1,0 +1,11 @@
+<class name="WeaponLevelConfConfig">
+  <field name="GroupId" type="uint"/>
+  <field name="UnlockMode" type="uint"/>
+  <field name="Level" type="int"/>
+  <field name="Exp" type="int"/>
+  <field name="mission_id" type="ulong"/>
+  <field name="PVPUnlock_Type_1" type="int"/>
+  <field name="PVPUnlock_Value_1" type="int"/>
+  <field name="PVPUnlock_Type_2" type="int"/>
+  <field name="PVPUnlock_Value_2" type="int"/>
+</class>

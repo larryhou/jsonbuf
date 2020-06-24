@@ -1,0 +1,4 @@
+<class name="BRSettlementConfig">
+  <field name="GameMode" type="inthex"/>
+  <field name="IconResource" type="string"/>
+</class>

@@ -1,0 +1,8 @@
+<class name="PveGameModeConfConfig">
+  <field name="GameMode" type="inthex"/>
+  <field name="GameModeType" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="LOCID_BriefDesc" type="string"/>
+  <field name="IconResource" type="string"/>
+</class>

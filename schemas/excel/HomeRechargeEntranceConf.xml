@@ -1,0 +1,8 @@
+<class name="HomeRechargeEntranceConfig">
+  <field name="ID" type="int"/>
+  <field name="Type" type="int"/>
+  <field name="LOC_Tip" type="string"/>
+  <field name="CdnUrl" type="string"/>
+  <field name="SpirteName" type="string"/>
+  <field name="Sort" type="int"/>
+</class>

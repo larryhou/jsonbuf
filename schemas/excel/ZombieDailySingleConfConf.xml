@@ -1,0 +1,22 @@
+<class name="ZombieDailySingleConfConfig">
+  <field name="Key" type="int"/>
+  <field name="LevelID" type="int"/>
+  <field name="DifficultyLevel" type="int"/>
+  <field name="ZombiePowerLowLimit" type="int"/>
+  <field name="ZombiePowerHighLimit" type="int"/>
+  <field name="luckybox" type="int"/>
+  <field name="rewardshow1" type="int"/>
+  <field name="rewardshow2" type="int"/>
+  <field name="ZombiePower" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LevelType" type="string"/>
+  <field name="MapID" type="array">
+    <array type="inthex"/>
+  </field>
+  <field name="star1_cond_str" type="string"/>
+  <field name="star1_param" type="int"/>
+  <field name="star2_cond_str" type="string"/>
+  <field name="star2_param" type="int"/>
+  <field name="star3_cond_str" type="string"/>
+  <field name="star3_param" type="int"/>
+</class>

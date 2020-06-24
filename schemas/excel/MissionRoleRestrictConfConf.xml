@@ -1,0 +1,17 @@
+<class name="MissionRoleRestrictConfConfig">
+  <field name="MapIdStr" type="inthex"/>
+  <field name="InitUltEnergy" type="int"/>
+  <field name="IsRestrict" type="bool"/>
+  <field name="RoleID" type="int"/>
+  <field name="RoleSkill" type="int"/>
+  <field name="MainWeaponID" type="int"/>
+  <field name="CamoID" type="int"/>
+  <field name="SecondaryWeaponID" type="int"/>
+  <field name="MainWeaponAmmoStr" type="string"/>
+  <field name="SecondaryWeaponAmmoStr" type="string"/>
+  <field name="GrenadeID" type="int"/>
+  <field name="GrenadeNum" type="int"/>
+  <field name="ScoreStreak_1" type="int"/>
+  <field name="ScoreStreak_2" type="int"/>
+  <field name="ScoreStreak_3" type="int"/>
+</class>

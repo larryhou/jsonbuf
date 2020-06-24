@@ -1,0 +1,12 @@
+<class name="ShopTagsConfConfig">
+  <field name="TagID" type="int"/>
+  <field name="Open" type="bool"/>
+  <field name="Priority" type="int"/>
+  <field name="TagType" type="int"/>
+  <field name="EnableSubTag" type="bool"/>
+  <field name="RejectSubTag" type="array">
+    <array type="int"/>
+  </field>
+  <field name="Icon" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+</class>

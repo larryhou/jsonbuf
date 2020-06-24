@@ -1,0 +1,21 @@
+<class name="WeaponLevelPVPConfConfig">
+  <field name="level" type="int"/>
+  <field name="exp1" type="int"/>
+  <field name="level_exp1" type="int"/>
+  <field name="exp2" type="int"/>
+  <field name="level_exp2" type="int"/>
+  <field name="exp3" type="int"/>
+  <field name="level_exp3" type="int"/>
+  <field name="exp4" type="int"/>
+  <field name="level_exp4" type="int"/>
+  <field name="exp5" type="int"/>
+  <field name="level_exp5" type="int"/>
+  <field name="exp6" type="int"/>
+  <field name="level_exp6" type="int"/>
+  <field name="exp7" type="int"/>
+  <field name="level_exp7" type="int"/>
+  <field name="exp8" type="int"/>
+  <field name="level_exp8" type="int"/>
+  <field name="exp9" type="int"/>
+  <field name="level_exp9" type="int"/>
+</class>

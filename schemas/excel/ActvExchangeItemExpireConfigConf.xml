@@ -1,0 +1,5 @@
+<class name="ActvExchangeItemExpireConfigConfig">
+  <field name="ID" type="uint"/>
+  <field name="ExpireTime" type="string"/>
+  <field name="Price" type="int"/>
+</class>

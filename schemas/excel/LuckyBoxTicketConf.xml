@@ -1,0 +1,7 @@
+<class name="LuckyBoxTicketConfig">
+  <field name="TicketID" type="int"/>
+  <field name="SkipPosition" type="int"/>
+  <field name="SkipID" type="array">
+    <array type="int"/>
+  </field>
+</class>

@@ -1,0 +1,10 @@
+<class name="SPVPRankingTagsConfig">
+  <field name="TagID" type="int"/>
+  <field name="TagType" type="string"/>
+  <field name="EnumValue" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_UIRankParam1" type="string"/>
+  <field name="LOCID_UIRankParam2" type="string"/>
+  <field name="UITips" type="int"/>
+  <field name="ShareValue" type="int"/>
+</class>

@@ -1,0 +1,20 @@
+<class name="LevelUnlockConfigConfig">
+  <field name="seq_no" type="int"/>
+  <field name="pract_mode" type="int"/>
+  <field name="UnlockMode" type="int"/>
+  <field name="Level" type="int"/>
+  <field name="UnlockType" type="int"/>
+  <field name="UnlockLoadoutIndex" type="int"/>
+  <field name="UnlockID" type="int"/>
+  <field name="Number" type="int"/>
+  <field name="duration" type="int"/>
+  <field name="UnLockDesc" type="string"/>
+  <field name="Show" type="int"/>
+  <field name="Milestone" type="int"/>
+  <field name="LOCID_UnlockText" type="string"/>
+  <field name="GoPos" type="int"/>
+  <field name="Icon" type="int"/>
+  <field name="Pos_x" type="float"/>
+  <field name="Pos_y" type="float"/>
+  <field name="Pos_z" type="float"/>
+</class>

@@ -1,0 +1,8 @@
+<class name="PveBaseAttributConfig">
+  <field name="ID" type="int"/>
+  <field name="Desc" type="string"/>
+  <field name="PropType" type="string"/>
+  <field name="Plus" type="int"/>
+  <field name="Multi" type="int"/>
+  <field name="Div" type="int"/>
+</class>

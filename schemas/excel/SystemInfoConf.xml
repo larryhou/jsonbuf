@@ -1,0 +1,7 @@
+<class name="SystemInfoConfig">
+  <field name="ID" type="int"/>
+  <field name="Desc" type="string"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOC_ID" type="string"/>
+  <field name="SpriteName" type="string"/>
+</class>

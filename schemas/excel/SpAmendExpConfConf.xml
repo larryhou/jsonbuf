@@ -1,0 +1,15 @@
+<class name="SpAmendExpConfConfig">
+  <field name="Id" type="int"/>
+  <field name="GameType" type="int"/>
+  <field name="GameTimeFactor" type="float"/>
+  <field name="GameKillAndAsistFactor" type="float"/>
+  <field name="CureFactor" type="float"/>
+  <field name="UseDogTagFactor" type="float"/>
+  <field name="BpBuffAmendValue" type="float"/>
+  <field name="GameModeStrList" type="string"/>
+  <field name="GameModeAmendFactor" type="float"/>
+  <field name="NoPunishGameModeList" type="string"/>
+  <field name="PunishValue" type="float"/>
+  <field name="PunishThreshold" type="int"/>
+  <field name="MaxExp" type="int"/>
+</class>

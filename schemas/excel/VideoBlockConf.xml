@@ -1,0 +1,5 @@
+<class name="VideoBlockConfig">
+  <field name="ModelName" type="string"/>
+  <field name="VendorName" type="string"/>
+  <field name="IsIOS" type="bool"/>
+</class>

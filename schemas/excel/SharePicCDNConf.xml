@@ -1,0 +1,4 @@
+<class name="SharePicCDNConfig">
+  <field name="type" type="string"/>
+  <field name="CDN" type="string"/>
+</class>

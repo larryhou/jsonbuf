@@ -1,0 +1,21 @@
+<class name="OperateNoticeConfig">
+  <field name="LanguageCode" type="string"/>
+  <field name="AppUpdateEnable" type="bool"/>
+  <field name="AppUpdateTitle" type="string"/>
+  <field name="AppUpdateBody" type="string"/>
+  <field name="AppUpdatePicUrl" type="array">
+    <array type="string"/>
+  </field>
+  <field name="ResUpdateEnable" type="bool"/>
+  <field name="ResUpdateTitle" type="string"/>
+  <field name="ResUpdateBody" type="string"/>
+  <field name="ResUpdatePicUrl" type="array">
+    <array type="string"/>
+  </field>
+  <field name="AnnouncementEnable" type="bool"/>
+  <field name="AnnouncementTitle" type="string"/>
+  <field name="AnnouncementBody" type="string"/>
+  <field name="AnnouncementUrl" type="array">
+    <array type="string"/>
+  </field>
+</class>

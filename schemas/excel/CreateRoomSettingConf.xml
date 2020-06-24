@@ -1,0 +1,10 @@
+<class name="CreateRoomSettingConfig">
+  <field name="game_mode" type="int"/>
+  <field name="desc" type="string"/>
+  <field name="score_limit_default" type="int"/>
+  <field name="score_limit_lower" type="int"/>
+  <field name="score_limit_upper" type="int"/>
+  <field name="time_limit_default" type="int"/>
+  <field name="time_limit_lower" type="int"/>
+  <field name="time_limit_upper" type="int"/>
+</class>

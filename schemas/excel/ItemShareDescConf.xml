@@ -1,0 +1,4 @@
+<class name="ItemShareDescConfig">
+  <field name="ID" type="int"/>
+  <field name="Desc" type="string"/>
+</class>

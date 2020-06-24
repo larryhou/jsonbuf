@@ -1,0 +1,16 @@
+<class name="SPVPPlayListChildConfConfig">
+  <field name="PlayListID" type="int"/>
+  <field name="MapID" type="string"/>
+  <field name="MapDesc" type="string"/>
+  <field name="PlaylistName" type="string"/>
+  <field name="MaxMatchTime" type="int"/>
+  <field name="RoundTarget" type="int"/>
+  <field name="RoundTimeLimit" type="int"/>
+  <field name="OpenType" type="int"/>
+  <field name="StartTime" type="string"/>
+  <field name="EndTime" type="string"/>
+  <field name="cd_active_second" type="uint"/>
+  <field name="cool_down_second" type="uint"/>
+  <field name="random_weight" type="uint"/>
+  <field name="must_download" type="int"/>
+</class>

@@ -1,0 +1,7 @@
+<class name="InviteFriendURLConfig">
+  <field name="id" type="int"/>
+  <field name="situation" type="int"/>
+  <field name="channel" type="int"/>
+  <field name="URL" type="string"/>
+  <field name="loc_pre" type="string"/>
+</class>

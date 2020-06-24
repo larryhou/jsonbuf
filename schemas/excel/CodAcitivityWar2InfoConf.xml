@@ -1,0 +1,12 @@
+<class name="CodAcitivityWar2InfoConfig">
+  <field name="id" type="int"/>
+  <field name="boccupy_effect" type="bool"/>
+  <field name="bhide_task" type="bool"/>
+  <field name="city_name" type="string"/>
+  <field name="city_desc" type="string"/>
+  <field name="boccupy_popup" type="bool"/>
+  <field name="popup_title" type="string"/>
+  <field name="popup_desc" type="string"/>
+  <field name="popup_sprite" type="string"/>
+  <field name="popup_sprite_url" type="string"/>
+</class>

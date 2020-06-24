@@ -1,0 +1,9 @@
+<class name="LevelUpTaskItemConfig">
+  <field name="Id" type="int"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="TitleDesc" type="string"/>
+  <field name="GoPos" type="int"/>
+  <field name="SecondTab" type="int"/>
+  <field name="ThirdTab" type="int"/>
+  <field name="GoUrl" type="string"/>
+</class>

@@ -1,0 +1,4 @@
+<class name="FirstShareRewardSceneConfig">
+  <field name="id" type="int"/>
+  <field name="num" type="int"/>
+</class>

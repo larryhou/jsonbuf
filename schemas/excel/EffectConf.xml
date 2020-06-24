@@ -1,0 +1,25 @@
+<class name="EffectConfig">
+  <field name="Name" type="string"/>
+  <field name="EffectID_1" type="int"/>
+  <field name="EffectSocket_1" type="string"/>
+  <field name="EffectID_2" type="int"/>
+  <field name="EffectSocket_2" type="string"/>
+  <field name="EffectID_3" type="int"/>
+  <field name="EffectSocket_3" type="string"/>
+  <field name="EffectID_4" type="int"/>
+  <field name="EffectSocket_4" type="string"/>
+  <field name="EffectID_5" type="int"/>
+  <field name="EffectSocket_5" type="string"/>
+  <field name="CameraEffectAsset" type="int"/>
+  <field name="FogDensity" type="float"/>
+  <field name="FogHeightAtten" type="float"/>
+  <field name="FogStart" type="float"/>
+  <field name="FogColor_Red" type="float"/>
+  <field name="FogColor_Green" type="float"/>
+  <field name="FogColor_Blue" type="float"/>
+  <field name="FogMaxHeight" type="float"/>
+  <field name="FogColorSkyBox_Red" type="float"/>
+  <field name="FogColorSkyBox_Green" type="float"/>
+  <field name="FogColorSkyBox_Blue" type="float"/>
+  <field name="BuffIcon" type="string"/>
+</class>

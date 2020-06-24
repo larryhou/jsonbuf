@@ -1,0 +1,9 @@
+<class name="MPPropHuntConfConfig">
+  <field name="ItemID" type="int"/>
+  <field name="MapId" type="int"/>
+  <field name="CostType" type="int"/>
+  <field name="CostValue" type="int"/>
+  <field name="Enable" type="bool"/>
+  <field name="Weight" type="int"/>
+  <field name="ItemSpriteName" type="string"/>
+</class>

@@ -1,0 +1,17 @@
+<class name="SpSuperBoxTaskConfig">
+  <field name="SeasonId" type="int"/>
+  <field name="BoxId" type="int"/>
+  <field name="OpenCount" type="int"/>
+  <field name="AwardId1" type="int"/>
+  <field name="AwardNum1" type="int"/>
+  <field name="AwardAgingTime1" type="int"/>
+  <field name="AwardId2" type="int"/>
+  <field name="AwardNum2" type="int"/>
+  <field name="AwardAgingTime2" type="int"/>
+  <field name="AwardId3" type="int"/>
+  <field name="AwardNum3" type="int"/>
+  <field name="AwardAgingTime3" type="int"/>
+  <field name="AwardId4" type="int"/>
+  <field name="AwardNum4" type="int"/>
+  <field name="AwardAgingTime4" type="int"/>
+</class>

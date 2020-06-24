@@ -1,0 +1,12 @@
+<class name="BRLadderSeasonPrizeInfoConfig">
+  <field name="season_no" type="int"/>
+  <field name="level" type="int"/>
+  <field name="prize_info_1_item_id" type="int"/>
+  <field name="prize_info_1_item_num" type="int"/>
+  <field name="prize_info_1_prize_num" type="int"/>
+  <field name="prize_info_1_duration" type="int"/>
+  <field name="prize_info_2_item_id" type="int"/>
+  <field name="prize_info_2_item_num" type="int"/>
+  <field name="prize_info_2_prize_num" type="int"/>
+  <field name="prize_info_2_duration" type="int"/>
+</class>

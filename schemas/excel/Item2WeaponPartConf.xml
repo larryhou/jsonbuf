@@ -1,0 +1,6 @@
+<class name="Item2WeaponPartConfig">
+  <field name="ItemType" type="int"/>
+  <field name="WeaponPartName" type="string"/>
+  <field name="ConfigFileName" type="string"/>
+  <field name="WeaponAssetGroupID" type="int"/>
+</class>

@@ -1,0 +1,26 @@
+<class name="PayConfConfig">
+  <field name="ID" type="string"/>
+  <field name="ProductAndroidID" type="string"/>
+  <field name="AreaID" type="int"/>
+  <field name="Type" type="int"/>
+  <field name="Original_Price" type="float"/>
+  <field name="Add_Diamonds" type="int"/>
+  <field name="Discount_Num" type="float"/>
+  <field name="Discount_Price" type="float"/>
+  <field name="Discount_Start_Time" type="string"/>
+  <field name="Discount_End_Time" type="string"/>
+  <field name="Extra_Diamonds" type="int"/>
+  <field name="Extra_Start_Time" type="string"/>
+  <field name="Extra_End_Time" type="string"/>
+  <field name="Icon_Res" type="string"/>
+  <field name="Tips_Name" type="string"/>
+  <field name="Location" type="array">
+    <array type="int"/>
+  </field>
+  <field name="Firstpay_Tips" type="string"/>
+  <field name="Firstpay_Extra" type="int"/>
+  <field name="Anyonepay_Tips" type="string"/>
+  <field name="Anyonepay_Mult" type="float"/>
+  <field name="Anyonepay_Start_Time" type="string"/>
+  <field name="Anyonepay_End_Time" type="string"/>
+</class>

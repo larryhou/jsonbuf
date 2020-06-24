@@ -1,0 +1,6 @@
+<class name="ZombieDailyMissionAttrConfig">
+  <field name="ID" type="int"/>
+  <field name="PowerLowLimit" type="int"/>
+  <field name="PowerHighLimit" type="int"/>
+  <field name="MonsterLevel" type="int"/>
+</class>

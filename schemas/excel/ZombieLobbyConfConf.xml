@@ -1,0 +1,9 @@
+<class name="ZombieLobbyConfConfig">
+  <field name="Key" type="int"/>
+  <field name="Entrance" type="string"/>
+  <field name="Sequence" type="int"/>
+  <field name="LOCID_EntranceName" type="string"/>
+  <field name="LOCID_ModeName" type="string"/>
+  <field name="UnlockId" type="int"/>
+  <field name="IsOpen" type="int"/>
+</class>

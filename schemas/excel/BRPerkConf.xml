@@ -1,0 +1,22 @@
+<class name="BRPerkConfig">
+  <field name="ItemID" type="int"/>
+  <field name="CanAIUse" type="bool"/>
+  <field name="SubItemType" type="int"/>
+  <field name="Color" type="int"/>
+  <field name="CanStack" type="bool"/>
+  <field name="StackNum" type="int"/>
+  <field name="Quality" type="int"/>
+  <field name="SortParam" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Description" type="string"/>
+  <field name="LOCID_Brief" type="string"/>
+  <field name="SpriteName" type="string"/>
+  <field name="Thumbnail" type="string"/>
+  <field name="BuffId0" type="int"/>
+  <field name="BuffId1" type="int"/>
+  <field name="BuffId2" type="int"/>
+  <field name="BuffId3" type="int"/>
+  <field name="BuffId4" type="int"/>
+  <field name="BuffId5" type="int"/>
+  <field name="BuffId6" type="int"/>
+</class>

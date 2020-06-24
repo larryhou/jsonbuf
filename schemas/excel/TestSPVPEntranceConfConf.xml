@@ -1,0 +1,9 @@
+<class name="TestSPVPEntranceConfConfig">
+  <field name="ModeType" type="string"/>
+  <field name="MapID" type="inthex"/>
+  <field name="MapName" type="string"/>
+  <field name="MapResource" type="string"/>
+  <field name="MapDesc" type="string"/>
+  <field name="MapRandomWeight" type="int"/>
+  <field name="MapRandomWeightInSet" type="int"/>
+</class>

@@ -1,0 +1,9 @@
+<class name="SpecialItemConfConfig">
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="ID" type="uint"/>
+  <field name="ColorID" type="int"/>
+  <field name="ColorSubID" type="int"/>
+  <field name="SellPrice" type="int"/>
+  <field name="MinSPI" type="int"/>
+</class>

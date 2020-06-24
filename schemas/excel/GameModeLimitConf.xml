@@ -1,0 +1,5 @@
+<class name="GameModeLimitConfig">
+  <field name="gamemodedesc" type="string"/>
+  <field name="game_mode" type="int"/>
+  <field name="ladder_level" type="int"/>
+</class>

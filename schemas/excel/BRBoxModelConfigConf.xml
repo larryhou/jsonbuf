@@ -1,0 +1,9 @@
+<class name="BRBoxModelConfigConfig">
+  <field name="ModelID" type="int"/>
+  <field name="baseLocalPos" type="string"/>
+  <field name="baseLocalRotation" type="string"/>
+  <field name="baseSize" type="string"/>
+  <field name="frontLocalPos" type="string"/>
+  <field name="frontLocalRotation" type="string"/>
+  <field name="frontSize" type="string"/>
+</class>

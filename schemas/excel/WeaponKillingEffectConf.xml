@@ -1,0 +1,18 @@
+<class name="WeaponKillingEffectConfig">
+  <field name="Id" type="int"/>
+  <field name="AssetIds" type="array">
+    <array type="int"/>
+  </field>
+  <field name="MaterialId" type="int"/>
+  <field name="LOCID_Name" type="string"/>
+  <field name="LOCID_Desc" type="string"/>
+  <field name="Colour" type="int"/>
+  <field name="EffectType" type="int"/>
+  <field name="EffectDuration" type="float"/>
+  <field name="EffectSockets" type="array">
+    <array type="string"/>
+  </field>
+  <field name="InheritTexture" type="bool"/>
+  <field name="DetachParent" type="bool"/>
+  <field name="ShouldPlayDeadAnim" type="bool"/>
+</class>

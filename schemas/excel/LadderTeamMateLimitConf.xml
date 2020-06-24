@@ -1,0 +1,5 @@
+<class name="LadderTeamMateLimitConfig">
+  <field name="ladder_level" type="int"/>
+  <field name="teammate_lower_limit" type="int"/>
+  <field name="teammate_upper_limit" type="int"/>
+</class>

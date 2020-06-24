@@ -1,0 +1,21 @@
+<class name="FtueConfig">
+  <field name="TutorialType" type="string"/>
+  <field name="TutorialEventType" type="string"/>
+  <field name="ArrowRotZ" type="int"/>
+  <field name="TipsType" type="string"/>
+  <field name="TipPos" type="string"/>
+  <field name="TipsOffsetX" type="int"/>
+  <field name="TipsOffsetY" type="int"/>
+  <field name="Title" type="int"/>
+  <field name="Content" type="string"/>
+  <field name="FingerContent" type="string"/>
+  <field name="UnforceTouch" type="bool"/>
+  <field name="OffsetX" type="int"/>
+  <field name="OffsetY" type="int"/>
+  <field name="MaskBlackShow" type="bool"/>
+  <field name="MaskOffsetX" type="int"/>
+  <field name="MaskOffsetY" type="int"/>
+  <field name="MaskSizeX" type="int"/>
+  <field name="MaskSizeY" type="int"/>
+  <field name="PerspectiveRotY" type="float"/>
+</class>

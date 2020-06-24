@@ -1,0 +1,7 @@
+<class name="PickupSetConfig">
+  <field name="SetNumber" type="int"/>
+  <field name="ComponentNumeber" type="int"/>
+  <field name="ItemID" type="uint"/>
+  <field name="Name" type="string"/>
+  <field name="Quantity" type="uint"/>
+</class>

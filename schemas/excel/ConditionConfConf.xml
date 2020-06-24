@@ -1,0 +1,6 @@
+<class name="ConditionConfConfig">
+  <field name="ConditionID" type="int"/>
+  <field name="ConditionType" type="string"/>
+  <field name="ConditionMin" type="int"/>
+  <field name="ConditionMax" type="int"/>
+</class>

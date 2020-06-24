@@ -1,0 +1,7 @@
+<class name="MaterialPeneConfConfig">
+  <field name="MaterialType" type="int"/>
+  <field name="ThicknessLower" type="float"/>
+  <field name="ThicknessUpper" type="float"/>
+  <field name="BarrierType" type="int"/>
+  <field name="Desc" type="string"/>
+</class>
