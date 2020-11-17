@@ -15,4 +15,7 @@
             </class>
         </array>
     </field>
+    <field name="AudioModuleList" type="array">
+        <array type="string"/>
+    </field>
 </class>

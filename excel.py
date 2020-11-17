@@ -67,6 +67,64 @@ def collect(dirname, pattern):
                 result.append(p.join(basepath, filename))
     return result
 
+def generate_schema(filename):
+    print('[x] {}'.format(p.abspath(filename)))
+    name = re.sub(r'\.[^.]+$', '', p.basename(filename))
+    type = XLSClass()
+    type.name = name + 'Config'
+    class_map = {}
+    sheet = xlrd.open_workbook(filename).sheet_by_index(0)
+    for c in range(sheet.ncols):
+        cell = sheet.cell(0, c)
+        if cell.ctype != xlrd.XL_CELL_TEXT: continue
+        components = re.split(r'\s*:\s*', cell.value.strip())
+        fsize = len(components)
+        if fsize == 1: continue
+        field_name = components[0]
+        field = XLSField()
+        field.primary = field_name.startswith('#')
+        field.name = re.sub(r'#', '', field_name)
+        if fsize == 2:
+            field_type = components[1]
+            if field_type.startswith('vector'):
+                if field_type not in class_map:
+                    vector = XLSClass()
+                    vector.name = field_type.title()
+                    for x in range(int(field_type[-1])):
+                        f = XLSField()
+                        f.type = JSONTYPE_float
+                        f.name = chr(ord('x') + x)
+                        vector.fields.append(f)
+                else:
+                    vector = class_map[field_type]
+                field.type = 'class'
+                field.descriptor = vector
+            else:
+                field.type = field_type
+            type.fields.append(field)
+        elif len(components) == 3:
+            field = XLSField()
+            field.name, field.type, field.separator = components
+            type.fields.append(field)
+        else:
+            print(repr(cell.value), components)
+            continue
+    assert type.fields
+    table = etree.Element('class')
+    table.set('name', '{}Table'.format(name))
+    records = etree.Element('array')
+    records.set('type', 'class')
+    records.append(type.schema())
+    table.append(records)
+
+    excel_schema_path = p.join(script_path, 'schemas/excel')
+    if not p.exists(excel_schema_path): os.makedirs(excel_schema_path)
+    with open(p.join(excel_schema_path, '{}Conf.xml'.format(name)), 'w+') as fp:
+        fp.write(etree.tostring(table, pretty_print=True))
+        fp.seek(0)
+        print('>>> {}'.format(fp.name))
+        print(fp.read())
+        print()
 
 def main():
     import argparse, sys
@@ -100,65 +158,7 @@ def main():
                     excels.append(filename)
         assert excels
         for filename in excels:
-            if exclude.search(filename): continue
-            print('[x] {}'.format(p.abspath(filename)))
-            name = re.sub(r'\.[^.]+$', '', p.basename(filename))
-            type = XLSClass()
-            type.name = name + 'Config'
-            class_map = {}
-            sheet = xlrd.open_workbook(filename).sheet_by_index(0)
-            for c in range(sheet.ncols):
-                cell = sheet.cell(0, c)
-                if cell.ctype != xlrd.XL_CELL_TEXT: continue
-                components = re.split(r'\s*:\s*', cell.value.strip())
-                fsize = len(components)
-                if fsize == 1: continue
-                field_name = components[0]
-                field = XLSField()
-                field.primary = field_name.startswith('#')
-                field.name = re.sub(r'#', '', field_name)
-                if fsize == 2:
-                    field_type = components[1]
-                    if field_type.startswith('vector'):
-                        if field_type not in class_map:
-                            vector = XLSClass()
-                            vector.name = field_type.title()
-                            for x in range(int(field_type[-1])):
-                                f = XLSField()
-                                f.type = JSONTYPE_float
-                                f.name = chr(ord('x') + x)
-                                vector.fields.append(f)
-                        else:
-                            vector = class_map[field_type]
-                        field.type = 'class'
-                        field.descriptor = vector
-                    else:
-                        field.type = field_type
-                    type.fields.append(field)
-                elif len(components) == 3:
-                    field = XLSField()
-                    field.name, field.type, field.separator = components
-                    type.fields.append(field)
-                else:
-                    print(repr(cell.value), components)
-                    continue
-            assert type.fields
-            table = etree.Element('class')
-            table.set('name', '{}Table'.format(name))
-            records = etree.Element('array')
-            records.set('type', 'class')
-            records.append(type.schema())
-            table.append(records)
-
-            excel_schema_path = p.join(script_path, 'schemas/excel')
-            if not p.exists(excel_schema_path): os.makedirs(excel_schema_path)
-            with open(p.join(excel_schema_path, '{}Conf.xml'.format(name)), 'w+') as fp:
-                fp.write(etree.tostring(table, pretty_print=True))
-                fp.seek(0)
-                print('>>> {}'.format(fp.name))
-                print(fp.read())
-                print()
-
+            if not exclude.search(filename): generate_schema(filename)
 
 
 if __name__ == '__main__':
