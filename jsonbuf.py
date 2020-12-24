@@ -555,7 +555,7 @@ def main():
     arguments.add_argument('--file', '-f', help='intput file')
     options = arguments.parse_args(sys.argv[1:])
 
-    script_path = p.dirname(p.abspath(__file__))
+    script_path = p.dirname(p.realpath(p.abspath(__file__)))
 
     output = p.abspath(options.output)
     if not p.exists(output): os.makedirs(output)
