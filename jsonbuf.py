@@ -547,7 +547,7 @@ class Commands(object):
 def main():
     import argparse, sys
     arguments = argparse.ArgumentParser()
-    arguments.add_argument('--command', '-c', choices=Commands.get_choices(), default=Commands.serialize)
+    arguments.add_argument('--command', '-c', choices=Commands.get_choices(), default=Commands.deserialize)
     arguments.add_argument('--class-nullable', action='store_true', help='allow class object encoded to null value')
     arguments.add_argument('--schema', '-s', help='data structure definition')
     arguments.add_argument('--output', '-o', default='.', help='path for saving generated files')
