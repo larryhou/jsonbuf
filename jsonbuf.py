@@ -583,7 +583,7 @@ def main():
     elif command == Commands.deserialize:
         assert options.file and re.search(r'\.bytes$', options.file)
         data = serializer.deserilize(fp=open(options.file, 'rb'))
-        content = json.dumps(data, indent=4, ensure_ascii=False)
+        content = json.dumps(data, indent=4, ensure_ascii=False, sort_keys=True)
         with open('{}/{}.json'.format(output, name), 'w') as fp:
             fp.write(content)
             print('>>> {}'.format(p.abspath(fp.name)))
