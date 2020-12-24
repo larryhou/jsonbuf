@@ -4,15 +4,12 @@
             <class name="AssetGroup">
                 <field name="Category" enum="EAssetCategory" type="int"/>
                 <field name="Tag" enum="EAssetTag" type="int"/>
-                <field name="Name" type="string"/>
                 <field name="AssetInfo" type="array">
                     <array type="class">
                         <class name="AssetMetaData">
                             <field name="ID" type="int"/>
                             <field name="Path" type="string"/>
-                            <field name="MidQualityPath" type="string"/>
-                            <field name="LowQualityPath" type="string"/>
-                            <field name="LoadMode" type="int"/>
+                            <field name="PathFlags" type="byte"/>
                         </class>
                         <filter name="BuildToMobile" type="bool">true</filter>
                     </array>

@@ -4,6 +4,7 @@ from __future__ import print_function
 import lxml.etree as etree
 import os.path as p
 import json, io, struct, os, re
+from typing import *
 
 JSONTYPE_double = 'double'
 JSONTYPE_float = 'float'
@@ -49,7 +50,7 @@ class DictionaryDescriptor(Descriptor):
         super(DictionaryDescriptor, self).__init__('dict')
         self.type = ''
         self.key = JSONTYPE_string
-        self.filters = []  # type: list[FilterDescriptor]
+        self.filters = []  # type: List[FilterDescriptor]
         self.descriptor = None # type: ClassDescriptor
 
 class ArrayDescriptor(Descriptor):
@@ -57,7 +58,7 @@ class ArrayDescriptor(Descriptor):
         super(ArrayDescriptor, self).__init__('array')
         self.type = ''
         self.mutable = False
-        self.filters = [] # type: list[FilterDescriptor]
+        self.filters = [] # type: List[FilterDescriptor]
         self.descriptor = None # type: ClassDescriptor
 
 class ClassDescriptor(Descriptor):
@@ -65,7 +66,7 @@ class ClassDescriptor(Descriptor):
         super(ClassDescriptor, self).__init__('class')
         self.name = ''
         self.namespace = ''
-        self.fields = [] # type: list[FieldDescriptor]
+        self.fields = [] # type: List[FieldDescriptor]
 
 class JsonbufClassBridge(object):
     def __init__(self):
@@ -75,17 +76,17 @@ class JsonbufClassBridge(object):
 class JsonbufEnumBridge(JsonbufClassBridge):
     def __init__(self):
         super(JsonbufEnumBridge, self).__init__()
-        self.values = {} # type: dict[int, str]
-        self.cases = {} # type: dict[str, int]
+        self.values = {} # type: Dict[int, str]
+        self.cases = {} # type: Dict[str, int]
 
 class JsonbufBridges(object):
     def __init__(self):
-        self.classes = {} # type: dict[str, JsonbufClassBridge]
-        self.enums = {} # type: dict[str, JsonbufEnumBridge]
+        self.classes = {} # type: Dict[str, JsonbufClassBridge]
+        self.enums = {} # type: Dict[str, JsonbufEnumBridge]
         self.__setup()
 
     def __setup(self):
-        filename = p.join(p.dirname(p.abspath(__file__)), 'jsonbuf.xml')
+        filename = p.join(p.dirname(p.realpath(p.abspath(__file__))), 'jsonbuf.xml')
         if p.exists(filename):
             data = etree.parse(filename).getroot()
             for item in data.xpath('//enums/enum'):
@@ -115,7 +116,7 @@ class FilterDescriptor(Descriptor):
 class JsonbufSchema(object):
     def __init__(self):
         self.descriptor = None # type: Descriptor
-        self.classes = {} # type: dict[str, ClassDescriptor]
+        self.classes = {} # type: Dict[str, ClassDescriptor]
         self.name = ''
 
     @staticmethod

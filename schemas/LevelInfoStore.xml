@@ -10,6 +10,10 @@
                 <field name="StreamingFlags" type="array">
                     <array type="bool"/>
                 </field>
+                <field name="HDModuleName" type="string"/>
+                <field name="NormalScene2HDScene" type="dict">
+                    <dict key="string" type="string"/>
+                </field>
                 <field name="ScenePathList_RawBytes" type="int"/>
                 <field name="ScenePathList" type="array">
                     <array type="string"/>
