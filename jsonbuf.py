@@ -276,7 +276,7 @@ class JsonbufSerializer(object):
         self.enable_default = enable_default
         self.verbose = verbose
         self.bridges = JsonbufBridges()
-        self.enums = self.bridges.enums # type: dict[str, JsonbufEnumBridge]
+        self.enums = self.bridges.enums # type: Dict[str, JsonbufEnumBridge]
         self.context = None
         self.endian = '<'
 
@@ -374,7 +374,7 @@ class JsonbufSerializer(object):
         return v
 
     @staticmethod
-    def __filter(v, filters): # type: (dict, list[FilterDescriptor])->bool
+    def __filter(v, filters): # type: (dict, List[FilterDescriptor])->bool
         if not filters: return True
         for f in filters:
             if v.get(f.name) == f.value: return True
