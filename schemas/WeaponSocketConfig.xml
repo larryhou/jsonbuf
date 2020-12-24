@@ -2,24 +2,17 @@
     <field name="Groups" type="array">
         <array type="class">
             <class name="WeaponSocketData">
-                <field name="weaponAssetPath" type="string"/>
+                <field name="WeaponAssetID" type="int"/>
                 <field name="metaDataList" type="array">
                     <array type="class">
                         <class name="SocketMetaData">
-                            <field name="socketName" type="string"/>
-                            <field name="assetPath" type="string"/>
-                            <field name="partPosition" type="class">
+                            <field name="SightAssetID" type="int"/>
+                            <field name="weaponPosition" type="class">
                                 <class name="Vector3">
                                     <field name="x" type="float"/>
                                     <field name="y" type="float"/>
                                     <field name="z" type="float"/>
                                 </class>
-                            </field>
-                            <field name="partRotation" type="class">
-                                <class name="Vector3"/>
-                            </field>
-                            <field name="weaponPosition" type="class">
-                                <class name="Vector3"/>
                             </field>
                         </class>
                     </array>
