@@ -566,7 +566,7 @@ def main():
 
     schema_path = options.schema # type: str
     if not schema_path:
-        schema_path = p.join(script_path, 'schemas/{}.xml'.format(name))
+        schema_path = p.join(script_path, 'schemas/{}.xml'.format(re.sub(r'_+$', '', name)))
         assert p.exists(schema_path), 'NOT_FOUND {}'.format(schema_path)
     print('[F] {}'.format(options.file))
     print('[S] {}'.format(schema_path))
